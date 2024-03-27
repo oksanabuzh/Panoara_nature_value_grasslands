@@ -19,9 +19,15 @@ library(multcomp)
 Dat <- read_csv("data/Variables_selected.csv") %>% 
   rename(Parcel=`Parcel name`,
          Plant_SR_total = "number of all plants",
+         Plant_SR_vascular = "number of vascular plants_10 m2",
+         Plant_SR_cryptogams = "number of cryptogams_10 m2",
+         Plant_SR_bryophytes ="number of bryophytes_10 m2",
+         Plant_SR_lichens ="number of lichens_10 m2",
          Mowing_method=`Mowing (N no, H hand, M mowing machine, T tractor)`,
          Mowing_frequency="Mowing frequency per year",
-         Mowing_delay="Date of the first cut") %>% 
+         Mowing_delay="Date of the first cut",
+         Grazer_type_specific="Grazing animal numbers (C cow, S sheep, G goar, H horse)",
+         Grazing_season = "Grazing season (No, A, SA, W=whole season)") %>% 
   mutate(Mowing_method=case_when(Mowing_method=="M, T" ~ "M_T" ,
                                  Mowing_method=="T, M"~ "M_T" ,
                                  Mowing_method=="No"~ "no" ,
@@ -84,7 +90,7 @@ Dat %>% mutate(Mowing_frequency=factor(Mowing_frequency)) %>%
   count()
 
 
-# First check of LMM
+# Check of random effects & rank deficiency of fixed effcets
 # we need to use Poisson for Plant_SR_total and random effects of "Farm" 
 # For now I use lm / lmer  only to see the rank deficiency of the fixed effects 
 
@@ -133,6 +139,9 @@ plot(m2)
 qqnorm(resid(m2))
 qqline(resid(m2))
 
+# Grazing ----
 
+Dat %>% pull(Grazer_type)%>% unique()
 
+Dat %>% pull(Grazer_type)%>% unique()
 
