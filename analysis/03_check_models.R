@@ -1,3 +1,4 @@
+# Purpose: to check and run the GLMMs
 
 library(tidyverse)
 library(ggplot2)
@@ -56,7 +57,7 @@ MuMIn::r.squaredGLMM(m_a)[1,"R2c"] - MuMIn::r.squaredGLMM(m_a)[1,"R2m"]
 # R2c shows that random effect explain 20% of data  
 
 
-# Check model  ----
+# Check model for SR  ----
 
 m1 <- glmer (Plant_SR_vascular ~ Grazing_intensity_A + SR_D_E_exper +
                 Abund_D_E_exper +
@@ -77,15 +78,15 @@ Anova(m1)
 summary(m1)
 
 # check plots
-plot_model(m1,type = "pred", terms = c("SR_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
 plot_model(m1,type = "pred", terms = c("Grazing_intensity_A"), show.data=T, dot.alpha=0.3, title="")
+plot_model(m1,type = "pred", terms = c("SR_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
 plot_model(m1,type = "pred", terms = c("Abund_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
 
 # check overdispersion
 sum(residuals(m1, type = "pearson")^2) / df.residual(m1)
 # slightly overdispersed
 
-# Try negative binomial GLMM -----
+## Try negative binomial GLMM -----
 m2 <- glmer.nb (Plant_SR_vascular ~ Grazing_intensity_A + SR_D_E_exper +
                   Abund_D_E_exper + (1|Farm), 
                 data = Dat %>% filter(!Parcel_name=="Brade 1")) 
@@ -108,11 +109,11 @@ qqnorm(resid(m2))
 qqline(resid(m2))
 
 # check plots
-plot_model(m2,type = "pred", terms = c("SR_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
-plot_model(m2,type = "pred", terms = c("Grazing_intensity_A"), show.data=T, dot.alpha=0.3, title="")
+plot_model(m2,type = "pred", terms = c("Grazing_intensity_A"), show.data=T, dot.alpha=0.3, title="") +
+plot_model(m2,type = "pred", terms = c("SR_D_E_exper"), show.data=T, dot.alpha=0.3, title="") +
 plot_model(m2,type = "pred", terms = c("Abund_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
 
-# check R2 ----
+### check R2 ----
 # R2 for the entire model 
 # R2m and R2c are marginal (for fixed predictors) and 
 ## conditional (for fixed and random predictors) coefficients of determination
@@ -123,3 +124,73 @@ r2glmm::r2beta(m2,  partial = T, method = 'sgv')
 
 # check in piecewiseSEM
 summary(psem(m2))
+
+
+## Replace NAs with "0" in experiment data ----
+m3 <- glmer.nb (Plant_SR_vascular ~ Grazing_intensity_A + SR_D_E_exper +
+                  Abund_D_E_exper + (1|Farm), 
+                data = Dat %>% filter(!Parcel_name=="Brade 1") %>% 
+                  mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
+                         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper))
+                )
+
+# check plots
+plot_model(m3,type = "pred", terms = c("Grazing_intensity_A"), show.data=T, dot.alpha=0.3, title="") +
+plot_model(m3,type = "pred", terms = c("SR_D_E_exper"), show.data=T, dot.alpha=0.3, title="") +
+plot_model(m3,type = "pred", terms = c("Abund_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
+
+Anova(m3)
+summary(m3)
+
+# Experiment data ----
+# check correlation between SR and Abundance in Experiment data
+
+m4 <- glmer (SR_D_E_exper ~ Abund_D_E_exper + (1|Farm), family = "poisson", data = Dat %>% 
+               filter(!Parcel_name=="Brade 1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
+
+check_convergence(m1)
+
+# check model
+plot(m4)
+qqnorm(resid(m4))
+qqline(resid(m4))
+
+# check multicolinearity
+# check_collinearity(m4)
+
+# check overdispersion
+sum(residuals(m4, type = "pearson")^2) / df.residual(m4)
+# no overdispersion
+
+# check plots
+plot_model(m4,type = "pred", terms = c("Abund_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
+
+Anova(m4)
+
+# Replace NAs with "0" in experiment data 
+m4b <- glmer (SR_D_E_exper ~ Abund_D_E_exper + (1|Farm), family = "poisson", 
+              data = Dat %>% 
+               filter(!Parcel_name=="Brade 1") %>% 
+                        mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
+                               Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper))
+               )
+
+# check plots
+plot_model(m4b,type = "pred", terms = c("Abund_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
+              
+Anova(m4b)
+
+
+
+# singularity among mowing variables----
+m_SR_field <- glmer.nb (Plant_SR_vascular ~ # Grazing_intensity_A + 
+                          Mowing_frequency +  Mowing_method +  Mowing_delay +
+                          (1|Farm), 
+                        data = Dat %>% filter(!Parcel_name=="Brade 1")) 
+
+check_convergence(m_SR_field)
+check_collinearity(m_SR_field)
+Anova(m_SR_field)
+summary(m_SR_field)
+
+# mowing method and mowing delay are rank deficient

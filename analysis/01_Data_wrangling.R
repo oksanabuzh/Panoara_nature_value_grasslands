@@ -1,4 +1,5 @@
 # Data wrangling
+# Purpose: to clean and to tidy data
 
 library(tidyverse)
 library(ggplot2)
@@ -33,7 +34,10 @@ Dat <- read_csv("data/Variables_selected.csv") %>%
          Farm=factor(Farm),
          Parcel_name=Parcel) %>% 
   rename(SR_D_E_exper = "species number in D+E",                                                          
-         Abund_D_E_exper = "count of seedlings per 10 g",   
+         Abund_D_E_exper = "count of seedlings per 10 g",
+         D_E_exp_type = "Dung/Excrement sample", 
+         Excrements_cover ="Excrements cover (%)" ,                                                         
+         Dung_cover ="Animal dung cover (%)",
          Livestock_units = "Livestock units (cow and horse: 1, sheep and goat: 0.2)",
          Grazing_duration = "Duration of grazing in weeks (S-1, A-3, W-10 and communal pasture 15)",
          Grazing_intensity_A =  "Grazing intensity A - recent (number of animals x number of weeks)",
@@ -175,10 +179,18 @@ Dat %>% pull(Grazer_type)%>% unique()
 
 Dat %>% pull(Grazer_type_specific)%>% unique()
 
+## Grazer_diversity
+Dat %>% pull(Grazer_diversity)
+
 ## Grazing_type
 ## Type of grazing system: fencing, herding, free grazing (categories: F/R - 1, H - 2, F - 3)"
 Dat %>% pull(Grazing_type)
 
+# Excrements_cover (%) 
+Dat %>% pull(Excrements_cover)
+
+# Dung_cover, animal dung cover (%)
+Dat %>% pull(Dung_cover)
 
 ## Grazing intensity (both below) are calculated using the variables below
 
@@ -212,7 +224,7 @@ Dat %>% pull(Grazing_duration)
 # Manuring_freq  is manuring frequency
 Dat %>% pull(Manuring_freq)
 
-# Cow_dung_applied 
+# Cow_dung_applied, same as above but binary
 Dat %>% pull(Cow_dung_applied)
 
 
@@ -281,3 +293,12 @@ Dat %>% pull(Corralling)
 # Biomass_CN, biomass C/N ratio
 
 #------------------------------------------------------------------------------#
+
+# Experiment variables -----
+
+#D_E_exp_type, Dung/Excrement sample
+# 4 levels: c = cow excrement, s = sheep excrement, d = cow farmyard dung,  
+# n = not investigated (the sample was not taken as there was no dung/excrement avalable in the plor/parcel) 
+
+Dat %>% pull(D_E_exp_type) %>% unique()
+
