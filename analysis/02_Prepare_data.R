@@ -1,5 +1,4 @@
-# Data wrangling
-# Purpose: to clean and to tidy data
+# Purpose: to clean, merge and tidy data
 
 library(tidyverse)
 library(ggplot2)
@@ -14,8 +13,11 @@ library(multcomp)
 
 # Read data, tidying data  ----
 
-Dat <- read_csv("data/Variables_selected.csv") %>% 
-  rename(Parcel=`Parcel name`,
+Community <- read_csv("data/Diversity_&_NMDS_data.csv")
+
+
+Variables <- read_csv("data/Variables_selected.csv") %>% 
+  rename(Parcel_name=`Parcel name`,
          Plant_SR_total = "number of all plants",
          Plant_SR_vascular = "number of vascular plants_10 m2",
          Plant_SR_cryptogams = "number of cryptogams_10 m2",
@@ -30,9 +32,11 @@ Dat <- read_csv("data/Variables_selected.csv") %>%
                                  Mowing_method=="T, M"~ "M_T" ,
                                  Mowing_method=="No"~ "no" ,
                                  .default =Mowing_method),
+         Mowing_delay=case_when(Mowing_delay=="no" ~ "no mowing" ,
+                                .default =Mowing_delay),
          ownership=factor(ownership),
          Farm=factor(Farm),
-         Parcel_name=Parcel) %>% 
+         Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
   rename(SR_D_E_exper = "species number in D+E",                                                          
          Abund_D_E_exper = "count of seedlings per 10 g",
          D_E_exp_type = "Dung/Excrement sample", 
@@ -74,14 +78,28 @@ Dat <- read_csv("data/Variables_selected.csv") %>%
          Biomass_N = "N (%)_Biomass",                                                                
          Biomass_C = "C (%)_Biomass"
          ) %>%
-  mutate(Biomass_CN=Biomass_C/Biomass_N) %>% 
-  
-  separate_wider_delim(Parcel, " ", names=c("Farm_name", NA)) # Does this makes sense?
+  mutate(Biomass_CN=Biomass_C/Biomass_N,
+         Cow_dung_applied=case_when(Cow_dung_applied==0 ~ "absent",
+                                    Cow_dung_applied==1 ~ "present"))
 
-str(Dat)
-names(Dat)
+str(Variables)
+names(Variables)
+
+
+Dat <- Variables %>% 
+  left_join(Community, by="Parcel_name")
+
+# check
+
+Dat %>% filter(SR_VP_field != Plant_SR_vascular) %>% 
+  pull(SR_VP_field, Plant_SR_vascular)
+
+Dat %>% filter(SR_Exper != SR_D_E_exper) %>% 
+  pull(SR_Exper, SR_D_E_exper)
+
 
 write_csv(Dat, "data/Panoara_Dat.csv")
+
 # Check data----
 
 ## Farms & parcels ----
