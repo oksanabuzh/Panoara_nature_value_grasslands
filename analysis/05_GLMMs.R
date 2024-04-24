@@ -26,6 +26,7 @@ Dat <- read_csv("data/Panoara_Dat.csv") %>%
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
   arrange(Mowing_delay) %>% 
+  mutate(Dung_cover_log=log(Dung_cover+1)) %>% 
   mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
  Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper)) %>% 
    filter(!Parcel_name=="Brade_1") # extreme outlier
@@ -362,7 +363,7 @@ plot_model(m2_SR_field,type = "pred", terms = c("Grazing_intensity_A"), show.dat
 plot_model(m2_SR_field,type = "pred", terms = c("SR_D_E_exper"), show.data=T, dot.alpha=0.3, title="") 
 plot_model(m2_SR_field,type = "pred", terms = c("Abund_D_E_exper"), show.data=T, dot.alpha=0.3, title="")
 plot_model(m2_SR_field,type = "pred", terms = c("Excrements_cover"), show.data=T, dot.alpha=0.3, title="")
-plot_model(m2_SR_field,type = "pred", terms = c("Dung_cover"), show.data=T, dot.alpha=0.3, title="")
+plot_model(m2_SR_field,type = "pred", terms = c("Grazer_diversity"), show.data=T, dot.alpha=0.3, title="")
 plot_model(m2_SR_field,type = "pred", terms = c("Manuring_freq"), show.data=T, dot.alpha=0.3, title="")
 plot_model(m2_SR_field,type = "pred", terms = c("Mowing_frequency"), show.data=T, dot.alpha=0.3, title="")
 plot_model(m2_SR_field,type = "pred", terms = c("Mowing_delay"), show.data=T, dot.alpha=0.3, title="")
@@ -397,6 +398,20 @@ ggplot(m1_graz_pred, aes(x, predicted)) +
   geom_line(linetype=1, linewidth=1) 
 
 
+m2_SR_field <- glmer.nb(Plant_SR_vascular ~   
+                          Abund_D_E_exper +   SR_D_E_exper +
+                        #  sqrt(Grazing_intensity_A +1)  +  Grazer_diversity +
+                         # Mowing_frequency +  # Mowing_delay + #
+                          #Mowing_method + 
+                         # Excrements_cover +
+                        #  Manuring_freq + 
+                          (1|Farm),
+                        data = Dat) 
+
+check_convergence(m2_SR_field)
+
+Anova(m2_SR_field)
+
 # Abundance (experiment)
 m1_abun_pred <- get_model_data(m2_SR_field,type = "pred", terms="Abund_D_E_exper[1:50, by=0.1]")
 
@@ -404,10 +419,10 @@ ggplot(m1_abun_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
   geom_point(data=Dat %>% 
                mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")),
-             aes(Abund_D_E_exper, Plant_SR_vascular, fill = Grazer_type), 
-             size=3, alpha=0.7, pch=21)+
+             aes(Abund_D_E_exper, Plant_SR_vascular, fill = Grazer_type, size=Excrements_cover), 
+             alpha=0.7, pch=21)+
   scale_fill_viridis(discrete=TRUE, option = "D")+
-  labs(y="Species richness", x='Abundance of seedlings', fill="Grazer type")+
+  labs(y="Species richness", x='Abundance of seedlings', fill="Grazer type", size="Excrements cover")+
   geom_line(linetype=1, linewidth=1) 
 
 
@@ -418,10 +433,10 @@ ggplot(m1_sr_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
   geom_point(data=Dat %>% 
                mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")),
-             aes(SR_D_E_exper, Plant_SR_vascular, fill = Grazer_type), 
-             size=3, alpha=0.7, pch=21)+
+             aes(SR_D_E_exper, Plant_SR_vascular, fill = Grazer_type, size=Excrements_cover), 
+             alpha=0.7, pch=21)+
   scale_fill_viridis(discrete=TRUE, option = "D")+
-  labs(y="Species richness", x='Species number of seedlings', fill="Grazer type")+
+  labs(y="Species richness", x='Species number of seedlings', fill="Grazer type", size="Excrements cover")+
   geom_line(linetype=1, linewidth=1) 
 
 
@@ -440,22 +455,38 @@ ggplot(m1_Excrem_pred, aes(x, predicted)) +
 
 
 
-# Manuring friquency
+# Manuring frequency
 
 m1_Manur_pred <- get_model_data(m2_SR_field,type = "pred", terms="Manuring_freq[0:1, by=0.1]")
 
-ggplot(m1_Excrem_pred, aes(x, predicted)) +
+ggplot(m1_Manur_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat %>% 
-               mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")),
-             aes(Excrements_cover, Plant_SR_vascular, fill = Grazer_type), 
-             size=3, alpha=0.7, pch=21)+
-  scale_fill_viridis(discrete=TRUE, option = "D")+
-  labs(y="Species richness", x='Excrement cover', fill="Grazer type")+
+  geom_point(data=Dat,
+             aes(Manuring_freq, Plant_SR_vascular, fill = Dung_cover_log), 
+             size=3, alpha=0.7, pch=21,
+             position = position_jitter(width = 0.03, height=0))+
+  scale_fill_viridis(option = "C")+
+  labs(y="Species richness", x='Manuring frequency', fill="Dung cover (log)")+
   geom_line(linetype=1, linewidth=1) 
 
 
 
+# Grazer_diversity
+
+m1_Grazer_div_pred <- get_model_data(m2_SR_field,type = "pred", terms="Grazer_diversity[1:4, by=0.1]")
+
+ggplot(m1_Grazer_div_pred, aes(x, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
+  geom_point(data=Dat,
+             aes(Grazer_diversity, Plant_SR_vascular, 
+             fill = Grazing_intensity_A, size=Grazing_intensity_A),
+              alpha=0.7, pch=21,
+             position = position_jitter(width = 0.03, height=0))+
+  scale_fill_viridis(option = "C")+
+ labs(y="Species richness", x='Livestock diversity', fill="Grazing intensity", size="Grazing intensity")+
+  geom_line(linetype=1, linewidth=1) 
+
+  
 ### Grazer_type ----
 # fit new model with other variables
 m5_SR_field <- glm.nb(Plant_SR_vascular ~   
@@ -515,6 +546,28 @@ ggplot(Dat, aes(Mowing_delay, Plant_SR_vascular)) +
   geom_text(data=emmeans_m5_mow_field,aes(x=Mowing_delay, y=86,
                                          label=emmeans_m5_mow_field$.group),vjust=0.5, hjust=0, 
             size=4, col="black" , position=position_dodge(0))
+
+
+# mowing method
+
+m6_SR_field <- glm.nb(Plant_SR_vascular ~   
+                        Abund_D_E_exper + 
+                        SR_D_E_exper +
+                        # sqrt(Grazing_intensity_A +1)  +   
+                        Grazer_type +
+                        # Mowing_frequency + #  
+                        Mowing_delay + 
+                       Mowing_method , 
+                      # Excrements_cover +  
+                      # Manuring_freq ,
+                      data = Dat) 
+
+check_collinearity(m5_SR_field)
+
+check_overdispersion(m5_SR_field)
+
+Anova(m5_SR_field)
+summary(m5_SR_field)
 
 ### check R2 ----
 # R2 for the entire model 
