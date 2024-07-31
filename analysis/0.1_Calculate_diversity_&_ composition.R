@@ -1,5 +1,8 @@
 # Purpose: Calculate evenness and community composition (NMDS) for each plot
 
+library(tidyverse)
+library(ggplot2)
+
 # (1) Calculate evenness----
 
 ## 1.1 Field data----
@@ -22,8 +25,8 @@ VP_field <- Community_VP_field %>%
   summarise(
     CoverVP_field=sum(cover),
     SR_VP_field = n_distinct(Species),
-    EvennessVP_field = vegan::diversity(cover, index = "invsimpson")
-    ) %>%
+    EvennessVP_field = vegan::diversity(cover, index = "invsimpson"),
+    ShannonVP_field = vegan::diversity(cover, index = "shannon")) %>%
   ungroup()
 
 VP_field
@@ -49,8 +52,8 @@ VP_Exper <- Community_exper %>%
   summarise(
     abundance_Exper=sum(abundance),
     SR_Exper = n_distinct(Species),
-    Evenness_Exper = vegan::diversity(abundance, index = "invsimpson")
-  ) %>%
+    Evenness_Exper = vegan::diversity(abundance, index = "invsimpson"),
+    Shannon_Exper = vegan::diversity(abundance, index = "shannon")) %>%
   ungroup()
 
 VP_Exper

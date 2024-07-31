@@ -34,6 +34,11 @@ Variables <- read_csv("data/Variables_selected.csv") %>%
                                  .default =Mowing_method),
          Mowing_delay=case_when(Mowing_delay=="no" ~ "no mowing" ,
                                 .default =Mowing_delay),
+         Grazer_type=case_when(Grazer_type=="cow_sheep_goat" ~ "mixed" ,
+                               Grazer_type=="cow_sheep" ~ "mixed" ,
+                               Grazer_type=="cow_sheep_goat_horse" ~ "mixed" ,
+                               Grazer_type=="cow_goat" ~ "mixed" ,
+                               .default =Grazer_type),
          ownership=factor(ownership),
          Farm=factor(Farm),
          Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
@@ -80,11 +85,23 @@ Variables <- read_csv("data/Variables_selected.csv") %>%
          ) %>%
   mutate(Biomass_CN=Biomass_C/Biomass_N,
          Cow_dung_applied=case_when(Cow_dung_applied==0 ~ "absent",
-                                    Cow_dung_applied==1 ~ "present"))
+                                    Cow_dung_applied==1 ~ "present"),
+         Grazing_type=case_when(Grazing_type==1 ~ "free",
+                                Grazing_type==2 ~ "herding",
+                                Grazing_type==3 ~ "fencing"),
+         
+         Grazing_season=case_when(Grazing_season=="W" ~ "Whole season",
+                                  Grazing_season=="A" ~ "Autumn",
+                                  Grazing_season=="SA" ~ "Summer",
+                                  Grazing_season== "A, W" ~ "Autumn"),
+         Last_ploughing =case_when(Last_ploughing=="no" ~ "60", 
+                                   .default = as.character(Last_ploughing)))
+
 
 str(Variables)
 names(Variables)
 
+Variables$Last_ploughing
 
 Dat <- Variables %>% 
   left_join(Community, by="Parcel_name")
@@ -129,6 +146,7 @@ Dat %>% pull(Management_stability)
 # habitat: the meadows are mowed, grazed and sometimes also manured, 
 #          the pastures are only grazed.
 Dat %>% pull(habitat)%>% unique()
+Dat %>% pull(habitat_corrected)%>% unique()
 
 ### Mowing ----
 # Mowing_method: no, "H" - hand; "M"- mowing machine; "T" - tractor; "M_T" - mowing machine and tractor
@@ -195,7 +213,11 @@ qqline(resid(m2))
 ## Grazer_type
 Dat %>% pull(Grazer_type)%>% unique()
 
+Dat %>% pull(Grazing_season)%>% unique()
+
 Dat %>% pull(Grazer_type_specific)%>% unique()
+
+Dat %>% pull(Grazing_type)%>% unique()
 
 ## Grazer_diversity
 Dat %>% pull(Grazer_diversity)
@@ -217,7 +239,7 @@ Dat %>% pull(Dung_cover)
 Dat %>% pull(Grazing_intensity_A)
 
 ## Grazing_intensity_B  (legacy effect)
-### Grazing intensity B - cummulative (livestock unit x number of weeks) x number of years category x grazing type category)/100
+### Grazing intensity B - cumulative (livestock unit x number of weeks) x number of years category x grazing type category)/100
 Dat %>% pull(Grazing_intensity_B)
 
 # Variables used for calculation of grazing intensity
@@ -244,7 +266,6 @@ Dat %>% pull(Manuring_freq)
 
 # Cow_dung_applied, same as above but binary
 Dat %>% pull(Cow_dung_applied)
-
 
 ### Ploughing ----
 # Last_ploughing -  last ploughing (years ago)                                                     

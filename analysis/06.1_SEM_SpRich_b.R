@@ -39,12 +39,12 @@ SEM.dat <- Dat %>% filter(!Parcel_name=="Brade_1") %>%  # extrime outlyer
          abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
          Evenness_Exper=case_when(is.na(Evenness_Exper) ~ 0, .default=Evenness_Exper),
          Shannon_Exper=case_when(is.na(Shannon_Exper) ~ 0, .default=Shannon_Exper)) %>% 
-  #  filter(!is.na(SR_D_E_exper)) %>% 
+#  filter(!is.na(SR_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
-  mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
-                                Mowing_delay=="July-August" ~ 1,
-                                Mowing_delay=="June" ~ 2)) %>% 
-  #  filter(!Mowing_frequency==3) %>% 
+ # mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
+ #                               Mowing_delay=="July-August" ~ 1,
+ #                               Mowing_delay=="June" ~ 2)) %>% 
+filter(!Mowing_frequency==3) %>% 
   mutate(Mowing_frq_scal=scale(Mowing_frequency, center=T, scale=T)) %>% 
   mutate(Mowing_frq_sqrd=Mowing_frq_scal^2,
          SR_Exper_log = log1p(SR_Exper+1))
@@ -66,7 +66,7 @@ m1_SR_field <- glmer(Plant_SR_vascular ~
                        SR_Exper_log +
                        Grazing_int_log  +  #  Grazer_diversity +
                        Mowing_frequency +
-                       Mowing_frq_sqrd +
+                    #   Mowing_frq_sqrd +
                        Manuring_freq + 
                        humus_log + #  PC1_soil + 
                        PC1_soil_2 +
@@ -133,7 +133,7 @@ plot_model(m2_SR_field, type = "pred", terms = c("soil_CN"), show.data=T, dot.al
 
 
 m1_SR_exp <- lmer (SR_Exper_log ~ # Shannon_Exper ~   
-                     abundance_Exper +
+                   #  abundance_Exper +
                      Grazing_int_log  +  # Grazer_diversity +
                      Mowing_frequency +
                      #  Mowing_frq_sqrd +
@@ -157,16 +157,20 @@ check_collinearity(m1_SR_exp)
 ranef(m1_SR_exp) # random effects are not zeros
 hist(ranef(m1_SR_exp)$`Farm`[,1])
 
+m_SR_2_mowing_pred <- get_model_data(m1_SR_exp,type = "pred", terms="Mowing_frequency[0:2, by=0.1]")
+
+ggplot(m_SR_2_mowing_pred, aes(x, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
+  geom_point(data=SEM.dat, aes(Mowing_frequency, SR_Exper_log, fill = Mowing_delay), 
+             size=3, alpha=0.5, pch=21,
+             position=position_jitter(width=0.05, height=0))+
+  scale_fill_manual(values=c("blue", "red", "green"))+
+  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
+  labs(y="Species richness", x='Mowing frequency', fill="Mowing delay")+
+  geom_line(linetype=1, linewidth=1) 
 
 
 
-
-plot_model(m1_SR_exp, type = "pred", terms = c("Grazing_int_log"), 
-           show.data=T, dot.alpha=0.3, title="") 
-plot_model(m1_SR_exp, type = "pred", terms = c("Mowing_frequency"), 
-           show.data=T, dot.alpha=0.3, title="") 
-plot_model(m1_SR_exp, type = "pred", terms = c("Mowing_frq_sqrd"), 
-           show.data=T, dot.alpha=0.3, title="") 
 
 # Abundance (Experiment data) ----
 m1_Abund_exp <- glmer (abundance_Exper ~ 
@@ -191,7 +195,7 @@ check_overdispersion(m1_Abund_exp)
 m2_Abund_exp <- glmer.nb(abundance_Exper ~
                            Grazing_int_log  +  # Grazer_diversity +
                            Mowing_frequency +
-                           Mowing_frq_sqrd +
+                         # Mowing_frq_sqrd +
                            Manuring_freq + 
                            (1|Farm),
                          data=SEM.dat) 
@@ -209,14 +213,14 @@ summary(m2_Abund_exp)
 m1_Soil_PC <- lmer(humus_log ~   
                      Grazing_int_log  +  # Grazer_diversity +
                      Mowing_frequency +
-                     #    Mowing_frq_sqrd +
+                 #    Mowing_frq_sqrd +
                      Manuring_freq +  
                      (1|Farm), data = SEM.dat) 
 
 m1_Soil_PC <- lm(humus_log ~   
                    Grazing_int_log  +  # Grazer_diversity +
                    Mowing_frequency +
-                   #  Mowing_frq_sqrd +
+                 #  Mowing_frq_sqrd +
                    Manuring_freq, data = SEM.dat)
 
 Anova(m1_Soil_PC)
@@ -267,12 +271,13 @@ psem_model <- psem (m1_SR_field,
                     m1_Soil_PC,
                     m1_Soil_PC2,
                     Mowing_frequency %~~% Mowing_frq_sqrd,
-                    #   abundance_Exper %~~% SR_Exper_log,
+                    abundance_Exper %~~% SR_Exper_log,
                     humus_log %~~%  PC1_soil_2)
 
 
 
 summary(psem_model, .progressBar =F, conserve = TRUE)
+
 
 tibble(coefs(psem_model)) %>% 
   select(Std.Estimate)

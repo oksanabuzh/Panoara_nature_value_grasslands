@@ -11,7 +11,7 @@ SEM.dat <- Dat %>% filter(!Parcel_name=="Brade_1") %>%
 # NMDS1_VP_field  (field data) ----
 
 m1_NMDS1_field <- lmer(NMDS1_VP_field ~   
-                         NMDS1_exper +   NMDS2_exper +
+                         Abund_D_E_exper +   SR_D_E_exper + 
                        Grazing_intensity  +  Grazer_diversity +
                        Mowing_frequency + # Mowing_delay + #Mowing_method + 
                        Excrements_cover +  Manuring_freq  +
@@ -35,7 +35,7 @@ Anova(m1_NMDS1_field)
 # NMDS2_VP_field  (field data) ----
 
 m1_NMDS2_field <- lmer(NMDS2_VP_fiels ~   
-                         NMDS1_exper +   NMDS2_exper +
+                         Abund_D_E_exper +   SR_D_E_exper +
                          Grazing_intensity  +  Grazer_diversity +
                          Mowing_frequency + # Mowing_delay + #Mowing_method + 
                          Excrements_cover +  Manuring_freq  +
@@ -57,7 +57,7 @@ hist(ranef(m1_NMDS2_field)$`Farm`[,1])
 ranova(m1_NMDS2_field)
 
 m2_NMDS2_field <- lm(NMDS2_VP_fiels ~   
-                         NMDS1_exper +   NMDS2_exper +
+                       Abund_D_E_exper +   SR_D_E_exper +
                          Grazing_intensity  +  Grazer_diversity +
                          Mowing_frequency + # Mowing_delay + #Mowing_method + 
                          Excrements_cover +  Manuring_freq, data = SEM.dat)
@@ -66,65 +66,65 @@ m2_NMDS2_field <- lm(NMDS2_VP_fiels ~
 plot(m2_NMDS2_field)
 Anova(m2_NMDS2_field)
 
-# NMDS1_exper  (experiment data) ----
+# Species Richness (experiment data) ----
 
-m1_NMDS1_exper <- lmer(NMDS1_exper ~   
-                         Grazing_intensity  +  Grazer_diversity +
-                         Mowing_frequency + # Mowing_delay + #Mowing_method + 
-                         Excrements_cover +  Manuring_freq  +
-                         (1|Farm), data = SEM.dat) 
+m1_SR_exp <- glmer (SR_D_E_exper ~   Abund_D_E_exper +
+                      Grazing_intensity  +  Grazer_diversity +  
+                      Excrements_cover + Manuring_freq +
+                      (1|Farm), family = "poisson", 
+                    data = SEM.dat) 
 
-check_convergence(m1_NMDS1_exper)
-check_collinearity(m1_NMDS1_exper)
+check_convergence(m1_SR_exp)
 
-plot(m1_NMDS1_exper)
-qqnorm(resid(m1_NMDS1_exper))
-qqline(resid(m1_NMDS1_exper))
+check_collinearity(m1_SR_exp)
 
-ranef(m1_NMDS1_exper) # random effects are  zeros
-hist(ranef(m1_NMDS1_exper)$`Farm`[,1])
-ranova(m1_NMDS1_exper)
+ranef(m1_SR_exp) # random effects are not zeros
+hist(ranef(m1_SR_exp)$`Farm`[,1])
 
-m2_NMDS1_exper <- lm(NMDS1_exper ~   
-                         Grazing_intensity  +  Grazer_diversity +
-                         Mowing_frequency + # Mowing_delay + #Mowing_method + 
-                         Excrements_cover +  Manuring_freq, data = SEM.dat) 
+sum(residuals(m1_SR_exp, type = "pearson")^2) / df.residual(m1_SR_exp)
 
-summary(m2_NMDS1_exper)
-plot(m2_NMDS1_exper)
-Anova(m2_NMDS1_exper)
+summary(m1_SR_exp)
+Anova(m1_SR_exp)
 
 
+# Abundance (Experiment data) ----
+m1_Abund_exp <- glmer (Abund_D_E_exper ~  Grazing_intensity  +  Grazer_diversity +  
+                         Excrements_cover + Manuring_freq + 
+                         (1|Farm), family = "poisson", 
+                       data = SEM.dat) 
 
-# NMDS2_exper  (experiment data) ----
+check_convergence(m1_Abund_exp)
 
-m1_NMDS2_exper <- lmer(NMDS2_exper ~   
-                         Grazing_intensity  +  Grazer_diversity +
-                         Mowing_frequency + # Mowing_delay + #Mowing_method + 
-                         Excrements_cover +  Manuring_freq  +
-                         (1|Farm), data = SEM.dat) 
+Anova(m1_Abund_exp)
+summary(m1_Abund_exp)
 
-check_convergence(m1_NMDS2_exper)
-check_collinearity(m1_NMDS2_exper)
+ranef(m1_Abund_exp) # random effects are not zeros
+hist(ranef(m1_Abund_exp)$`Farm`[,1])
 
-plot(m1_NMDS2_exper)
-qqnorm(resid(m1_NMDS2_exper))
-qqline(resid(m1_NMDS2_exper))
+m2_Abund_exp <- glm (Abund_D_E_exper ~  Grazing_intensity  +  Grazer_diversity +  
+                       Excrements_cover + Manuring_freq, family = "poisson", 
+                     data = SEM.dat) 
 
-ranef(m1_NMDS2_exper) # random effects are  zeros
-hist(ranef(m1_NMDS2_exper)$`Farm`[,1])
-ranova(m1_NMDS2_exper)
+anova(m1_Abund_exp, m2_Abund_exp)
 
-m2_NMDS2_exper <- lm(NMDS2_exper ~   
-                       Grazing_intensity  +  Grazer_diversity +
-                       Mowing_frequency + # Mowing_delay + #Mowing_method + 
-                       Excrements_cover +  Manuring_freq, data = SEM.dat) 
-
-summary(m2_NMDS2_exper)
-plot(m2_NMDS2_exper)
-Anova(m2_NMDS2_exper)
+Anova(m1_Abund_exp)
 
 
+sum(residuals(m1_Abund_exp, type = "pearson")^2) / df.residual(m1_Abund_exp)
+check_overdispersion(m1_Abund_exp)
+
+
+m3_Abund_exp <- glmer.nb(Abund_D_E_exper ~  Grazing_intensity  +  Grazer_diversity +  
+                           Excrements_cover + Manuring_freq  + (1|Farm),
+                         data=SEM.dat , # to include zero inflation use ziformula=~1
+                         family=nbinom2) #quasipoisson
+
+check_convergence(m3_Abund_exp)
+
+check_overdispersion(m3_Abund_exp)
+
+Anova(m3_Abund_exp)
+summary(m3_Abund_exp)
 
 # Excrement cover ----
 
@@ -150,7 +150,7 @@ Anova(m2_Excrem_cover)
 
 
 psem_model <- psem (m1_NMDS1_field, m2_NMDS2_field,
-                    m2_NMDS1_exper, m2_NMDS2_exper)
+                    m1_SR_exp, m3_Abund_exp, m2_Excrem_cover)
 
 
 
