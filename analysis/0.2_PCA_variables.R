@@ -15,11 +15,13 @@ library(factoextra)
 Dat <- read_csv("data/Panoara_Dat.csv") 
 names(Dat)
 soil_dat <- Dat %>% 
-  dplyr::select(humus,  soil_pH,
-                soil_Ca_acces , soil_MG_acces,                                            
-               # soil_K_acces, 
-               soil_P_acces,  
-                soil_CN, soil_N_tot)
+  dplyr::select(humus, # soil_pH,
+             # soil_Ca_acces ,  
+             soil_MG_acces,                                            
+              # soil_K_acces, 
+             #  soil_P_acces,  
+              #  soil_CN, 
+             soil_N_tot)
 
 
 
@@ -30,7 +32,7 @@ names(soil_dat)
 
 
 
-soil_pca <- prcomp(soil_dat, #  %>% dplyr::select(soil_P_acces, soil_CN),
+soil_pca <- prcomp(soil_dat , # %>% dplyr::select(soil_P_acces, soil_CN, soil_K_acces),
                    scale = TRUE)
 
 soil_pca
@@ -71,7 +73,7 @@ library("corrplot")
 corrplot(soil_text_var$cor, #[,c("Dim.1", "Dim.2")], 
          is.corr=F,  
          cl.pos = 'r', cl.ratio = 0.8, tl.col="black") 
-corrplot(soil_text_var$contrib[,c("Dim.1", "Dim.2")], is.corr=F,
+corrplot(soil_text_var$contrib[,c("Dim.1", "Dim.2", "Dim.3")], is.corr=F,
          cl.ratio = 0.8, tl.col="black")
 
 col <- colorRampPalette(c("#00AFBB", "#E7B800", "#FC4E07"))

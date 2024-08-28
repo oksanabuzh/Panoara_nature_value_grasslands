@@ -1,6 +1,8 @@
 # Purpose: GLMMs for Species Richness (SR)
 rm(list = ls())
 
+# load packages
+
 library(tidyverse)
 library(ggplot2)
 # library(devtools)
@@ -28,10 +30,10 @@ set_theme(base = theme_bw(),
 
 # Read data  ----
 
-
 Soil_PC <- read_csv("data/soil_PC.csv")
-  
-  
+
+Soil_PC2 <- read_csv("data/soil_PC2.csv")
+
 Data <- read_csv("data/Panoara_Dat.csv") %>%
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
@@ -45,12 +47,15 @@ Data <- read_csv("data/Panoara_Dat.csv") %>%
          Grazing_legacy =log1p(Grazing_intensity_B),
          Manuring_freq_log = log1p(Manuring_freq),
          Corralling=case_when(Corralling=="0" ~ "no", 
-                              Corralling=="1" ~ "yes"))
+                              Corralling=="1" ~ "yes")) %>% 
+  mutate(humus_log=log1p(humus)) %>% 
+  mutate(Ploughing=1/Last_ploughing)
 # filter(!Parcel_name=="Brade_1") # extreme outlier
 
 
 Dat <- Data %>% 
-  left_join(Soil_PC, by="Parcel_name")
+  left_join(Soil_PC, by="Parcel_name")%>% 
+  left_join(Soil_PC2, by="Parcel_name")
 
 
 str(Dat)
@@ -61,34 +66,6 @@ Dat <- Dat %>%
   mutate(zz = Plant_SR_vascular) # for predicting from the glmmPQL models
 
 
-
-
-
-m_SR_3b <- glmer.nb(Plant_SR_vascular ~ 
-                      Grazing_int_log +
-                      #  Grazer_type +
-                      #  Grazing_type +
-                      poly(Mowing_frequency, 2)  + # 
-                      #Mowing_delay + 
-                      # Mowing_method +
-                      Manuring_freq_log +
-                     # Cow_dung_applied  +
-                      (1|Farm), data = Dat) 
-
-plot_model(m_SR_3b, type = "pred", terms = c("Manuring_freq_log"), 
-           show.data=T, dot.alpha=0.3, title="") 
-plot_model(m_SR_3b, type = "pred", terms = c("Cow_dung_applied"), 
-           show.data=T, dot.alpha=0.3, title="")
-
-emmeans(m_SR_3b, list(pairwise ~ Cow_dung_applied))
-
-
-
-check_convergence(m_SR_3b)
-check_collinearity(m_SR_3b)
-
-Anova(m_SR_3b)
-summary(m_SR_3b)
 
 
 # Data Explorations ----
@@ -104,11 +81,8 @@ ggplot(Dat, aes(Litter_removal, Plant_SR_vascular))+geom_boxplot()
 ggplot(Dat, aes(Crops_planted, Plant_SR_vascular))+geom_boxplot()
 ggplot(Dat, aes(Cleaning, Plant_SR_vascular))+geom_boxplot()
 ggplot(Dat, aes(Shrub_tree_removal, Plant_SR_vascular))+geom_boxplot() + geom_point()
-
 ggplot(Dat, aes(log(Last_ploughing), Plant_SR_vascular))+geom_point()
-
 ggplot(Dat, aes(Corralling, Plant_SR_vascular))+geom_boxplot()
-
 ggplot(Dat, aes(soil_CN, Plant_SR_vascular))+ geom_point()
 ggplot(Dat, aes(soil_pH, Plant_SR_vascular))+ geom_point()
 ggplot(Dat, aes(log(humus), Plant_SR_vascular))+ geom_point()
@@ -118,10 +92,10 @@ ggplot(Dat, aes(soil_MG_acces, Plant_SR_vascular))+ geom_point()
 ggplot(Dat, aes(log(soil_K_acces), Plant_SR_vascular))+ geom_point()
 
 
+# GLMM models -----
+## Driver effects: -----
 
-# Driver effects: -----
-
-# habitat, mang stability ----
+## habitat, mang. stability ----
 m_SR_1 <- glmer(Plant_SR_vascular ~  habitat_corrected + 
                   Management_stability +
                 (1|Farm), family = "poisson", data = Dat) 
@@ -133,8 +107,7 @@ Anova(m_SR_1)
 
 check_overdispersion(m_SR_1) # Overdispersion detected.
 
-# Change family to quasipoisson
-
+# Change family to negative binomial
 m_SR_1b <- glmer.nb(Plant_SR_vascular ~ 
             habitat_corrected +
              Management_stability +
@@ -465,8 +438,8 @@ m_SR_5a <- glm(Plant_SR_vascular ~
                     Grazing_int_log +
                   poly(Mowing_frequency, 2)  +
                  #  Mowing_frequency +
-                    poly(Last_ploughing, 2) + # Crops_planted + # correlates with Last_ploughing
-                    # Last_ploughing +
+                 # Last_ploughing + # 
+                  Ploughing + 
                   # Shrub_tree_removal + # Cleaning +  # Shrub_tree_removal + # correlates with Cleaning
                    Litter_removal +
                  #  Moss_removal + 
@@ -474,8 +447,10 @@ m_SR_5a <- glm(Plant_SR_vascular ~
                   # Burning + 
                     Corralling +
                  Manuring_freq +
-                Cow_dung_applied  +
-                PC1_soil, #+ # PC2_soil, 
+                Cow_dung_applied +
+                 humus_log + # 
+             # PC1_soil +  
+               PC1_soil_2 , 
                   family = "poisson", data = Dat)  
 
 
@@ -490,8 +465,8 @@ m_SR_5b <- glmer(Plant_SR_vascular ~
                    Grazing_int_log +
                    poly(Mowing_frequency, 2)  +
                    #  Mowing_frequency +
-                   poly(Last_ploughing, 2) + # Crops_planted + # correlates with Last_ploughing
-                   # Last_ploughing +
+                  #  poly(Ploughing) + # Crops_planted + # correlates with Last_ploughing
+                    Last_ploughing +
                    # Shrub_tree_removal + # Cleaning +  # Shrub_tree_removal + # correlates with Cleaning
                    Litter_removal +
                    #  Moss_removal + 
@@ -503,6 +478,7 @@ m_SR_5b <- glmer(Plant_SR_vascular ~
                    PC1_soil+ PC2_soil +
                   (1|Farm), family = "poisson", data = Dat)  
 
+Anova(m_SR_5b)
 
 
 anova(m_SR_5b, m_SR_5a)
@@ -512,13 +488,12 @@ ranef(m_SR_5b) # random effects are not zeros
 hist(ranef(m_SR_5b)$`Farm`[,1])
 
 check_convergence(m_SR_5b) 
-Anova(m_SR_5b)
 check_collinearity(m_SR_5b)
 check_convergence(m_SR_5b)
 check_overdispersion(m_SR_5b)  # very low overdispersion
 
 
-plot_model(m_SR_5a, type = "pred", terms = c("Last_ploughing"), show.data=T, dot.alpha=0.3, title="") 
+plot_model(m_SR_5b, type = "pred", terms = c("Last_ploughing"), show.data=T, dot.alpha=0.3, title="") 
 plot_model(m_SR_5a, type = "pred", terms = c("Litter_removal"), show.data=T, dot.alpha=0.3, title="") 
 plot_model(m_SR_5a, type = "pred", terms = c("Corralling"), show.data=T, dot.alpha=0.3, title="") 
 plot_model(m_SR_5a, type = "pred", terms = c("Manuring_freq"), show.data=T, dot.alpha=0.3, title="") 
@@ -533,14 +508,32 @@ plot_model(m_SR_5a, type = "pred", terms = c("soil_pH"), show.data=T, dot.alpha=
 plot_model(m_SR_5a, type = "pred", terms = c("soil_CN"), show.data=T, dot.alpha=0.3, title="") 
 
 ### Last_ploughing ----
+m_SR_5a_plough_pred <- get_model_data(m_SR_5a,type = "pred", terms="Ploughing[0:0.2, by=0.01]")
+
+min(Dat$Ploughing)
+
+ggplot(m_SR_5a_plough_pred, aes(x, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
+  geom_point(data=Dat, aes(Ploughing, Plant_SR_vascular), 
+             size=3, alpha=0.5, pch=21, fill ="#64ABCE",
+             position=position_jitter(width=0.01, height=0))+
+ # scale_fill_manual(values=c("blue", "red", "green"))+
+  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
+  labs(y="Species richness", x='Ploughing intensity')+
+ # scale_x_continuous(breaks=seq(0, 60, 10), 
+  #                   labels=paste0(c("0", "10","20", "30", "40", "50", ">50"))) +
+  geom_line(linetype=1, linewidth=1) 
+
+
+
 m_SR_5a_plough_pred <- get_model_data(m_SR_5a,type = "pred", terms="Last_ploughing[0:60, by=0.01]")
 
 ggplot(m_SR_5a_plough_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
   geom_point(data=Dat, aes(Last_ploughing, Plant_SR_vascular), 
              size=3, alpha=0.5, pch=21, fill ="#64ABCE",
-             position=position_jitter(width=0.05, height=0))+
- # scale_fill_manual(values=c("blue", "red", "green"))+
+             position=position_jitter(width=0.08, height=0))+
+  # scale_fill_manual(values=c("blue", "red", "green"))+
   theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
   labs(y="Species richness", x='Last ploughing (yrs. ago)')+
   scale_x_continuous(breaks=seq(0, 60, 10), 

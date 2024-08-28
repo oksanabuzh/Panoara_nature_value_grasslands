@@ -13,7 +13,7 @@ library(multcomp)
 
 # Read data, tidying data  ----
 
-Community <- read_csv("data/Diversity_&_NMDS_data.csv")
+Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
 
 
 Variables <- read_csv("data/Variables_selected.csv") %>% 
@@ -104,7 +104,7 @@ names(Variables)
 Variables$Last_ploughing
 
 Dat <- Variables %>% 
-  left_join(Community, by="Parcel_name")
+  left_join(Diver_NMDS_dat, by="Parcel_name")
 
 # check
 

@@ -39,7 +39,7 @@ SEM.dat <- Dat %>% filter(!Parcel_name=="Brade_1") %>%  # extrime outlyer
          abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
          Evenness_Exper=case_when(is.na(Evenness_Exper) ~ 0, .default=Evenness_Exper),
          Shannon_Exper=case_when(is.na(Shannon_Exper) ~ 0, .default=Shannon_Exper)) %>% 
-  #  filter(!is.na(SR_D_E_exper)) %>% 
+#  filter(!is.na(SR_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
   mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
                                 Mowing_delay=="July-August" ~ 1,
@@ -63,8 +63,8 @@ m1_SR_field <- glmer(Plant_SR_vascular ~
                        abundance_Exper +  
                        # Shannon_Exper + #  
                        # Evenness_Exper + # 
-                       SR_Exper_log +
-                       Grazing_int_log  +  #  Grazer_diversity +
+                       SR_Exper_log + 
+                       Grazing_int_log  +   
                        Mowing_frequency +
                        Mowing_frq_sqrd +
                        Manuring_freq + 
@@ -99,7 +99,9 @@ m2_SR_field <- glmer.nb(Plant_SR_vascular ~
                           Mowing_frequency +
                           Mowing_frq_sqrd +
                           Manuring_freq + 
-                          humus_log   + PC1_soil_2 + #humus_log + PC2_soil + #  +
+                          humus_log + #  PC1_soil + 
+                          PC1_soil_2 +
+                          # humus_log  + PC1_soil_2 + #PC2_soil + #  +
                           (1|Farm), data = SEM.dat) 
 
 
@@ -133,11 +135,11 @@ plot_model(m2_SR_field, type = "pred", terms = c("soil_CN"), show.data=T, dot.al
 
 
 m1_SR_exp <- lmer (SR_Exper_log ~ # Shannon_Exper ~   
-                     abundance_Exper +
+                   abundance_Exper +
                      Grazing_int_log  +  # Grazer_diversity +
-                     Mowing_frequency +
+                  #   Mowing_frequency +
                      #  Mowing_frq_sqrd +
-                     Manuring_freq + 
+                     Manuring_freq +                      
                      PC1_soil_2 +
                      (1|Farm), data = SEM.dat) 
 
@@ -171,9 +173,11 @@ plot_model(m1_SR_exp, type = "pred", terms = c("Mowing_frq_sqrd"),
 # Abundance (Experiment data) ----
 m1_Abund_exp <- glmer (abundance_Exper ~ 
                          Grazing_int_log  + #  Grazer_diversity +
-                         Mowing_frequency +
+                        # Mowing_frequency +
                          # Mowing_frq_sqrd +
                          Manuring_freq + 
+                       #  humus_log + #  PC1_soil + 
+                         PC1_soil_2 +
                          (1|Farm), family = "poisson", 
                        data = SEM.dat) 
 
@@ -189,18 +193,23 @@ hist(ranef(m1_Abund_exp)$`Farm`[,1])
 check_overdispersion(m1_Abund_exp)
 
 m2_Abund_exp <- glmer.nb(abundance_Exper ~
-                           Grazing_int_log  +  # Grazer_diversity +
-                           Mowing_frequency +
-                           Mowing_frq_sqrd +
+                           Grazing_int_log  +   
+                           # Grazer_diversity +   Grazing_age +
+                         #  Mowing_frequency +
+                        #   Mowing_frq_sqrd +
                            Manuring_freq + 
+                        #  humus_log + #  PC1_soil + 
+                         # PC1_soil_2 +
                            (1|Farm),
                          data=SEM.dat) 
+
+
+Anova(m2_Abund_exp)
 
 check_convergence(m2_Abund_exp)
 check_collinearity(m2_Abund_exp)
 check_overdispersion(m2_Abund_exp)
 
-Anova(m2_Abund_exp)
 summary(m2_Abund_exp)
 
 
@@ -267,7 +276,7 @@ psem_model <- psem (m1_SR_field,
                     m1_Soil_PC,
                     m1_Soil_PC2,
                     Mowing_frequency %~~% Mowing_frq_sqrd,
-                    #   abundance_Exper %~~% SR_Exper_log,
+                   # abundance_Exper %~~% SR_Exper_log,
                     humus_log %~~%  PC1_soil_2)
 
 
