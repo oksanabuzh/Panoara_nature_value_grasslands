@@ -1,0 +1,14 @@
+,Df,SumOfSqs,R2,F,Pr(>F)
+Grazing_int_log,1,0.36,0.03,1.33,0.661
+"poly(Mowing_frequency, 2)",2,0.74,0.06,1.35,0.066
+Manuring_freq,1,0.24,0.02,0.89,0.602
+humus_log,1,0.29,0.02,1.05,0.209
+PC1_soil_2,1,0.20,0.02,0.73,0.709
+Grazing_season,2,1.04,0.08,1.90,0.005
+Ploughing,1,0.34,0.03,1.23,0.298
+Litter_removal,1,0.18,0.01,0.68,0.849
+Moss_removal,1,0.50,0.04,1.83,0.005
+Anthill_leveling,1,0.22,0.02,0.81,0.797
+Corralling,1,0.27,0.02,0.97,0.450
+Residual,30,8.18,0.65,,
+Total,43,12.54,1,,

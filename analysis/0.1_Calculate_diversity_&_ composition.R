@@ -3,12 +3,17 @@
 
 rm(list = ls()) # clears working environment
 
-dev.off() # shuts down the current graphical device
+# dev.off() # shuts down the current graphical device
 
 # load packages
 
 library(tidyverse)
 library(ggplot2)
+library(vegan)
+
+library(ggplot2)
+library(ggrepel)
+library(devtools)
 
 # (1) Calculate diversity measures ----
 
@@ -93,12 +98,18 @@ which(colSums(compos_VP_field%>%
 
 
 # assess how well dissimilarity metrics separate (assess) the data
+# for this, read the environmental variables and join with the community data
+Variables <- read_csv("data/Variables_clean.csv") %>% 
+  dplyr::select(Parcel_name, Grazing_intensity_A, Mowing_frequency,
+                Manuring_freq, humus)
+
 Variables_dat <- compos_VP_field  %>% 
   left_join(Variables, by="Parcel_name")
 
 vegan::rankindex(compos_VP_field %>% dplyr::select(-Parcel_name),
                  Variables_dat%>% dplyr::select(Grazing_intensity_A, Mowing_frequency,
-                                                  Manuring_freq, humus))
+                                                 Manuring_freq, humus))
+
 ### NMDS analysis
 
 set.seed(10)
@@ -112,8 +123,9 @@ nmds1 # the stress value shows how easy it was to condense multidimensional data
 
 # Shepard plot and model fit (R2)
 vegan::stressplot(nmds1, main = "Shepard plot")
+nmds1$stress
 
-# fast plot
+# fast check plot
 plot(nmds1)
 
 vegan::scores(nmds1)
@@ -158,6 +170,9 @@ nmds2<-vegan::metaMDS(vegan::wisconsin(compos_exper%>%
 nmds2 # the stress value shows how easy it was to condense multidimensional data into two dimensional space, below 0.2 is generally good
 # Shepard plot and model fit (R2)
 vegan::stressplot(nmds2, main = "Shepard plot")
+nmds2$stress
+eigenvals(nmds2)
+summary(nmds2)
 # fast plot
 plot(nmds2)
 
@@ -217,10 +232,6 @@ Data <- read_csv("data/Panoara_Dat.csv") %>%
 # filter(!Parcel_name=="Brade_1") # extreme outlier
 
 
-D <- read_csv("data/Panoara_Dat.csv") %>%
-  group_by(Moss_removal) %>% 
-  count()
-
 # add soil PCA to the data
 
 Dat_field <- Data %>% 
@@ -248,7 +259,8 @@ Dat_exp <- Dat_field %>% filter(!Parcel_name=="Brade_1") %>%    # extrime outlye
 
 
 
-## PERMANOVA   field ----
+
+## 3.1. PERMANOVA   field ----
 summary(Dat_field)
 names(Dat_field)
 
@@ -277,124 +289,88 @@ PERM_mod1 <- vegan::adonis2(compos_VP_field %>% dplyr::select(-Parcel_name) ~
 
 PERM_mod1
 
+write.csv(PERM_mod1, "results/PERMANOVA_Field_Data.csv")
 
 
-## PERMANOVA   exp ----
+## 3.2. PERMANOVA   experiment ----
+
+summary(Dat_exp)
+names(Dat_exp)
 
 set.seed(1)
 
-PERM_mod1_b <- vegan::adonis2(compos_VP_field %>% dplyr::select(-Parcel_name) ~ 
-                              habitat_corrected +
+PERM_mod2 <- vegan::adonis2(compos_exper %>% filter(!Parcel_name=="Brade_1") %>% dplyr::select(-Parcel_name) ~ 
                               Grazing_int_log +
-                              poly(Mowing_frequency, 2)+
-                              Manuring_freq + 
-                              humus_log +  
-                              PC1_soil_2 +
-                              #  Grazer_type +
-                              Grazing_season +
-                              #   Mowing_delay  + 
-                              Ploughing + # Crops_planted + # correlates with Last_ploughing
-                              # Shrub_tree_removal + # Cleaning +  # Shrub_tree_removal + # correlates with Cleaning
-                              Litter_removal +
-                              Moss_removal + 
-                              Anthill_leveling + #  Molehill_leveling +# data are the same as Anthill_leveling
-                              #  Burning + 
-                              Corralling , #+
-                            #  Cow_dung_applied , 
-                            data=Dat_field,  strata=Dat_field$Farm,
+                              Manuring_freq  + 
+                              Grazing_season, 
+                            data=Dat_exp,  strata=Dat_exp$Farm,
                             permutations = 1000, method = "bray")
 
-PERM_mod1_b
+PERM_mod2
+
+write.csv(PERM_mod2, "results/PERMANOVA_Experiment.csv")
 
 
+# (4) Plot NMDS ---- 
 
-# Plot---- 
 
+## 4.1. Seed Experiment ----
+Dat_exp2 <- Dat_field %>% 
+  filter(!is.na(SR_D_E_exper)) %>% 
+  filter(!abundance_Exper==0)
 
 # get coordinates
-
-
 fit2 <- vegan::envfit(nmds2   ~  
                         Grazing_int_log +
                         Manuring_freq  + 
                         Grazing_season , 
-                      data=dat_exp2, perm=1000) #
+                      data=Dat_exp2, perm=1000) #
 
 
 fit2
-library(vegan)
-var.scrs <- as.data.frame(scores(fit2, display = "vectors")) #save variable intrinsic values into data-frame
-var.scrs <- cbind(var.scrs, Variables = rownames(var.scrs)) #add variable names to data-frame
-var.scrs <- cbind(var.scrs, pval = fit2$vectors$pvals) #add p-values to data-frame so we can select variables which are significant
-sig.var.scrs <- subset(var.scrs #, pval<=0.07
-)
-
-# write.csv(var.scrs, file="Results/envfit_mod.csv")
-
-
-# Plot NMDS----
-
-## Plot functional composition----
-
-#### using base plot----
-
-x11(height=9,width=8.5)
-par(mai=c(1, 1, 0.2, 0.2), mgp=c(1.8,0.5,0), cex.lab=1, cex.axis=1, pch=21, cex=1.5, lwd=3, tck=0.015)
-
-plot(nmds2, type = "n")
-#points(nmds1, display = "sites",pch = 19, cex =1.2, col="gray")
-#points(nmds1, display = "species", col=col, pch = 19, cex = 0.8)
-orditorp(nmds2,display="species", col="blue", air=0.0001, cex=0.5)
-plot(fit2, col="black")
-
-#### using ggplot -------- 
-
-library(ggplot2)
-library(ggrepel)
-library(devtools)
-
-
 
 # extract species scores
-species.scores <-  scores(nmds2, display = 'sp') %>% 
+species.scores_exp <-  scores(nmds2, display = 'sp') %>% 
   as_tibble(rownames ='species') %>% 
   mutate(short_name = str_c(str_split_i(species, '\\s', 1) %>% str_sub(., 1, 4), # make short species names Genus species -> Gen.spe
-                            str_split_i(species, '\\s', 2) %>% str_sub(., 1, 4), sep = '.'))
+                            str_split_i(species, '\\s', 2) %>% str_sub(., 1, 3), sep = '.'))
 
-species.scores
+species.scores_exp
 
-sites.scores <-  scores(nmds2, display = 'sites') %>% 
+
+print(species.scores_exp, n=43)
+
+sites.scores_exp <-  scores(nmds2, display = 'sites') %>% 
   as_tibble(rownames ='sites.scores') %>% 
-  mutate(Grazer_type = factor(dat_exp2$Grazer_type),
-         Habitat = factor(dat_exp2$habitat_corrected),
-         Grazing_season = factor(dat_exp2$Grazing_season))
+  mutate(Grazer_type = factor(Dat_exp2$Grazer_type),
+         Habitat = factor(Dat_exp2$habitat_corrected),
+         Grazing_season = factor(Dat_exp2$Grazing_season))
 
-sites.scores
+sites.scores_exp
 
 # calculate centroid for  Grazing_season
-centr <- sites.scores %>% 
+centr_exp <- sites.scores_exp %>% 
   group_by(Grazing_season) %>% 
   summarise(NMDS1c=mean(NMDS1),
             NMDS2c=mean(NMDS2)) %>% 
   ungroup()
 
 # merge with site scores
-sites.scores_c <- sites.scores %>% 
-  left_join(centr, by="Grazing_season")
+sites.scores_exp <- sites.scores_exp %>% 
+  left_join(centr_exp, by="Grazing_season")
 
 
-
-p1  <- ggplot(data = sites.scores, 
+p1  <- ggplot(data = sites.scores_exp, 
               aes(x = NMDS1, y = NMDS2)) +
   geom_vline(xintercept = 0, col="grey", linetype="dashed")+
   geom_hline(yintercept = 0, col="grey", linetype="dashed")+
   scale_shape_manual(values=c( 19, 1))+ 
-  geom_point (data = species.scores, size = 2, pch=19, colour= "grey") + #, colour=Col, fill=Col
-  geom_text_repel (data=species.scores,aes(x=NMDS1,y=NMDS2,label=short_name), 
+  geom_point (data = species.scores_exp, size = 2, pch=19, colour= "grey") +
+  geom_text_repel (data=species.scores_exp,aes(x=NMDS1,y=NMDS2,label=short_name), 
                    size = 3.6, colour= "black") + 
   theme(axis.title = element_text(size = 13, face = "bold", colour = "black"), 
         panel.background = element_blank(), panel.border = element_rect(fill = NA, 
-                                                                        colour = "grey30", size=0.5), 
+                                                                        colour = "grey30", linewidth = 0.5), 
         axis.ticks = element_blank(), 
         axis.text = element_text(size = 13, colour = "black"))
 
@@ -402,17 +378,14 @@ p1
 
 
 
-# add elipses showing system type 
+# add ellipses showing system type 
 
-p2  <- ggplot(data = sites.scores, 
+p2  <- ggplot(data = sites.scores_exp, 
               aes(x = NMDS1, y = NMDS2)) +
-  #  stat_ellipse(aes(colour=Habitat), alpha=.3, type='t',linewidth =0.1, geom="path")+
   stat_ellipse(aes(fill=Habitat), alpha=.1,type='t',linewidth =1, geom="polygon")+
   geom_vline(xintercept = 0, col="grey", linetype="dashed")+
   geom_hline(yintercept = 0, col="grey", linetype="dashed")+
-  #  scale_shape_manual(values=c( 19, 1)) + 
-  #   geom_point (data = species.scores, size = 1, pch=19, colour= "forestgreen") + 
-  geom_text_repel (data=species.scores,aes(x=NMDS1,y=NMDS2,label=short_name), 
+   geom_text_repel (data=species.scores_exp, aes(x=NMDS1,y=NMDS2,label=short_name), 
                    size = 3.6, 
                    colour= "forestgreen") + 
   theme(axis.title = element_text(size = 13, face = "bold", colour = "black"), 
@@ -423,36 +396,36 @@ p2  <- ggplot(data = sites.scores,
         legend.key = element_blank(), 
         legend.title = element_text(size = 11, face = "bold", colour = "black"), 
         legend.text = element_text(size = 11, colour = "black")) 
-# labs( fill="Habitat")+
-#   guides(fill=guide_legend("Habitat"))
+
 
 p2
 
+# add spiders for grazing season
 
-p3 <- ggplot(data = sites.scores, 
+p3 <- ggplot(data = sites.scores_exp, 
              aes(x = NMDS1, y = NMDS2)) +
-  #  stat_ellipse(aes(colour=Habitat), alpha=.3, type='t',linewidth =0.1, geom="path")+
   stat_ellipse(aes(fill=Habitat), alpha=.1,type='t',linewidth =1, geom="polygon")+
   geom_vline(xintercept = 0, col="grey", linetype="dashed")+
   geom_hline(yintercept = 0, col="grey", linetype="dashed")+
   
   # add centroids:
-  geom_segment(data = sites.scores_c,        # spiders
+  geom_segment(data = sites.scores_exp,        # spiders
                mapping = aes(xend = NMDS1c, yend = NMDS2c, color=Grazing_season),
                alpha=.5) + 
-  geom_point(data = centr %>%                   # centroids
+  geom_point(data = centr_exp %>%                   # centroids
                rename(NMDS1=NMDS1c, NMDS2=NMDS2c), size = 5,
              aes(color=Grazing_season),
              alpha=.5) +                        
-  geom_point(data = sites.scores, size = 2,      # sample scores
+  geom_point(data = sites.scores_exp, size = 2,      # sample scores
              aes(color=Grazing_season),
              alpha=.5) +                         
   coord_fixed()+
   # add species names
   scale_colour_manual(values = c("#F8766D", "#C77CFF", "#00BFC4"))+
-  geom_text_repel (data=species.scores,aes(x=NMDS1,y=NMDS2,label=short_name), 
+  geom_text_repel (data=species.scores_exp,aes(x=NMDS1,y=NMDS2,label=species #short_name
+                                               ), 
                    size = 3.6, 
-                   colour= "forestgreen", fontface = 'bold') + 
+                   colour= "forestgreen", fontface = 'bold', max.overlaps = Inf) + 
   theme(axis.title = element_text(size = 13, face = "bold", colour = "black"), 
         panel.background = element_blank(), panel.border = element_rect(fill = NA, 
                                                                         colour = "grey30", size=0.5), 
@@ -460,7 +433,8 @@ p3 <- ggplot(data = sites.scores,
         axis.text = element_text(size = 13, colour = "black"),
         legend.key = element_blank(), 
         legend.title = element_text(size = 11, face = "bold", colour = "black"), 
-        legend.text = element_text(size = 11, colour = "black")) 
+        legend.text = element_text(size = 11, colour = "black")) +
+  labs(colour="Grazing season")
 
 
 
@@ -468,51 +442,56 @@ p3 <- ggplot(data = sites.scores,
 p3
 
 
+#### Add significant predictors ----
+names(fit2$vectors)
+fit2$vectors$arrows 
 
-## Add significant predictors----
+# add standardized scores:
+coord_cont_exp <- as.data.frame(scores(fit2, "vectors")) %>% 
+  cbind(stand= fit2$vectors$arrows) %>% 
+  mutate(Variables = rownames(scores(fit2, "vectors"))) %>% 
+  mutate(Variables=recode_factor(Variables, 
+                                 Grazing_int_log="Grazing",
+                                 Manuring_freq="Manuring"))  
 
-coord_cont <- as.data.frame(scores(fit2, "vectors")) * ordiArrowMul(fit2, 
-                                                                    rescale=TRUE, fill = 1)
+coord_cont_exp
+# stand.NMDS1 and stand.NMDS2 are all the same lenght arrows for the posthoc plottig
+
+
+
+# rescale  all arrows to fill an ordination plot, where fill =  shows proportion of plot to be filled by the arrows
+coord_cont_exp_stnd  <- coord_cont_exp %>% 
+  mutate(stand.NMDS1=stand.NMDS1 * ordiArrowMul(fit2, rescale=TRUE, fill = 0.4))%>% 
+  mutate(stand.NMDS2=stand.NMDS2 * ordiArrowMul(fit2, rescale=TRUE, fill = 0.4))
 
 # Create scores with the standard length for the posthoc plotting of arrows of the same size
 # for this we would use raw vectors from envfit and not scores 
 # as arrow lengths (scores) are created as NMDS1 vectors multiplied on sqrt(r2) from fit$vectors 
 
 
-names(fit2$vectors)
-fit2$vectors$arrows 
-
-# we add standardised scores:
-coord_cont <- as.data.frame(scores(fit2, "vectors")) %>% 
-  cbind( stand= fit2$vectors$arrows)
-coord_cont
-# stand.NMDS1 and stand.NMDS2 are all the same lenght arrows for the posthoc plottig
-
-coord_cont_ <- coord_cont  %>% 
-  mutate(Variables = rownames(scores(fit2, "vectors"))) %>% 
-  mutate(Variables=recode_factor(Variables, 
-                                 Grazing_int_log="Grazing.intens",
-                                 Manuring_freq="Manuring"))  
-
-# rescale  all arrows to fill an ordination plot, where fill =  shows proportion of plot to be filled by the arrows
-
-coord_cont_standrd  <- coord_cont_%>% 
-  mutate(stand.NMDS1=stand.NMDS1 * ordiArrowMul(fit2, rescale=TRUE, fill = 0.4))%>% 
-  mutate(stand.NMDS2=stand.NMDS2 * ordiArrowMul(fit2, rescale=TRUE, fill = 0.4))
-
-coord_cont_standrd
+coord_cont_exp_stnd
 
 
 
-p3 + geom_segment(aes(x = 0, y = 0, xend = stand.NMDS1, yend = stand.NMDS2), 
-                  data = coord_cont_standrd, linewidth =0.7, alpha = 1, 
+
+
+p4 <- p3 + geom_segment(aes(x = 0, y = 0, xend = stand.NMDS1, yend = stand.NMDS2), 
+                  data = coord_cont_exp_stnd, linewidth =0.7, alpha = 1, 
                   colour = "black", 
                   arrow = arrow(length = unit(0.031, "npc"))) +
-  geom_text(data = coord_cont_standrd, 
+  geom_text(data = coord_cont_exp_stnd, 
             aes(x =stand.NMDS1, y = stand.NMDS2, label = Variables), 
             colour = "black", fontface = "bold", size = 5 ,
             vjust=c(-1,1),
             hjust=0.5)
 
+p4
+
+ggsave("results/Fig_5.png", p4, width = 20, height = 20, 
+       units = "cm")
 
 
+
+
+
+## 4.2. Field data ----
