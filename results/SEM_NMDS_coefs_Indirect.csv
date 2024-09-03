@@ -1,0 +1,17 @@
+Variable,Effect_type,Std.Estimate,Std.Est
+Grazing intensity,Direct effect,0.5723,0.5723
+Grazing intensity,Indirect through soil properties,0.19773193,0.19773193
+Grazing intensity,Indirect through seed dispersal,0.09882911999999999,0.09882911999999999
+Grazing intensity,Total effect,0.8688610499999999,0.8688610499999999
+Manuring friequency,Direct effect,0.4956,0.4956
+Manuring friequency,Indirect through soil properties,0.015048920000000002,0.015048920000000002
+Manuring friequency,Indirect through seed dispersal,0.03131702,0.03131702
+Manuring friequency,Total effect,0.54196594,0.54196594
+Mowing friequency,Direct effect,1.8879000000000001,1.8879000000000001
+Mowing friequency,Indirect through soil properties,0.22323827000000002,0.22323827000000002
+Mowing friequency,Indirect through seed dispersal,0,NA
+Mowing friequency,Total effect,2.11113827,2.11113827
+Seed dispersal,Direct effect,0.5462,0.5462
+Seed dispersal,Indirect through soil properties,0,NA
+Seed dispersal,Indirect through seed dispersal,0,NA
+Seed dispersal,Total effect,0.5462,0.5462

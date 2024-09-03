@@ -1,4 +1,4 @@
-# Purpose:  Perform Structural Equation Modelling for Species richness (as main response)
+# Purpose:  Perform Structural Equation Modelling for Species richness (as main responce)
 
 # load packages ----
 library(tidyverse)
@@ -11,11 +11,14 @@ library(emmeans)
 library(multcomp)
 library(piecewiseSEM)
 library(sjPlot)
-
+       
 
 # data ----
 
 ## soil PC data
+Soil_PC <- read_csv("data/soil_PC.csv") %>% 
+  mutate(PC1_soil_log= log(PC1_soil +10),
+         PC2_soil_log= log(PC2_soil +10))
 
 Soil_PC2 <- read_csv("data/soil_PC2.csv")
 
@@ -54,7 +57,7 @@ SEM.dat <- Dat %>% filter(!Parcel_name=="Brade_1") %>%  # extrime outlyer
   #  filter(!Mowing_frequency==3) %>% 
   mutate(Mowing_frq_scal=scale(Mowing_frequency, center=T, scale=T)) %>% 
   mutate(Mowing_frq_sqrd=Mowing_frq_scal^2,
-         SR_Exper_log = log1p(SR_Exper))
+         SR_Exper_log = log1p(SR_Exper)) 
 
 
 
@@ -85,7 +88,7 @@ m1_SR_field <- glmer(Plant_SR_vascular ~
 
 check_convergence(m1_SR_field)
 check_collinearity(m1_SR_field)
-check_overdispersion(m1_SR_field) # low overdispersion
+check_overdispersion(m1_SR_field)
 
 
 Anova(m1_SR_field)
@@ -99,11 +102,10 @@ hist(ranef(m1_SR_field)$`Farm`[,1])
 ## mod 2: Species Richness (experiment data) ----
 
 m1_SR_exp <- lmer (SR_Exper_log ~   
-                     #  abundance_Exper +
-                     Grazing_int_log  +  
-                     Manuring_freq +                      
+                   abundance_Exper +
+                   Grazing_int_log  +  
+                   Manuring_freq + 
                      PC1_soil_2 +
-                     humus_log +
                      (1|Farm), data = SEM.dat) 
 
 
@@ -127,10 +129,10 @@ plot_model(m1_SR_exp, type = "pred", terms = c("Grazing_int_log"),
 
 ## mod 3: Abundance (Experiment data) ----
 m1_Abund_exp <- glmer (abundance_Exper ~ 
-                         Grazing_int_log  + 
-                         Manuring_freq + 
-                         PC1_soil_2 +
-                         # humus_log + 
+                        Grazing_int_log  + 
+                        Manuring_freq + 
+                        humus_log + #  PC1_soil + 
+                        PC1_soil_2 +
                          (1|Farm), family = "poisson", 
                        data = SEM.dat) 
 
@@ -148,9 +150,9 @@ check_overdispersion(m1_Abund_exp)
 # high overdispersion, use negative binomial
 m2_Abund_exp <- glmer.nb(abundance_Exper ~
                            Grazing_int_log  +   
-                           Manuring_freq + 
-                         #  humus_log +
-                           PC1_soil_2 +
+                          Manuring_freq + 
+                          humus_log + 
+                          PC1_soil_2 +
                            (1|Farm),
                          data=SEM.dat) 
 
@@ -164,12 +166,20 @@ check_overdispersion(m2_Abund_exp)
 summary(m2_Abund_exp)
 
 
+m3_Abund_exp <- glm(abundance_Exper ~
+                           Grazing_int_log  +   
+                           Manuring_freq + 
+                           humus_log + 
+                           PC1_soil_2, family=quasipoisson,
+                         data=SEM.dat) 
+Anova(m3_Abund_exp)
+
 ## mod 4: Soil humus ----
 m1_humus <- lmer(humus_log ~   
-                   Grazing_int_log  +  
-                 Mowing_frequency +
+                     Grazing_int_log  +  
+                     Mowing_frequency +
                    Manuring_freq +  
-                   (1|Farm), data = SEM.dat) 
+                     (1|Farm), data = SEM.dat) 
 
 check_collinearity(m1_humus)
 
@@ -177,9 +187,9 @@ ranef(m1_humus) # random effects are zeros
 hist(ranef(m1_humus)$`Farm`[,1])
 
 # Remove random effects
-m2_humus <- lm(humus_log ~    
-                 Grazing_int_log  +  
-                 Mowing_frequency +
+m2_humus <- lm(humus_log ~   
+                   Grazing_int_log  +  
+                   Mowing_frequency +
                  Manuring_freq, data = SEM.dat)
 
 Anova(m2_humus)
@@ -194,10 +204,10 @@ summary(m2_humus)
 ## mod 5:  Soil PC ----
 
 m1_Soil_PC2 <- lmer(PC1_soil_2 ~   
-                      Grazing_int_log  +  
-                      Mowing_frequency +
-                      Manuring_freq +  
-                      (1|Farm), data = SEM.dat) 
+                     Grazing_int_log  +  
+                     Mowing_frequency +
+                     Manuring_freq +  
+                     (1|Farm), data = SEM.dat) 
 
 check_collinearity(m1_Soil_PC2)
 
@@ -211,9 +221,9 @@ ranef(m1_Soil_PC2) # random effects
 hist(ranef(m1_Soil_PC2)$`Farm`[,1])
 
 m2_Soil_PC2 <- lm(PC1_soil_2 ~   
-                    Grazing_int_log  +  
-                    Mowing_frequency +
-                    Manuring_freq, data = SEM.dat) 
+                      Grazing_int_log  +  
+                      Mowing_frequency +
+                      Manuring_freq, data = SEM.dat) 
 
 
 
@@ -226,17 +236,14 @@ Anova(m2_Soil_PC2)
 psem_model <- psem (m1_SR_field, 
                     m1_SR_exp, 
                     m2_Abund_exp,
-                    m1_humus,
-                    m1_Soil_PC2,
-                    Mowing_frequency %~~% Mowing_frq_sqrd,
-                    abundance_Exper %~~% SR_Exper_log,
-                    humus_log %~~%  PC1_soil_2)
-
+                    m2_humus,
+                    m2_Soil_PC2,
+                  Mowing_frequency %~~% Mowing_frq_sqrd,
+                   humus_log %~~%  PC1_soil_2)
 
 
 
 summary(psem_model, .progressBar =F,  conserve = TRUE)
-
 
 coefic <- coefs(psem_model) 
 coefic
@@ -260,15 +267,15 @@ plot(psem_model, digits=2, layout = "dot",
 
 # (3) Indirect effects ------
 
-Coefs <- coefic[1:21,]  %>%   
+Coefs <- coefic[1:22,]  %>%   
   dplyr::select(Response, Predictor, Std.Estimate) %>% 
   mutate(coefs=c("a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", 
-                  "b2", "b3", "b4", "b5",
-                 "c1", "c2", "c3", 
+                 "b1", "b2", "b3", "b4", "c1",
+                 "c2", "c3", "c4", 
                  "d1", "d2", "d3", 
                  "e1", "e2", "e3")) %>% 
   relocate(coefs)
-
+  
 
 Coefs
 
@@ -278,8 +285,8 @@ library(zeallot)
 Coefs$Std.Estimate
 # assign letters to the coefficients
 c(a1,a2,a3,a4,a5,a6,a7,a8, 
-  b2,b3,b4,b5,
-  c1,c2,c3,
+  b1,b2,b3,b4,
+  c1,c2,c3,c4, 
   d1,d2,d3, 
   e1,e2,e3) %<-%   
   Coefs$Std.Estimate
@@ -327,73 +334,13 @@ mowing_Indir_soil <- mowing_Indir3 + mowing_Indir4
 
 ## seed dispersal ----
 # direct effect
-seed_Direct <- a1#+a2
+seed_Direct <- a1+a2
 # indirect
 
-Direct = c(grazing_Direct, manur_Direct, mowing_Direct,  seed_Direct)
-Indirect_soil = c(grazing_Indir_soil, manur_Indir_soil, mowing_Indir_soil,  0)
-Indirect_seed = c(grazing_Indir_seed,manur_Indir_seed, 0,  0)
-Variable = c("Grazing", "Manuring", "Mowing",  "Dispersal")
+Direct = c(grazing_Direct, mowing_Direct, manur_Direct, seed_Direct)
+Indirect_soil = c(grazing_Indir_soil, mowing_Indir_soil, manur_Indir_soil, 0)
+Indirect_seed = c(grazing_Indir_seed, 0, manur_Indir_seed, 0)
+Variable = c("Grazing", "Mowing", "Manuring", "Dispersal")
 
-Coefs_summar <- tibble(Variable, Direct, Indirect_soil, Indirect_seed) %>% 
-  mutate(Total=Direct + Indirect_soil + Indirect_seed) %>% 
-  mutate(Variable = factor(Variable, levels=c("Grazing", "Manuring", "Mowing",
-                                              "Dispersal"))) %>% 
-  mutate(Variable = fct_recode(Variable, "Grazing intensity" = "Grazing", 
-                               "Manuring friequency" = "Manuring", 
-                               "Mowing friequency" ="Mowing",
-                               "Seed dispersal" = "Dispersal")) %>% 
-  arrange(Variable)%>% 
-  pivot_longer(-Variable, names_to = "Effect_type", values_to = "Std.Estimate") %>% 
-  mutate(Std.Est=case_when (Std.Estimate==0 ~ NA,
-                            .default=Std.Estimate)) %>%
-  mutate(Effect_type=fct_recode(Effect_type,
-                                "Indirect through soil properties" ="Indirect_soil",
-                                "Indirect through seed dispersal" ="Indirect_seed",
-                                "Direct effect" = "Direct",
-                                "Total effcet" = "Total")) %>% 
-  mutate(Effect_type=fct_relevel(Effect_type, 
-                                 c("Indirect through soil properties", 
-                                   "Indirect through seed dispersal" ,
-                                   "Direct effect" ,
-                                   "Total effcet")))
-
-
+Coefs_summar <- tibble(Variable, Direct, Indirect_soil, Indirect_seed)
 Coefs_summar
-
-write_csv(Coefs_summar, "results/SEM_SR_coefs_Indirect.csv")
-
-
-
-plot <- ggplot(Coefs_summar, aes(y =Effect_type , x = Std.Est, 
-                                     color = Effect_type)) +
-  geom_vline(xintercept = 0, color = "black", linetype = "dashed") +
-  geom_point(position = position_dodge(width = dodge_width), size = 4) +
-  geom_errorbarh(aes(xmin = 0, xmax = Std.Estimate),
-                 position = position_dodge(width = dodge_width), height = 0.1
-  ) +
-  facet_wrap(~Variable) +
-  #  MetBrewer::scale_color_met_d("Kandinsky") +
-  theme_bw()+
-  labs(y="Effect type", color="Effect type",
-       x="Standardised effect strength and direction", title="Effects on plant species richness")
-
-plot
-
-
-
-plot2 <- ggplot(Coefs_summar, aes(y =Effect_type , x = Std.Est, 
-                                 color = Effect_type, fill = Effect_type)) +
-  geom_vline(xintercept = 0, color = "black", linetype = "dashed") +
-  geom_col(position = position_dodge(width = 0.8), width = 0.8) +
-#  geom_point(position = position_dodge(width = dodge_width), size = 4) +
- # geom_errorbarh(aes(xmin = 0, xmax = Std.Estimate),
- #                position = position_dodge(width = dodge_width), height = 0.1
- # ) +
-  facet_wrap(~Variable) +
-  #  MetBrewer::scale_color_met_d("Kandinsky") +
-  theme_bw()+
-  labs(y="Effect type", color="Effect type", fill="Effect type",
-       x="Standardised effec size and direction", title="Effects on plant species richness")
-
-plot2

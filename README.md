@@ -43,7 +43,7 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 - `03_Prepare_data.R`: prepares the data for analysis. It reads in the raw data, renames and filters the variables, join the data sets.
 - `04_Summary_Statistics.R`: summarises data and calculates summary statistics.
 - `05_GLMMs.R`: performs the GLMM analysis
-- `06_SEM.R`: performs the SEM analysis
+- `06_SEM.R`: performs the SEM analysis, calculates direct & indirect effects
     
 
 ## Data files
