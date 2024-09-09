@@ -1,0 +1,22 @@
+"","variab_group","predictor","Chisq","Df","Pr(>Chisq)"
+"1","Management type/stability/legacy","Habitat type",0.839316647712115,1,0.359592283058742
+"2","Management type/stability/legacy","Management stability",0.66053836745542,1,0.416369943656437
+"3","Management type/stability/legacy","Grazing legacy",5.53523316974286,1,0.0186372818090876
+"4","Mowing","Mowing frequency",8.76851823396958,2,0.012472125097804
+"5","Mowing","Mowing delay",4.77240011065316,2,0.0919785339924797
+"6","Grazing","Grazing intensity",8.12521805165709,1,0.00436537333583555
+"7","Grazing","Grazing intensity",1.71761818032503,1,0.189999926351669
+"8","Grazing","Grazer type",6.67070769096574,2,0.0356019863802448
+"9","Grazing","Grazing type",0.706550496921268,2,0.702383836698073
+"10","Grazing","Grazing season",0.0869582374410985,2,0.957452546716419
+"11","Corralling","Corralling",5.76561610963165,1,0.0163427538771497
+"12","Manuring/dung ","Manuring frequency",3.24268773442381e-07,1,0.999545647834361
+"13","Manuring/dung ","Cow-dung application",0.00209301212272325,1,0.963509950101532
+"14","Cleaning","Litter removal",5.0961891758808,1,0.0239784679769042
+"15","Cleaning","Anthill leveling",4.93518450252217,1,0.0263152531773302
+"16","Cleaning","Shrub/tree removal",3.37506204582516,1,0.0661900873949131
+"17","Cleaning","Moss removal",0.477040120783059,1,0.48976608802491
+"18","Burning","Burning",0.267087923303288,1,0.605291941301731
+"19","Ploughing","Ploughing",3.20453929509299,1,0.0734341876545598
+"20","Soil","Humus",12.0819390490791,1,0.000509126191458887
+"21","Soil","Soil NPK",13.2124576259014,1,0.000278094473651613

@@ -17,7 +17,9 @@ library(sjPlot)
 
 ## soil PC data
 
-Soil_PC2 <- read_csv("data/soil_PC2.csv")
+Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>% 
+  mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
+
 
 # Biodiversity, NMDS and envoronmental data
 Data <- read_csv("data/Panoara_Dat.csv") %>%
@@ -36,8 +38,7 @@ Data <- read_csv("data/Panoara_Dat.csv") %>%
 
 # join with soil PC
 Dat <- Data %>% 
-  left_join(Soil_PC, by="Parcel_name")  %>% 
-  left_join(Soil_PC2, by="Parcel_name")
+  left_join(Soil_PC, by="Parcel_name")
 
 # Data wrangling
 SEM.dat <- Dat %>% filter(!Parcel_name=="Brade_1") %>%  # extrime outlyer
@@ -77,7 +78,7 @@ m1_SR_field <- glmer(Plant_SR_vascular ~
                        Mowing_frq_sqrd +
                        Manuring_freq + 
                        humus_log + 
-                       PC1_soil_2 +
+                       soil_NPK +
                        (1|Farm),  family = "poisson", 
                      data = SEM.dat) 
 
@@ -102,8 +103,8 @@ m1_SR_exp <- lmer (SR_Exper_log ~
                      #  abundance_Exper +
                      Grazing_int_log  +  
                      Manuring_freq +                      
-                     PC1_soil_2 +
-                     humus_log +
+                  #   soil_NPK +
+                  #   humus_log +
                      (1|Farm), data = SEM.dat) 
 
 
@@ -129,8 +130,8 @@ plot_model(m1_SR_exp, type = "pred", terms = c("Grazing_int_log"),
 m1_Abund_exp <- glmer (abundance_Exper ~ 
                          Grazing_int_log  + 
                          Manuring_freq + 
-                         PC1_soil_2 +
-                         # humus_log + 
+                       #  soil_NPK +
+                      #   humus_log + 
                          (1|Farm), family = "poisson", 
                        data = SEM.dat) 
 
@@ -149,8 +150,8 @@ check_overdispersion(m1_Abund_exp)
 m2_Abund_exp <- glmer.nb(abundance_Exper ~
                            Grazing_int_log  +   
                            Manuring_freq + 
-                         #  humus_log +
-                           PC1_soil_2 +
+                      #   humus_log +
+                      #     soil_NPK +
                            (1|Farm),
                          data=SEM.dat) 
 
@@ -193,7 +194,7 @@ summary(m2_humus)
 
 ## mod 5:  Soil PC ----
 
-m1_Soil_PC2 <- lmer(PC1_soil_2 ~   
+m1_Soil_PC2 <- lmer(soil_NPK ~   
                       Grazing_int_log  +  
                       Mowing_frequency +
                       Manuring_freq +  
@@ -210,7 +211,7 @@ qqline(resid(m1_Soil_PC2))
 ranef(m1_Soil_PC2) # random effects 
 hist(ranef(m1_Soil_PC2)$`Farm`[,1])
 
-m2_Soil_PC2 <- lm(PC1_soil_2 ~   
+m2_Soil_PC2 <- lm(soil_NPK ~   
                     Grazing_int_log  +  
                     Mowing_frequency +
                     Manuring_freq, data = SEM.dat) 
@@ -230,24 +231,23 @@ psem_model <- psem (m1_SR_field,
                     m1_Soil_PC2,
                     Mowing_frequency %~~% Mowing_frq_sqrd,
                     abundance_Exper %~~% SR_Exper_log,
-                    humus_log %~~%  PC1_soil_2)
+                    humus_log %~~%  soil_NPK)
 
 
 
 
-summary(psem_model, .progressBar =F,  conserve = TRUE)
-
+# summary(psem_model, .progressBar =F,  conserve = TRUE)
 
 coefic <- coefs(psem_model) 
 coefic
 
+#Fisher C statistic as global goodness of model fit:
+fisherC(psem_model, .progressBar =F,  conserve = TRUE)
 
 write_csv(coefic, "results/SEM_SR_coefs.csv")
 
-#Fisher C statistic:
-fisherC(psem_model)
-#Compare the fitted sub model to fully saturated sub model (Chi squared statistic):
-LLchisq(psem_model)
+
+
 
 
 plot(psem_model)
@@ -260,11 +260,11 @@ plot(psem_model, digits=2, layout = "dot",
 
 # (3) Indirect effects ------
 
-Coefs <- coefic[1:21,]  %>%   
+Coefs <- coefic[1:18,]  %>%   
   dplyr::select(Response, Predictor, Std.Estimate) %>% 
   mutate(coefs=c("a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", 
-                  "b2", "b3", "b4", "b5",
-                 "c1", "c2", "c3", 
+                  "b2", "b3", # "b4", "b5",
+                 "c1", "c2", # "c3", 
                  "d1", "d2", "d3", 
                  "e1", "e2", "e3")) %>% 
   relocate(coefs)
@@ -278,14 +278,14 @@ library(zeallot)
 Coefs$Std.Estimate
 # assign letters to the coefficients
 c(a1,a2,a3,a4,a5,a6,a7,a8, 
-  b2,b3,b4,b5,
-  c1,c2,c3,
+  b2,b3, # b4,b5,
+  c1,c2,# c3,
   d1,d2,d3, 
   e1,e2,e3) %<-%   
   Coefs$Std.Estimate
 
 a1
-b1
+
 
 
 
@@ -363,7 +363,8 @@ Coefs_summar
 
 write_csv(Coefs_summar, "results/SEM_SR_coefs_Indirect.csv")
 
-
+## > Plot effects----
+dodge_width <- 0.5
 
 plot <- ggplot(Coefs_summar, aes(y =Effect_type , x = Std.Est, 
                                      color = Effect_type)) +
@@ -374,6 +375,7 @@ plot <- ggplot(Coefs_summar, aes(y =Effect_type , x = Std.Est,
   ) +
   facet_wrap(~Variable) +
   #  MetBrewer::scale_color_met_d("Kandinsky") +
+  scale_color_manual(values = c("#BC7B3A", "#C77CFF","#00BFC4","gray37"))+
   theme_bw()+
   labs(y="Effect type", color="Effect type",
        x="Standardised effect strength and direction", title="Effects on plant species richness")
@@ -385,15 +387,17 @@ plot
 plot2 <- ggplot(Coefs_summar, aes(y =Effect_type , x = Std.Est, 
                                  color = Effect_type, fill = Effect_type)) +
   geom_vline(xintercept = 0, color = "black", linetype = "dashed") +
-  geom_col(position = position_dodge(width = 0.8), width = 0.8) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.8,size=0.5) +
 #  geom_point(position = position_dodge(width = dodge_width), size = 4) +
  # geom_errorbarh(aes(xmin = 0, xmax = Std.Estimate),
  #                position = position_dodge(width = dodge_width), height = 0.1
  # ) +
   facet_wrap(~Variable) +
   #  MetBrewer::scale_color_met_d("Kandinsky") +
+  scale_color_manual(values = c("#BC7B3A", "#A021FF","#719E00","gray22"))+
+  scale_fill_manual(values = c("#DFBA95", "#E6C5FF","#C4E0B2","gray77"))+
   theme_bw()+
-  labs(y="Effect type", color="Effect type", fill="Effect type",
-       x="Standardised effec size and direction", title="Effects on plant species richness")
+  labs(y=" ", color="", fill="",
+       x="Standardised effec size and direction") #, title="Effects on plant species richness")
 
 plot2

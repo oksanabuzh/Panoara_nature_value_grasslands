@@ -42,9 +42,12 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 - `02_PCA_variables.R`: performs PCA for soil data
 - `03_Prepare_data.R`: prepares the data for analysis. It reads in the raw data, renames and filters the variables, join the data sets.
 - `04_Summary_Statistics.R`: summarises data and calculates summary statistics.
-- `05_GLMMs.R`: performs the GLMM analysis
-- `06_SEM.R`: performs the SEM analysis, calculates direct & indirect effects
-    
+- `05_GLMMs.R`: performs the GLMM analysis for plant species richness (field data).
+- `06.1_SEM_SpRich.R`: performs the SEM analysis, calculates direct & indirect effects 
+for species richness 
+- `06.2_SEM_NMDS.R`: performs the SEM analysis, calculates direct & indirect effects
+for community composition (NMDS)
+
 
 ## Data files
 

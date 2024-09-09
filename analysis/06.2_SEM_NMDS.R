@@ -17,7 +17,9 @@ library(sjPlot)
 
 ## soil PC data
 
-Soil_PC2 <- read_csv("data/soil_PC2.csv")
+Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>% 
+  mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
+
 
 # Biodiversity, NMDS and envoronmental data
 Data <- read_csv("data/Panoara_Dat.csv") %>%
@@ -36,8 +38,7 @@ Data <- read_csv("data/Panoara_Dat.csv") %>%
 
 # join with soil PC
 Dat <- Data %>% 
-  left_join(Soil_PC, by="Parcel_name")  %>% 
-  left_join(Soil_PC2, by="Parcel_name")
+   left_join(Soil_PC, by="Parcel_name")
 
 # Data wrangling
 SEM.dat <- Dat %>% filter(!Parcel_name=="Brade_1") %>%  # extrime outlyer
@@ -77,7 +78,7 @@ m1_NMDS1_field <- lmer(NMDS1_VP_field ~
                          Mowing_frq_sqrd +
                          Manuring_freq + 
                          humus_log + 
-                         PC1_soil_2 +
+                         soil_NPK +
                          (1|Farm), data = SEM.dat) 
 
 
@@ -106,7 +107,7 @@ m1_NMDS2_field <- lmer(NMDS2_VP_field ~
                          Mowing_frq_sqrd +
                          Manuring_freq + 
                          humus_log + 
-                         PC1_soil_2 +
+                         soil_NPK +
                          (1|Farm), data = SEM.dat) 
 
 
@@ -130,18 +131,19 @@ summary(m1_NMDS2_field)
 m1_NMDS1_exp <- lmer (NMDS1_exper ~   
                         Grazing_int_log  +  
                         Manuring_freq + 
-                        humus_log +
-                        PC1_soil_2 + 
+                    #  humus_log +
+                     #  soil_NPK + 
                         (1|Farm), data = SEM.dat) 
+
 
 ranef(m1_NMDS1_exp) # random effects are not zeros
 hist(ranef(m1_NMDS1_exp)$`Farm`[,1])
 
 m2_NMDS1_exp <- lm (NMDS1_exper ~   
                       Grazing_int_log  +  
-                      Manuring_freq + 
-                      humus_log +
-                      PC1_soil_2,
+                      Manuring_freq ,
+                   #   humus_log +
+                   #   soil_NPK,
                     data = SEM.dat)
 
 check_collinearity(m2_NMDS1_exp)
@@ -158,8 +160,8 @@ par(mfrow = c(1, 1))
 m1_NMDS2_exp <- lmer (NMDS2_exper ~ 
                         Grazing_int_log  +  
                         Manuring_freq + 
-                        humus_log +
-                        PC1_soil_2 +
+                    #    humus_log +
+                     #  soil_NPK +
                         (1|Farm), data = SEM.dat) 
 
 ranef(m1_NMDS2_exp) # random effects are not zeros
@@ -168,9 +170,9 @@ hist(ranef(m1_NMDS2_exp)$`Farm`[,1])
 
 m2_NMDS2_exp <- lm(NMDS2_exper ~   
                      Grazing_int_log  +  
-                     Manuring_freq + 
-                     humus_log +
-                     PC1_soil_2,
+                     Manuring_freq , 
+                  #   humus_log +
+                   #  soil_NPK,
                    data = SEM.dat)
 
 check_collinearity(m2_NMDS2_exp)
@@ -210,7 +212,7 @@ summary(m2_humus)
 
 ## mod 6:  Soil PC ----
 
-m1_Soil_PC2 <- lmer(PC1_soil_2 ~   
+m1_Soil_PC2 <- lmer(soil_NPK ~   
                       Grazing_int_log  +  
                       Mowing_frequency +
                       Manuring_freq +  
@@ -227,7 +229,7 @@ qqline(resid(m1_Soil_PC2))
 ranef(m1_Soil_PC2) # random effects 
 hist(ranef(m1_Soil_PC2)$`Farm`[,1])
 
-m2_Soil_PC2 <- lm(PC1_soil_2 ~   
+m2_Soil_PC2 <- lm(soil_NPK ~   
                     Grazing_int_log  +  
                     Mowing_frequency +
                     Manuring_freq, data = SEM.dat) 
@@ -245,25 +247,21 @@ psem_model <- psem (m1_NMDS1_field, m1_NMDS2_field,
                     m2_humus,
                     m2_Soil_PC2,
                     Mowing_frequency %~~% Mowing_frq_sqrd,
-                    humus_log %~~%  PC1_soil_2)
+                    humus_log %~~%  soil_NPK)
 
 
-summary(psem_model, .progressBar =F,  conserve = TRUE)
+# summary(psem_model, .progressBar =F,  conserve = TRUE)
 
 
 coefic <- coefs(psem_model) 
 coefic
 
+#Fisher C statistic as global goodness of model fit:
+fisherC(psem_model, .progressBar =F,  conserve = TRUE)
 
 write_csv(coefic, "results/SEM_NMDS_coefs.csv")
 
-#Fisher C statistic:
-fisherC(psem_model)
-#Compare the fitted sub model to fully saturated sub model (Chi squared statistic):
-LLchisq(psem_model)
 
-
-plot(psem_model)
 
 plot(psem_model, digits=2, layout = "dot", 
      node_attrs = list(shape = "rectangle", 
@@ -273,12 +271,12 @@ plot(psem_model, digits=2, layout = "dot",
 
 # (3) Indirect effects ------
 
-Coefs <- coefic[1:30,]  %>%   
+Coefs <- coefic[1:26,]  %>%   
   dplyr::select(Response, Predictor, Std.Estimate) %>% 
   mutate(coefs=c("a1.1", "a1.2", "a1.3", "a1.4", "a1.5", "a1.6", "a1.7", "a1.8", 
                  "a2.1", "a2.2", "a2.3", "a2.4", "a2.5", "a2.6", "a2.7", "a2.8", 
-                 "b1", "b2", "b3", "b4",
-                 "c1", "c2", "c3", "c4",
+                 "b1", "b2", # "b3", "b4",
+                 "c1", "c2", # "c3", "c4",
                  "d1", "d2", "d3", 
                  "e1", "e2", "e3")) %>% 
   relocate(coefs)
@@ -293,8 +291,8 @@ Coefs$Std.Estimate
 # assign letters to the coefficients
 c(a1.1,a1.2,a1.3,a1.4,a1.5,a1.6,a1.7,a1.8, 
   a2.1,a2.2,a2.3,a2.4,a2.5,a2.6,a2.7,a2.8, 
-  b1,b2,b3,b4,
-  c1,c2,c3,c4,
+  b1,b2, # b3,b4,
+  c1,c2,# c3,c4,
   d1,d2,d3, 
   e1,e2,e3) %<-%   
   abs(Coefs$Std.Estimate)
@@ -439,6 +437,8 @@ write_csv(Coefs_summar_sum, "results/SEM_NMDS_coefs_Indirect.csv")
 
 dodge_width <- 0.5
 
+
+
 plot <- ggplot(Coefs_summar_sum, aes(y =Effect_type , x = Std.Est, 
                                      color = Effect_type)) +
   geom_vline(xintercept = 0, color = "black", linetype = "dashed") +
@@ -447,9 +447,28 @@ plot <- ggplot(Coefs_summar_sum, aes(y =Effect_type , x = Std.Est,
                  position = position_dodge(width = dodge_width), height = 0.1
   ) +
  facet_wrap(~Variable) +
+  scale_color_manual(values = c("#BC7B3A", "#A021FF","#7CAE00","black"))+
 #  MetBrewer::scale_color_met_d("Kandinsky") +
   theme_bw()+
   labs(y="Effect type", color="Effect type",
        x="Standardised effect size (absolute value)", title="Effects on community composition")
 
 plot
+
+plot2 <- ggplot(Coefs_summar_sum, aes(y =Effect_type , x = Std.Est, 
+                                  color = Effect_type, fill = Effect_type)) +
+  geom_vline(xintercept = 0, color = "black", linetype = "dashed") +
+  geom_col(position = position_dodge(width = 0.8), width = 0.8,size=0.5) +
+  #  geom_point(position = position_dodge(width = dodge_width), size = 4) +
+  # geom_errorbarh(aes(xmin = 0, xmax = Std.Estimate),
+  #                position = position_dodge(width = dodge_width), height = 0.1
+  # ) +
+  facet_wrap(~Variable) +
+  #  MetBrewer::scale_color_met_d("Kandinsky") +
+  scale_color_manual(values = c("#BC7B3A", "#A021FF","#719E00","gray22"))+
+  scale_fill_manual(values = c("#DFBA95", "#E6C5FF","#C4E0B2","gray77"))+
+  theme_bw()+
+  labs(y=" ", color=" ", fill=" ",
+       x="Standardised effect size (absolute value)" )#, title="Effects on community composition")
+
+plot2
