@@ -96,6 +96,18 @@ summary(m1_SR_field)
 ranef(m1_SR_field) 
 hist(ranef(m1_SR_field)$`Farm`[,1])
 
+### Extract R2 ----
+R2_m1_SR_field=MuMIn::r.squaredGLMM(m1_SR_field)
+R2_m1_SR_field
+
+# partial R2 
+R2_part_m1_SR_field=r2glmm::r2beta(m1_SR_field,  partial = T, method = 'sgv', data=SEM.dat)
+R2_part_m1_SR_field
+plot(R2_part_m1_SR_field %>% filter(!Effect=="Model"))
+
+R2_partial <- as_tibble(R2_part_m1_SR_field) %>% mutate(responce="SR")
+
+write_csv(R2_partial, "results/SEM_SR_R2_partial.csv")
 
 ## mod 2: Species Richness (experiment data) ----
 

@@ -41,7 +41,7 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 - `01_Calculate_diversity_&_composition.R`: calculates evenness and community composition (NMDS) for each plot, performs the PERMANOVA analysis and ordination plots.
 - `02_PCA_variables.R`: performs PCA for soil data
 - `03_Prepare_data.R`: prepares the data for analysis. It reads in the raw data, renames and filters the variables, join the data sets.
-- `04_Summary_Statistics.R`: summarises data and calculates summary statistics.
+- `04_Summary_Statistics.R`: summarises data and calculates summary statistics and correlations among the measures of plant community (using GLMMs)
 - `05_GLMMs.R`: performs the GLMM analysis for plant species richness (field data).
 - `06.1_SEM_SpRich.R`: performs the SEM analysis, calculates direct & indirect effects 
 for species richness 

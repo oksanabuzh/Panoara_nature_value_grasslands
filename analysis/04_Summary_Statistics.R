@@ -1,185 +1,278 @@
-# Data wrangling and summary statistics
+# Purpose: Data wrangling and summary statistics
+## Correlations among the measures of plant community, using GLMMs
+
+rm(list = ls()) # clears working environment
+
+# dev.off() # shuts down the current graphical device
+
+# load packages
 
 library(tidyverse)
-
 library(ggplot2)
 library(sjPlot)
 library(patchwork)
-
 library(performance)
-
 library(lme4)
 library(lmerTest)
 library(car)
 library(emmeans)
 library(multcomp)
+library(piecewiseSEM)
+library(viridis)          
 
-# Read data, tidying data  ----
 
-Dat <- read_csv("data/Variables_selected.csv") %>% 
-  rename(Parcel=`Parcel name`,
-         Plant_SR_total = "number of all plants",
-         Plant_SR_vascular = "number of vascular plants_10 m2",
-         Plant_SR_cryptogams = "number of cryptogams_10 m2",
-         Plant_SR_bryophytes ="number of bryophytes_10 m2",
-         Plant_SR_lichens ="number of lichens_10 m2",
-         Mowing_method=`Mowing (N no, H hand, M mowing machine, T tractor)`,
-         Mowing_frequency="Mowing frequency per year",
-         Mowing_delay="Date of the first cut",
-         Grazer_type_specific="Grazing animal numbers (C cow, S sheep, G goar, H horse)",
-         Grazing_season = "Grazing season (No, A, SA, W=whole season)") %>% 
-  mutate(Mowing_method=case_when(Mowing_method=="M, T" ~ "M_T" ,
-                                 Mowing_method=="T, M"~ "M_T" ,
-                                 Mowing_method=="No"~ "no" ,
-                                 .default =Mowing_method),
-         ownership=factor(ownership),
-         Farm=factor(Farm),
-         Parcel_name=Parcel) %>% 
-  rename(Livestock_units = "Livestock units (cow and horse: 1, sheep and goat: 0.2)",
-         Grazing_duration = "Duration of grazing in weeks (S-1, A-3, W-10 and communal pasture 15)",
-         Grazing_intensity_A =  "Grazing intensity A - recent (number of animals x number of weeks)",
-         Grazing_intensity_B =  "Grazing intensity B - cummulative (livestock unit x number of weeks) x number of years category x grazing type category)/100",
-         Grazing_type ="Grazing type category: fencing, herding, free grazing (categories: F/R - 1, H - 2, F - 3)",
-         Grazing_age ="Years with applied grazing",
-         Manuring_freq = "Manuring frequency",                                                           
-         Cow_dung_applie = "Cow dung applied" ,                                                              
-         Last_ploughing = "Last ploughing (years ago)",                                                     
-         Crops_planted = "Crops planted",                                                                  
-         Cleaning = "Cleaning (regular, irregular, no)",                                              
-         Shrub_tree_removal = "Removing shrubs and trees",                                                      
-         Litter_removal = "Removing litter",                                                                
-         Moss_removal = "Removing moss",                                                                  
-         Anthill_leveling = "Leveling anthills",                                                              
-         Molehill_leveling = "Leveling molehills",                                                             
-         Burning = "Cleaning by burning",                                                            
-         Corralling = "Corralling (1, 0)",                                                              
-         Management_stability ="Management stability (since how many years it is the same)"     
-         
-         ) %>%
+# set thepe for plots
+set_theme(base = theme_bw(),
+          axis.textsize.x = 1, axis.textsize.y = 1, axis.textcolor = "black",
+          axis.title.color = "black", axis.title.size = 1.4,
+          geom.linetype = 1) #legend.pos = "None", 
+
+
+
+
+# (1) Summary for plant community ----
+
+## field data ----
+Community_VP_field <- read_csv("data/Community_composition_VegetationPlots.csv") %>% 
+  rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
+  filter(layer == "VP") %>% # only for vascular plants 
+  dplyr::select(-layer) %>% 
+  pivot_longer(!Plot_Parcel, names_to = "Parcel_name", values_to = "cover") %>% 
+  rename(Species="Plot_Parcel") %>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
+  filter(!is.na(cover))
+
+Community_VP_field %>% pull(Parcel_name)%>% unique()
+
+str(Community_VP_field)
+
+
+Community_VP_field %>% 
+  group_by(Parcel_name) %>% 
+  count() # species number in each parcel
+
+
+Community_VP_field %>% 
+  dplyr::select(Species) %>%
+  distinct()
   
-  separate_wider_delim(Parcel, " ", names=c("Farm_name", NA)) # Does this makes sense?
+Sp.occur <- Community_VP_field %>% 
+  group_by(Species) %>% 
+  count() %>% 
+  mutate(fraction=round(n*100/44,0)) %>% # species occurrence (% parcels where species was found) %>% 
+  arrange(desc(fraction))
+  
+Sp.occur
+
+write_csv(Sp.occur, "results/Sp.occurances_field.csv")
+
+
+Sp.occur$Sp_ordered <- with(Sp.occur, reorder(Species, fraction))
+
+
+  ggplot(Sp.occur, aes(y =Sp_ordered , x = fraction)) +
+  geom_bar(stat="identity", color="#64ABCE", fill="#64ABCE", alpha=.6, width=.4) +
+    theme(axis.text.x = element_text(size=6), axis.text.y = element_text(size=4),
+          axis.title=element_text(size=9)) +
+ #  coord_flip() +
+  xlab("") +
+ # theme_bw() +
+  labs(y=" ", color="", fill="",
+       x="% parcels, where species occures")
+
+## experiment data ----
+
+Community_exper <- read_csv("data/Community_composition_DungExperiment.csv") %>% 
+    rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
+    filter(layer == "VP") %>% # only for vascular plants 
+    dplyr::select(-layer) %>% 
+    pivot_longer(!Plot_Parcel, names_to = "Parcel_name", values_to = "abundance") %>% 
+    rename(Species="Plot_Parcel") %>% 
+    mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
+    filter(!is.na(abundance)) 
+  
+Community_exper %>% pull(Parcel_name)%>% unique()
+  
+
+Sp.occur_exp <- Community_exper %>% 
+  group_by(Species) %>% 
+  count() %>% 
+  mutate(fraction=round(n*100/28,0)) %>% # species occurrence (% parcels where species was found) %>% 
+  arrange(desc(fraction))
+
+Sp.occur_exp
+
+43*100/221 # % species dispersed through zoochory via excrements and farmyard dung
+
+Sp.occur_exp$Sp_ordered <- with(Sp.occur_exp, reorder(Species, fraction))
+
+
+ggplot(Sp.occur_exp, aes(y =Sp_ordered , x = fraction)) +
+  geom_bar(stat="identity", color="#64ABCE", fill="#64ABCE", alpha=.6, width=.4) +
+  theme(axis.text.x = element_text(size=9), axis.text.y = element_text(size=9),
+        axis.title=element_text(size=11)) +
+  #  coord_flip() +
+  xlab("") +
+  # theme_bw() +
+  labs(y="Seedling species", color="", fill="",
+       x="% parcels, where species occured")
+
+#  (2) Correlations among plant community measures  -----
+
+Dat <- read_csv("data/Panoara_Dat.csv") %>%
+  mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
+  mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
+  mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
+  arrange(Mowing_delay) %>% 
+  mutate(Dung_cover_log=log(Dung_cover+1)) %>% 
+  mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
+         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper)) %>% 
+  mutate(Grazing_int_log = log1p(Grazing_intensity_A),
+         Corralling=factor(Corralling))
+# filter(!Parcel_name=="Brade_1") # extreme outlier
 
 str(Dat)
 names(Dat)
 
-# Farms & parcels ----
 
-# “Farm” should be used as a random effect. It may cover the spatial autocorrelation among data as the parcels from the same farm are more close to each other.
-Dat %>% pull(Farm) %>% unique()
+Dat <- Dat %>% 
+  mutate(zz = Plant_SR_vascular) # for predicting from the glmmPQL models
 
-## The farm names do not really group the data, the names are used by data-owners for some internal references
-Dat %>% pull(Farm_name) %>% unique() 
-
-Dat %>% pull(Parcel_name) %>% unique()
-Dat %>% pull(ownership) %>% unique()
-
-Dat %>% group_by(Farm) %>% count()
-
-Dat %>% group_by(ownership, Farm) %>% count()
-Dat %>% group_by(ownership, Farm_name) %>% count()
+#
 
 
-# Management variables ----
 
-## Habitat ----
-# habitat: the meadows are mowed, grazed and sometimes also manured, 
-#          the pastures are only grazed.
-Dat %>% pull(habitat)%>% unique()
+## Abundance ----
 
-## Mowing ----
-# Mowing_method: no, "H" - hand; "M"- mowing machine; "T" - tractor; "M_T" - mowing machine and tractor
-Dat %>% pull(Mowing_method) %>% unique()
+m1_abund <- glmer(Plant_SR_vascular ~  CoverVP_field + 
+                    (1|Farm), family = "poisson", data = Dat) 
 
-Dat %>% group_by(habitat, Mowing_method) %>% count()
+check_overdispersion(m1_abund) 
+check_convergence(m1_abund) 
 
-# Mowing_frequency
-Dat %>% pull(Mowing_frequency)
+Anova(m1_abund)
+summary(m1_abund)
 
-Dat %>% group_by(habitat, Mowing_method) %>% 
-  summarise(n = n(),
-            min_Mowing_frequency=min(Mowing_frequency),
-            max=max(Mowing_frequency),
-            mean=mean(Mowing_frequency),
-            sd=sd(Mowing_frequency)) 
-  
+# overdispersed data, use quasi
 
-Dat %>% mutate(Mowing_frequency=factor(Mowing_frequency)) %>% 
-  group_by(habitat, Mowing_method, Mowing_frequency) %>% 
-  count()
+m2_abund <- glmmPQL(Plant_SR_vascular ~  CoverVP_field, random = ~ 1 | Farm,  data = Dat,
+                    family = "quasipoisson") 
 
-# Mowing_delay
-Dat %>% pull(Mowing_delay) %>% unique()
+Anova(m2_abund)
 
-Dat %>% mutate(Mowing_frequency=factor(Mowing_frequency)) %>% 
-  group_by(Mowing_delay, Mowing_frequency, Mowing_method, habitat) %>% 
-  count()
+model_data(m2_abund)
 
+plot_model(m2_abund, type = "pred", terms = c("CoverVP_field"), show.data=T, dot.alpha=0.3, title="") 
 
-# Check of random effects & rank deficiency of fixed effects
-# we need to use Poisson for Plant_SR_total and random effects of "Farm" 
-# For now I use lm / lmer  only to see the rank deficiency of some fixed effects 
+m2_abund_pred <- get_model_data(m2_abund,type = "pred", terms="CoverVP_field[50:190, by=0.1]")
 
-m1 <- lm(
-  Plant_SR_total ~  habitat + Mowing_delay + Mowing_frequency + Mowing_method,
-    data = Dat)
-
-check_collinearity(m1)
-summary(m1)
-# Mowing_method with "no" is deficient due to  habitat "pasture" and mowing_delay "no"
-
-# check the random effects
-
-m2 <- lmer(Plant_SR_total ~ # habitat + 
-           #  Mowing_delay +  
-             Mowing_frequency +  Mowing_method + (1 | Farm), data=Dat)
-
-# random effects
-lmerTest::ranova(m2)
-
-check_collinearity(m2)
-
-summary(m2)
-car::Anova(m2)
-
-# Model assumptions
-plot(m2) 
-qqnorm(resid(m2))
-qqline(resid(m2))
-
-## Grazing ----
-
-## Grazer_type
-Dat %>% pull(Grazer_type)%>% unique()
-
-Dat %>% pull(Grazer_type_specific)%>% unique()
-
-## Grazing_type
-## Type of grazing system: fencing, herding, free grazing (categories: F/R - 1, H - 2, F - 3)"
-Dat %>% pull(Grazing_type)
+ggplot(m2_abund_pred, aes(x, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
+  geom_point(data=Dat, aes(CoverVP_field, Plant_SR_vascular, fill = Mowing_delay), 
+             fill ="#64ABCE", size=3, alpha=0.5, pch=21,
+             position=position_jitter(width=0.05, height=0))+
+  # scale_fill_manual(values=c("blue", "red", "green"))+
+  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
+  labs(y="Species richness", x="Plant cover, %")+
+  geom_line(linetype=1, linewidth=1) 
 
 
-## Grazing intensity (both below) are calculated using the variables below
+## Evenness ----
 
-## Grazing_intensity_A 
-### Grazing intensity A - recent (number of animals x number of weeks)") %>%
-Dat %>% pull(Grazing_intensity_A)
+m1_Even <- glmer(Plant_SR_vascular ~  EvennessVP_field + 
+                   (1|Farm), family = "poisson", data = Dat) 
 
-## Grazing_intensity_B
-### Grazing intensity B - cummulative (livestock unit x number of weeks) x number of years category x grazing type category)/100
-Dat %>% pull(Grazing_intensity_B)
+check_overdispersion(m1_Even) 
+check_convergence(m1_Even) 
 
-# Variables used for calculation of grazing intensity
-## Grazing_season
-### Grazing season (A = autumn, SA = summer and autumn, W = whole season)
-Dat %>% group_by(Grazing_season, Grazer_type)%>% count()
+Anova(m1_Even)
+summary(m1_Even)
 
-## Livestock units
-### Weights for grazer type: cow and horse = 1, sheep and goat = 0.2; 
-### weights are multiplied by number of each grazer type
-Dat %>% pull(Livestock_units)
 
-## Grazing_duration
-### Duration of grazing in weeks (S-1, A-3, W-10 and communal pasture 15)
-Dat %>% pull(Grazing_duration)
+plot_model(m1_Even, type = "pred", show.data=T, dot.alpha=0.3, title="") 
 
+m1_Even_pred <- get_model_data(m1_Even,type = "pred", terms="EvennessVP_field[2:30, by=0.1]")
+
+ggplot(m1_Even_pred, aes(x, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
+  geom_point(data=Dat, aes(EvennessVP_field, Plant_SR_vascular), 
+             fill ="#64ABCE", size=3, alpha=0.5, pch=21,
+             position=position_jitter(width=0.05, height=0))+
+  # scale_fill_manual(values=c("blue", "red", "green"))+
+  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
+  labs(y="Species richness", x="Evenness")+
+  geom_line(linetype=1, linewidth=1) 
+
+
+
+
+## Shannon  ----
+
+m1_Shan <- glmer(Plant_SR_vascular ~  ShannonVP_field + 
+                   (1|Farm), family = "poisson", data = Dat) 
+
+check_overdispersion(m1_Shan) 
+check_convergence(m1_Shan) 
+
+Anova(m1_Shan)
+summary(m1_Shan)
+max(Dat$ShannonVP_field)
+
+plot_model(m1_Shan, type = "pred", show.data=T, dot.alpha=0.3, title="") 
+
+m1_Shan_pred <- get_model_data(m1_Shan,type = "pred", terms="ShannonVP_field[2:3.72, by=0.1]")
+
+ggplot(m1_Shan_pred, aes(x, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
+  geom_point(data=Dat, aes(ShannonVP_field, Plant_SR_vascular), 
+             fill ="#64ABCE", size=3, alpha=0.5, pch=21,
+             position=position_jitter(width=0.05, height=0))+
+  # scale_fill_manual(values=c("blue", "red", "green"))+
+  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
+  labs(y="Species richness", x="Shannon diversity")+
+  geom_line(linetype=1, linewidth=1) 
+
+
+## Biomass ----
+
+m1_biom <- glmer(Plant_SR_vascular ~   poly(biom_log, 2) + 
+                   (1|Farm), family = "poisson", data = Dat%>% 
+                   mutate(biom_log=log1p(Biomass_dry_weight))) 
+
+check_overdispersion(m1_biom) 
+check_convergence(m1_biom) 
+
+summary(m1_biom)
+Anova(m1_biom)
+
+# overdispersed data, use quasi/nb
+
+m2_biom <- glmer.nb(Plant_SR_vascular ~  poly(biom_log, 2) +
+                      (1|Farm),
+                    data = Dat%>% 
+                      mutate(biom_log=log1p(Biomass_dry_weight))) 
+
+
+# m2_biom <- glmmPQL(Plant_SR_vascular ~ biom_log ,# poly(biom_log, 2) , 
+#                   random = ~ 1 | Farm,  data = Dat %>% mutate(biom_log=log1p(Biomass_dry_weight)),
+#                    family = "quasipoisson") 
+
+car::Anova(m2_biom)
+
+
+plot_model(m2_biom, type = "pred", show.data=T, dot.alpha=0.3, title="") 
+
+m2_biom_pred <- get_model_data(m2_biom,type = "pred", terms="biom_log")
+
+
+ggplot(m2_biom_pred, aes(x, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
+  geom_point(data=Dat%>% 
+               mutate(biom_log=log1p(Biomass_dry_weight)), aes(biom_log, Plant_SR_vascular), 
+             fill ="#64ABCE", size=3, alpha=0.5, pch=21,
+             position=position_jitter(width=0.05, height=0))+
+  # scale_fill_manual(values=c("blue", "red", "green"))+
+  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
+  labs(y="Species richness", x="Plant biomass (log)")+
+  geom_line(linetype=1, linewidth=1) 
 

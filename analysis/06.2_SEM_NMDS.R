@@ -97,6 +97,18 @@ summary(m1_NMDS1_field)
 
 
 
+### Extract R2 ----
+R2_m1_NMDS1_field=MuMIn::r.squaredGLMM(m1_NMDS1_field)
+R2_m1_NMDS1_field
+
+# partial R2 
+R2_part_m1_NMDS1_field=r2glmm::r2beta(m1_NMDS1_field,  partial = T, method = 'sgv')
+R2_part_m1_NMDS1_field
+plot(R2_part_m1_NMDS1_field %>% filter(!Effect=="Model"))
+
+R2_NMDS1_partial <- as_tibble(R2_part_m1_NMDS1_field) %>% mutate(responce="NMDS1")
+
+
 ## mod 2: NMDS 2 (field) ----
 
 m1_NMDS2_field <- lmer(NMDS2_VP_field ~   
@@ -124,6 +136,24 @@ check_collinearity(m1_NMDS2_field)
 Anova(m1_NMDS2_field)
 summary(m1_NMDS2_field)
 
+
+### Extract R2 ----
+R2_m1_NMDS2_field=MuMIn::r.squaredGLMM(m1_NMDS2_field)
+R2_m1_NMDS2_field
+
+# partial R2 
+R2_part_m1_NMDS2_field=r2glmm::r2beta(m1_NMDS2_field,  partial = T, method = 'sgv')
+R2_part_m1_NMDS2_field
+plot(R2_part_m1_NMDS2_field %>% filter(!Effect=="Model"))
+
+R2_NMDS2_partial <- as_tibble(R2_part_m1_NMDS2_field) %>% mutate(responce="NMDS2")
+
+
+R2_NMDS1_partial
+
+write_csv(R2_NMDS1_partial%>% 
+            bind_rows(R2_NMDS2_partial),
+          "results/SEM_NMDS_R2_partial.csv")
 
 ## mod 3: NMDS 1 (experiment data) ----
 
