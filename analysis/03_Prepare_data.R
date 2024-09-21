@@ -28,6 +28,7 @@ Variables <- read_csv("data/Variables_selected.csv") %>%
          Mowing_delay="Date of the first cut",
          Grazer_type_specific="Grazing animal numbers (C cow, S sheep, G goar, H horse)",
          Grazing_season = "Grazing season (No, A, SA, W=whole season)") %>% 
+  mutate(Grazer_type_specifc=Grazer_type) %>% 
   mutate(Mowing_method=case_when(Mowing_method=="M, T" ~ "M_T" ,
                                  Mowing_method=="T, M"~ "M_T" ,
                                  Mowing_method=="No"~ "no" ,

@@ -1,5 +1,7 @@
 # Purpose:  Perform Structural Equation Modelling for Species richness (as main response)
 
+
+
 # load packages ----
 library(tidyverse)
 library(ggplot2)
@@ -465,6 +467,16 @@ Coefs_summar_sum$Effect_type
 
 write_csv(Coefs_summar_sum, "results/SEM_NMDS_coefs_Indirect.csv")
 
+# Plots ----
+Coefs_summar_sum <- read_csv("results/SEM_NMDS_coefs_Indirect.csv") %>% 
+  mutate(Effect_type=fct_relevel(Effect_type, 
+                                 c("Indirect through soil properties", 
+                                   "Indirect through seed dispersal" ,
+                                   "Direct effect" ,
+                                   "Total effect")))
+
+
+
 dodge_width <- 0.5
 
 
@@ -485,7 +497,9 @@ plot <- ggplot(Coefs_summar_sum, aes(y =Effect_type , x = Std.Est,
 
 plot
 
-plot2 <- ggplot(Coefs_summar_sum, aes(y =Effect_type , x = Std.Est, 
+plot2 <- ggplot(Coefs_summar_sum%>% 
+                  filter(!Variable=="Mowing friequency"),
+                aes(y =Effect_type , x = Std.Est, 
                                   color = Effect_type, fill = Effect_type)) +
   geom_vline(xintercept = 0, color = "black", linetype = "dashed") +
   geom_col(position = position_dodge(width = 0.8), width = 0.8,size=0.5) +
@@ -493,12 +507,18 @@ plot2 <- ggplot(Coefs_summar_sum, aes(y =Effect_type , x = Std.Est,
   # geom_errorbarh(aes(xmin = 0, xmax = Std.Estimate),
   #                position = position_dodge(width = dodge_width), height = 0.1
   # ) +
-  facet_wrap(~Variable) +
+  facet_wrap(~Variable #, scales = "free_x"
+             ) +
   #  MetBrewer::scale_color_met_d("Kandinsky") +
   scale_color_manual(values = c("#BC7B3A", "#A021FF","#719E00","gray22"))+
   scale_fill_manual(values = c("#DFBA95", "#E6C5FF","#C4E0B2","gray77"))+
   theme_bw()+
+  theme(legend.position = "None",
+        axis.text.x = element_text(size=7, color="black"), 
+        axis.text.y = element_text(size=9, color="black", face="bold"),
+        axis.title=element_text(size=10, face="bold")) +
   labs(y=" ", color=" ", fill=" ",
        x="Standardised effect size (absolute value)" )#, title="Effects on community composition")
 
 plot2
+

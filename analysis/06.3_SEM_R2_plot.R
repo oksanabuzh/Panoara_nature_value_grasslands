@@ -1,3 +1,14 @@
+# Purpose: Create R2 plot for the SEM (Fig. 4E)
+
+library(tidyverse)
+
+# set theme for plots
+set_theme(base = theme_bw(),
+          axis.textsize.x = 0.9, axis.textsize.y = 0.9, axis.textcolor = "black",
+          axis.title.color = "black", axis.title.size = 1.2,
+          geom.linetype = 1) #legend.pos = "None", 
+
+
 
 # read data
 R2_SR_partial <- read_csv("results/SEM_SR_R2_partial.csv")
@@ -71,3 +82,4 @@ ggplot(R2_partial,
   #  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2))+
   labs(y="", color="Driver type",
        x= expression(paste("Variance explained, ", R^{2})))
+
