@@ -37,8 +37,8 @@ Community_VP_field <- read_csv("data/Community_composition_VegetationPlots.csv")
   rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
   filter(layer == "VP") %>% # only for vascular plants 
   dplyr::select(-layer) %>% 
-  pivot_longer(!Plot_Parcel, names_to = "Parcel_name", values_to = "cover") %>% 
-  rename(Species="Plot_Parcel") %>% 
+  pivot_longer(!species, names_to = "Parcel_name", values_to = "cover") %>% 
+ # rename(Species="Plot_Parcel") %>% 
   mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
   filter(!is.na(cover))
 
@@ -53,21 +53,26 @@ Community_VP_field %>%
 
 
 Community_VP_field %>% 
-  dplyr::select(Species) %>%
+  dplyr::select(species) %>%
   distinct()
   
 Sp.occur <- Community_VP_field %>% 
-  group_by(Species) %>% 
+  group_by(species) %>% 
   count() %>% 
   mutate(fraction=round(n*100/44,0)) %>% # species occurrence (% parcels where species was found) %>% 
-  arrange(desc(fraction))
+  arrange(desc(fraction)) %>% 
+mutate(abbreviation = str_c(str_split_i(species, '\\s', 1) %>% str_sub(., 1, 4), # make short species names Genus species -> Gen.spe
+                          str_split_i(species, '\\s', 2) %>% str_sub(., 1, 3), sep = '.')) %>% 
+  relocate(abbreviation, .after = species) %>% 
+  rename(parcel_number=n)
+
   
 Sp.occur
 
 write_csv(Sp.occur, "results/Sp.occurances_field.csv")
 
 
-Sp.occur$Sp_ordered <- with(Sp.occur, reorder(Species, fraction))
+Sp.occur$Sp_ordered <- with(Sp.occur, reorder(species, fraction))
 
 
   ggplot(Sp.occur, aes(y =Sp_ordered , x = fraction)) +
@@ -86,8 +91,7 @@ Community_exper <- read_csv("data/Community_composition_DungExperiment.csv") %>%
     rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
     filter(layer == "VP") %>% # only for vascular plants 
     dplyr::select(-layer) %>% 
-    pivot_longer(!Plot_Parcel, names_to = "Parcel_name", values_to = "abundance") %>% 
-    rename(Species="Plot_Parcel") %>% 
+    pivot_longer(!species, names_to = "Parcel_name", values_to = "abundance") %>% 
     mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
     filter(!is.na(abundance)) 
   
@@ -95,7 +99,7 @@ Community_exper %>% pull(Parcel_name)%>% unique()
   
 
 Sp.occur_exp <- Community_exper %>% 
-  group_by(Species) %>% 
+  group_by(species) %>% 
   count() %>% 
   mutate(fraction=round(n*100/28,0)) %>% # species occurrence (% parcels where species was found) %>% 
   arrange(desc(fraction))
@@ -104,7 +108,7 @@ Sp.occur_exp
 
 43*100/221 # % species dispersed through zoochory via excrements and farmyard dung
 
-Sp.occur_exp$Sp_ordered <- with(Sp.occur_exp, reorder(Species, fraction))
+Sp.occur_exp$Sp_ordered <- with(Sp.occur_exp, reorder(species, fraction))
 
 
 ggplot(Sp.occur_exp, aes(y =Sp_ordered , x = fraction)) +
@@ -139,7 +143,6 @@ Dat <- Dat %>%
   mutate(zz = Plant_SR_vascular) # for predicting from the glmmPQL models
 
 #
-
 
 
 ## Abundance ----
@@ -276,3 +279,47 @@ ggplot(m2_biom_pred, aes(x, predicted)) +
   labs(y="Species richness", x="Plant biomass (log)")+
   geom_line(linetype=1, linewidth=1) 
 
+
+
+
+
+#####
+
+
+### Seedlings
+
+Data <- read_csv("data/Panoara_Dat.csv") %>%
+  dplyr::select(Parcel_name, SR_D_E_exper, Abund_D_E_exper, D_E_exp_categ, D_E_exp_categ_2) %>% 
+  filter(!D_E_exp_categ_2=="n") %>%  # remove parcels with no seedlings
+  filter(!D_E_exp_categ_2=="c+s") %>%  # remove parcels with combinations of sheep and cow
+  mutate(experiment=
+           case_when(D_E_exp_categ_2=="c" & D_E_exp_categ=="dung" ~ "cow manure",
+                     D_E_exp_categ_2=="c" & D_E_exp_categ=="excr" ~ "cow feces",
+                     D_E_exp_categ_2=="s" & D_E_exp_categ=="excr" ~ "sheep feces")) %>% 
+  filter(!Abund_D_E_exper>150) # remove outlire
+  
+ 
+
+ggplot(Data, aes(experiment, Abund_D_E_exper)) + 
+  geom_boxplot(outlier.shape = NA, notch = F)+
+  geom_point(alpha=0.7, pch=21, , fill ="#64ABCE",# size=4, #fill="gray", 
+             position=position_jitter(width = 0.1, height = 0)) +
+  # theme_bw()+
+  labs(x =" ", y="Abundance of seedlings")+
+  theme(axis.text = element_text(size=10), axis.title=element_text(size=12)) +
+  theme(axis.title.x=element_text(vjust=-0.7), 
+        axis.title.y=element_text(vjust=1.5),
+        legend.key=element_blank()) 
+
+
+
+ggplot(Data, aes(experiment, SR_D_E_exper)) + 
+  geom_boxplot(outlier.shape = NA, notch = F)+
+  geom_point(alpha=0.7, pch=21, , fill ="#64ABCE",# size=4, #fill="gray", 
+             position=position_jitter(width = 0.1, height = 0)) +
+  # theme_bw()+
+  labs(x =" ", y="Species richness of seedlings")+
+  theme(axis.text = element_text(size=10), axis.title=element_text(size=12)) +
+  theme(axis.title.x=element_text(vjust=-0.7), 
+        axis.title.y=element_text(vjust=1.5),
+        legend.key=element_blank()) 

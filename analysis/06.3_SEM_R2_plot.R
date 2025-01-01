@@ -73,10 +73,11 @@ ggplot(R2_partial,
                  position = position_dodge(width = dodge_width), height = 0.1) +
   theme(legend.key=element_blank()) +
   # theme_bw()+
+  xlim(-0.03,0.54)+
   facet_wrap(~responce) +
   scale_color_manual(values=c("#F8766D", "#9BB018","orange", "#C77CFF", "#BA7938"))+ 
   # MetBrewer::scale_color_met_d("Kandinsky") +
-  theme(axis.text.x = element_text(size=7), axis.text.y = element_text(size=10),
+  theme(axis.text.x = element_text(size=8), axis.text.y = element_text(size=10),
         axis.title=element_text(size=13, face="bold"), 
         legend.text = element_text(size=10)) +
   #  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2))+

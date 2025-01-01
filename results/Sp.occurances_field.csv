@@ -1,222 +1,221 @@
-Species,n,fraction
-Plantago lanceolata,44,100
-Achillea millefolium aggr.,43,98
-Lotus corniculatus,41,93
-Anthoxanthum odoratum,38,86
-Carex caryophyllea,38,86
-Centaurea phrygia aggr. (incl. C. erdneri),37,84
-Knautia arvensis,37,84
-Luzula campestris,37,84
-Briza media,36,82
-Festuca stricta subsp. sulcata,35,80
-Filipendula vulgaris,35,80
-Dactylis glomerata,34,77
-Leucanthemum vulgare aggr.,34,77
-Agrostis capillaris,32,73
-Cerastium fontanum subsp. vulgare,32,73
-Thymus pulegioides subsp. pulegioides,32,73
-Trifolium pratense,32,73
-Cynosurus cristatus,31,70
-Sanguisorba minor,29,66
-Scabiosa ochroleuca,29,66
-Leontodon hispidus subsp. hastilis,28,64
-Pimpinella saxifraga,28,64
-Ranunculus bulbosus,28,64
-Cruciata glabra,27,61
-Festuca rubra,27,61
-Galium verum,27,61
-Prunella vulgaris,27,61
-Trifolium repens,27,61
-Plantago media,26,59
-Trifolium montanum,26,59
-Veronica chamaedrys,26,59
-Viola hirta,26,59
-Danthonia alpina,25,57
-Leontodon hispidus subsp. hispidus,25,57
-Linum catharticum,25,57
-Pilosella officinarum,25,57
-Polygala comosa,25,57
-Ranunculus polyanthemos,25,57
-Tragopogon pratensis subsp. orientalis,25,57
-Centaurea scabiosa,24,55
-Holcus lanatus,24,55
-Securigera varia,24,55
-Stachys officinalis,24,55
-Prunella laciniata,23,52
-Stellaria graminea,23,52
-Carex montana,21,48
-Primula veris,21,48
-Schedonorus pratensis,21,48
-Trisetum flavescens,21,48
-Dianthus carthusianorum,20,45
-Medicago lupulina,20,45
-Potentilla erecta,20,45
-Rhinanthus minor,20,45
-Taraxacum sect. Taraxacum,20,45
-Danthonia decumbens,19,43
-Daucus carota,19,43
-Helianthemum nummularium subsp. obscurum,19,43
-Asperula cynanchica,18,41
-Carex pallescens,18,41
-Crataegus monogyna,18,41
-Hypochaeris radicata,18,41
-Potentilla incana,18,41
-Teucrium chamaedrys,18,41
-Veronica austriaca,18,41
-Viola canina,18,41
-Ajuga genevensis,17,39
-Colchicum autumnale,17,39
-Convolvulus arvensis,17,39
-Peucedanum oreoselinum,17,39
-Pilosella bauhini,17,39
-Poa pratensis,17,39
-Vicia sativa subsp. nigra,17,39
-Thymus pulegioides subsp. pannonicus (incl. T. dacicus),16,36
-Veronica arvensis,16,36
-Brachypodium pinnatum,15,34
-Campanula patula,15,34
-Veronica officinalis,15,34
-Arabis hirsuta,14,32
-Arenaria serpyllifolia,14,32
-Medicago falcata,14,32
-Rosa canina,14,32
-Rumex acetosa,14,32
-Salvia verticillata,14,32
-Trifolium dubium,14,32
-Trifolium ochroleucon,14,32
-Vicia cracca,14,32
-Anthyllis vulneraria,13,30
-Cerastium pumilum subsp. glutinosum,13,30
-Crepis biennis,13,30
-Galium mollugo aggr.,13,30
-Hypochaeris maculata,13,30
-Lathyrus latifolius,13,30
-Seseli annuum,13,30
-Trifolium medium,13,30
-Dorycnium pentaphyllum,12,27
-Euphorbia cyparissias,12,27
-Rhinanthus wagneri,12,27
-Campanula rapunculoides,11,25
-Erigeron annuus,11,25
-Fragaria viridis,11,25
-Polygala vulgaris subsp. vulgaris,11,25
-Agrimonia eupatoria,10,23
-Carex filiformis,10,23
-Hypericum maculatum,10,23
-Lolium perenne,10,23
-Prunus sp. (juv),9,20
-Valerianella dentata subsp. eriosperma,9,20
-Campanula glomerata,8,18
-Medicago sativa,8,18
-Poa compressa,8,18
-Sedum sexangulare,8,18
-Veronica prostrata,8,18
-Bromus racemosus,7,16
-Carlina acaulis,7,16
-Euphrasia rostkoviana,7,16
-Hypericum perforatum,7,16
-Lembotropis nigricans,7,16
-Anacamptis coriophora,6,14
-Festuca ovina,6,14
-Primula acaulis,6,14
-Prunella grandiflora,6,14
-Rhinanthus rumelicus,6,14
-Scabiosa columbaria,6,14
-Anacamptis morio,5,11
-Echium vulgare,5,11
-Genista tinctoria,5,11
-Myosotis arvensis,5,11
-Phleum phleoides,5,11
-Pilosella officinarum x bauhini,5,11
-Poa trivialis,5,11
-Potentilla argentea,5,11
-Scorzoneroides autumnalis,5,11
-Trifolium campestre,5,11
-Verbena officinalis,5,11
-Arrhenatherum elatius,4,9
-Bromus hordeaceus,4,9
-Campanula persicifolia,4,9
-Carum carvi,4,9
-Cichorium intybus,4,9
-Cuscuta sp.,4,9
-Elytrigia repens,4,9
-Geranium columbinum,4,9
-Melampyrum arvense,4,9
-Orobanche sp.,4,9
-Polygala vulgaris subsp. oxyptera,4,9
-Ranunculus acris,4,9
-Anthriscus sylvestris,3,7
-Centaurium erythraea,3,7
-Dichoropetalum carvifolia,3,7
-Euphrasia stricta,3,7
-Jacobaea vulgaris,3,7
-Molinia caerulea,3,7
-Ononis spinosa subsp. hircina,3,7
-Plantago major,3,7
-Trifolium alpestre,3,7
-Viola tricolor,3,7
-Acer pseudoplatanus,2,5
-Alchemilla acutiloba,2,5
-Anacamptis pyramidalis,2,5
-Bellis perennis,2,5
-Bothriochloa ischaemum,2,5
-Carex michelii,2,5
-Carex spicata,2,5
-Cirsium arvense,2,5
-Cirsium vulgare,2,5
-Euphorbia salicifolia,2,5
-Fragaria vesca,2,5
-Gentiana cruciata,2,5
-Lysimachia nummularia,2,5
-Lysimachia vulgaris,2,5
-Minuartia verna,2,5
-Oxalis stricta,2,5
-Platanthera bifolia,2,5
-Prunella x intermedia,2,5
-Rorippa pyrenaica,2,5
-Rumex acetosella,2,5
-Rumex conglomeratus,2,5
-Rumex obtusifolius,2,5
-Veronica serpyllifolia,2,5
-Allium carinatum,1,2
-Allium oleraceum,1,2
-Antennaria dioica,1,2
-Anthemis arvensis/cotula,1,2
-Arabidopsis sp.,1,2
-Astrantia major,1,2
-Avenella flexuosa,1,2
-Bunias orientalis,1,2
-Campanula cervicaria,1,2
-Carduus nutans,1,2
-Carex leporina,1,2
-Carex pilulifera,1,2
-Centaurea stoebe,1,2
-Cerastium brachypetalum subsp. brachypetalum,1,2
-Clinopodium acinos,1,2
-Clinopodium vulgare,1,2
-Corylus avellana,1,2
-Draba verna,1,2
-Erigeron acris,1,2
-Eryngium campestre,1,2
-Ferulago sylvatica,1,2
-Gladiolus imbricatus,1,2
-Heracleum sphondylium,1,2
-Hieracium lachenalii,1,2
-Inula hirta,1,2
-Lipandra polysperma,1,2
-Nardus stricta,1,2
-Neotinea ustulata,1,2
-Neottia ovata,1,2
-Origanum vulgare,1,2
-Phleum pratense,1,2
-Podospermum purpureum,1,2
-Pteridium aquilinum,1,2
-Ranunculus repens,1,2
-Sagina procumbens,1,2
-Scleranthus annuus,1,2
-Stachys germanica,1,2
-Symphytum officinale,1,2
-Teucrium montanum,1,2
-Trifolium pannonicum,1,2
-Vicia grandiflora,1,2
-Vincetoxicum hirundinaria,1,2
+species,abbreviation,parcel_number,fraction
+Plantago lanceolata,Plan.lan,44,100
+Achillea millefolium aggr.,Achi.mil,43,98
+Lotus corniculatus,Lotu.cor,41,93
+Anthoxanthum odoratum,Anth.odo,38,86
+Carex caryophyllea,Care.car,38,86
+Centaurea phrygia aggr.,Cent.phr,37,84
+Knautia arvensis,Knau.arv,37,84
+Luzula campestris,Luzu.cam,37,84
+Briza media,Briz.med,36,82
+Festuca stricta subsp. sulcata,Fest.str,35,80
+Filipendula vulgaris,Fili.vul,35,80
+Dactylis glomerata,Dact.glo,34,77
+Leucanthemum vulgare aggr.,Leuc.vul,34,77
+Agrostis capillaris,Agro.cap,32,73
+Cerastium fontanum subsp. vulgare,Cera.fon,32,73
+Thymus pulegioides subsp. pulegioides,Thym.pul,32,73
+Trifolium pratense,Trif.pra,32,73
+Cynosurus cristatus,Cyno.cri,31,70
+Sanguisorba minor,Sang.min,29,66
+Scabiosa ochroleuca,Scab.och,29,66
+Leontodon hispidus subsp. hastilis,Leon.his,28,64
+Pimpinella saxifraga,Pimp.sax,28,64
+Ranunculus bulbosus,Ranu.bul,28,64
+Cruciata glabra,Cruc.gla,27,61
+Festuca rubra,Fest.rub,27,61
+Galium verum,Gali.ver,27,61
+Prunella vulgaris,Prun.vul,27,61
+Trifolium repens,Trif.rep,27,61
+Plantago media,Plan.med,26,59
+Trifolium montanum,Trif.mon,26,59
+Veronica chamaedrys,Vero.cha,26,59
+Viola hirta,Viol.hir,26,59
+Danthonia alpina,Dant.alp,25,57
+Leontodon hispidus subsp. hispidus,Leon.his,25,57
+Linum catharticum,Linu.cat,25,57
+Pilosella officinarum,Pilo.off,25,57
+Polygala comosa,Poly.com,25,57
+Ranunculus polyanthemos,Ranu.pol,25,57
+Tragopogon pratensis subsp. orientalis,Trag.pra,25,57
+Centaurea scabiosa,Cent.sca,24,55
+Holcus lanatus,Holc.lan,24,55
+Securigera varia,Secu.var,24,55
+Stachys officinalis,Stac.off,24,55
+Prunella laciniata,Prun.lac,23,52
+Stellaria graminea,Stel.gra,23,52
+Carex montana,Care.mon,21,48
+Primula veris,Prim.ver,21,48
+Schedonorus pratensis,Sche.pra,21,48
+Trisetum flavescens,Tris.fla,21,48
+Dianthus carthusianorum,Dian.car,20,45
+Medicago lupulina,Medi.lup,20,45
+Potentilla erecta,Pote.ere,20,45
+Rhinanthus minor,Rhin.min,20,45
+Taraxacum sect. Taraxacum,Tara.sec,20,45
+Danthonia decumbens,Dant.dec,19,43
+Daucus carota,Dauc.car,19,43
+Helianthemum nummularium subsp. obscurum,Heli.num,19,43
+Asperula cynanchica,Aspe.cyn,18,41
+Carex pallescens,Care.pal,18,41
+Crataegus monogyna,Crat.mon,18,41
+Hypochaeris radicata,Hypo.rad,18,41
+Potentilla incana,Pote.inc,18,41
+Teucrium chamaedrys,Teuc.cha,18,41
+Veronica austriaca,Vero.aus,18,41
+Viola canina,Viol.can,18,41
+Ajuga genevensis,Ajug.gen,17,39
+Colchicum autumnale,Colc.aut,17,39
+Convolvulus arvensis,Conv.arv,17,39
+Peucedanum oreoselinum,Peuc.ore,17,39
+Pilosella bauhini,Pilo.bau,17,39
+Poa pratensis,Poa.pra,17,39
+Vicia sativa subsp. nigra,Vici.sat,17,39
+Thymus pulegioides subsp. pannonicus,Thym.pul,16,36
+Veronica arvensis,Vero.arv,16,36
+Veronica officinalis,Vero.off,16,36
+Brachypodium pinnatum,Brac.pin,15,34
+Campanula patula,Camp.pat,15,34
+Arabis hirsuta,Arab.hir,14,32
+Arenaria serpyllifolia,Aren.ser,14,32
+Medicago falcata,Medi.fal,14,32
+Rosa canina,Rosa.can,14,32
+Rumex acetosa,Rume.ace,14,32
+Salvia verticillata,Salv.ver,14,32
+Trifolium dubium,Trif.dub,14,32
+Trifolium ochroleucon,Trif.och,14,32
+Vicia cracca,Vici.cra,14,32
+Anthyllis vulneraria,Anth.vul,13,30
+Cerastium pumilum subsp. glutinosum,Cera.pum,13,30
+Crepis biennis,Crep.bie,13,30
+Galium mollugo aggr.,Gali.mol,13,30
+Hypochaeris maculata,Hypo.mac,13,30
+Lathyrus latifolius,Lath.lat,13,30
+Seseli annuum,Sese.ann,13,30
+Trifolium medium,Trif.med,13,30
+Dorycnium pentaphyllum,Dory.pen,12,27
+Euphorbia cyparissias,Euph.cyp,12,27
+Rhinanthus wagneri,Rhin.wag,12,27
+Campanula rapunculoides,Camp.rap,11,25
+Erigeron annuus,Erig.ann,11,25
+Fragaria viridis,Frag.vir,11,25
+Polygala vulgaris subsp. vulgaris,Poly.vul,11,25
+Agrimonia eupatoria,Agri.eup,10,23
+Carex filiformis,Care.fil,10,23
+Hypericum maculatum,Hype.mac,10,23
+Lolium perenne,Loli.per,10,23
+Prunus sp.,Prun.sp.,9,20
+Valerianella dentata subsp. eriosperma,Vale.den,9,20
+Campanula glomerata,Camp.glo,8,18
+Medicago sativa,Medi.sat,8,18
+Poa compressa,Poa.com,8,18
+Sedum sexangulare,Sedu.sex,8,18
+Veronica prostrata,Vero.pro,8,18
+Bromus racemosus,Brom.rac,7,16
+Carlina acaulis,Carl.aca,7,16
+Euphrasia rostkoviana,Euph.ros,7,16
+Hypericum perforatum,Hype.per,7,16
+Lembotropis nigricans,Lemb.nig,7,16
+Anacamptis coriophora,Anac.cor,6,14
+Festuca ovina,Fest.ovi,6,14
+Primula acaulis,Prim.aca,6,14
+Prunella grandiflora,Prun.gra,6,14
+Rhinanthus rumelicus,Rhin.rum,6,14
+Scabiosa columbaria,Scab.col,6,14
+Anacamptis morio,Anac.mor,5,11
+Echium vulgare,Echi.vul,5,11
+Genista tinctoria,Geni.tin,5,11
+Myosotis arvensis,Myos.arv,5,11
+Phleum phleoides,Phle.phl,5,11
+Pilosella officinarum x bauhini,Pilo.off,5,11
+Poa trivialis,Poa.tri,5,11
+Potentilla argentea,Pote.arg,5,11
+Scorzoneroides autumnalis,Scor.aut,5,11
+Trifolium campestre,Trif.cam,5,11
+Arrhenatherum elatius,Arrh.ela,4,9
+Bromus hordeaceus,Brom.hor,4,9
+Campanula persicifolia,Camp.per,4,9
+Carum carvi,Caru.car,4,9
+Cichorium intybus,Cich.int,4,9
+Cuscuta sp.,Cusc.sp.,4,9
+Elytrigia repens,Elyt.rep,4,9
+Geranium columbinum,Gera.col,4,9
+Melampyrum arvense,Mela.arv,4,9
+Orobanche sp.,Orob.sp.,4,9
+Polygala vulgaris subsp. oxyptera,Poly.vul,4,9
+Ranunculus acris,Ranu.acr,4,9
+Anthriscus sylvestris,Anth.syl,3,7
+Centaurium erythraea,Cent.ery,3,7
+Dichoropetalum carvifolia,Dich.car,3,7
+Euphrasia stricta,Euph.str,3,7
+Jacobaea vulgaris,Jaco.vul,3,7
+Molinia caerulea,Moli.cae,3,7
+Ononis spinosa subsp. hircina,Onon.spi,3,7
+Plantago major,Plan.maj,3,7
+Trifolium alpestre,Trif.alp,3,7
+Viola tricolor,Viol.tri,3,7
+Acer pseudoplatanus,Acer.pse,2,5
+Alchemilla acutiloba,Alch.acu,2,5
+Anacamptis pyramidalis,Anac.pyr,2,5
+Bellis perennis,Bell.per,2,5
+Bothriochloa ischaemum,Both.isc,2,5
+Carex michelii,Care.mic,2,5
+Carex spicata,Care.spi,2,5
+Cirsium arvense,Cirs.arv,2,5
+Cirsium vulgare,Cirs.vul,2,5
+Euphorbia salicifolia,Euph.sal,2,5
+Fragaria vesca,Frag.ves,2,5
+Gentiana cruciata,Gent.cru,2,5
+Lysimachia nummularia,Lysi.num,2,5
+Lysimachia vulgaris,Lysi.vul,2,5
+Minuartia verna,Minu.ver,2,5
+Oxalis stricta,Oxal.str,2,5
+Platanthera bifolia,Plat.bif,2,5
+Prunella x intermedia,Prun.x,2,5
+Rorippa pyrenaica,Rori.pyr,2,5
+Rumex acetosella,Rume.ace,2,5
+Rumex conglomeratus,Rume.con,2,5
+Rumex obtusifolius,Rume.obt,2,5
+Veronica serpyllifolia,Vero.ser,2,5
+Allium carinatum,Alli.car,1,2
+Allium oleraceum,Alli.ole,1,2
+Antennaria dioica,Ante.dio,1,2
+Anthemis arvensis,Anth.arv,1,2
+Arabidopsis sp.,Arab.sp.,1,2
+Astrantia major,Astr.maj,1,2
+Avenella flexuosa,Aven.fle,1,2
+Bunias orientalis,Buni.ori,1,2
+Campanula cervicaria,Camp.cer,1,2
+Carduus nutans,Card.nut,1,2
+Carex leporina,Care.lep,1,2
+Carex pilulifera,Care.pil,1,2
+Centaurea stoebe,Cent.sto,1,2
+Cerastium brachypetalum subsp. brachypetalum,Cera.bra,1,2
+Clinopodium acinos,Clin.aci,1,2
+Clinopodium vulgare,Clin.vul,1,2
+Corylus avellana,Cory.ave,1,2
+Draba verna,Drab.ver,1,2
+Erigeron acris,Erig.acr,1,2
+Eryngium campestre,Eryn.cam,1,2
+Ferulago sylvatica,Feru.syl,1,2
+Gladiolus imbricatus,Glad.imb,1,2
+Heracleum sphondylium,Hera.sph,1,2
+Hieracium lachenalii,Hier.lac,1,2
+Inula hirta,Inul.hir,1,2
+Lipandra polysperma,Lipa.pol,1,2
+Nardus stricta,Nard.str,1,2
+Neotinea ustulata,Neot.ust,1,2
+Neottia ovata,Neot.ova,1,2
+Origanum vulgare,Orig.vul,1,2
+Phleum pratense,Phle.pra,1,2
+Podospermum purpureum,Podo.pur,1,2
+Pteridium aquilinum,Pter.aqu,1,2
+Ranunculus repens,Ranu.rep,1,2
+Sagina procumbens,Sagi.pro,1,2
+Scleranthus annuus,Scle.ann,1,2
+Stachys germanica,Stac.ger,1,2
+Symphytum officinale,Symp.off,1,2
+Teucrium montanum,Teuc.mon,1,2
+Trifolium pannonicum,Trif.pan,1,2
+Vicia grandiflora,Vici.gra,1,2
+Vincetoxicum hirundinaria,Vinc.hir,1,2

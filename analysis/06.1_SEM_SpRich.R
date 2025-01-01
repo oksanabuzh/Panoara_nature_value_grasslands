@@ -1,5 +1,5 @@
 # Purpose:  Perform Structural Equation Modelling for Species richness (as main response)
-
+dev.off()
 # load packages ----
 library(tidyverse)
 library(ggplot2)
@@ -41,7 +41,7 @@ Dat <- Data %>%
   left_join(Soil_PC, by="Parcel_name")
 
 # Data wrangling
-SEM.dat <- Dat %>% filter(!Parcel_name=="Brade_1") %>%  # extrime outlyer
+SEM.dat <- Dat %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
   mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
          Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
          abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
@@ -352,8 +352,8 @@ Coefs_summar <- tibble(Variable, Direct, Indirect_soil, Indirect_seed) %>%
   mutate(Variable = factor(Variable, levels=c("Grazing", "Manuring", "Mowing",
                                               "Dispersal"))) %>% 
   mutate(Variable = fct_recode(Variable, "Grazing intensity" = "Grazing", 
-                               "Manuring friequency" = "Manuring", 
-                               "Mowing friequency" ="Mowing",
+                               "Manuring frequency" = "Manuring", 
+                               "Mowing frequency" ="Mowing",
                                "Seed dispersal" = "Dispersal")) %>% 
   arrange(Variable)%>% 
   pivot_longer(-Variable, names_to = "Effect_type", values_to = "Std.Estimate") %>% 
@@ -405,7 +405,7 @@ plot
 
 
 plot2 <- ggplot(Coefs_summar %>% 
-                  filter(!Variable=="Mowing friequency"), 
+                  filter(!Variable=="Mowing frequency"), 
                 aes(y =Effect_type , x = Std.Est, 
                                  color = Effect_type, fill = Effect_type)) +
   geom_vline(xintercept = 0, color = "black", linetype = "dashed") +
@@ -424,6 +424,6 @@ plot2 <- ggplot(Coefs_summar %>%
         axis.text.y = element_text(size=9, color="black", face="bold"),
         axis.title=element_text(size=10, face="bold")) +
   labs(y=" ", color="", fill="",
-       x="Standardised effec size and direction") #, title="Effects on plant species richness")
+       x="Standardised effect size and direction") #, title="Effects on plant species richness")
 
 plot2

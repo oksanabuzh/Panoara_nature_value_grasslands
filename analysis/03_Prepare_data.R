@@ -1,5 +1,7 @@
 # Purpose: to clean, merge and tidy data
 
+
+
 library(tidyverse)
 library(ggplot2)
 library(sjPlot)
@@ -15,10 +17,11 @@ library(multcomp)
 
 Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
 
+Plant_nutr_dat <- read_csv("data/Biomass_nutrients.csv") %>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_"))
 
 Variables <- read_csv("data/Variables_selected.csv") %>% 
-  rename(Parcel_name=`Parcel name`,
-         Plant_SR_total = "number of all plants",
+  rename(Plant_SR_total = "number of all plants",
          Plant_SR_vascular = "number of vascular plants_10 m2",
          Plant_SR_cryptogams = "number of cryptogams_10 m2",
          Plant_SR_bryophytes ="number of bryophytes_10 m2",
@@ -105,7 +108,9 @@ names(Variables)
 Variables$Last_ploughing
 
 Dat <- Variables %>% 
-  left_join(Diver_NMDS_dat, by="Parcel_name")
+  left_join(Diver_NMDS_dat, by="Parcel_name") %>% 
+  left_join(Plant_nutr_dat, by="Parcel_name")
+  
 
 # check
 

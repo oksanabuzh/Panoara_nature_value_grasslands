@@ -43,7 +43,7 @@ Dat <- Data %>%
    left_join(Soil_PC, by="Parcel_name")
 
 # Data wrangling
-SEM.dat <- Dat %>% filter(!Parcel_name=="Brade_1") %>%  # extrime outlyer
+SEM.dat <- Dat %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
   mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
          Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
          abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
@@ -84,7 +84,7 @@ m1_NMDS1_field <- lmer(NMDS1_VP_field ~
                          (1|Farm), data = SEM.dat) 
 
 
-ranef(m1_NMDS1_field) # random effects are not zeros
+#ranef(m1_NMDS1_field) # random effects are not zeros
 hist(ranef(m1_SR_field)$`Farm`[,1])
 
 plot(m1_NMDS1_field)
@@ -125,7 +125,7 @@ m1_NMDS2_field <- lmer(NMDS2_VP_field ~
                          (1|Farm), data = SEM.dat) 
 
 
-ranef(m1_NMDS2_field) # random effects are not zeros
+# ranef(m1_NMDS2_field) # random effects are not zeros
 hist(ranef(m1_NMDS2_field)$`Farm`[,1])
 
 plot(m1_NMDS2_field)
@@ -288,6 +288,7 @@ psem_model <- psem (m1_NMDS1_field, m1_NMDS2_field,
 coefic <- coefs(psem_model) 
 coefic
 
+
 #Fisher C statistic as global goodness of model fit:
 fisherC(psem_model, .progressBar =F,  conserve = TRUE)
 
@@ -444,8 +445,8 @@ Coefs_summar_sum <- Coefs_summar %>%
   mutate(Variable = factor(Variable, levels=c("Grazing", "Manuring", "Mowing",
                                             "Dispersal"))) %>% 
   mutate(Variable = fct_recode(Variable, "Grazing intensity" = "Grazing", 
-                               "Manuring friequency" = "Manuring", 
-                               "Mowing friequency" ="Mowing",
+                               "Manuring frequency" = "Manuring", 
+                               "Mowing frequency" ="Mowing",
                                "Seed dispersal" = "Dispersal")) %>% 
   arrange(Variable)%>% 
   pivot_longer(-Variable, names_to = "Effect_type", values_to = "Std.Estimate") %>% 
@@ -498,7 +499,7 @@ plot <- ggplot(Coefs_summar_sum, aes(y =Effect_type , x = Std.Est,
 plot
 
 plot2 <- ggplot(Coefs_summar_sum%>% 
-                  filter(!Variable=="Mowing friequency"),
+                  filter(!Variable=="Mowing frequency"),
                 aes(y =Effect_type , x = Std.Est, 
                                   color = Effect_type, fill = Effect_type)) +
   geom_vline(xintercept = 0, color = "black", linetype = "dashed") +

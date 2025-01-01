@@ -140,9 +140,12 @@ ggplot(Dat, aes(habitat_corrected, Plant_SR_vascular)) +
              position=position_jitter(width = 0.1, height = 0)) +
   scale_fill_viridis(discrete=TRUE, option = "D")+
  # theme_bw()+
-  labs(x ="Management type", y="Species richess", fill="Grazer type", size="Grazing intensity")+
+  labs(x ="Management type", y="Species richness", fill="Grazer type", 
+       size="Grazing intensity")+
   theme(axis.text = element_text(size=10), axis.title=element_text(size=12)) +
-  theme(axis.title.x=element_text(vjust=-0.7), axis.title.y=element_text(vjust=1.5)) +
+  theme(axis.title.x=element_text(vjust=-0.7), 
+        axis.title.y=element_text(vjust=1.5),
+        legend.key=element_blank()) +
   geom_text(data=emmeans_m1_habitat,aes(x=habitat_corrected, y=c(89, 87),
                                         label=emmeans_m1_habitat$.group),vjust=0.5, hjust=0, 
             size=4, col="black" , position=position_dodge(0))
@@ -166,7 +169,8 @@ ggplot(m_SR_2_mowing_pred, aes(x, predicted)) +
         axis.title=element_text(size=12)) +
   theme(axis.title.x=element_text(vjust=-0.7), 
         axis.title.y=element_text(vjust=1.5),
-        legend.title = element_text(face="plain")) 
+       # legend.title = element_text(face="plain"),
+        legend.key=element_blank()) 
 
 max(Dat$humus_log)
 
@@ -213,7 +217,7 @@ ggplot(m_SR_1_legac, aes(x, predicted)) +
              aes(Grazing_legacy, Plant_SR_vascular, fill=Grazer_type), 
              size=3, alpha=0.7, pch=21)+
   scale_fill_viridis(discrete=TRUE, option = "D")+
-  labs(y="Species richness", x='Grazing legacy effect', fill= "Grazer type")+
+  labs(y="Species richness", x='Grazing legacy', fill= "Grazer type")+
  # theme_bw()+
   geom_line(linetype=1, linewidth=1) +
   theme(legend.position="none")
@@ -275,7 +279,8 @@ ggplot(m_SR_2_mowing_pred, aes(x, predicted)) +
   scale_fill_manual(values=c("blue", "red", "green"))+
 #  theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
   labs(y="Species richness", x='Mowing frequency', fill="Mowing delay")+
-  theme(legend.key=element_blank()) +
+  theme(legend.key=element_blank(),
+        legend.position = "none") +
   geom_line(linetype=1, linewidth=1) #+ theme(legend.position="none")
 
 
@@ -292,7 +297,8 @@ ggplot(m_SR_2_graz_pred, aes(x, predicted)) +
              size=3, alpha=0.7, pch=21)+
   scale_fill_viridis(discrete=TRUE, option = "D")+
   labs(y="Species richness", x='Grazing intensity', fill="Grazer type")+
-  theme(legend.key=element_blank()) +
+  theme(legend.key=element_blank(),
+        legend.position = "none") +
   geom_line(linetype=1, linewidth=1) # +  theme(legend.position="none")
 
 
@@ -374,7 +380,8 @@ ggplot(Dat, aes(Grazer_type, Plant_SR_vascular)) +
   theme(axis.text.x = element_text(size=8.5), axis.text.y = element_text(size=9),
         axis.title=element_text(size=13)) +
   theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2),
-        legend.key=element_blank()) +
+        legend.key=element_blank(),
+        legend.position = "none") +
     geom_text(data=emmeans_m_SR_3b_Grazer_type,aes(x=Grazer_type, y=c(87, 78, 83),
                                                  label=emmeans_m_SR_3b_Grazer_type$.group),vjust=0.5, hjust=0, 
           #  size=4, 
@@ -806,7 +813,7 @@ ggplot(Dat, aes(Cow_dung_applied, Plant_SR_vascular)) +
              fill ="#64ABCE") +
   # scale_fill_manual(values=c("blue", "red", "green"))+
 #  theme_bw()+
-  labs(x ="Cow dung applied", y="Species richness")+
+  labs(x ="Cow manure applied", y="Species richness")+
   theme(axis.text.x = element_text(size=12), axis.text.y = element_text(size=9),
         axis.title=element_text(size=13)) +
   theme(axis.title.x=element_text(vjust=-0.1), axis.title.y=element_text(vjust=2)) +
@@ -920,7 +927,7 @@ R2_partial <- as_tibble(R2_part_m_SR_1b) %>% mutate(model="Mod_1") %>%
   dplyr::select(Effect, model, Rsq, upper.CL, lower.CL) %>% 
   filter(!Effect=="Model") %>% # , !model=="Mod_4"
   mutate(predictor=recode_factor(Effect,
-                                habitat_correctedpasture ="Habitat type",
+                                habitat_correctedpasture ="Management type",
                                 Management_stability = "Management stability",
                                 Grazing_legacy = "Grazing legacy", 
                                 "poly(Mowing_frequency, 2)2" = "Mowing frequency",
@@ -936,9 +943,9 @@ R2_partial <- as_tibble(R2_part_m_SR_1b) %>% mutate(model="Mod_1") %>%
                                 "Grazing_seasonSummer" = "Grazing season",
                                  Corrallingyes = "Corralling",
                                  Manuring_freq = "Manuring frequency",
-                                Cow_dung_appliedpresent = "Cow-dung application",
+                                Cow_dung_appliedpresent = "Cow manure application",
                                  Litter_removalyes = "Litter removal",
-                                 Anthill_levelingyes = "Anthill leveling",
+                                 Anthill_levelingyes = "Ant/mole-hill leveling",
                                  Shrub_tree_removalyes = "Shrub/tree removal",
                                  Moss_removalyes = "Moss removal",
                                  Burningyes = "Burning",
@@ -950,7 +957,7 @@ R2_partial <- as_tibble(R2_part_m_SR_1b) %>% mutate(model="Mod_1") %>%
   summarise(Rsq=sum(Rsq)) %>% 
   ungroup() %>% 
   mutate(variab_group=recode_factor(predictor,
-                                       "Habitat type" ="Management type/stability/legacy",
+                                       "Management type" ="Management type/stability/legacy",
                                     "Management stability" = "Management type/stability/legacy",
                                     "Grazing legacy" = "Management type/stability/legacy",  
                                      "Mowing frequency" = "Mowing",
@@ -961,9 +968,9 @@ R2_partial <- as_tibble(R2_part_m_SR_1b) %>% mutate(model="Mod_1") %>%
                                     "Grazing season" = "Grazing",
                                     Corralling = "Corralling",
                                     "Manuring frequency" = "Manuring/dung ",
-                                    "Cow-dung application" = "Manuring/dung ",
+                                    "Cow manure application" = "Manuring/dung ",
                                     "Litter removal" = "Cleaning",
-                                    "Anthill leveling" = "Cleaning",
+                                    "Ant/mole-hill leveling" = "Cleaning",
                                     "Shrub/tree removal" = "Cleaning",
                                     "Moss removal" = "Cleaning",
                                      Burning = "Burning",

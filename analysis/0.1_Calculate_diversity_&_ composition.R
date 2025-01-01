@@ -1,6 +1,5 @@
 # Purpose: Calculate evenness and community composition (NMDS) for each plot
 
-
 rm(list = ls()) # clears working environment
 
 # dev.off() # shuts down the current graphical device
@@ -24,11 +23,11 @@ Community_VP_field <- read_csv("data/Community_composition_VegetationPlots.csv")
   rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
   filter(layer == "VP") %>% # only for vascular plants 
   dplyr::select(-layer) %>% 
-  pivot_longer(!Plot_Parcel, names_to = "Parcel_name", values_to = "cover") %>% 
-  rename(Species="Plot_Parcel") %>% 
+  pivot_longer(!species, names_to = "Parcel_name", values_to = "cover") %>% 
   mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
   filter(!is.na(cover))
   
+
 Community_VP_field %>% pull(Parcel_name)%>% unique()
 
 str(Community_VP_field)
@@ -38,7 +37,7 @@ VP_field <- Community_VP_field %>%
   group_by(Parcel_name) %>% 
   summarise(
     CoverVP_field=sum(cover),
-    SR_VP_field = n_distinct(Species),
+    SR_VP_field = n_distinct(species),
     EvennessVP_field = vegan::diversity(cover, index = "invsimpson"),
     ShannonVP_field = vegan::diversity(cover, index = "shannon")) %>%
   ungroup()
@@ -52,8 +51,7 @@ Community_exper <- read_csv("data/Community_composition_DungExperiment.csv") %>%
   rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
   filter(layer == "VP") %>% # only for vascular plants 
   dplyr::select(-layer) %>% 
-  pivot_longer(!Plot_Parcel, names_to = "Parcel_name", values_to = "abundance") %>% 
-  rename(Species="Plot_Parcel") %>% 
+  pivot_longer(!species, names_to = "Parcel_name", values_to = "abundance") %>% 
   mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
   filter(!is.na(abundance)) 
 
@@ -61,17 +59,19 @@ Community_exper %>% pull(Parcel_name)%>% unique()
 
 str(Community_exper)
 
+
 # calculate diversity measures
 VP_Exper <- Community_exper %>% 
   group_by(Parcel_name) %>% 
   summarise(
     abundance_Exper=sum(abundance),
-    SR_Exper = n_distinct(Species),
+    SR_Exper = n_distinct(species),
     Evenness_Exper = vegan::diversity(abundance, index = "invsimpson"),
     Shannon_Exper = vegan::diversity(abundance, index = "shannon")) %>%
   ungroup()
 
 VP_Exper
+
 
 
 Diver_data <-  VP_field %>% 
@@ -83,7 +83,7 @@ Diver_data <-  VP_field %>%
 ## 2.1 Field data----
 # convert plant list to matrix
 compos_VP_field <- Community_VP_field %>% 
-  pivot_wider(names_from = "Species", values_from = "cover") %>%
+  pivot_wider(names_from = "species", values_from = "cover") %>%
   replace(is.na(.), 0) 
 
 # check if NA
@@ -101,16 +101,25 @@ which(colSums(compos_VP_field%>%
 # for this, read the environmental variables and join with the community data
 Variables <- read_csv("data/Variables_clean.csv") %>% 
   dplyr::select(Parcel_name, Grazing_intensity_A, Mowing_frequency,
-                Manuring_freq, humus)
+                Manuring_freq, humus) %>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_"))
+
+summary(Variables)
 
 Variables_dat <- compos_VP_field  %>% 
   left_join(Variables, by="Parcel_name")
+
+summary(compos_VP_field)
 
 vegan::rankindex(compos_VP_field %>% dplyr::select(-Parcel_name),
                  Variables_dat%>% dplyr::select(Grazing_intensity_A, Mowing_frequency,
                                                  Manuring_freq, humus))
 
+
+which(is.na(Variables %>% 
+              dplyr::select(-Parcel_name)))
 ### NMDS analysis
+
 
 set.seed(10)
 
@@ -164,16 +173,19 @@ nmds1$species%>%  round(2) %>%
 # returns the correlation between the abundance of each species and site scores on each axis of the ordination.
 tabasco(x = compos_VP_field %>% 
           dplyr::select(-Parcel_name),
-        use = nmds1$points[ , "MDS1"], labCol =compos_VP_field$Parcel_name)
+        use = nmds1$points[ , "MDS1"], 
+        labCol =compos_VP_field %>% 
+          mutate(Parcel_name=str_replace_all(Parcel_name, "_", " ")) %>% 
+          pull(Parcel_name))
 
 
-print(compos_exper, n=28)
+#print(compos_exper, n=28)
 
 
 ## 2.2 Experiment data----
 # read data
 compos_exper <- Community_exper %>% 
-  pivot_wider(names_from = "Species", values_from = "abundance") %>%
+  pivot_wider(names_from = "species", values_from = "abundance") %>%
   replace(is.na(.), 0) 
 
 # check if NA
@@ -221,6 +233,7 @@ Diver_NMDS_data <- Diver_data %>%
   left_join(NMDS_exper, by="Parcel_name")
 
 
+
 write_csv(Diver_NMDS_data, "data/Diversity_&_NMDS_data.csv")
 
 
@@ -236,18 +249,17 @@ nmds2$species%>%  round(2) %>%
 
 tabasco(x = compos_exper%>% 
           dplyr::select(-Parcel_name),
-        use = nmds2$points[ , "MDS1"], labCol =compos_exper$Parcel_name)
+        use = nmds2$points[ , "MDS1"], labCol =compos_exper%>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, "_", " ")) %>% 
+  pull(Parcel_name))
 
 print(compos_exper, n=28)
 
 # (3) PERMANOVA  analysis -----
 
 # read data
-Soil_PC <- read_csv("data/soil_PC.csv") %>% 
-  mutate(PC1_soil_log= log(PC1_soil +10),
-         PC2_soil_log= log(PC2_soil +10))
-
-Soil_PC2 <- read_csv("data/soil_PC2.csv")
+Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>%
+  mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
 
 
 Data <- read_csv("data/Panoara_Dat.csv") %>%
@@ -275,7 +287,6 @@ Data <- read_csv("data/Panoara_Dat.csv") %>%
 
 Dat_field <- Data %>% 
   left_join(Soil_PC, by="Parcel_name") %>% 
-  left_join(Soil_PC2, by="Parcel_name") %>% 
   mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
          Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
          abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
@@ -292,7 +303,7 @@ Dat_field <- Data %>%
 
 
 
-Dat_exp <- Dat_field %>% filter(!Parcel_name=="Brade_1") %>%    # extrime outlyer
+Dat_exp <- Dat_field %>% filter(!Parcel_name=="Farm_F_1") %>%    # extrime outlyer
   filter(!is.na(SR_D_E_exper)) %>% 
   filter(!abundance_Exper==0)
 
@@ -311,7 +322,7 @@ PERM_mod1 <- vegan::adonis2(compos_VP_field %>% dplyr::select(-Parcel_name) ~
                          poly(Mowing_frequency, 2)+
                          Manuring_freq + 
                          humus_log +  
-                         PC1_soil_2 +
+                           soil_NPK +
                      #  Grazer_type +
                        Grazing_season +
            #   Mowing_delay  + 
@@ -328,6 +339,8 @@ PERM_mod1 <- vegan::adonis2(compos_VP_field %>% dplyr::select(-Parcel_name) ~
 
 PERM_mod1
 
+summary(Dat_field)
+
 write.csv(PERM_mod1, "results/PERMANOVA_Field_Data.csv")
 
 
@@ -336,9 +349,10 @@ write.csv(PERM_mod1, "results/PERMANOVA_Field_Data.csv")
 summary(Dat_exp)
 names(Dat_exp)
 
-set.seed(1)
+set.seed(10)
 
-PERM_mod2 <- vegan::adonis2(compos_exper %>% filter(!Parcel_name=="Brade_1") %>% dplyr::select(-Parcel_name) ~ 
+PERM_mod2 <- vegan::adonis2(compos_exper %>% filter(!Parcel_name=="Farm_F_1") %>%
+                              dplyr::select(-Parcel_name) ~ 
                               Grazing_int_log +
                               Manuring_freq  + 
                               Grazing_season, 
@@ -461,7 +475,7 @@ p3 <- ggplot(data = sites.scores_exp,
   coord_fixed()+
   # add species names
   scale_colour_manual(values = c("#F8766D", "#C77CFF", "#00BFC4"))+
-  geom_text_repel (data=species.scores_exp,aes(x=NMDS1,y=NMDS2,label=species #short_name
+  geom_text_repel (data=species.scores_exp,aes(x=NMDS1,y=NMDS2,label=short_name
                                                ), 
                    size = 3.6, 
                    colour= "forestgreen", fontface = 'bold', max.overlaps = Inf) + 
@@ -473,13 +487,15 @@ p3 <- ggplot(data = sites.scores_exp,
         legend.key = element_blank(), 
         legend.title = element_text(size = 11, face = "bold", colour = "black"), 
         legend.text = element_text(size = 11, colour = "black")) +
-  labs(colour="Grazing season")
+  labs(colour="Grazing season", fill="Management type")
 
 
 
 
 p3
 
+species.scores_exp %>% 
+  print(n=41)
 
 #### Add significant predictors ----
 names(fit2$vectors)
@@ -521,7 +537,7 @@ p4 <- p3 + geom_segment(aes(x = 0, y = 0, xend = stand.NMDS1, yend = stand.NMDS2
   geom_text(data = coord_cont_exp_stnd, 
             aes(x =stand.NMDS1, y = stand.NMDS2, label = Variables), 
             colour = "black", fontface = "bold", size = 5 ,
-            vjust=c(-1,1),
+            vjust=c(1,-1),
             hjust=0.5)
 
 p4
@@ -542,7 +558,7 @@ fit1 <- vegan::envfit(nmds1   ~
                         poly(Mowing_frequency, 2)+
                         Manuring_freq + 
                         humus_log +  
-                        PC1_soil_2 +
+                        soil_NPK +
                         #  Grazer_type +
                         Grazing_season +
                         #   Mowing_delay  + 
@@ -686,7 +702,7 @@ coord_cont_field <- as.data.frame(scores(fit1, "vectors")) %>%
                                  "poly(Mowing_frequency, 2).2"="Mowing2",
                                  Manuring_freq="Manuring",
                                  humus_log="Humus",
-                                 PC1_soil_2="soil PC",
+                                 soil_NPK="soil NPK",
   ))  
 
 coord_cont_field
@@ -696,8 +712,8 @@ coord_cont_field
 
 # rescale  all arrows to fill an ordination plot, where fill =  shows proportion of plot to be filled by the arrows
 coord_cont_field_stnd  <- coord_cont_field %>% 
-  mutate(stand.NMDS1=stand.NMDS1 * ordiArrowMul(fit1, rescale=TRUE, fill = 0.25))%>% 
-  mutate(stand.NMDS2=stand.NMDS2 * ordiArrowMul(fit1, rescale=TRUE, fill = 0.25))
+  mutate(stand.NMDS1=stand.NMDS1 * ordiArrowMul(fit1, rescale=TRUE, fill = 0.3))%>% 
+  mutate(stand.NMDS2=stand.NMDS2 * ordiArrowMul(fit1, rescale=TRUE, fill = 0.3))
 
 # Create scores with the standard length for the posthoc plotting of arrows of the same size
 # for this we would use raw vectors from envfit and not scores 
@@ -773,8 +789,8 @@ p4_field <-
               filter(!Variables=="Mowing1", !Variables=="Mowing2"), 
             aes(x =stand.NMDS1, y = stand.NMDS2, label = Variables), 
             colour = "black", fontface = "bold", size = 5 ,
-            vjust=c(1,1,-1,-1,-1,1,1),
-            hjust=c(0.3, 0.2, 0.5, 0.5, 0.7, 0.7, 0.3)
+            vjust=c(1,1,-1,1,-1,1,1),
+            hjust=c(0.3, 0.2, 0.5, 0.1, 0.7, 0.7, 0.3)
   ) +
   labs(color=" ")
 

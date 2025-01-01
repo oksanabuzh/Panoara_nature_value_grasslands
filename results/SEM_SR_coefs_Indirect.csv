@@ -3,14 +3,14 @@ Grazing intensity,Direct effect,-0.6281,-0.6281
 Grazing intensity,Indirect through soil properties,0.14466558,0.14466558
 Grazing intensity,Indirect through seed dispersal,0.02778164,0.02778164
 Grazing intensity,Total effcet,-0.45565278000000003,-0.45565278000000003
-Manuring friequency,Direct effect,0.1037,0.1037
-Manuring friequency,Indirect through soil properties,0.021031760000000004,0.021031760000000004
-Manuring friequency,Indirect through seed dispersal,0.05345839999999999,0.05345839999999999
-Manuring friequency,Total effcet,0.17819016,0.17819016
-Mowing friequency,Direct effect,-0.3947,-0.3947
-Mowing friequency,Indirect through soil properties,0.06816537999999997,0.06816537999999997
-Mowing friequency,Indirect through seed dispersal,0,NA
-Mowing friequency,Total effcet,-0.32653462,-0.32653462
+Manuring frequency,Direct effect,0.1037,0.1037
+Manuring frequency,Indirect through soil properties,0.021031760000000004,0.021031760000000004
+Manuring frequency,Indirect through seed dispersal,0.05345839999999999,0.05345839999999999
+Manuring frequency,Total effcet,0.17819016,0.17819016
+Mowing frequency,Direct effect,-0.3947,-0.3947
+Mowing frequency,Indirect through soil properties,0.06816537999999997,0.06816537999999997
+Mowing frequency,Indirect through seed dispersal,0,NA
+Mowing frequency,Total effcet,-0.32653462,-0.32653462
 Seed dispersal,Direct effect,0.3344,0.3344
 Seed dispersal,Indirect through soil properties,0,NA
 Seed dispersal,Indirect through seed dispersal,0,NA
