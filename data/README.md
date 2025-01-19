@@ -6,12 +6,14 @@ Contains data that are used for analysis
 
 #### Structure
 
-| Document                                    | Description                              |
-| ------------------------------------------- |----------------------------------------- |
-|`Community_composition_VegetationPlots.csv`  | Community matrix for plant species composition at the field farm parcels     |
-| `Community_composition_DungExperiment.csv`  | Community matrix for plant species composition germinated at  seed experiment     |
-| `Diversity_&_NMDS_data.csv`                 | Diversity measures and community composition NMDS scores from the [diversity calculations and NMDS analysis](analysis/0.1_Calculate_diversity_&_ composition.R)    |
-| `soil_PC.csv`                               | scores from the [PCA analysis](analysis/0.2_PCA_soil.R)  |       
+| Document                                   | Description                              |
+| ------------------------------------------ |----------------------------------------- |
+|`Community_composition_VegetationPlots.csv` | Community matrix for plant species composition at the field farm parcels     |
+|`Community_composition_DungExperiment.csv`  | Community matrix for plant species composition germinated at  seed experiment     |
+|`Diversity_&_NMDS_data.csv`                 | Diversity measures and community composition NMDS scores from the [diversity calculations and NMDS analysis](analysis/0.1_Calculate_diversity_&_composition.R)    |
+|`soil_PC.csv`                               | scores from the [PCA analysis](analysis/0.2_PCA_soil.R)  |     
+|`LandUse_soil_variables.csv`                | land use and soil variables | 
+
 
 
 ## Metadata
@@ -40,7 +42,7 @@ Contains plant species composition germinated at the seed experiment
 
 
 ### ->  `Diversity_&_NMDS_data.csv`
-Contains diversity measures and community composition NMDS scores from the [diversity calculations and NMDS analysis](analysis/0.1_Calculate_diversity_&_ composition.R) 
+Contains diversity measures and community composition NMDS scores from the [diversity calculations and NMDS analysis](analysis/0.1_Calculate_diversity_&_composition.R) 
 
 #### Variables:			
 |Short name	| type |	Long name	| Description |
@@ -56,13 +58,20 @@ Contains diversity measures and community composition NMDS scores from the [dive
 | Shannon_Exper  | numeric    | Shannon diversity | Shannon diversity of plant seedlings  germinated at  seed experiment	|
 | NMDS1_VP_field  | numeric    | NMDS1 score | scores for the 1st NMDS axis from the NMDS analysis of the species composition of plant community at each parcel, measured at the field	|
 | NMDS2_VP_field  | numeric    | NMDS2 score | scores for the 2nd NMDS axis from the NMDS analysis of the species composition of plant community at each parcel, measured at the field	|
-
 | NMDS1_exper  | numeric    | NMDS1 score | scores for the 1st NMDS axis from the NMDS analysis of the species composition of plant seedlings  germinated at seed experiment	|
 | NMDS2_exper  | numeric    | NMDS2 score | scores for the 2nd NMDS axis from the NMDS analysis of the species composition of plant seedlings  germinated at seed experiment	|
 
 
 
+### ->  `LandUse_soil_variables.csv`
+Contains land use and soil variables
 
+#### Variables:			
+|Short name	| type |	Long name	| Description |
+| ----------|------|------------| ------------|
+| Parcel_name	     | character  | parcel name	|parcel and farm ID |     
+
+                |  | 
 
 
 ### -> `alpha_beta_gamma_community_variabl.csv`
