@@ -347,3 +347,44 @@ Dat %>% pull(Corralling)
 
 Dat %>% pull(D_E_exp_type) %>% unique()
 
+
+
+
+Panoara_Dat <- read_csv("data/Panoara_Dat.csv")
+
+dat <- Panoara_Dat %>% 
+  mutate(Ploughing=1/Last_ploughing) %>% 
+  
+  dplyr::select(Parcel_name, Farm,
+                Plant_SR_vascular,
+                habitat_corrected,
+                Management_stability,
+                
+                Grazing_intensity_A,
+                Grazing_intensity_B,
+                Grazer_type,
+                Grazing_season,
+                Grazing_type,
+                
+                Mowing_frequency,
+                Mowing_delay,
+                Mowing_method,
+                
+                Manuring_freq,
+                Dung_cover,
+                Cow_dung_applied, #??
+                
+                Cleaning,
+                Litter_removal,
+                Shrub_tree_removal,
+                Moss_removal,
+                Last_ploughing,
+                Anthill_leveling, Molehill_leveling, 
+                Corralling, 
+                Burning,
+                
+                humus, soil_CN, soil_P_acces, soil_K_acces)
+
+dat$Plant_SR_vascular
+
+write_csv(dat, "data/LandUse_soil_variables.csv")

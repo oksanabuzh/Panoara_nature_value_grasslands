@@ -28,30 +28,30 @@ library(viridis)
 # data  ----
 
 Soil_PC <- read_csv("data/soil_NPK_PCA.csv")  %>% 
-  mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
+   mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
+ 
+Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
 
 
-Data <- read_csv("data/Panoara_Dat.csv") %>%
+Dat <- read_csv("data/LandUse_soil_variables.csv") %>%
+  left_join(Diver_NMDS_dat, by="Parcel_name") %>% 
+  left_join(Soil_PC, by="Parcel_name") %>% 
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
   mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
   arrange(Mowing_delay) %>% 
   mutate(Cleaning=fct_relevel(Cleaning,c("no","irregular","regular"))) %>%
   mutate(Dung_cover_log=log(Dung_cover+1)) %>% 
-  mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
-         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper)) %>% 
+#  mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
+#        Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A),
          Grazing_legacy =log1p(Grazing_intensity_B),
          Manuring_freq_log = log1p(Manuring_freq),
          Corralling=case_when(Corralling=="0" ~ "no", 
                               Corralling=="1" ~ "yes")) %>% 
   mutate(humus_log=log1p(humus)) %>% 
-  mutate(Ploughing=1/Last_ploughing)
-# filter(!Parcel_name=="Brade_1") # extreme outlier
-
-
-Dat <- Data %>% 
-  left_join(Soil_PC, by="Parcel_name")
+  mutate(Ploughing=1/Last_ploughing) %>% 
+  rename("Plant_SR_vascular"="SR_VP_field")
 
 
 str(Dat)
@@ -423,6 +423,7 @@ R2_part_m_SR_3b= r2glmm::r2beta(m_SR_3b,  partial = T, method = 'sgv', data=Dat)
 R2_part_m_SR_3b
 plot(R2_part_m_SR_3b)
 
+
 # (4) Grazing_type, Grazing_season  ----
 
 
@@ -525,6 +526,7 @@ ggplot(Dat, aes( Grazing_type, Plant_SR_vascular)) +
                                                    label=emmeansm_SR_4b_Grazing_type$.group),vjust=0.5, hjust=0, 
            # size=4, 
            col="black" , position=position_dodge(0))
+
 
 ### R2 ----
 # R2 for the entire model 
