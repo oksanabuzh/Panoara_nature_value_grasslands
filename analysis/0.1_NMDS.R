@@ -14,6 +14,51 @@ library(ggplot2)
 library(ggrepel)
 library(devtools)
 
+# data -----
+
+##  Field data----
+
+# read data
+Community_VP_field <- read_csv("data/Community_composition_VegetationPlots.csv") %>% 
+  rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
+  filter(layer == "VP") %>% # only for vascular plants 
+  dplyr::select(-layer) %>% 
+  pivot_longer(!species, names_to = "Parcel_name", values_to = "cover") %>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
+  filter(!is.na(cover))
+
+
+Community_VP_field %>% pull(Parcel_name)%>% unique()
+
+str(Community_VP_field)
+
+# calculate diversity measures
+VP_field <- Community_VP_field %>% 
+  group_by(Parcel_name) %>% 
+  summarise(
+    CoverVP_field=sum(cover),
+    SR_VP_field = n_distinct(species),
+    EvennessVP_field = vegan::diversity(cover, index = "invsimpson"),
+    ShannonVP_field = vegan::diversity(cover, index = "shannon")) %>%
+  ungroup()
+
+VP_field
+
+
+##  Experiment data----
+# read data
+Community_exper <- read_csv("data/Community_composition_DungExperiment.csv") %>% 
+  rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
+  filter(layer == "VP") %>% # only for vascular plants 
+  dplyr::select(-layer) %>% 
+  pivot_longer(!species, names_to = "Parcel_name", values_to = "abundance") %>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
+  filter(!is.na(abundance)) 
+
+Community_exper %>% pull(Parcel_name)%>% unique()
+
+str(Community_exper)
+
 
 # NMDS analysis ----
 
@@ -37,7 +82,7 @@ which(colSums(compos_VP_field%>%
 
 # assess how well dissimilarity metrics separate (assess) the data
 # for this, read the environmental variables and join with the community data
-Variables <- read_csv("data/Variables_clean.csv") %>% 
+Variables <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>% 
   dplyr::select(Parcel_name, Grazing_intensity_A, Mowing_frequency,
                 Manuring_freq, humus) %>% 
   mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_"))
