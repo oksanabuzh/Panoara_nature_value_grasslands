@@ -1,5 +1,5 @@
 # Purpose:  Perform Structural Equation Modelling for Species richness (as main response)
-dev.off()
+#dev.off()
 # load packages ----
 library(tidyverse)
 library(ggplot2)
@@ -20,9 +20,14 @@ library(sjPlot)
 Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>% 
   mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
 
+Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
 
+
+  
 # Biodiversity, NMDS and envoronmental data
-Data <- read_csv("data/Panoara_Dat.csv") %>%
+Data <- read_csv("data/LandUse_soil_variables.csv") %>%
+  left_join(Soil_PC, by="Parcel_name") %>% 
+  left_join(Diver_NMDS_dat, by="Parcel_name") %>% 
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
   mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
@@ -36,19 +41,13 @@ Data <- read_csv("data/Panoara_Dat.csv") %>%
   mutate(Cow_dung=case_when(Cow_dung_applied=="present" ~ "1", 
                             Cow_dung_applied=="absent" ~ "0"))
 
-# join with soil PC
-Dat <- Data %>% 
-  left_join(Soil_PC, by="Parcel_name")
-
 # Data wrangling
-SEM.dat <- Dat %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
-  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
-         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
-         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
-         Evenness_Exper=case_when(is.na(Evenness_Exper) ~ 0, .default=Evenness_Exper),
-         Shannon_Exper=case_when(is.na(Shannon_Exper) ~ 0, .default=Shannon_Exper)) %>% 
- filter(!is.na(SR_D_E_exper)) %>% 
+SEM.dat <- Data %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
+  filter(!Dung_for_experiment==0) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
+  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
+        # Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
+         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper)) %>% 
   mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
                                 Mowing_delay=="July-August" ~ 1,
                                 Mowing_delay=="June" ~ 2)) %>% 
@@ -58,7 +57,11 @@ SEM.dat <- Dat %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
          SR_Exper_log = log1p(SR_Exper))
 
 
-
+Data$Plant_SR_vascular
+Data$SR_D_E_exper
+Data$SR_Exper
+Data$No_dung_experiment
+SEM.dat$SR_VP_field
 
 SEM.dat
 summary(SEM.dat)
@@ -70,7 +73,7 @@ names(SEM.dat)
 
 ## mod 1: Species Richness (field data)----
 
-m1_SR_field <- glmer(Plant_SR_vascular ~   
+m1_SR_field <- glmer(SR_VP_field ~ #Plant_SR_vascular ~   
                        abundance_Exper +  
                        SR_Exper_log + 
                        Grazing_int_log  +   

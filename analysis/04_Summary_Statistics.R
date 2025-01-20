@@ -133,7 +133,6 @@ Dat <- read_csv("data/Panoara_Dat.csv") %>%
          Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A),
          Corralling=factor(Corralling))
-# filter(!Parcel_name=="Brade_1") # extreme outlier
 
 str(Dat)
 names(Dat)

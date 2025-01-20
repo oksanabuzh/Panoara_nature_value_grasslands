@@ -29,7 +29,7 @@ Dat <- read_csv("data/Panoara_Dat.csv") %>%
   mutate(Dung_cover_log=log(Dung_cover+1)) %>% 
   mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
  Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper)) %>% 
-   filter(!Parcel_name=="Brade_1") # extreme outlier
+   filter(!Parcel_name=="Farm_F_1") # extreme outlier
 
 str(Dat)
 names(Dat)
@@ -74,7 +74,7 @@ ggplot(SR_exp_pred, aes(x, predicted)) +
 m1_Abund_exp <- glmer (Abund_D_E_exper ~  log(Grazing_intensity_A+1) + 
                          Grazer_diversity +   
                          (1|Farm), family = "poisson", 
-                       data = Dat %>% filter(!Parcel_name=="Brade_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
+                       data = Dat %>% filter(!Parcel_name=="Farm_F_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
 
 check_convergence(m1_Abund_exp)
 ranef(m1_Abund_exp) # random effects are not zeros
@@ -85,7 +85,7 @@ check_collinearity(m1_Abund_exp)
 
 m2_Abund_exp <- glm (Abund_D_E_exper ~  log(Grazing_intensity_A+1) + Grazer_diversity,  # Grazer_type + 
                      family = "poisson", 
-                     data = Dat %>% filter(!Parcel_name=="Brade_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
+                     data = Dat %>% filter(!Parcel_name=="Farm_F_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
 anova(m1_Abund_exp, m2_Abund_exp)
 
 
@@ -99,7 +99,7 @@ Abund_exp_pred1 <- get_model_data(m1_Abund_exp,type = "pred", terms="Grazing_int
 
 ggplot(Abund_exp_pred1, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat %>% filter(!Parcel_name=="Brade_1")%>% 
+  geom_point(data=Dat %>% filter(!Parcel_name=="Farm_F_1")%>% 
                mutate(Grazer_type=str_replace_all(Grazer_type_specifc, "_", ", ")),
              aes(Grazing_intensity_A, Abund_D_E_exper, fill = Grazer_type),
              size=3, alpha=0.7, pch=21)+
@@ -113,7 +113,7 @@ Abund_exp_pred2 <- get_model_data(m1_Abund_exp,type = "pred", terms="Grazer_dive
 
 ggplot(Abund_exp_pred2, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat %>% filter(!Parcel_name=="Brade_1")%>% 
+  geom_point(data=Dat %>% filter(!Parcel_name=="Farm_F_1")%>% 
                mutate(Grazer_type=str_replace_all(Grazer_type_specifc, "_", ", ")),
              aes(Grazer_diversity, Abund_D_E_exper, fill = Grazer_type),
              size=3.5, alpha=0.7, pch=21,
@@ -193,7 +193,7 @@ emmeans_m4_SR_exp <- cld(emmeans(m4_SR_exp, list(pairwise ~ Grazer_type)),
                             Letters = letters) %>% arrange(Grazer_type)
 emmeans_m4_SR_exp
 
-ggplot(Dat %>%  filter(!Parcel_name=="Brade_1", !is.na(Abund_D_E_exper)) %>%
+ggplot(Dat %>%  filter(!Parcel_name=="Farm_F_1", !is.na(Abund_D_E_exper)) %>%
          mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")), 
        aes(Grazer_type, SR_D_E_exper)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
@@ -214,7 +214,7 @@ ggplot(Dat %>%  filter(!Parcel_name=="Brade_1", !is.na(Abund_D_E_exper)) %>%
 m1_Abund_exp <- glmer (Abund_D_E_exper ~  log(Grazing_intensity_A+1) + 
                          Grazer_diversity +  # Grazer_type + 
                        (1|Farm), family = "poisson", 
-                  data = Dat %>% filter(!Parcel_name=="Brade_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
+                  data = Dat %>% filter(!Parcel_name=="Farm_F_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
 
 check_convergence(m1_Abund_exp)
 ranef(m1_Abund_exp) # random effects are not zeros
@@ -225,7 +225,7 @@ check_collinearity(m1_Abund_exp)
 
 m2_Abund_exp <- glm (Abund_D_E_exper ~  log(Grazing_intensity_A+1) + Grazer_diversity,  # Grazer_type + 
                         family = "poisson", 
-                       data = Dat %>% filter(!Parcel_name=="Brade_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
+                       data = Dat %>% filter(!Parcel_name=="Farm_F_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
 anova(m1_Abund_exp, m2_Abund_exp)
 
 
@@ -239,7 +239,7 @@ Abund_exp_pred1 <- get_model_data(m1_Abund_exp,type = "pred", terms="Grazing_int
 
 ggplot(Abund_exp_pred1, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat %>% filter(!Parcel_name=="Brade_1")%>% 
+  geom_point(data=Dat %>% filter(!Parcel_name=="Farm_F_1")%>% 
                mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")),
              aes(Grazing_intensity_A, Abund_D_E_exper, fill = Grazer_type),
              size=3, alpha=0.7, pch=21)+
@@ -253,7 +253,7 @@ Abund_exp_pred2 <- get_model_data(m1_Abund_exp,type = "pred", terms="Grazer_dive
 
 ggplot(Abund_exp_pred2, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat %>% filter(!Parcel_name=="Brade_1")%>% 
+  geom_point(data=Dat %>% filter(!Parcel_name=="Farm_F_1")%>% 
                mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")),
              aes(Grazer_diversity, Abund_D_E_exper, fill = Grazer_type),
              size=3, alpha=0.7, pch=21)+
@@ -264,12 +264,12 @@ ggplot(Abund_exp_pred2, aes(x, predicted)) +
 # Grazer_type
 m3_Abund_exp <- glmer (Abund_D_E_exper ~  Grazer_type + 
                          (1|Farm), family = "poisson", 
-                       data = Dat %>% filter(!Parcel_name=="Brade_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
+                       data = Dat %>% filter(!Parcel_name=="Farm_F_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
 ranef(m3_Abund_exp) # random effects are zeros
 
 m4_Abund_exp <- glm (Abund_D_E_exper ~  Grazer_type,
                        family = "poisson", 
-                       data = Dat %>% filter(!Parcel_name=="Brade_1") %>% # strong outlier in SR_D_E_exper and Abund_D_E_exper
+                       data = Dat %>% filter(!Parcel_name=="Farm_F_1") %>% # strong outlier in SR_D_E_exper and Abund_D_E_exper
                        mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", "))) # correct names in Grazer_type
 
 Anova(m4_Abund_exp)
@@ -280,7 +280,7 @@ emmeans_m4_Abund_exp <- cld(emmeans(m4_Abund_exp, list(pairwise ~ Grazer_type)),
                       Letters = letters) %>% arrange(Grazer_type)
 emmeans_m4_Abund_exp
 
-ggplot(Dat %>%  filter(!Parcel_name=="Brade_1", !is.na(Abund_D_E_exper)) %>%
+ggplot(Dat %>%  filter(!Parcel_name=="Farm_F_1", !is.na(Abund_D_E_exper)) %>%
          mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")), 
        aes(Grazer_type, Abund_D_E_exper)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
@@ -644,7 +644,7 @@ summary(m5_SR_field)
 MuMIn::r.squaredGLMM(m_SR_field)
 
 # partial R2
-r2glmm::r2beta(m_SR_field,  partial = T, method = 'sgv', data=Dat %>% filter(!Parcel_name=="Brade_1", !is.na(Abund_D_E_exper)))
+r2glmm::r2beta(m_SR_field,  partial = T, method = 'sgv', data=Dat %>% filter(!Parcel_name=="Farm_F_1", !is.na(Abund_D_E_exper)))
 
 # check in piecewiseSEM
 summary(psem(m_SR_field))
@@ -657,7 +657,7 @@ summary(psem(m_SR_field))
 ## Replace NAs with "0" in experiment data ----
 m3 <- glmer.nb (Plant_SR_vascular ~ Grazing_intensity_A + SR_D_E_exper +
                   Abund_D_E_exper + (1|Farm), 
-                data = Dat %>% filter(!Parcel_name=="Brade_1") %>% 
+                data = Dat %>% filter(!Parcel_name=="Farm_F_1") %>% 
                   mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
                          Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper))
                 )
@@ -674,7 +674,7 @@ summary(m3)
 # check correlation between SR and Abundance in Experiment data
 
 m4 <- glmer (SR_D_E_exper ~ Abund_D_E_exper + (1|Farm), family = "poisson", data = Dat %>% 
-               filter(!Parcel_name=="Brade_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
+               filter(!Parcel_name=="Farm_F_1")) # strong outlier in SR_D_E_exper and Abund_D_E_exper
 
 check_convergence(m1)
 
@@ -698,7 +698,7 @@ Anova(m4)
 # Replace NAs with "0" in experiment data 
 m4b <- glmer (SR_D_E_exper ~ Abund_D_E_exper + (1|Farm), family = "poisson", 
               data = Dat %>% 
-               filter(!Parcel_name=="Brade_1") %>% 
+               filter(!Parcel_name=="Farm_F_1") %>% 
                         mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
                                Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper))
                )

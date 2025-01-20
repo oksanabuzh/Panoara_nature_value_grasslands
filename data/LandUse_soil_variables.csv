@@ -1,0 +1,45 @@
+Parcel_name,Farm,Plant_SR_field,Plant_cover_field,Plant_SR_exper,Plant_abundance_exper,Dung_for_experiment,habitat_corrected,Management_stability,Grazing_intensity_A,Grazing_intensity_B,Grazer_type,Grazing_season,Grazing_type,Mowing_frequency,Mowing_delay,Mowing_method,Manuring_freq,Dung_cover,Cow_dung_applied,Cleaning,Litter_removal,Shrub_tree_removal,Moss_removal,Last_ploughing,Anthill_leveling,Molehill_leveling,Corralling,Burning,humus,soil_CN,soil_P_acces,soil_K_acces
+Farm_A_1,V,47,125.561,7,7,1,pasture,30,30,1.8,cow,Whole season,fencing,0,no mowing,no,0,0,absent,regular,no,yes,yes,30,yes,yes,1,yes,5.52,5.918557268,9.13,98.2
+Farm_A_2,V,82,98.306,3,3,1,pasture,25,30,1.8,cow,Whole season,fencing,0,no mowing,no,0,0,absent,regular,yes,yes,yes,30,yes,yes,0,yes,5.63,6.267218828,2.07,132.3
+Farm_A_3,V,66,110.011,NA,NA,0,meadow,50,15,0.45,cow,Autumn,free,1,June,T,0.3,0,present,regular,yes,yes,yes,60,yes,yes,0,yes,6.88,7.212893841,1.55,105
+Farm_A_4,V,63,108.226,0,0,1,meadow,5,15,0.15,cow,Autumn,free,2,June,T,1,8,present,no,no,no,no,5,no,no,0,yes,9.99,6.763461648,4.09,348.8
+Farm_A_5,V,43,146.812,5,5,1,meadow,5,15,0.15,cow,Autumn,free,3,June,T,0.3,1,present,regular,no,yes,yes,5,yes,yes,1,yes,13.34,7.088758656,4,683.7
+Farm_A_6,V,63,126.451,0,0,1,meadow,5,15,0.15,cow,Autumn,free,1,June,T,0,0,absent,regular,yes,yes,yes,20,yes,yes,1,yes,12.38,7.548178094,2.1,283.6
+Farm_A_7,V,49,104.502,NA,NA,0,pasture,5,50,4.5,cow,Whole season,fencing,0,no mowing,no,0,0,absent,regular,no,yes,yes,60,yes,yes,0,yes,12.08,7.52844903,3.66,142.8
+Farm_A_8,V,74,154.35,NA,NA,0,pasture,28,30,2.7,cow,Whole season,fencing,0,no mowing,no,0,0,absent,regular,yes,yes,yes,60,yes,yes,0,yes,9.89,7.002461399,2.2,105.9
+Communal_1,C,40,106.713,2,2,1,pasture,50,975,58.5,sheep_goat,Whole season,herding,0,no mowing,no,0,0,absent,irregular,yes,yes,yes,60,yes,yes,0,no,11.39,6.794914024,2.1,140.5
+Farm_A_10,V,72,104.76,NA,NA,0,meadow,50,15,0.45,cow,Autumn,free,1,July-August,T,0,0,absent,regular,yes,yes,yes,60,yes,yes,0,yes,12.36,7.375479553,1.47,306.8
+Farm_A_13,V,64,111.423,0,0,1,meadow,10,15,0.3,cow,Autumn,free,1,June,T,0.5,0,present,regular,no,yes,no,10,yes,yes,0,no,11.87,6.69903515,2.42,381.2
+Farm_B_1,I,75,79.244,5,5,1,meadow,25,15,0.3,cow,Autumn,free,1,June,T,1,8,present,regular,yes,yes,no,25,yes,yes,0,yes,8.87,7.231899978,2.38,120.1
+Farm_B_2,I,64,127.922,8,8,1,pasture,15,50,3,cow,Whole season,fencing,0,no mowing,no,0,0,absent,regular,yes,yes,no,60,yes,yes,0,yes,6.63,6.675115643,2.25,79.4
+Farm_B_3,I,84,162.783,NA,NA,0,meadow,25,15,0.3,cow,Autumn,free,1,July-August,M_T,0,0,absent,regular,yes,yes,no,25,yes,yes,0,yes,7.43,7.240514035,3.79,131.7
+Farm_B_4,I,50,127.741,3,3,1,pasture,6,50,1.5,cow,Whole season,fencing,0,no mowing,no,0,0,absent,regular,yes,yes,no,60,yes,yes,0,yes,7.37,7.420164269,6.15,126.9
+Farm_B_5,I,69,115.862,3,3,1,meadow,25,15,0.3,cow,Autumn,free,1,July-August,T,0,0,absent,regular,yes,yes,no,60,yes,yes,0,yes,9.08,8.580721367,3,125.8
+Farm_B_6,I,68,90.543,5,5,1,meadow,5,15,0.15,cow,Autumn,free,1,June,T,0.5,1,present,regular,yes,yes,no,5,yes,yes,0,no,12.07,7.603345168,2.73,168.9
+Farm_B_7,I,75,75.952,2,2,1,pasture,10,50,3,cow,Whole season,fencing,0,no mowing,no,0,0,absent,regular,yes,yes,no,60,yes,yes,0,yes,10.25,7.888990577,2.59,194.8
+Communal_2,C,37,99.274,2,2,1,pasture,50,975,58.5,sheep_goat,Whole season,herding,0,no mowing,no,0,0,absent,irregular,no,yes,no,60,no,no,0,yes,8.3,7.472151458,2.23,149.2
+Farm_C_1,S,66,87.306,1,1,1,meadow,4,46.8,0.468,sheep_goat,Autumn,free,1,July-August,M,0,0,absent,irregular,no,yes,no,50,yes,yes,0,no,9.57,7.968061533,2.77,139.7
+Farm_C_3,S,51,86.36,5,5,1,pasture,50,226,20.34,mixed,Whole season,fencing,0,no mowing,no,0,0,absent,regular,no,yes,no,60,yes,yes,0,no,6.53,6.707341816,2.99,116.4
+Farm_C_6,S,48,157.22,NA,NA,0,meadow,50,46.8,1.404,sheep_goat,Autumn,free,1,July-August,T,0,0,absent,regular,no,yes,no,60,yes,yes,0,no,6.83,7.489287722,3.74,101.6
+Farm_C_8,S,56,77.671,3,3,1,meadow,7,62.4,1.872,sheep_goat,Summer,fencing,2,July-August,M,0,0,absent,regular,no,yes,no,35,yes,yes,1,no,10.83,7.855230438,2.32,239.3
+Farm_C_9,S,50,124.712,NA,NA,0,meadow,20,46.8,1.404,sheep_goat,Autumn,free,1,June,M,0.3,0,present,no,no,no,no,35,no,no,0,no,11.97,8.141087456,1.92,236.5
+Farm_C_10,S,46,123.47,6,6,1,meadow,50,21,0.63,cow,Autumn,free,1,June,M,0.3,0,present,regular,no,yes,no,60,no,no,0,no,8.62,8.006787115,2.14,157.4
+Farm_D_1,L,72,135.4,NA,NA,0,meadow,40,352,21.12,sheep_goat,Summer,herding,1,July-August,T,0.3,0,present,regular,no,yes,no,40,yes,yes,0,no,12.38,6.946200041,2.14,203.6
+Communal_3,C,70,68.086,2,2,1,pasture,50,880,52.8,sheep_goat,Whole season,herding,0,no mowing,no,0,0,absent,irregular,no,yes,no,50,no,no,0,no,12.24,8.334823896,1.3,166.6
+Farm_D_3,L,61,90.156,7,7,1,meadow,40,192,11.52,sheep_goat,Summer,herding,1,July-August,M,1,20,present,regular,no,yes,no,60,yes,yes,0,no,17.35,8.030655683,5.7,235.2
+Farm_D_4,L,63,52.533,8,8,1,pasture,10,690,41.4,mixed,Whole season,fencing,0,no mowing,no,0,0,absent,irregular,no,yes,no,60,yes,yes,0,no,8.56,7.384404261,1.78,103.6
+Farm_D_5,L,80,70.981,9,9,1,meadow,2,10,0.3,mixed,Autumn,fencing,0.3,July-August,T,0,1,absent,regular,no,yes,no,5,yes,yes,0,no,16.11,7.228735065,4.42,266.9
+Farm_D_6,L,72,101.643,0,0,1,meadow,25,436,17.44,mixed,Summer,herding,1,July-August,M,0.5,0,present,regular,yes,yes,no,25,yes,yes,0,no,15.49,8.155179766,2.51,249.3
+Communal_4,C,30,65.333,3,3,1,pasture,30,880,35.2,sheep_goat,Whole season,herding,0,no mowing,no,0,0,absent,no,no,no,no,60,no,no,0,no,8.83,8.877555125,2.4,120.7
+Farm_D_8,L,61,99.771,0,0,1,meadow,50,436,17.44,mixed,Summer,herding,1,July-August,M,0.5,0,present,regular,yes,yes,no,60,yes,yes,0,no,12.8,8.549462261,2.38,126.9
+Communal_5,C,60,66.93900000000001,5,5,1,pasture,50,880,52.8,sheep_goat,Whole season,herding,0,no mowing,no,0,0,absent,no,no,no,no,60,no,no,0,no,37.01,12.49285387,7.93,139.1
+Farm_D_10,L,57,79.451,3,3,1,pasture,3,880,35.2,sheep_goat,Whole season,herding,0,no mowing,no,0,0,absent,irregular,no,yes,no,50,no,no,0,no,7.22,7.567043511,1.89,112.8
+Farm_E_1,N,47,107.443,3,3,1,meadow,20,31.2,0.624,mixed,Summer,free,2,July-August,M_T,1,0,present,regular,no,yes,no,20,yes,yes,0,no,8.36,7.20166341,6.55,138.9
+Farm_E_2,N,53,97.542,3,3,1,meadow,30,31.2,0.624,mixed,Summer,free,2,July-August,M_T,1,0,present,regular,no,yes,no,30,yes,yes,0,no,11.95,7.47760646,6.64,212.9
+Farm_E_3,N,65,109.302,NA,NA,0,meadow,50,31.2,0.936,mixed,Summer,free,1,July-August,M,0.5,0,present,regular,no,yes,no,60,yes,yes,0,no,8.96,7.98893028,1.66,154.1
+Farm_E_4,N,66,121.013,0,0,1,meadow,50,31.2,0.936,mixed,Summer,free,1,July-August,M,0.5,0,present,irregular,no,yes,no,60,yes,yes,0,no,7.75,7.525354721,1.62,148.7
+Farm_E_5,N,62,184.532,3,3,1,meadow,30,31.2,1.872,mixed,Summer,fencing,2,July-August,M_T,1,20,present,regular,no,yes,no,30,yes,yes,0,no,9.52,7.839441991,5.34,258.3
+Farm_E_6,N,60,116.73,4,4,1,meadow,3,46.8,2.808,mixed,Autumn,fencing,1,July-August,H,0,0,absent,regular,no,yes,no,60,yes,yes,0,yes,13.96,10.4018235,5.69,197
+Farm_E_7,N,62,93.254,NA,NA,0,meadow,50,14.4,0.432,mixed,Summer,free,1,July-August,M,0,0,absent,regular,no,yes,no,60,yes,yes,0,no,9.55,9.037966789,4.77,183.9
+Farm_F_1,O,34,149.76,17,17,1,meadow,15,332,6.64,mixed,Summer,herding,1,July-August,M_T,0,0,absent,regular,no,yes,no,50,yes,yes,1,no,9.08,7.77108927,11.3,371.8
+Farm_F_2,O,52,84.921,3,3,1,meadow,30,249,9.96,mixed,Autumn,herding,0.3,July-August,H,0,0,absent,no,no,no,no,60,no,no,0,no,11.49,9.003117749,4.96,165.4
