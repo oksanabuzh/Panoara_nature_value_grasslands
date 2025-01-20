@@ -99,7 +99,10 @@ Variables <- read_csv("data/Variables_selected.csv") %>%
                                   Grazing_season=="SA" ~ "Summer",
                                   Grazing_season== "A, W" ~ "Autumn"),
          Last_ploughing =case_when(Last_ploughing=="no" ~ "60", 
-                                   .default = as.character(Last_ploughing)))
+                                   .default = as.character(Last_ploughing)))%>% 
+  mutate(Dung_for_experiment=case_when( # dung found on the field for experiment or not
+    is.na(SR_D_E_exper) ~ 0,
+    !is.na(SR_D_E_exper) ~ 1))
 
 
 str(Variables)
@@ -352,11 +355,18 @@ Dat %>% pull(D_E_exp_type) %>% unique()
 
 Panoara_Dat <- read_csv("data/Panoara_Dat.csv")
 
+Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
+
+
+names(dat)
+
 dat <- Panoara_Dat %>% 
-  mutate(Ploughing=1/Last_ploughing) %>% 
   
-  dplyr::select(Parcel_name, Farm,
-                Plant_SR_vascular,
+  mutate(Ploughing=1/Last_ploughing) %>% 
+
+      dplyr::select(Parcel_name, Farm,
+                Plant_SR_vascular, # SR_D_E_exper, Abund_D_E_exper,
+                Dung_for_experiment,
                 habitat_corrected,
                 Management_stability,
                 
@@ -383,8 +393,24 @@ dat <- Panoara_Dat %>%
                 Corralling, 
                 Burning,
                 
-                humus, soil_CN, soil_P_acces, soil_K_acces)
+                humus, soil_CN, soil_P_acces, soil_K_acces) %>% 
+    left_join(Diver_NMDS_dat %>% 
+                dplyr::select(Parcel_name, CoverVP_field, 
+                              abundance_Exper, SR_Exper), by="Parcel_name") %>% 
+    rename(Plant_SR_field=Plant_SR_vascular,
+           Plant_cover_field=CoverVP_field,
+           Plant_SR_exper=SR_Exper,
+           Plant_abundance_exper=abundance_Exper) %>% 
+  relocate(c("Plant_cover_field","Plant_SR_exper","Plant_abundance_exper", "Dung_for_experiment"),
+           .after = "Plant_SR_field") %>% 
+  mutate(Plant_SR_exper=case_when(is.na(Plant_SR_exper) & 
+                                    Dung_for_experiment==1 ~ 0,
+                                  .default = Plant_SR_exper),
+         Plant_abundance_exper=case_when(is.na(Plant_abundance_exper) & 
+                                    Dung_for_experiment==1 ~ 0,
+                                  .default = Plant_SR_exper))
 
-dat$Plant_SR_vascular
+  
+
 
 write_csv(dat, "data/LandUse_soil_variables.csv")

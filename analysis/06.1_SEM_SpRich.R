@@ -43,8 +43,11 @@ Data <- read_csv("data/LandUse_soil_variables.csv") %>%
 
 # Data wrangling
 SEM.dat <- Data %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
-  filter(!is.na(SR_Exper )) %>% 
+  filter(!Dung_for_experiment==0) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
+  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
+        # Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
+         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper)) %>% 
   mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
                                 Mowing_delay=="July-August" ~ 1,
                                 Mowing_delay=="June" ~ 2)) %>% 
@@ -55,6 +58,10 @@ SEM.dat <- Data %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
 
 
 Data$Plant_SR_vascular
+Data$SR_D_E_exper
+Data$SR_Exper
+Data$No_dung_experiment
+SEM.dat$SR_VP_field
 
 SEM.dat
 summary(SEM.dat)
@@ -66,7 +73,7 @@ names(SEM.dat)
 
 ## mod 1: Species Richness (field data)----
 
-m1_SR_field <- glmer(Plant_SR_vascular ~   
+m1_SR_field <- glmer(SR_VP_field ~ #Plant_SR_vascular ~   
                        abundance_Exper +  
                        SR_Exper_log + 
                        Grazing_int_log  +   
