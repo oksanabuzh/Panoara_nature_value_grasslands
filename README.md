@@ -1,10 +1,6 @@
-# Code for Janišová et al. (2024) [Biological Conservation](https://www.sciencedirect.com/journal/biological-conservation)
+# Code for Janišová et al. (2025) [Biological Conservation](https://www.sciencedirect.com/journal/biological-conservation)
 
-## Janišová M., Magnes M., Škodová I., Iuga A., Ivașcu A., Ivașcu C.M., Ďuricová V., Tarog A., Kromka M., Buzhdygan O.Y. (2025) 
-## Role of livestock in maintaining high nature value grasslands
-
-Special issue in Biological Conservation ["Conservation of Palaearctic steppes and semi-natural grasslands: challenges and solutions"](https://www.sciencedirect.com/journal/biological-conservation/about/call-for-papers#conservation-of-palaearctic-steppes-and-semi-natural-grasslands-challenges-and-solutions)
-
+## Janišová M., Magnes M., Škodová I., Iuga A., Ivașcu A., Ivașcu C.M., Ďuricová V., Tarog A., Kromka M., Buzhdygan O.Y. (2025) Role of livestock and traditional management practices in maintaining high nature value grasslands
 
 
 # Project Structure
@@ -15,19 +11,21 @@ This project is structured as follows:
 .gitignore
 .Rproj.user/
 data/
-    Variables_selected.csv
+    Divers_LandUse_Soil_Variables.csv
     Community_composition_DungExperiment.csv
     Community_composition_VegetationPlots.csv
-    Diversity_&_NMDS_data.csv
-    Panoara_Dat.csv
+    NMDS_data.csv
+    soil_NPK_PCA
 analysis/
-    01_Calculate_diversity_&_composition.R
-    02_PCA_variables.R
-    03_Prepare_data.R
+    0.1_NMDS.R
+    0.2_PCA_soil.R
     04_Summary_Statistics.R
     05_GLMMs.R
-    06_SEM.R
-    old/
+    05.2_GLMMs_R2_plot.R
+    06.1_SEM_SpRich.R
+    06.2_SEM_NMDS.R
+    06.3_SEM_R2_plot.R
+    07_Seed_Exper.R
 results/
 Panoara.Rproj
 ```
@@ -38,9 +36,8 @@ Panoara.Rproj
 
 In this folder, the raw data is prepared for analysis and the analysis is performed
 
-- `01_Calculate_diversity_&_composition.R`: calculates evenness and community composition (NMDS) for each plot, performs the PERMANOVA analysis and ordination plots.
-- `02_PCA_variables.R`: performs PCA for soil data
-- `03_Prepare_data.R`: prepares the data for analysis. It reads in the raw data, renames and filters the variables, join the data sets.
+- `0.1_NMDS.R`: calculates community composition (NMDS) for each plot, performs the PERMANOVA analysis and ordination plots.
+- `0.2_PCA_soil.R`: performs PCA for soil data
 - `04_Summary_Statistics.R`: summarises data and calculates summary statistics and correlations among the measures of plant community (using GLMMs)
 - `05_GLMMs.R`: performs the GLMM analysis for plant species richness (field data).
 - `06.1_SEM_SpRich.R`: performs the SEM analysis, calculates direct & indirect effects 
@@ -56,14 +53,13 @@ for community composition (NMDS)
 This folder contains the raw data files and the the processed data files.
 
 Raw data files:
-- `Variables_selected`: This is the raw data file used in the `03_Prepare_data.R` script. It contains environmental variables and data from vegetation surveys and seed experiment.
-- `Community_composition_VegetationPlots.csv`: contains a list of plant species and their cover for each field plot. 
-- `Community_composition_DungExperiment.csv`: contains a list of plant species and their abundances for the seed experiment. 
-- `headers.csv`: This file contains environmental variables for all plots.
+- `Community_composition_VegetationPlots.csv`: contains a list of plant species and their cover for each field plot
+- `Community_composition_DungExperiment.csv`: contains a list of plant species and their abundances for the seed experiment 
+- `Divers_LandUse_Soil_Variables.csv`: This file contains environmental variables and biodiversity measures for all plots
 
-Processed data files:
-- `Panoara_Dat.csv`: This file is created by the `03_Prepare_data.R` script. It contains clean and joined dataset of the environmental variables, biodiversity measures, the NMDS and PCA scores.
-
+Processed files:
+- `NMDS_data.csv`: contains NMDS scores 
+- `soil_NPK_PCA.csv`: contains PCA scores 
 
 ## Other Files
 
