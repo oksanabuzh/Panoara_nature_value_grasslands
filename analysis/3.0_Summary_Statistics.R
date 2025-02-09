@@ -1,12 +1,10 @@
 # Purpose: Data wrangling and summary statistics
 ## Correlations among the measures of plant community, using GLMMs
 
-rm(list = ls()) # clears working environment
-
+#rm(list = ls()) # clears working environment
 # dev.off() # shuts down the current graphical device
 
-# load packages
-
+# load packages ----
 library(tidyverse)
 library(ggplot2)
 library(sjPlot)
@@ -21,7 +19,7 @@ library(piecewiseSEM)
 library(viridis)          
 
 
-# set thepe for plots
+# set theme for plots
 set_theme(base = theme_bw(),
           axis.textsize.x = 1, axis.textsize.y = 1, axis.textcolor = "black",
           axis.title.color = "black", axis.title.size = 1.4,
@@ -29,18 +27,10 @@ set_theme(base = theme_bw(),
 
 
 
-
 # (1) Summary for plant community ----
 
 ## field data ----
-Community_VP_field <- read_csv("data/Community_composition_VegetationPlots.csv") %>% 
-  rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
-  filter(layer == "VP") %>% # only for vascular plants 
-  dplyr::select(-layer) %>% 
-  pivot_longer(!species, names_to = "Parcel_name", values_to = "cover") %>% 
- # rename(Species="Plot_Parcel") %>% 
-  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
-  filter(!is.na(cover))
+Community_VP_field <- read_csv("data/Community_composition_VegetationPlots.csv")
 
 Community_VP_field %>% pull(Parcel_name)%>% unique()
 
@@ -87,14 +77,8 @@ Sp.occur$Sp_ordered <- with(Sp.occur, reorder(species, fraction))
 
 ## experiment data ----
 
-Community_exper <- read_csv("data/Community_composition_DungExperiment.csv") %>% 
-    rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
-    filter(layer == "VP") %>% # only for vascular plants 
-    dplyr::select(-layer) %>% 
-    pivot_longer(!species, names_to = "Parcel_name", values_to = "abundance") %>% 
-    mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
-    filter(!is.na(abundance)) 
-  
+Community_exper <- read_csv("data/Community_composition_DungExperiment.csv")
+
 Community_exper %>% pull(Parcel_name)%>% unique()
   
 
@@ -105,8 +89,6 @@ Sp.occur_exp <- Community_exper %>%
   arrange(desc(fraction))
 
 Sp.occur_exp
-
-43*100/221 # % species dispersed through zoochory via excrements and farmyard dung
 
 Sp.occur_exp$Sp_ordered <- with(Sp.occur_exp, reorder(species, fraction))
 
@@ -123,30 +105,32 @@ ggplot(Sp.occur_exp, aes(y =Sp_ordered , x = fraction)) +
 
 #  (2) Correlations among plant community measures  -----
 
-Dat <- read_csv("data/Panoara_Dat.csv") %>%
+Dat <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
   mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
   arrange(Mowing_delay) %>% 
   mutate(Dung_cover_log=log(Dung_cover+1)) %>% 
-  mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
-         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A),
-         Corralling=factor(Corralling))
+         Corralling=factor(Corralling)) %>% 
+  mutate(Plant_SR_exper=case_when(is.na(Plant_SR_exper) ~ 0, 
+                                .default=Plant_SR_exper),
+         Plant_abundance_exper=case_when(is.na(Plant_abundance_exper) ~ 0, 
+                                   .default=Plant_abundance_exper))
 
 str(Dat)
 names(Dat)
 
 
 Dat <- Dat %>% 
-  mutate(zz = Plant_SR_vascular) # for predicting from the glmmPQL models
+  mutate(zz = Plant_SR_field) # for predicting from the glmmPQL models
 
 #
 
 
 ## Abundance ----
 
-m1_abund <- glmer(Plant_SR_vascular ~  CoverVP_field + 
+m1_abund <- glmer(Plant_SR_field ~  Plant_cover_field + 
                     (1|Farm), family = "poisson", data = Dat) 
 
 check_overdispersion(m1_abund) 
@@ -157,20 +141,20 @@ summary(m1_abund)
 
 # overdispersed data, use quasi
 
-m2_abund <- glmmPQL(Plant_SR_vascular ~  CoverVP_field, random = ~ 1 | Farm,  data = Dat,
+m2_abund <- glmmPQL(Plant_SR_field ~  Plant_cover_field, random = ~ 1 | Farm,  data = Dat,
                     family = "quasipoisson") 
 
 Anova(m2_abund)
 
 model_data(m2_abund)
 
-plot_model(m2_abund, type = "pred", terms = c("CoverVP_field"), show.data=T, dot.alpha=0.3, title="") 
+plot_model(m2_abund, type = "pred", terms = c("Plant_cover_field"), show.data=T, dot.alpha=0.3, title="") 
 
-m2_abund_pred <- get_model_data(m2_abund,type = "pred", terms="CoverVP_field[50:190, by=0.1]")
+m2_abund_pred <- get_model_data(m2_abund,type = "pred", terms="Plant_cover_field[50:190, by=0.1]")
 
 ggplot(m2_abund_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat, aes(CoverVP_field, Plant_SR_vascular, fill = Mowing_delay), 
+  geom_point(data=Dat, aes(Plant_cover_field, Plant_SR_field, fill = Mowing_delay), 
              fill ="#64ABCE", size=3, alpha=0.5, pch=21,
              position=position_jitter(width=0.05, height=0))+
   # scale_fill_manual(values=c("blue", "red", "green"))+
@@ -181,7 +165,7 @@ ggplot(m2_abund_pred, aes(x, predicted)) +
 
 ## Evenness ----
 
-m1_Even <- glmer(Plant_SR_vascular ~  EvennessVP_field + 
+m1_Even <- glmer(Plant_SR_field ~  Plant_Evenness_field + 
                    (1|Farm), family = "poisson", data = Dat) 
 
 check_overdispersion(m1_Even) 
@@ -193,11 +177,11 @@ summary(m1_Even)
 
 plot_model(m1_Even, type = "pred", show.data=T, dot.alpha=0.3, title="") 
 
-m1_Even_pred <- get_model_data(m1_Even,type = "pred", terms="EvennessVP_field[2:30, by=0.1]")
+m1_Even_pred <- get_model_data(m1_Even,type = "pred", terms="Plant_Evenness_field[2:30, by=0.1]")
 
 ggplot(m1_Even_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat, aes(EvennessVP_field, Plant_SR_vascular), 
+  geom_point(data=Dat, aes(Plant_Evenness_field, Plant_SR_field), 
              fill ="#64ABCE", size=3, alpha=0.5, pch=21,
              position=position_jitter(width=0.05, height=0))+
   # scale_fill_manual(values=c("blue", "red", "green"))+
@@ -210,7 +194,7 @@ ggplot(m1_Even_pred, aes(x, predicted)) +
 
 ## Shannon  ----
 
-m1_Shan <- glmer(Plant_SR_vascular ~  ShannonVP_field + 
+m1_Shan <- glmer(Plant_SR_field ~  Plant_Shannon_field + 
                    (1|Farm), family = "poisson", data = Dat) 
 
 check_overdispersion(m1_Shan) 
@@ -218,15 +202,15 @@ check_convergence(m1_Shan)
 
 Anova(m1_Shan)
 summary(m1_Shan)
-max(Dat$ShannonVP_field)
+max(Dat$Plant_Shannon_field)
 
 plot_model(m1_Shan, type = "pred", show.data=T, dot.alpha=0.3, title="") 
 
-m1_Shan_pred <- get_model_data(m1_Shan,type = "pred", terms="ShannonVP_field[2:3.72, by=0.1]")
+m1_Shan_pred <- get_model_data(m1_Shan,type = "pred", terms="Plant_Shannon_field[2:3.72, by=0.1]")
 
 ggplot(m1_Shan_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat, aes(ShannonVP_field, Plant_SR_vascular), 
+  geom_point(data=Dat, aes(Plant_Shannon_field, Plant_SR_field), 
              fill ="#64ABCE", size=3, alpha=0.5, pch=21,
              position=position_jitter(width=0.05, height=0))+
   # scale_fill_manual(values=c("blue", "red", "green"))+
@@ -237,7 +221,7 @@ ggplot(m1_Shan_pred, aes(x, predicted)) +
 
 ## Biomass ----
 
-m1_biom <- glmer(Plant_SR_vascular ~   poly(biom_log, 2) + 
+m1_biom <- glmer(Plant_SR_field ~   poly(biom_log, 2) + 
                    (1|Farm), family = "poisson", data = Dat%>% 
                    mutate(biom_log=log1p(Biomass_dry_weight))) 
 
@@ -249,13 +233,13 @@ Anova(m1_biom)
 
 # overdispersed data, use quasi/nb
 
-m2_biom <- glmer.nb(Plant_SR_vascular ~  poly(biom_log, 2) +
+m2_biom <- glmer.nb(Plant_SR_field ~  poly(biom_log, 2) +
                       (1|Farm),
                     data = Dat%>% 
                       mutate(biom_log=log1p(Biomass_dry_weight))) 
 
 
-# m2_biom <- glmmPQL(Plant_SR_vascular ~ biom_log ,# poly(biom_log, 2) , 
+# m2_biom <- glmmPQL(Plant_SR_field ~ biom_log ,# poly(biom_log, 2) , 
 #                   random = ~ 1 | Farm,  data = Dat %>% mutate(biom_log=log1p(Biomass_dry_weight)),
 #                    family = "quasipoisson") 
 
@@ -270,7 +254,7 @@ m2_biom_pred <- get_model_data(m2_biom,type = "pred", terms="biom_log")
 ggplot(m2_biom_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
   geom_point(data=Dat%>% 
-               mutate(biom_log=log1p(Biomass_dry_weight)), aes(biom_log, Plant_SR_vascular), 
+               mutate(biom_log=log1p(Biomass_dry_weight)), aes(biom_log, Plant_SR_field), 
              fill ="#64ABCE", size=3, alpha=0.5, pch=21,
              position=position_jitter(width=0.05, height=0))+
   # scale_fill_manual(values=c("blue", "red", "green"))+
@@ -280,26 +264,26 @@ ggplot(m2_biom_pred, aes(x, predicted)) +
 
 
 
+# Experiment -----
 
-
-#####
-
-
-### Seedlings
-
-Data <- read_csv("data/Panoara_Dat.csv") %>%
-  dplyr::select(Parcel_name, SR_D_E_exper, Abund_D_E_exper, D_E_exp_categ, D_E_exp_categ_2) %>% 
-  filter(!D_E_exp_categ_2=="n") %>%  # remove parcels with no seedlings
-  filter(!D_E_exp_categ_2=="c+s") %>%  # remove parcels with combinations of sheep and cow
-  mutate(experiment=
-           case_when(D_E_exp_categ_2=="c" & D_E_exp_categ=="dung" ~ "cow manure",
-                     D_E_exp_categ_2=="c" & D_E_exp_categ=="excr" ~ "cow feces",
-                     D_E_exp_categ_2=="s" & D_E_exp_categ=="excr" ~ "sheep feces")) %>% 
-  filter(!Abund_D_E_exper>150) # remove outlire
+Data <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
+  filter(!is.na(experiment)) %>% # remove parcels with no dung
+  filter(!experiment=="cow & sheep dung/manure") %>%  # remove parcels with combinations of sheep and cow
+  
+  dplyr::select(Parcel_name, Plant_SR_exper, Plant_abundance_exper, 
+                experiment) %>% 
+  filter(!Plant_abundance_exper>150) # remove outlire
   
  
+str(Dat)
+names(Dat)
 
-ggplot(Data, aes(experiment, Abund_D_E_exper)) + 
+
+Dat <- Dat %>% 
+  mutate(zz = Plant_SR_field) # for predicting from the glmmPQL models
+
+
+ggplot(Data, aes(experiment, Plant_abundance_exper)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.7, pch=21, , fill ="#64ABCE",# size=4, #fill="gray", 
              position=position_jitter(width = 0.1, height = 0)) +
@@ -312,7 +296,7 @@ ggplot(Data, aes(experiment, Abund_D_E_exper)) +
 
 
 
-ggplot(Data, aes(experiment, SR_D_E_exper)) + 
+ggplot(Data, aes(experiment, Plant_SR_exper)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.7, pch=21, , fill ="#64ABCE",# size=4, #fill="gray", 
              position=position_jitter(width = 0.1, height = 0)) +

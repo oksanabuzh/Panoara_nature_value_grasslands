@@ -20,6 +20,7 @@ Diver_NMDS_dat <- read_csv("data/to_remove/Diversity_&_NMDS_data.csv")
 Plant_nutr_dat <- read_csv("data/to_remove/Biomass_nutrients.csv") %>% 
   mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_"))
 
+
 Variables <- read_csv("data/to_remove/Variables_selected.csv") %>% 
   rename(Plant_SR_total = "number of all plants",
          Plant_SR_vascular = "number of vascular plants_10 m2",
@@ -102,7 +103,14 @@ Variables <- read_csv("data/to_remove/Variables_selected.csv") %>%
                                    .default = as.character(Last_ploughing)))%>% 
   mutate(Dung_for_experiment=case_when( # dung found on the field for experiment or not
     is.na(SR_D_E_exper) ~ 0,
-    !is.na(SR_D_E_exper) ~ 1))
+    !is.na(SR_D_E_exper) ~ 1)) %>% 
+  mutate(experiment=
+           case_when(D_E_exp_categ_2=="n" ~ NA,
+                     D_E_exp_categ_2=="c+s" & D_E_exp_categ=="dung_excr" ~ "cow & sheep dung/manure",
+                     D_E_exp_categ_2=="c" & D_E_exp_categ=="dung" ~ "cow manure",
+                     D_E_exp_categ_2=="c" & D_E_exp_categ=="excr" ~ "cow feces",
+                     D_E_exp_categ_2=="s" & D_E_exp_categ=="excr" ~ "sheep feces")) 
+
 
 
 str(Variables)
@@ -366,7 +374,9 @@ dat <- Panoara_Dat %>%
 
       dplyr::select(Parcel_name, Farm,
                 Plant_SR_vascular, # SR_D_E_exper, Abund_D_E_exper,
+                Biomass_dry_weight,
                 Dung_for_experiment,
+                experiment,
                 habitat_corrected,
                 Management_stability,
                 
@@ -411,9 +421,17 @@ dat <- Panoara_Dat %>%
                                   .default = Plant_SR_exper),
          Plant_abundance_exper=case_when(is.na(Plant_abundance_exper) & 
                                     Dung_for_experiment==1 ~ 0,
-                                  .default = Plant_SR_exper))
+                                  .default = Plant_SR_exper)) %>% 
+  mutate(Farm=case_when(Farm=="C" ~ "Com",
+                        Farm=="V" ~ "A",
+                        Farm=="I" ~ "B",
+                        Farm=="S" ~ "C",
+                        Farm=="L" ~ "D",
+                        Farm=="N" ~ "E",
+                        Farm=="O" ~ "F"))
 
   
+
 
 
 write_csv(dat, "data/Divers_LandUse_Soil_Variables.csv")

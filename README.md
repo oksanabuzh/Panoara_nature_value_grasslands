@@ -58,13 +58,25 @@ Raw data files:
 - `Divers_LandUse_Soil_Variables.csv`: This file contains environmental variables and biodiversity measures for all plots
 
 Processed files:
-- `NMDS_data.csv`: contains NMDS scores 
-- `soil_NPK_PCA.csv`: contains PCA scores 
+- `NMDS_data.csv`: contains NMDS scores, produced by analysis/`2.0_NMDS.R`
+- `soil_NPK_PCA.csv`: contains PCA scores, produced by analysis/`1.0_PCA_soil.R` 
+
+
+
+## Results files
+
+### Folder `results`
+
+`PERMANOVA_Field_Data.csv`- results of PERMANOVA analysis for field data, produced by analysis/`2.0_NMDS.R`.
+
+`PERMANOVA_Experiment.csv`- results of PERMANOVA analysis for seed-experiment data, produced by analysis/`2.0_NMDS.R`.
+
+`Sp.occurances_field.csv` - species occurrence (% parcels where species was found).
+Produced by analysis/`3.0_Summary_Statistics.R`.
+
+
 
 ## Other Files
 
 - `.gitignore`: This file specifies intentionally untracked files that Git should ignore.
 - `Panoara.Rproj`: This is the R project file for this project.
-
-
-
