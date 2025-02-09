@@ -1,6 +1,5 @@
 # Purpose:  PCA analysis for soil nutrient data
 
-
 # rm(list = ls())
 # load packages ----
 
@@ -11,7 +10,7 @@ library(factoextra)
 
 # data  ----
 
-Dat <- read_csv("data/Panoara_Dat.csv") 
+Dat <- read_csv("data/Divers_LandUse_Soil_Variables.csv") 
 
 names(Dat)
 
@@ -101,8 +100,7 @@ corrplot(soil_var$contrib, #[,c("Dim.1", "Dim.2")],
 pca1_soil <- soil_ind$coord[, 1] # use only the 1st axis
 
 soil_text <- bind_cols(Dat %>% dplyr::select(Parcel_name),
-                       soil_NPK_PC = pca1_soil) # %>% mutate(soil_NPK_PC = -1*soil_NPK_PC)
-
+                       soil_NPK_PC = pca1_soil)
 
 write_csv(soil_text, "data/soil_NPK_PCA.csv")
 
