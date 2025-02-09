@@ -1,299 +1,131 @@
-species,"layer (VP - vascular, B - bryophyte, L - lichen)",Farm A 1,Farm A 2,Farm A 4,Farm A 5,Farm A 6,Communal 1,Farm A 13,Farm B 1,Farm B 2,Farm B 4,Farm B 5,Farm B 6,Farm B 7,Communal 2,Farm C 1,Farm C 3,Farm C 8,Farm C 10,Communal 3,Farm D 3,Farm D 4,Farm D 5,Farm D 6,Communal 4,Farm D 8,Communal 5,Farm D 10,Farm E 1,Farm E 2,Farm E 4,Farm E 5,Farm E 6,Farm F 1,Farm F 2
-Acer pseudoplatanus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Achillea millefolium aggr.,VP,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,
-Agrimonia eupatoria,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Agrostis capillaris,VP,3,,,,,2,,9,1,,3,1,,,2,,,,,4,,,,,,3,,2,,,6,,,1
-Ajuga genevensis,VP,,,,,,,,,,,,,,,,,,3,,,,,,,,,,,,,,,,
-Alchemilla acutiloba,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Allium carinatum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Allium oleraceum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Anacamptis coriophora,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Anacamptis morio,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Anacamptis pyramidalis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Antennaria dioica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Anthemis arvensis/cotula,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Anthoxanthum odoratum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,9,
-Anthriscus sylvestris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Anthyllis vulneraria,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Arabidopsis sp.,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Arabis hirsuta,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Arenaria serpyllifolia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Arrhenatherum elatius,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Asperula cynanchica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Astrantia major,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Avenella flexuosa,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bellis perennis,VP,,,,,,,,,,,,,,,,,,,,,14,,,,,,,,,,,,,
-Bothriochloa ischaemum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Brachypodium pinnatum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Brachypodium sylvaticum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Briza media,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bromus hordeaceus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bromus racemosus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bunias orientalis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campanula cervicaria,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campanula glomerata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campanula patula,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campanula persicifolia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campanula rapunculoides,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Capsella bursa-pastoris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cardamine amara,VP,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,
-Carduus nutans,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex caryophyllea,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex depressa subsp. transsilvanica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex filiformis,VP,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex leporina,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex michelii,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex montana,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex pallescens,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex pilulifera,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex spicata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carlina acaulis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carlina vulgaris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carum carvi,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Centaurea phrygia aggr. (incl. C. erdneri),VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Centaurea scabiosa,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Centaurea stoebe,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Centaurium erythraea,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cerastium brachypetalum subsp. brachypetalum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cerastium fontanum subsp. vulgare,VP,10,4,,1,,,,1,2,1,,2,1,,,2,6,2,3,9,8,7,,2,,,2,,,,,3,67,
-Cerastium pumilum subsp. glutinosum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lipandra polysperma,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,
-Cichorium intybus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Clinopodium acinos,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Clinopodium vulgare,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cirsium arvense,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cirsium vulgare,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Colchicum autumnale,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Convolvulus arvensis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Corylus avellana,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Crataegus monogyna,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Crepis biennis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cruciata glabra,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cuscuta sp.,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cynodon dactylon,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cynosurus cristatus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dactylis glomerata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Danthonia alpina,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Danthonia decumbens,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Daucus carota,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dianthus carthusianorum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dorycnium pentaphyllum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Draba verna,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Echium vulgare,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Elytrigia repens,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Erigeron acris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Erigeron annuus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
-Eryngium campestre,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Euphorbia cyparissias,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Euphorbia salicifolia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Euphrasia rostkoviana,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Euphrasia stricta,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ferulago sylvatica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Festuca ovina,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Festuca rubra,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Festuca stricta subsp. sulcata,VP,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,
-Festuca valesiaca,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Filipendula vulgaris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fragaria vesca,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fragaria viridis,VP,,,,,,,,,,,,,,,,,,,3,,,,,,,1,1,,,,,,,
-Galinsoga ciliata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Galium mollugo aggr.,VP,,,,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Galium verum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Genista tinctoria,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Gentiana cruciata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Geranium columbinum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Gladiolus imbricatus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Gymnadenia conopsea,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Helianthemum nummularium subsp. obscurum,VP,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,2,,
-Heracleum sphondylium,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hieracium lachenalii,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Holcus lanatus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hypericum maculatum,VP,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,1,
-Hypericum perforatum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hypochaeris maculata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hypochaeris radicata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Inula hirta,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Jacobaea vulgaris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Juncus effusus,VP,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,
-Juncus tenuis,VP,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,2
-Knautia arvensis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lathyrus latifolius,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lathyrus tuberosus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lembotropis nigricans,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Leontodon hispidus subsp. hastilis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Leontodon hispidus subsp. hispidus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Leucanthemum vulgare aggr.,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Linum catharticum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lolium perenne,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,
-Lotus corniculatus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Luzula campestris,VP,,13,,,,,,2,1,,2,1,,,,15,3,,,3,13,,,,,,1,,,,,,,
-Luzula multiflora,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lysimachia nummularia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lysimachia punctata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lysimachia vulgaris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Malus pumila,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Medicago falcata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Medicago lupulina,VP,,,,,,,,2,,,,,,,,,,,,,,,,,,,,,2,,,,,
-Medicago sativa,VP,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
-Melampyrum arvense,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Minuartia verna,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Molinia caerulea,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Myosotis arvensis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Nardus stricta,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Neottia ovata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Neotinea ustulata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ononis spinosa subsp. hircina,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Origanum vulgare,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Orobanche sp.,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oxalis stricta,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dichoropetalum carvifolia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Peucedanum oreoselinum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Phleum phleoides,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Phleum pratense,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pilosella bauhini,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pilosella officinarum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pilosella officinarum x bauhini,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pimpinella saxifraga,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Plantago lanceolata,VP,,,,,,,,,,,,1,,,,1,,,,,,2,,,,,,1,,,,,4,
-Plantago media,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Plantago major,VP,,,,,,,,,,,,,,,,,,,,,3,,,,,,,,,,,,3,
-Platanthera bifolia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Poa annua,VP,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,
-Poa compressa,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Poa trivialis,VP,,1,,,,,,,,,,,,,,3,,,,1,6,2,,4,,,,,,,18,,35,
-Podospermum purpureum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Polygala comosa,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Polygala vulgaris subsp. oxyptera,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Polygala vulgaris subsp. vulgaris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Potentilla argentea,VP,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,
-Potentilla erecta,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Potentilla incana,VP,,,,,,,,1,,,,,,2,,,,,,,,,,,,,,,,,,,,
-Potentilla inclinata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Primula acaulis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Primula veris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Prunella grandiflora,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Prunella laciniata,VP,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,2,,
-Prunella vulgaris,VP,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,1,
-Prunella x intermedia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Prunus sp. (juv),VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pteridium aquilinum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ranunculus acris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ranunculus bulbosus,VP,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ranunculus polyanthemos,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ranunculus repens,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rhinanthus minor,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rhinanthus rumelicus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rhinanthus wagneri,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rorippa pyrenaica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rosa canina,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rumex acetosa,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rumex acetosella,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rumex conglomeratus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rumex obtusifolius,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sagina procumbens,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Salvia verticillata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sanguisorba minor,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Scabiosa columbaria,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Scabiosa ochroleuca,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Schedonorus pratensis,VP,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Scleranthus annuus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Scorzoneroides autumnalis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Securigera varia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Sedum sexangulare,VP,,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,
-Seseli annuum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Solidago virgaurea,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Stachys germanica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Stachys officinalis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Stellaria graminea,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Symphytum officinale,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Taraxacum sect. Erythrosperma,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Taraxacum sect. Taraxacum,VP,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,1,
-Teucrium chamaedrys,VP,,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,
-Teucrium montanum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Thymus pulegioides subsp. pannonicus,VP,,,,,,,,,,,,,,,,,,,,,,3,,,,,,,,,,,,
-Thymus pulegioides subsp. pulegioides,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tragopogon pratensis subsp. orientalis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium alpestre,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium campestre,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium dubium,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium medium,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium montanum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium ochroleucon,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium pannonicum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium pratense,VP,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,1,
-Trifolium repens,VP,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,23,
-Trisetum flavescens,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Urtica dioica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,,,,
-Valerianella dentata subsp. eriosperma,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Veronica arvensis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Veronica austriaca,VP,2,,,,,,,,,,,,,,,,,,,,,2,,,,,,,,,,,,
-Veronica chamaedrys,VP,3,,,,,,,,1,,1,1,,,,,1,,,3,3,14,,1,,,,1,,,6,,9,
-Veronica officinalis,VP,,,,,,3,,,,1,,,,4,,,,1,,,,2,,,,1,,,,,,2,,2
-Veronica persica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Veronica prostrata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Veronica serpyllifolia,VP,,,,,,,,,1,,,,,,,1,,1,,1,,,,,,,,,,,,,14,
-Vicia cracca,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Vicia grandiflora,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Vicia sativa subsp. nigra,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Vincetoxicum hirundinaria,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Viola canina,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Viola hirta,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Viola tricolor,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Abietinella abietina,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Atrichum undulatum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Barbula unguiculata,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Brachythecium albicans,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Brachythecium rutabulum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Brachythecium salebrosum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Brachythecium tommasinii,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bryum caespiticium,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bryum moravicum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bryum sp.,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Calliergonella cuspidata,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Calliergonella lindbergii,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campyliadelphus chrysophyllus,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ceratodon purpureus,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cirriphyllum piliferum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Climacium dendroides,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dicranum bonjeanii,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dicranum polysetum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Didymodon fallax,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Didymodon sp.,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Encalypta streptocarpa,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Entodon concinnus,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fissidens dubius,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fissidens taxifolius,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Flexitrichum flexicaule,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Grimmia pulvinata,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Homalothecium lutescens,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Homomallium incurvatum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hylocomium splendens,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hypnum cupressiforme,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hypnum cupressiforme var. lacunosum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oligotrichum hercynicum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oxyrrhynchium hians,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Plagiomnium affine,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Plagiomnium cuspidatum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Plagiomnium undulatum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pleuridium subulatum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pleurozium schreberi,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pogonatum aloides,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pohlia annotina,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pohlia nutans,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Polytrichum perigonale,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pseudoscleropodium purum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ptychostomum rubens (Bryum rubens),B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Racomitrium canescens,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rhytidiadelphus squarrosus,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rhytidiadelphus triquetrus,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rhytidium rugosum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Schystidium crassipilum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Steblotrichum convolutum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Syntrichia ruralis,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Thuidium assimile,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Thuidium delicatulum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tortella squarrosa,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tortella tortuosa,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Weissia sp.,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cladonia pocillum,L,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cladonia furcata,L,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+species,Parcel_name,abundance
+Achillea millefolium aggr.,Farm_B_2,1
+Agrostis capillaris,Farm_A_1,3
+Agrostis capillaris,Communal_1,2
+Agrostis capillaris,Farm_B_1,9
+Agrostis capillaris,Farm_B_2,1
+Agrostis capillaris,Farm_B_5,3
+Agrostis capillaris,Farm_B_6,1
+Agrostis capillaris,Farm_C_1,2
+Agrostis capillaris,Farm_D_3,4
+Agrostis capillaris,Communal_5,3
+Agrostis capillaris,Farm_E_1,2
+Agrostis capillaris,Farm_E_5,6
+Agrostis capillaris,Farm_F_2,1
+Ajuga genevensis,Farm_C_10,3
+Anthoxanthum odoratum,Farm_F_1,9
+Bellis perennis,Farm_D_4,14
+Cardamine amara,Farm_A_5,1
+Cardamine amara,Farm_F_1,3
+Carex filiformis,Farm_B_2,1
+Cerastium fontanum subsp. vulgare,Farm_A_1,10
+Cerastium fontanum subsp. vulgare,Farm_A_2,4
+Cerastium fontanum subsp. vulgare,Farm_A_5,1
+Cerastium fontanum subsp. vulgare,Farm_B_1,1
+Cerastium fontanum subsp. vulgare,Farm_B_2,2
+Cerastium fontanum subsp. vulgare,Farm_B_4,1
+Cerastium fontanum subsp. vulgare,Farm_B_6,2
+Cerastium fontanum subsp. vulgare,Farm_B_7,1
+Cerastium fontanum subsp. vulgare,Farm_C_3,2
+Cerastium fontanum subsp. vulgare,Farm_C_8,6
+Cerastium fontanum subsp. vulgare,Farm_C_10,2
+Cerastium fontanum subsp. vulgare,Communal_3,3
+Cerastium fontanum subsp. vulgare,Farm_D_3,9
+Cerastium fontanum subsp. vulgare,Farm_D_4,8
+Cerastium fontanum subsp. vulgare,Farm_D_5,7
+Cerastium fontanum subsp. vulgare,Communal_4,2
+Cerastium fontanum subsp. vulgare,Farm_D_10,2
+Cerastium fontanum subsp. vulgare,Farm_E_6,3
+Cerastium fontanum subsp. vulgare,Farm_F_1,67
+Lipandra polysperma,Farm_F_1,5
+Erigeron annuus,Farm_F_1,1
+Festuca stricta subsp. sulcata,Farm_D_3,1
+Fragaria viridis,Communal_3,3
+Fragaria viridis,Communal_5,1
+Fragaria viridis,Farm_D_10,1
+Galium mollugo aggr.,Farm_A_5,2
+Helianthemum nummularium subsp. obscurum,Farm_C_10,1
+Helianthemum nummularium subsp. obscurum,Farm_E_6,2
+Hypericum maculatum,Farm_B_4,1
+Hypericum maculatum,Farm_F_1,1
+Juncus effusus,Farm_B_2,1
+Juncus tenuis,Farm_D_4,1
+Juncus tenuis,Farm_F_2,2
+Lolium perenne,Farm_F_1,5
+Luzula campestris,Farm_A_2,13
+Luzula campestris,Farm_B_1,2
+Luzula campestris,Farm_B_2,1
+Luzula campestris,Farm_B_5,2
+Luzula campestris,Farm_B_6,1
+Luzula campestris,Farm_C_3,15
+Luzula campestris,Farm_C_8,3
+Luzula campestris,Farm_D_3,3
+Luzula campestris,Farm_D_4,13
+Luzula campestris,Farm_D_10,1
+Medicago lupulina,Farm_B_1,2
+Medicago lupulina,Farm_E_2,2
+Medicago sativa,Farm_A_1,1
+Medicago sativa,Farm_F_1,1
+Plantago lanceolata,Farm_B_6,1
+Plantago lanceolata,Farm_C_3,1
+Plantago lanceolata,Farm_D_5,2
+Plantago lanceolata,Farm_E_1,1
+Plantago lanceolata,Farm_F_1,4
+Plantago major,Farm_D_4,3
+Plantago major,Farm_F_1,3
+Poa annua,Farm_D_4,1
+Poa trivialis,Farm_A_2,1
+Poa trivialis,Farm_C_3,3
+Poa trivialis,Farm_D_3,1
+Poa trivialis,Farm_D_4,6
+Poa trivialis,Farm_D_5,2
+Poa trivialis,Communal_4,4
+Poa trivialis,Farm_E_5,18
+Poa trivialis,Farm_F_1,35
+Potentilla argentea,Farm_D_5,1
+Potentilla incana,Farm_B_1,1
+Potentilla incana,Communal_2,2
+Prunella laciniata,Farm_D_5,1
+Prunella laciniata,Farm_E_6,2
+Prunella vulgaris,Farm_C_10,1
+Prunella vulgaris,Farm_F_1,1
+Ranunculus bulbosus,Farm_A_1,1
+Schedonorus pratensis,Farm_A_1,1
+Sedum sexangulare,Communal_5,1
+Taraxacum sect. Taraxacum,Farm_A_5,3
+Taraxacum sect. Taraxacum,Farm_E_2,1
+Taraxacum sect. Taraxacum,Farm_F_1,1
+Teucrium chamaedrys,Communal_5,1
+Thymus pulegioides subsp. pannonicus,Farm_D_5,3
+Trifolium pratense,Farm_B_7,1
+Trifolium pratense,Farm_F_1,1
+Trifolium repens,Farm_A_5,1
+Trifolium repens,Farm_F_1,23
+Urtica dioica,Farm_E_2,2
+Veronica austriaca,Farm_A_1,2
+Veronica austriaca,Farm_D_5,2
+Veronica chamaedrys,Farm_A_1,3
+Veronica chamaedrys,Farm_B_2,1
+Veronica chamaedrys,Farm_B_5,1
+Veronica chamaedrys,Farm_B_6,1
+Veronica chamaedrys,Farm_C_8,1
+Veronica chamaedrys,Farm_D_3,3
+Veronica chamaedrys,Farm_D_4,3
+Veronica chamaedrys,Farm_D_5,14
+Veronica chamaedrys,Communal_4,1
+Veronica chamaedrys,Farm_E_1,1
+Veronica chamaedrys,Farm_E_5,6
+Veronica chamaedrys,Farm_F_1,9
+Veronica officinalis,Communal_1,3
+Veronica officinalis,Farm_B_4,1
+Veronica officinalis,Communal_2,4
+Veronica officinalis,Farm_C_10,1
+Veronica officinalis,Farm_D_5,2
+Veronica officinalis,Communal_5,1
+Veronica officinalis,Farm_E_6,2
+Veronica officinalis,Farm_F_2,2
+Veronica serpyllifolia,Farm_B_2,1
+Veronica serpyllifolia,Farm_C_3,1
+Veronica serpyllifolia,Farm_C_10,1
+Veronica serpyllifolia,Farm_D_3,1
+Veronica serpyllifolia,Farm_F_1,14

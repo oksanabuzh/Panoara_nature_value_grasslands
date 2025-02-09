@@ -1,6 +1,7 @@
 # Purpose: NMDS analysis for community composition (NMDS) for each plot
 
-# rm(list = ls()) # clears working environment
+rm(list = ls()) # clears working environment
+
 # dev.off() # shuts down the current graphical device
 
 # load packages
@@ -17,62 +18,51 @@ library(devtools)
 
 ##  Field data----
 
-Community_VP_field <- read_csv("data/Community_composition_VegetationPlots.csv")
+# read data
+Community_VP_field <- read_csv("data/Community_composition_VegetationPlots.csv") %>% 
+  rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
+  filter(layer == "VP") %>% # only for vascular plants 
+  dplyr::select(-layer) %>% 
+  pivot_longer(!species, names_to = "Parcel_name", values_to = "cover") %>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
+  filter(!is.na(cover))
+
+
 Community_VP_field %>% pull(Parcel_name)%>% unique()
+
 str(Community_VP_field)
 
-# read the environmental variables and join with the community data
-Variables <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>% 
-  dplyr::select(Parcel_name, Grazing_intensity_A, Mowing_frequency,
-                Manuring_freq, humus) %>% 
-  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_"))
+# calculate diversity measures
+VP_field <- Community_VP_field %>% 
+  group_by(Parcel_name) %>% 
+  summarise(
+    CoverVP_field=sum(cover),
+    SR_VP_field = n_distinct(species),
+    EvennessVP_field = vegan::diversity(cover, index = "invsimpson"),
+    ShannonVP_field = vegan::diversity(cover, index = "shannon")) %>%
+  ungroup()
 
-summary(Variables)
-
-Variables_dat <- compos_VP_field  %>% 
-  left_join(Variables, by="Parcel_name")
-
-summary(compos_VP_field)
-
-which(is.na(Variables %>% 
-              dplyr::select(-Parcel_name)))
-
-
-# read data
-Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>%
-  mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
-
-
-Dat_field <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
-  left_join(Soil_PC, by="Parcel_name") %>% 
-  mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
-  mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
-  mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
-  arrange(Mowing_delay) %>% 
-  mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
-                                Mowing_delay=="July-August" ~ 1,
-                                Mowing_delay=="June" ~ 2)) %>% 
-  mutate(Dung_cover_log=log(Dung_cover+1)) %>% 
-  mutate(Grazing_int_log = log1p(Grazing_intensity_A),
-         Grazing_legacy =log1p(Grazing_intensity_B),
-         # Corralling=case_when(Corralling=="no" ~ "0", 
-         #                      Corralling=="yes" ~ "1"),
-         Moss_removal=case_when(Moss_removal=="no" ~ 0, 
-                                Moss_removal=="yes" ~ 1)) %>% 
-  mutate(humus_log=log1p(humus)) %>% 
-  mutate(Cow_dung=case_when(Cow_dung_applied=="present" ~ "1", 
-                            Cow_dung_applied=="absent" ~ "0")) %>% 
-  mutate(Ploughing=1/Last_ploughing)
-
+VP_field
 
 
 ##  Experiment data----
-Community_exper <- read_csv("data/Community_composition_DungExperiment.csv") 
+# read data
+Community_exper <- read_csv("data/Community_composition_DungExperiment.csv") %>% 
+  rename(layer="layer (VP - vascular, B - bryophyte, L - lichen)") %>% 
+  filter(layer == "VP") %>% # only for vascular plants 
+  dplyr::select(-layer) %>% 
+  pivot_longer(!species, names_to = "Parcel_name", values_to = "abundance") %>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_")) %>% 
+  filter(!is.na(abundance)) 
+
 Community_exper %>% pull(Parcel_name)%>% unique()
+
 str(Community_exper)
 
 
 # NMDS analysis ----
+
+
 ## 1.1 Field data----
 # convert plant list to matrix
 compos_VP_field <- Community_VP_field %>% 
@@ -89,12 +79,31 @@ which(colSums(compos_VP_field%>%
               na.rm=TRUE) %in% 0)
 
 
-Dat_exp <- Dat_field %>% filter(!Parcel_name=="Farm_F_1") %>%   # extreme outlyer
-  filter(!Dung_for_experiment==0) %>% # dung found (=1) or not found (=0) on the field for experiment 
-  filter(!Plant_abundance_exper==0)
+
+# assess how well dissimilarity metrics separate (assess) the data
+# for this, read the environmental variables and join with the community data
+Variables <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>% 
+  dplyr::select(Parcel_name, Grazing_intensity_A, Mowing_frequency,
+                Manuring_freq, humus) %>% 
+  mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_"))
+
+summary(Variables)
+
+Variables_dat <- compos_VP_field  %>% 
+  left_join(Variables, by="Parcel_name")
+
+summary(compos_VP_field)
+
+vegan::rankindex(compos_VP_field %>% dplyr::select(-Parcel_name),
+                 Variables_dat%>% dplyr::select(Grazing_intensity_A, Mowing_frequency,
+                                                 Manuring_freq, humus))
 
 
+which(is.na(Variables %>% 
+              dplyr::select(-Parcel_name)))
 ### NMDS analysis
+
+
 set.seed(10)
 
 nmds1<-vegan::metaMDS(compos_VP_field%>% 
@@ -125,6 +134,10 @@ NMDS_VP_field <- compos_VP_field %>%
   mutate(NMDS1_VP_field = as.data.frame(vegan::scores(nmds1)$sites)$NMDS1,
          NMDS2_VP_field = as.data.frame(vegan::scores(nmds1)$sites)$NMDS2)
 
+# add diversity measures to the data
+Diver_NMDS_data <- Diver_data %>% 
+  left_join(NMDS_VP_field, by="Parcel_name")
+
 
 # The linear correlation between species abundances and individual axes:
 cor(compos_VP_field %>% 
@@ -149,8 +162,7 @@ tabasco(x = compos_VP_field %>%
           pull(Parcel_name))
 
 
-# print(compos_exper, n=28)
-
+#print(compos_exper, n=28)
 
 
 ## 1.2 Experiment data----
@@ -198,6 +210,16 @@ NMDS_exper <- compos_exper %>%
   mutate(NMDS1_exper = as.data.frame(vegan::scores(nmds2)$sites)$NMDS1,
          NMDS2_exper = as.data.frame(vegan::scores(nmds2)$sites)$NMDS2)
 
+# add the biodiversity measures to the data
+Diver_NMDS_data <- Diver_data %>% 
+  left_join(NMDS_VP_field, by="Parcel_name") %>% 
+  left_join(NMDS_exper, by="Parcel_name")
+
+
+
+write_csv(Diver_NMDS_data, "data/Diversity_&_NMDS_data.csv")
+
+
 sort(nmds2$points[,1]) %>%
   round(2)
 
@@ -216,20 +238,68 @@ tabasco(x = compos_exper%>%
 
 print(compos_exper, n=28)
 
-
-NMDS_VP_field %>% 
-  left_join(NMDS_exper, by="Parcel_name") %>% 
-  rename(NMDS1_field=NMDS1_VP_field,
-         NMDS2_field=NMDS2_VP_field) %>% 
-  write_csv("data/NMDS_data.csv")
-
 # (3) PERMANOVA  analysis -----
+
+# read data
+Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>%
+  mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
+
+
+Data <- read_csv("data/Panoara_Dat.csv") %>%
+  mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
+  mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
+  mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
+  arrange(Mowing_delay) %>% 
+  mutate(Dung_cover_log=log(Dung_cover+1)) %>% 
+  mutate(Grazing_int_log = log1p(Grazing_intensity_A),
+         Grazing_legacy =log1p(Grazing_intensity_B),
+        # Corralling=case_when(Corralling=="no" ~ "0", 
+        #                      Corralling=="yes" ~ "1"),
+         Moss_removal=case_when(Moss_removal=="no" ~ 0, 
+                                Moss_removal=="yes" ~ 1)) %>% 
+  mutate(humus_log=log1p(humus)) %>% 
+  mutate(Cow_dung=case_when(Cow_dung_applied=="present" ~ "1", 
+                            Cow_dung_applied=="absent" ~ "0")) %>% 
+  mutate(Ploughing=1/Last_ploughing)
+
+
+# filter(!Parcel_name=="Brade_1") # extreme outlier
+
+
+# add soil PCA to the data
+
+Dat_field <- Data %>% 
+  left_join(Soil_PC, by="Parcel_name") %>% 
+  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
+         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
+         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
+         Evenness_Exper=case_when(is.na(Evenness_Exper) ~ 0, .default=Evenness_Exper),
+         Shannon_Exper=case_when(is.na(Shannon_Exper) ~ 0, .default=Shannon_Exper)) %>% 
+  mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
+  mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
+                                Mowing_delay=="July-August" ~ 1,
+                                Mowing_delay=="June" ~ 2)) %>% 
+  mutate(Mowing_frq_scal=scale(Mowing_frequency, center=T, scale=T)) %>% 
+  mutate(Mowing_frq_sqrd=Mowing_frq_scal^2,
+         SR_Exper_log = log1p(SR_Exper+1))
+
+
+
+
+Dat_exp <- Dat_field %>% filter(!Parcel_name=="Farm_F_1") %>%    # extrime outlyer
+  filter(!is.na(SR_D_E_exper)) %>% 
+  filter(!abundance_Exper==0)
+
+
+
 
 ## 2.1. field data ----
 summary(Dat_field)
 names(Dat_field)
 
 set.seed(10)
+
+
 PERM_mod1 <- vegan::adonis2(compos_VP_field %>% dplyr::select(-Parcel_name) ~ 
                          Grazing_int_log +
                          poly(Mowing_frequency, 2)+
@@ -263,6 +333,7 @@ summary(Dat_exp)
 names(Dat_exp)
 
 set.seed(10)
+
 PERM_mod2 <- vegan::adonis2(compos_exper %>% filter(!Parcel_name=="Farm_F_1") %>%
                               dplyr::select(-Parcel_name) ~ 
                               Grazing_int_log +
@@ -281,17 +352,15 @@ write.csv(PERM_mod2, "results/PERMANOVA_Experiment.csv")
 
 ## 3.1. Seed Experiment ----
 Dat_exp2 <- Dat_field %>% 
-  filter(!Dung_for_experiment==0) %>% # dung found (=1) or not found (=0) on the field for experiment 
-  filter(!Plant_abundance_exper==0)
-
+  filter(!is.na(SR_D_E_exper)) %>% 
+  filter(!abundance_Exper==0)
 
 # get coordinates
 fit2 <- vegan::envfit(nmds2   ~  
                         Grazing_int_log +
                         Manuring_freq  + 
                         Grazing_season , 
-                      data=Dat_exp2,
-                      perm=1000) #
+                      data=Dat_exp2, perm=1000) #
 
 
 fit2
@@ -455,6 +524,9 @@ p4 <- p3 + geom_segment(aes(x = 0, y = 0, xend = stand.NMDS1, yend = stand.NMDS2
             hjust=0.5)
 
 p4
+
+ggsave("results/Fig_5.png", p4, width = 20, height = 20, 
+       units = "cm")
 
 
 
@@ -707,3 +779,10 @@ p4_field <-
 
 
 p4_field
+
+
+
+
+ggsave("results/Fig_6.png", p4_field, width = 20, height = 20, 
+       units = "cm")
+

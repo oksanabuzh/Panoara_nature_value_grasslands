@@ -1,300 +1,2624 @@
-species,"layer (VP - vascular, B - bryophyte, L - lichen)",Farm A 1,Farm A 2,Farm A 3,Farm A 4,Farm A 5,Farm A 6,Farm A 7,Farm A 8,Communal 1,Farm A 10,Farm A 13,Farm B 1,Farm B 2,Farm B 3,Farm B 4,Farm B 5,Farm B 6,Farm B 7,Communal 2,Farm C 1,Farm C 3,Farm C 6,Farm C 8,Farm C 9,Farm C 10,Farm D 1,Communal 3,Farm D 3,Farm D 4,Farm D 5,Farm D 6,Communal 4,Farm D 8,Communal 5,Farm D 10,Farm E 1,Farm E 2,Farm E 3,Farm E 4,Farm E 5,Farm E 6,Farm E 7,Farm F 1,Farm F 2
-Acer pseudoplatanus,VP,,,,,,,,,,,,,0.2,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Achillea millefolium aggr.,VP,12,0.1,1,3,0.5,1,0.5,0.5,1,2,0.5,1,3,1.5,2,1,2,6,0.2,3.5,1,2,0.3,0.2,1,1,1,0.5,2,1,0.2,,0.3,0.2,2,1,0.1,1,0.5,2,0.1,2,35,2
-Agrimonia eupatoria,VP,,0.1,,,,0.1,,,0.001,,,0.1,,0.1,,,,,,,,,0.5,1,,,0.1,,0.2,,,,,,0.1,,,,,,,,,
-Agrostis capillaris,VP,5,18,5,0.5,,,,0.2,2,,,2,15,25,20,5,,1,10,6,30,40,10,,2,0.2,0.1,,5,,,,1,,15,0.5,0.5,5,3,20,5,8,55,15
-Ajuga genevensis,VP,0.01,,0.1,0.1,0.2,0.01,,0.1,,,0.1,,,,,,0.2,,,0.05,,,,0.5,,,,,0.2,1,0.01,0.001,0.2,0.01,,,,,,,,0.1,,
-Alchemilla acutiloba,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,0.1,,,,
-Allium carinatum,VP,,,,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Allium oleraceum,VP,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Anacamptis coriophora,VP,,0.1,0.001,,,,,,,0.001,,,,,0.01,,,,,0.2,,,,,,,,,,,,,,,,,,,,,,0.01,,
-Anacamptis morio,VP,,,0.5,,,,,,,,,0.3,,,,,0.001,,,,,,,0.001,,,,,,,,,,,,,,,,,,1,,
-Anacamptis pyramidalis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,0.05,,1,,,,,,,,,,,,,,,,
-Antennaria dioica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.001,,,,,,,,,,
-Anthemis arvensis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,
-Anthoxanthum odoratum,VP,7,5,2,2,,,0.3,1,5,0.5,0.5,4,1.5,10,2.5,3,0.1,1,,0.5,5,4,0.5,,1,5,3,1,0.1,2,,,1,0.1,0.5,0.3,1,1.5,3,7,2,2,1,5
-Anthriscus sylvestris,VP,,0.1,,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,,,,,,,,
-Anthyllis vulneraria,VP,,,0.1,,,1,,,,0.5,,,,,,0.1,0.3,,,,,,,5,0.1,1,0.01,1,,,0.1,,,0.2,,,,,,,,5,,
-Arabidopsis sp.,VP,,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Arabis hirsuta,VP,,,,0.05,0.01,0.001,,,,0.001,0.001,0.001,,,,,0.001,,,0.05,,,0.1,,,,,0.1,,0.1,0.1,,,0.05,,,0.1,,,,,,,
-Arenaria serpyllifolia,VP,,,,,0.01,0.01,,,,,0.01,0.1,,,,0.1,,0.01,0.2,,,,0.5,0.001,,,0.01,0.2,,0.5,0.001,,,0.01,,,,,,,,,,
-Arrhenatherum elatius,VP,,,0.5,1,,,,,,,,,,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,
-Asperula cynanchica,VP,,,,,,0.2,,,0.1,0.5,,,,,,,,0.01,0.3,0.2,,,,0.5,,2,1,0.1,,0.01,0.7,0.001,0.5,0.01,,,,0.5,0.5,,0.2,,,
-Astrantia major,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,,,,
-Avenella flexuosa,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5
-Bellis perennis,VP,4,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.001,,,,,,,,,,,,,,,
-Bothriochloa ischaemum,VP,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,,5,,,,,,,,,,,,
-Brachypodium pinnatum,VP,,,,,,,,4,,0.5,,,0.2,1,,4,,1,,0.1,,,,,,0.5,0.5,,,0.2,20,,,,,,0.5,5,10,,3,,,
-Brachypodium sylvaticum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Briza media,VP,,1.5,3,,,3,0.3,1,0.1,3,3,4,0.5,3,5,3,5,1,0.1,,1,0.5,1,4,3,10,2,4,0.5,0.1,20,,3,0.1,0.2,,1,3,3,,1.5,0.5,,3
-Bromus hordeaceus,VP,,,,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,2,,,,,,,1,
-Bromus racemosus,VP,,,,,,0.001,,,,,,,,0.01,,0.1,,,,0.001,,,8,,,,,,,1,,,,,,,0.5,,,,,,,
-Bunias orientalis,VP,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campanula cervicaria,VP,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campanula glomerata,VP,,0.01,,,,,,3,,0.2,,,0.2,,,,,0.01,,,,,,,,,,,,,,,0.2,,,,,0.2,0.2,,,,,
-Campanula patula,VP,0.5,,,0.001,,,,,,,0.01,0.05,0.2,0.5,0.1,0.1,0.1,,,,0.05,,,,,,,,,,,,,,0.001,,,0.001,0.001,0.01,,,0.5,
-Campanula persicifolia,VP,,,,,,,,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,0.05,,,,0.001,0.1,,,,,
-Campanula rapunculoides,VP,,,,,3,,,,,,3,,,,,,0.1,,,,,,,1,,0.1,,0.2,,0.01,0.2,,0.2,,,,0.01,,,0.1,,,,
-Capsella bursa-pastoris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cardamine amara,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carduus nutans,VP,,,,,,,,,,,,,,,,,,,0.3,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex caryophyllea,VP,,3,1,,,5,2,4,2,7,3,0.5,2,2,4,0.1,2,2.5,20,5,0.5,0.3,3,5,0.2,0.2,1,5,1,0.5,4,2,1,3,1,,1,0.1,0.1,0.1,1,2,,
-Carex depressa subsp. transsilvanica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex filiformis,VP,,,,,,,,0.5,,0.5,,,0.01,,,,0.1,,,,,,,,,1,,,,0.1,0.5,,0.01,,,,,0.1,,,0.5,,,
-Carex leporina,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,
-Carex michelii,VP,,,,,,0.1,,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carex montana,VP,,,,,,,,0.5,,0.5,,0.2,,,,15,0.1,0.1,,,1,,,,,20,8,0.1,2,2,1.5,0.5,15,3,3,,,20,25,,15,0.01,,
-Carex pallescens,VP,2,2,3,,,,,1,,1,1,2,4,6,1,,,,,,0.2,0.2,,,,,,,0.1,,,,,,1,,,,0.1,0.01,0.1,,,3
-Carex pilulifera,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5
-Carex spicata,VP,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.3,,,,,,,,
-Carlina acaulis,VP,,,,,,,,,0.1,0.01,,,,,,,,,,,,,,,,0.5,0.2,,,,,,,0.01,0.5,,,1,,,,,,
-Carlina vulgaris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Carum carvi,VP,,,,1.2,0.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,,,,0.1,,,,
-Centaurea phrygia aggr.,VP,20,1,3,0.5,,1,3,2,,0.3,1.5,0.5,1,2,2,1,0.1,3,0.05,,0.2,3,,,0.2,0.5,0.1,0.7,2,,1,,1,0.1,1,0.5,1,2,0.2,5,6,2,10,1
-Centaurea scabiosa,VP,,,,,0.2,2,0.2,,,,0.1,,3,4,,2,4,0.5,,2.5,,1,1,0.5,1,1.5,,3,,2,2,,3,1,0.2,,,5,2,,4,,,
-Centaurea stoebe,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,0.01,,,,,,,,,,,,,,,,,
-Centaurium erythraea,VP,1,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,
-Cerastium brachypetalum subsp. brachypetalum,VP,,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cerastium fontanum subsp. vulgare,VP,2,0.3,1,0.1,0.5,0.5,0.1,,0.1,0.1,0.2,1,0.5,1,,0.2,0.1,0.5,0.03,0.001,0.5,,0.3,,0.2,0.01,0.1,0.5,0.1,0.5,0.001,,,,,0.5,0.5,,,0.001,,,2,4
-Cerastium pumilum subsp. glutinosum,VP,,,,,0.1,0.001,,,,,0.1,0.01,,0.01,,0.01,,0.1,0.05,0.1,,,,,,,,0.1,,,,,,,0.01,0.001,,,,,,,,0.01
-Lipandra polysperma,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.01,,,
-Cichorium intybus,VP,2,,,,,,,,,,,,,,,,,,,,,,0.3,,,,,,,,,,,,,,,,,1,,,0.1,
-Clinopodium acinos,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.01,,,,,,,,,,
-Clinopodium vulgare,VP,,,,0.4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cirsium arvense,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,2,,,,,,,,
-Cirsium vulgare,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,0.01,,,,,,,,,,
-Colchicum autumnale,VP,,,0.2,0.2,,,0.1,,,0.5,0.2,0.5,,,,0.001,12,,,1,,,,,1,12,,0.1,,2,0.001,,,,,,,1,0.1,1,,,,
-Convolvulus arvensis,VP,,0.3,,3,,0.1,0.1,,,,0.2,0.01,,,,,0.1,,0.001,0.3,,,1,1,1,,,,,2,,,,,,5,0.5,,,3,,4,,
-Corylus avellana,VP,,,,,,,,,,,,,,,,,,,,,0.7,,,,,,,,,,,,,,,,,,,,,,,
-Crataegus monogyna,VP,,,1,,,0.1,,,,,,,0.5,0.3,2,0.1,,,,0.05,0.2,,0.2,1,,,0.5,,0.2,0.5,,,0.5,,0.2,,0.5,,,,0.2,,,0.2
-Crepis biennis,VP,,1,,3,0.1,,,,,,2,,,0.1,,,0.5,,,0.2,,,,,,1,,,,0.5,0.5,,,,,20,3,,,10,,,,
-Cruciata glabra,VP,,0.1,1,0.1,,,,4,,,,0.01,2.5,3,1,0.1,,0.1,,,3,4,,,,0.8,0.1,0.001,0.5,1,,0.1,1,0.001,1,,0.5,0.1,0.1,,0.1,0.01,,1
-Cuscuta sp.,VP,,0.01,,,,,,,,,,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,0.001,,0.001
-Cynodon dactylon,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cynosurus cristatus,VP,20,1.5,,0.5,0.1,,,0.2,1.5,,1,3,,1,1,1,0.1,1,,0.1,0.1,0.5,2,,0.1,0.5,2,2,3,1,,,,,3,3,1,1,0.1,0.5,,0.01,0.1,
-Dactylis glomerata,VP,2,0.1,1,10,35,2,,2,,2,5,1,1,1,0.5,,0.5,1.2,,0.5,,,2,1.5,1,0.3,0.01,2,0.5,1,0.7,,,,2,3,2,1,0.1,15,0.2,0.1,3,
-Danthonia alpina,VP,,1,1,0.01,,5,0.2,,,5,,,,0.5,,5,0.2,0.5,1,,,,1.5,30,25,1,0.5,,,0.5,0.1,5,5,,0.1,,,1,0.2,,1,0.5,,
-Danthonia decumbens,VP,,0.1,0.01,,,,,0.1,5,0.01,,1,,,0.1,,,,0.1,,1,,,,,0.01,1,,,,,0.1,0.1,,3,,,1,1,,1,0.2,,3
-Daucus carota,VP,0.5,2,0.2,,,1,,,,0.1,0.5,0.5,0.01,0.5,,,0.2,0.3,,,,,1,0.5,0.5,,,,,,0.3,,,,,0.3,,0.1,,0.1,,0.1,,
-Dianthus carthusianorum,VP,,,,,,0.5,0.05,0.5,,,0.05,0.2,,3,1,1,0.3,,,0.5,0.5,0.1,0.5,0.1,1,,,1,0.001,0.01,0.1,,,,,,,,,,,,,0.5
-Dorycnium pentaphyllum,VP,,,,,,0.1,0.3,3,,0.7,,,,,,,,,,,,,,,,2,1.5,,,0.01,0.3,,3,0.1,,,,,,,1.5,6,,
-Draba verna,VP,,,,,,,,,,,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Echium vulgare,VP,,,,,,,,,,,,,,0.1,,,,,,0.1,,,,,,,0.001,,,,,,,,,,,,0.001,,0.5,,,
-Elytrigia repens,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0.5,,,1,,0.2,,
-Erigeron acris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.001,,,,,,,,,,
-Erigeron annuus,VP,0.1,0.3,,0.05,,,,,,,,,0.01,1.5,,,0.2,,,0.1,,,,,,,,,,,,,,,,0.5,0.5,,,0.5,,0.3,,
-Eryngium campestre,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.001,,,,,,,,,,,,
-Euphorbia cyparissias,VP,,,,,,,0.1,0.01,2,0.01,,,,,,,,0.1,4,,,,,,,,0.001,,,0.1,0.5,0.01,0.1,0.1,,,,,,,,,,
-Euphorbia salicifolia,VP,,,,,,,,,,,,,,,,,,,,,,,8,0.01,,,,,,,,,,,,,,,,,,,,
-Euphrasia rostkoviana,VP,,,,,,,,,,,,,0.001,0.1,,,,,,,,,,,,0.3,,0.1,0.01,,,,,,,,,0.1,0.3,,,,,
-Euphrasia stricta,VP,,,,,,,,,,,,,,,,,,,0.001,0.05,,0.01,,,,,,,,,,,,,,,,,,,,,,
-Ferulago sylvatica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,
-Festuca ovina,VP,,,,,,0.5,,,,,,0.1,,,,0.1,,5,12,,,,,,,,,,,,,,,1,,,,,,,,,,
-Festuca rubra,VP,5,0.2,,,1,,1,20,1,1,,2,35,10,21,0.01,,1,0.1,0.01,1,3,,,,,,1,,5,0.5,,,,2,,,1,1,0.5,,1,2,5
-Festuca stricta subsp. sulcata,VP,,15,35,,5,25,35,,50,25,42,12,,0.1,,10,10,2,15,5,3,7,8,15,20,10,15,13,8,,5,18,5,5,1,,20,3,1.5,,10,10,,2
-Festuca valesiaca,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Filipendula vulgaris,VP,,5,13,0.001,,5,5,27,,3,,5,7,3,2,15,4,2,,10,0.2,0.5,,1.5,25,4,0.1,2,0.5,2,0.1,0.1,5,0.1,5,,0.5,2,0.5,,10,10,,0.8
-Fragaria vesca,VP,,,,,,,,0.1,,,,,,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fragaria viridis,VP,,,,,,,8,,,,0.1,,,,,,,,,3,,,0.1,1,,,,3,,0.5,1,3,0.1,,,,,,,,0.1,,,
-Galinsoga ciliata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Galium mollugo aggr.,VP,0.01,0.1,,3,1,,,,,0.3,0.3,,,1,,,,,,,,,,,,,,,,,,,,0.1,,2,1,,,3,,0.001,0.05,
-Galium verum,VP,,0.5,1,,,,2,1,1,0.5,,0.5,0.2,4,,0.5,0.5,0.5,,1.5,,1,,,,0.2,0.001,,0.2,4,0.1,,1,0.3,0.1,,,5,5,,0.3,2,,0.2
-Genista tinctoria,VP,,0.1,0.2,,,,,,,,,,,,0.01,,,,,,,,,,,,,,,,,,,,,,,,4,,,,,0.2
-Gentiana cruciata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,0.1,,,,,,,,,,
-Geranium columbinum,VP,,0.1,,,,,,,,,,,,0.2,,,,,,1,,,0.2,,,,,,,,,,,,,,,,,,,,,
-Gladiolus imbricatus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.2,,,,,
-Gymnadenia conopsea,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Helianthemum nummularium subsp. obscurum,VP,,,4,,,,1.7,1,,,,,0.1,,,3,0.5,4,,,2,,,,,0.5,0.7,,,0.2,0.1,,0.5,0.2,,,,3,2,,5,4,,2
-Heracleum sphondylium,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,,,,
-Hieracium lachenalii,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,,,,
-Holcus lanatus,VP,2,2,0.2,0.5,0.5,,,0.5,,,,0.2,0.5,1,0.1,,,0.5,,,3,2,1,,,0.2,,,,,,,0.01,,,1,0.5,0.1,0.5,5,,0.3,10,0.5
-Hypericum maculatum,VP,,,,0.1,,,,,,,0.01,,0.5,0.5,,,,,,,,0.3,,,,,,,0.5,,,,,,,,0.5,0.5,0.3,2,,,,
-Hypericum perforatum,VP,,,,,,0.5,,,,0.005,0.01,,,,,,,,,0.01,,,,,,,,,,,0.1,,0.001,0.01,,,,,,,,,,
-Hypochaeris maculata,VP,,0.3,,,,,,0.3,,0.2,,0.1,0.1,,0.01,4,,0.2,,,,,,,,1.5,,,,,,,,,0.5,,,1,,,1.5,,,0.1
-Hypochaeris radicata,VP,2,2,0.1,,,,,,,,,0.2,0.5,,0.1,0.5,,1,0.1,,1,0.1,,,0.2,,,,0.5,0.1,,,,,0.1,,,,,,,0.3,1,1
-Inula hirta,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.01,,,,,,,,,,,
-Jacobaea vulgaris,VP,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,0.1,,,0.1,,,,,,,,,,,,,,
-Juncus effusus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Juncus tenuis,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Knautia arvensis,VP,0.01,0.5,3,2,,2,2,5,,0.5,1,2,0.2,2,0.5,2,2,0.01,,5,3,3,2,2,1,0.1,1,1,0.5,5,0.5,,2,0.1,0.1,0.1,2,1,,7,3,0.5,,
-Lathyrus latifolius,VP,,,,,,,,3,,,,0.2,0.5,0.01,,1,0.5,0.5,,,,,,,,3,0.2,,0.001,,,,,,0.01,,,5,8,,,,,
-Lathyrus tuberosus,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lembotropis nigricans,VP,,0.05,,,,,,,,,,,,,3,2,,,,,,,,,,,,,,,,,4,,,,,,0.001,,6,,,5
-Leontodon hispidus subsp. hastilis,VP,,0.2,0.2,,,3,,1,0.3,4,4,5,,2,1,3,1,2,,,,,0.2,0.2,,2,0.1,0.001,3,1,1,,,,2,,5,2,2,1,,0.3,,1
-Leontodon hispidus subsp. hispidus,VP,,0.2,0.5,,,1,,0.5,0.3,0.1,0.2,0.1,0.1,0.2,0.1,0.2,1,0.5,,,,0.1,,0.3,,0.5,,0.1,0.5,0.1,1,,,,0.5,,,,,1,,0.2,,0.5
-Leucanthemum vulgare aggr.,VP,,0.5,0.2,,0.01,0.001,,0.1,,0.5,0.1,0.2,0.2,0.5,0.2,0.2,0.5,0.5,,,1,0.5,,0.5,0.2,2,0.5,0.3,0.5,1.5,2,,2,,0.1,0.5,5,0.5,0.3,0.8,0.2,0.7,,0.5
-Linum catharticum,VP,,,0.01,,,0.005,0.001,0.01,0.05,0.1,0.01,0.1,,0.001,,0.1,0.01,,,0.05,,,,0.2,,2,0.2,0.001,0.1,0.1,2,0.05,0.5,,,,,1,0.2,,2,0.01,,
-Lolium perenne,VP,3,0.2,,3,8,,,0.5,,,0.1,,,,,,,3,,,,,5,,,,,,,,,,,,,4,,,,,,,1,
-Lotus corniculatus,VP,0.5,0.7,2,0.5,,4,0.8,2,1,2,2,3,0.5,2,1,1,2,0.5,0.01,6,0.5,3,0.3,0.5,0.5,0.8,0.2,0.5,0.5,1,1,,2,0.2,0.5,0.01,2.5,3,2,1.5,0.5,1,,0.5
-Luzula campestris,VP,2.5,1.5,1,0.2,0.01,,0.1,0.5,0.2,,0.5,0.5,1,2,2,0.5,0.2,1,0.05,0.1,1,3,0.01,,0.1,1.5,0.01,0.1,0.1,0.1,,0.01,,0.1,0.1,,0.001,0.1,0.1,0.001,0.2,0.1,,0.5
-Luzula multiflora,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lysimachia nummularia,VP,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,,,,
-Lysimachia punctata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Lysimachia vulgaris,VP,,,,,,,,,,,,,2,,,,,,,,,0.2,,,,,,,,,,,,,,,,,,,,,,
-Malus pumila,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Medicago falcata,VP,,,,,,,,6,,1.5,,,,,,,0.5,,,,,,0.1,4,5,0.2,0.1,1,,0.1,0.001,,,,,,0.5,,,20,0.2,,,
-Medicago lupulina,VP,,0.001,,0.1,0.5,15,0.1,,,0.2,0.5,,,1,,,0.2,,,0.01,,,0.1,1,,0.1,0.001,0.001,,0.01,0.3,0.01,,0.001,,,3,,,,,,,
-Medicago sativa,VP,,0.02,,3,33,,2,,,,,0.01,,,,,1,,,3,,,,,,,,,,,,,,,,,,,,2,,,,
-Melampyrum arvense,VP,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,0.01,,,,0.1,,0.01,,,,,,,,,,,
-Minuartia verna,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,0.001,,,,,,,0.5,,,,,,,,,,
-Molinia caerulea,VP,,,,,,,,,,,,,,,,,,,,,0.2,,,,,,,,,,,,,,,,,,1,,,,,0.1
-Myosotis arvensis,VP,,,,1,0.001,,,,,,0.001,,,,,0.05,,,,,,,,,,,,,,,,,,,,0.01,,,,,,,,
-Nardus stricta,VP,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,
-Neottia ovata,VP,0.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Neotinea ustulata,VP,,,,,,,,,,,,0.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ononis spinosa subsp. hircina,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,0.01,0.3,,,,
-Origanum vulgare,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,,,,
-Orobanche sp.,VP,,,,,,0.05,,,,,,,,,,,0.01,,,0.05,,,,,,,,,,,,,,,,,,0.1,,,,,,
-Oxalis stricta,VP,0.001,0.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dichoropetalum carvifolia,VP,,,,,,,,,,,,,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,1,0.8,,,,
-Peucedanum oreoselinum,VP,,0.2,,,,,,,,,,0.2,2.5,9,20,5,,2,,0.5,1,35,,,,,0.001,,,,,,5,,1,,,,3,,3,,2,8
-Phleum phleoides,VP,,,,,,,0.8,,,,,,,,,,,,,,,,,,,0.3,0.2,,,0.01,,,,0.1,,,,,,,,,,
-Phleum pratense,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,,,,
-Pilosella bauhini,VP,,0.4,0.2,,,0.2,0.05,,,1,,0.1,,0.1,,0.01,,,,,,,,3,0.5,0.01,,,0.1,0.1,,,0.01,,,,,0.1,,,0.2,0.001,,
-Pilosella officinarum,VP,,,1,,,0.05,0.1,0.2,20,1,,0.5,,0.3,3,3,,1,8,,1,2,,0.2,,,10,,,,0.005,10,0.1,5,2,,,0.1,,,0.1,1.5,,1.5
-Pilosella officinarum x bauhini,VP,,,0.01,,,0.05,,0.01,0.05,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pimpinella saxifraga,VP,,0.5,,0.2,,,,3,,0.1,,0.01,1,2,0.5,0.7,,0.3,,0.2,2,4,0.2,0.1,,0.5,0.1,1.5,1,,,,1,0.2,0.5,,,0.1,1,0.5,0.5,1,,0.2
-Plantago lanceolata,VP,3,1,1,1.5,0.5,4,1,3.5,1.5,1,0.5,6,3,5,2,2,0.5,1,2,3,3,2,0.7,5,3,2,1.5,1,1,2,0.1,0.5,2,1,0.8,5,3,2,0.5,0.2,1,1,0.5,1
-Plantago media,VP,,0.2,0.01,,0.2,0.1,3,10,0.5,0.2,3,0.3,,,,,6,0.3,,,,,,,0.5,0.01,0.7,,2,0.5,6,,3,0.5,,0.5,,1,0.3,0.2,1,0.3,,
-Plantago major,VP,0.5,,,,,,,,,,0.1,,,,,,,,,,,,,,,,,,0.01,,,,,,,,,,,,,,,
-Platanthera bifolia,VP,,,0.2,,,,,,,,,,0.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Poa annua,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Poa compressa,VP,,0.001,,,0.01,,,0.01,,,,,,0.2,,,,0.1,0.01,,,,,,,,,,,,,,,0.001,,,,,,,,,0.01,
-Poa pratensis,VP,1,0.5,,1,5,,0.5,0.5,0.5,,2,,,,,,0.2,1,,,,,2,,,,,0.01,,,,0.3,,,,0.01,0.5,,,0.5,,,1,
-Poa trivialis,VP,,,,0.5,15,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,,,1,,,8,
-Podospermum purpureum,VP,,,,,,,,,,,,,,,,0.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Polygala comosa,VP,,0.05,0.2,,,0.5,0.5,3,0.1,0.5,0.1,0.7,,,,0.7,1,,0.001,5,,,0.1,,0.5,0.1,0.1,,,,0.1,,0.1,0.001,0.01,,,0.1,0.2,,0.01,0.2,,
-Polygala vulgaris subsp. oxyptera,VP,,,,,,,,,0.001,,,0.01,,0.3,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Polygala vulgaris subsp. vulgaris,VP,,0.01,0.01,,,,,0.1,,,,,,0.5,0.5,0.5,,0.2,,,1,0.5,,,,,,,,,,,,,0.2,,,,,,,,,0.2
-Potentilla argentea,VP,,0.001,,,,,,,,,0.1,,,,,,0.5,,,0.05,,,0.1,,,,,,,,,,,,,,,,,,,,,
-Potentilla erecta,VP,,0.05,0.5,,,,,0.1,,0.01,,0.2,0.7,2,6,0.2,,2,0.05,,0.1,0.1,,,,,,,2,,0.01,,0.5,,2,,,0.1,1,,,,,0.5
-Potentilla incana,VP,,,,,,0.1,0.1,,0.5,1.2,,0.3,,,,1,,0.1,6,,,,0.1,0.5,1,,0.5,,,0.01,0.3,1,0.5,0.1,,,,,,,,0.001,,
-Potentilla inclinata,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Primula acaulis,VP,,,,,,,,0.1,,,,,,,,,,,,,,,,,,,,,2,,,,,,,,0.5,0.5,0.1,0.5,,,,
-Primula veris,VP,,0.2,2,0.1,,0.1,,3,,,1,,0.5,5,,0.1,6,2.5,,,,,,,,6,1,5,1,1.5,0.1,,,3,4,,,2,,0.2,,,,
-Prunella grandiflora,VP,,,,,,,,,,,,,,,,,,,,,,,,,,2,1,,,,1,,3,0.5,,,,,0.1,,,,,
-Prunella laciniata,VP,,,,,,0.2,0.3,0.5,1,2,0.001,,0.5,,,2,0.1,1,4,0.5,0.1,,,0.5,,,2,0.01,,1,0.5,0.5,1,0.5,,,,,,,1,0.5,,
-Prunella vulgaris,VP,6,8,0.5,1,0.5,,,0.2,0.1,0.5,0.1,1,1.5,0.2,,,0.5,0.5,,,1,0.3,0.1,,,,,0.1,3,2,0.3,,,,3,1,0.5,1,1,1,,,,
-Prunella x intermedia,VP,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,0.1,,,,,,
-Prunus sp.,VP,,,0.1,,,,,,,,,,,,,,,,,,1,,,2,0.01,,,0.01,,,,,,,,,1,0.1,,0.1,,,,0.01
-Pteridium aquilinum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,
-Ranunculus acris,VP,1,,,1,,,,,,,,,0.2,,,,,,,,,0.1,,,,,,,,,,,,,,,,,,,,,,
-Ranunculus bulbosus,VP,0.5,0.1,,0.5,2,4,1.5,2,0.001,1,2,0.5,0.01,,,,,,,3,,,1.5,2,1,0.2,,0.1,0.1,0.1,1,,0.01,0.01,0.1,0.5,0.1,,,,1,1,,
-Ranunculus polyanthemos,VP,1,1.5,6,2,,,,0.2,,2,,3,1,3,2,1,1,1,,,1,0.5,,0.1,,,,0.2,0.1,2,,0.05,1,,,,,1.5,0.5,1,,,0.5,
-Ranunculus repens,VP,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Rhinanthus minor,VP,,,1,2,,0.1,,,,2,7,1.5,,1.5,,2,1.5,,,0.5,,0.1,0.5,2,4,,,,,0.5,,,,,,0.1,0.5,,0.1,,0.01,,,3
-Rhinanthus rumelicus,VP,,,,,,,,,,,,,,4,,,,,,2.5,,0.2,,,0.1,,,,,,,,,,,,,,,,1.2,4,,
-Rhinanthus wagneri,VP,,,,,,,,,,,,,,,,,,,,,,,,,,5,0.5,3,,2,0.001,,0.5,0.001,,18,3,1,10,2,,,,
-Rorippa pyrenaica,VP,,,,,,,,,,,,0.1,,,,,,,,,,0.01,,,,,,,,,,,,,,,,,,,,,,
-Rosa canina,VP,,0.01,,0.001,,,,,,0.001,,,,0.5,0.5,0.001,,,,0.2,,,,0.2,,,,,0.2,,,2,,,,,,,,,2,0.1,0.3,1
-Rumex acetosa,VP,0.1,0.001,0.2,2,,,,0.5,,,,0.01,0.1,1,1,,,,,,0.1,0.3,,,,,,,,,,,,,,0.01,,,0.2,0.4,,,,
-Rumex acetosella,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,0.1
-Rumex conglomeratus,VP,,,,,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,
-Rumex obtusifolius,VP,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
-Sagina procumbens,VP,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Salvia verticillata,VP,,,,,2,4,0.2,,,0.5,1.5,,,,,,4,,,4,,,,1.5,2,,,0.1,,0.2,2,,,0.5,,,,,,,0.5,,,
-Sanguisorba minor,VP,,,,,0.01,0.5,0.2,0.5,0.1,1,0.01,0.05,,,,0.1,0.1,0.1,0.2,0.2,,0.1,0.2,0.5,0.2,3,2,0.3,0.1,0.1,0.3,2,1,2,0.1,0.001,0.02,,,,,,,
-Scabiosa columbaria,VP,,0.2,,,,,,,,1,,,,,,,0.1,,,,,,,,,,,0.1,,,0.3,,,0.2,,,,,,,,,,
-Scabiosa ochroleuca,VP,,,1,,0.1,0.5,0.3,0.1,,0.3,,0.2,1,0.1,0.1,0.01,0.5,0.5,,0.1,0.5,,0.1,5,2,,0.5,,,1,2,0.1,0.2,0.5,,,0.5,0.5,,,0.2,3,,0.2
-Schedonorus pratensis,VP,0.2,0.01,,5,0.5,,,2,,0.5,2.5,0.2,0.5,1,,,,0.2,,,,,,,,0.2,0.2,0.1,0.5,0.2,,,,0.1,,0.5,,0.5,,1,,,2,
-Scleranthus annuus,VP,,,,,,,,,,,,,,,,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,
-Scorzoneroides autumnalis,VP,,,,,,,,,1,,,,0.2,,,0.1,,0.01,,,,,,,,,,,,0.1,,,,,,,,,,,,,,
-Securigera varia,VP,,0.05,0.5,1,,2,0.5,1,,0.3,1,,0.5,,,,4,0.5,,3,,3,1,3,,,,3,,1,0.001,,,,0.5,,2,0.5,0.5,20,2,,,
-Sedum sexangulare,VP,,0.05,,,,,,,,0.001,,,,0.2,,,,,,0.001,,,,,0.01,,0.2,,,,,,,0.001,,,,,,,0.3,,,
-Seseli annuum,VP,,,,,,,,0.01,,1,,,,,,,,,,0.5,,,,,,0.2,1,1,,0.5,3,,3,0.5,0.1,,,,,,1,0.5,,
-Solidago virgaurea,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Stachys germanica,VP,,,,,,,,,,,,,,,,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Stachys officinalis,VP,,15,0.3,0.3,,2,,8,,,,,18,7,2,,,1,,0.001,1,10,0.05,,,1,0.1,,0.2,,0.3,,5,,0.1,,1,6,5,0.1,,,,2
-Stellaria graminea,VP,0.2,0.01,0.1,0.001,,0.01,,1,,,0.1,,0.3,0.5,0.1,0.1,0.1,0.1,,0.001,1,0.5,,,,0.01,0.01,,,,,,,,0.01,0.001,,,,0.1,,,2,1
-Symphytum officinale,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.7,,,,
-Taraxacum sect. Erythrosperma,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Taraxacum sect. Taraxacum,VP,5,0.01,0.01,3,10,,0.2,0.5,1,1,3,,,,,,3,2,,,,,,,,,,,0.1,0.5,,,,,0.1,2,1,,,5,,,1,0.3
-Teucrium chamaedrys,VP,,,0.2,,,15,25,0.1,,10,,,,,,,0.01,,,,,,2.5,4,,8,2,2,,0.5,3,10,0.5,15,,,,,,,10,1,,
-Teucrium montanum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,,,,,,
-Thymus pulegioides subsp. pannonicus,VP,,,,,,,,,1,,,2,,,,,,0.1,7,,,,,,,10,1,10,,4,5,1,6,20,12,,,,0.5,,1,10,,
-Thymus pulegioides subsp. pulegioides,VP,0.1,0.01,3.5,,0.1,8,2,4,3,3,4,,1,4,6,6,3,5,7,6,5,5,2,12,13,,,,,0.5,1,2,5,1,1,,,3,,,,1,,5
-Tragopogon pratensis subsp. orientalis,VP,,,0.9,3,,0.2,0.2,,,1.5,,0.5,,1,,0.2,0.7,0.2,,0.2,,,0.2,2,1,0.5,,0.5,0.1,0.1,0.2,,,,,1,2,0.1,0.2,1,,1,,
-Trifolium alpestre,VP,,,,,,,,3,,,,,,1,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,,
-Trifolium campestre,VP,,,,,,,,,,,,,,,,,,,,,0.1,,,,1,,,,,0.2,,,,,,0.1,0.1,,,,,,,
-Trifolium dubium,VP,,,,0.01,,,,,,,,0.001,0.001,0.05,0.01,,,0.1,0.01,0.01,,,0.2,,,0.3,0.01,,,0.01,,,,,0.01,,,,,,,0.2,,
-Trifolium medium,VP,,,,,,,1,,,,2,,4,5,,1,,0.1,,,2,2,,,,0.2,,,0.2,0.1,,,,,,,,,2,3,,,,
-Trifolium montanum,VP,,0.05,2,,,1,0.5,3,0.01,3,,,,,3,4,0.2,0.001,,0.05,,,1,,1.5,2,0.1,0.1,0.5,0.5,1,,1,0.1,3,,,2,2,,1,,,
-Trifolium ochroleucon,VP,,0.2,,,,0.05,,0.5,,,,0.001,,2,,0.1,,,,,0.1,,,,,0.5,0.5,,,,1,,0.1,,,,,3,,,7,0.1,,
-Trifolium pannonicum,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8,,,,,
-Trifolium pratense,VP,0.5,2,0.02,15,6,0.5,,,,,2,4,3,0.1,0.2,,3,0.1,,,,2,1,0.1,,1,0.5,2,3,4,2,,0.5,,2,5,5,1,0.1,10,,0.3,1,0.2
-Trifolium repens,VP,7,0.3,,2,5,,,,3,0.01,2,3,1,1,2.5,,1,2,0.01,0.05,0.5,5,,,,,,0.01,1,0.5,0.1,,,,0.5,2,,,,0.5,,0.1,1,1
-Trisetum flavescens,VP,,0.2,0.1,8,10,2,,,,3,3,0.5,,,,,,,,1.5,,,5,2,0.5,0.3,,15,,3,0.01,,,,,20,20,1,,20,,0.5,,
-Urtica dioica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Valerianella dentata subsp. eriosperma,VP,,0.001,,,,0.001,,,,,,0.001,,,,0.05,0.001,,,0.1,,,0.001,,,,,,,0.1,,,,,,,0.01,,,,,,,
-Veronica arvensis,VP,0.1,0.001,,2,0.2,0.01,,,,,0.01,0.01,,0.3,,0.01,,0.001,,0.001,,,,,,,,,0.01,0.001,,,,,,0.2,0.001,,,,,,0.5,
-Veronica austriaca,VP,,,,,,,1,,,,,,0.01,0.001,,,,0.2,0.7,,,,0.01,,0.5,0.2,1,0.001,,0.2,3,1,1,0.3,,,1,,,,0.1,0.1,,
-Veronica chamaedrys,VP,1,0.2,0.5,1.5,0.5,1.5,,3,,,0.5,0.3,0.1,0.5,1,,0.01,2,,,2,5,0.1,,,,,0.001,0.1,0.5,0.1,,,,,0.5,0.5,,,0.5,,,1,0.3
-Veronica officinalis,VP,,,1.1,0.1,,,,,0.1,0.2,0.2,0.05,0.01,,,0.1,0.1,,0.5,,,0.1,,,,,,0.3,,0.5,,,,0.05,,0.3,,,,,,0.2,,
-Veronica persica,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Veronica prostrata,VP,,,,,,1,,,,0.1,0.5,,,,,,0.1,,,,,,,1,0.3,,,,,0.3,0.001,,,,,,,,,,,,,
-Veronica serpyllifolia,VP,0.01,0.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Vicia cracca,VP,,0.2,0.02,10,,,,1,,,0.3,0.3,2,0.1,,,0.1,0.1,,,,,,,0.05,,,0.01,,,0.001,,,,,,,,,3,,,,
-Vicia grandiflora,VP,,,,0.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Vicia sativa subsp. nigra,VP,0.01,,0.01,2,0.05,0.001,0.1,0.1,,0.001,,0.1,0.01,2,,,,,,0.2,0.01,,0.1,,0.5,,,,,,,,,,,0.1,,,,0.01,,,,
-Vincetoxicum hirundinaria,VP,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.001,,,,,,,,,,
-Viola canina,VP,,,1.5,,,,,1,0.5,,,0.3,1,4,4,0.2,,3,,,1,0.1,,,,0.1,,,1,,,,0.01,,0.5,,,,0.5,,0.5,,,0.8
-Viola hirta,VP,,,0.3,0.5,,,0.5,1.5,,1,0.1,0.1,,0.2,,0.1,1,0.5,0.1,0.1,,,0.2,,,0.5,0.3,,0.3,0.1,0.3,,0.5,,,,0.1,3,2,0.1,0.1,0.2,,
-Viola tricolor,VP,,,,,,,,,,,,,,0.1,,,,,,0.01,,,,,,,,,,,,,,,,,,,,,,,1,
-Abietinella abietina,B,,0.01,25,,0.01,30,0.4,1,30,50,0.1,,,5,1,20,25,0.5,30,30,25,10,1,35,50,2,5,3,0.1,1,15,10,7,5,1,,5,3,,,7,40,,2
-Atrichum undulatum,B,,,,,,,,,,,,,,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Barbula unguiculata,B,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,,,,,,
-Brachythecium albicans,B,,0.1,0.01,,13,,0.1,1,10,,,,0.1,0.1,1,,,5,,,0.01,2,,,,,5,,,10,,,3,7,,,,3,0.5,,,,1,2
-Brachythecium rutabulum,B,0.1,,0.01,1,5,,,,,,2,,,,,,,,,,,,,,,,,,,,,,,,,3,,,,,,,,
-Brachythecium salebrosum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Brachythecium tommasinii,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bryum caespiticium,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,
-Bryum moravicum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,
-Bryum sp.,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Calliergonella cuspidata,B,20,0.1,,,,,,0.1,,,,,9,3,,,,0.5,,,,,,,,,5,0.1,0.1,0.5,,,,,5,,1.5,1,0.5,,,,,
-Calliergonella lindbergii,B,,,,,,,,,,,,,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Campyliadelphus chrysophyllus,B,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,0.1,,,,,,,,,1,1,,0.1,0.1,,
-Ceratodon purpureus,B,,,,,,,,,,,,,,,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,
-Cirriphyllum piliferum,B,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,8,,,,,,,,,,,,,,,
-Climacium dendroides,B,,0.1,,,,,,,,,,,,,,0.1,2,0.5,,,,,,,,,,,0.01,,,,,0.1,,,,,,,,,,
-Dicranum bonjeanii,B,,,,,,,,,,,,,,,,0.01,,0.1,,,,,,,,,0.01,,,,,,,0.1,0.1,,,,,,,,,
-Dicranum polysetum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Didymodon fallax,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,,,,,,
-Didymodon sp.,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,
-Encalypta streptocarpa,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,
-Entodon concinnus,B,,,,,,0.001,,,0.1,2,1,,,,,0.5,5,,,5,,0.2,,,,,,0.5,,,1,,,,,,2,1,,,,3,,
-Fissidens dubius,B,,,,,,,,,,,,,,,,,,,0.01,,,,,,,,0.001,,,,,0.1,,0.1,,,,,,,,0.1,,
-Fissidens taxifolius,B,,,,,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Flexitrichum flexicaule,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,,,,,,,,,,
-Grimmia pulvinata,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,
-Homalothecium lutescens,B,,,,,2,0.001,,,1,,1,,0.1,,,,,,,0.1,,1,1,5,,3,20,,2,10,0.1,,,5,,,,,0.1,,,,,
-Homomallium incurvatum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,,,,,,,,,,
-Hylocomium splendens,B,,,,,,,,,,,,,,,,,,2,,,,,,,,,,,,,,,,,25,,,,,,,,,
-Hypnum cupressiforme,B,,,,,,,,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hypnum cupressiforme var. lacunosum,B,,,,,,,,,1,2,,,,,,12,3,,1,,,,,,,20,20,,,1,,25,0.5,2,,,,,,,,,,
-Oligotrichum hercynicum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oxyrrhynchium hians,B,,,,,,,,,,,,,,0.5,,,,,,,,,,,,,,,0.1,,,,,,,0.1,,,,,,,,
-Plagiomnium affine,B,,0.01,0.01,,,,,,0.001,,0.1,,0.2,0.1,0.01,,0.5,0.01,,,,0.01,,,,,1,,,,,,,0.5,,,,0.1,0.1,,,,,0.5
-Plagiomnium cuspidatum,B,,,,1,,,,,,,0.01,,0.2,,,,0.1,0.01,,,,,,,,1,1,0.5,0.1,0.001,,,,,,,0.5,0.1,,,,,,
-Plagiomnium undulatum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pleuridium subulatum,B,,0.1,0.01,,,,,,,,,,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pleurozium schreberi,B,,,,,,,,,,,,,,,,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,2
-Pogonatum aloides,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pohlia annotina,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Pohlia nutans,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Polytrichum perigonale,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1
-Pseudoscleropodium purum,B,,20,,,,,,1,,,,,0.1,2,,0.1,0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ptychostomum rubens (Bryum rubens),B,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,
-Racomitrium canescens,B,,,,,,,,,,,,,,,,,,,0.05,,,,,,,,,,,,,,,,,,,,,,,,,
-Rhytidiadelphus squarrosus,B,,0.5,,,,,,,,,0.1,,0.001,,,,1,1,,,,0.1,,,,1,0.5,,2,,,,,0.1,1,,,,,,,,,2
-Rhytidiadelphus triquetrus,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,20,,,,,,,,,
-Rhytidium rugosum,B,,,,,,,,,,1,,,,,,1,,,25,,,,,,,,5,,,,5,5,10,0.5,0.5,,,,,,15,1,,
-Schystidium crassipilum,B,,,,,,,,,,,,,,,,,,,0.01,,,0.2,,,,,,,,,,,,0.01,,,,,,,,,,
-Steblotrichum convolutum,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,
-Syntrichia ruralis,B,,,,,0.001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.1,,,,,,,,,,
-Thuidium assimile,B,,25,0.01,,,,,5,30,5,15,1,5,0.1,8,0.5,5,0.5,,2,0.01,0.1,,,,3,2,3,5,1,50,5,0.5,5,0.5,,3,1,0.1,,0.1,1,,2
-Thuidium delicatulum,B,,,,,,0.01,,,,,,,,,,0.2,,5,,,,,,,,,,,,,,,,,,,,,,,,,,
-Tortella squarrosa,B,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.01,,,,,,,,,,,,
-Tortella tortuosa,B,,,,,,,,,,,,,,,,,,,0.001,,,,,,,,,,,,,,,30,,,,,,,,,,
-Weissia sp.,B,,0.01,0.001,0.001,,,,0.01,,,,,,,,,,,,,,,0.001,,,,0.1,,0.01,,,0.01,,0.01,,,,0.01,,,,,,
-Cladonia pocillum,L,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.5,,,,,,,,,,
-Cladonia furcata,L,,,,,,,,,0.001,0.01,,,,,,,0.001,,2,,,,,,0.01,,0.001,,,,,0.1,,0.5,,,,,,,0.001,,,
+species,Parcel_name,cover
+Acer pseudoplatanus,Farm_B_2,0.2
+Acer pseudoplatanus,Farm_B_3,0.1
+Achillea millefolium aggr.,Farm_A_1,12
+Achillea millefolium aggr.,Farm_A_2,0.1
+Achillea millefolium aggr.,Farm_A_3,1
+Achillea millefolium aggr.,Farm_A_4,3
+Achillea millefolium aggr.,Farm_A_5,0.5
+Achillea millefolium aggr.,Farm_A_6,1
+Achillea millefolium aggr.,Farm_A_7,0.5
+Achillea millefolium aggr.,Farm_A_8,0.5
+Achillea millefolium aggr.,Communal_1,1
+Achillea millefolium aggr.,Farm_A_10,2
+Achillea millefolium aggr.,Farm_A_13,0.5
+Achillea millefolium aggr.,Farm_B_1,1
+Achillea millefolium aggr.,Farm_B_2,3
+Achillea millefolium aggr.,Farm_B_3,1.5
+Achillea millefolium aggr.,Farm_B_4,2
+Achillea millefolium aggr.,Farm_B_5,1
+Achillea millefolium aggr.,Farm_B_6,2
+Achillea millefolium aggr.,Farm_B_7,6
+Achillea millefolium aggr.,Communal_2,0.2
+Achillea millefolium aggr.,Farm_C_1,3.5
+Achillea millefolium aggr.,Farm_C_3,1
+Achillea millefolium aggr.,Farm_C_6,2
+Achillea millefolium aggr.,Farm_C_8,0.3
+Achillea millefolium aggr.,Farm_C_9,0.2
+Achillea millefolium aggr.,Farm_C_10,1
+Achillea millefolium aggr.,Farm_D_1,1
+Achillea millefolium aggr.,Communal_3,1
+Achillea millefolium aggr.,Farm_D_3,0.5
+Achillea millefolium aggr.,Farm_D_4,2
+Achillea millefolium aggr.,Farm_D_5,1
+Achillea millefolium aggr.,Farm_D_6,0.2
+Achillea millefolium aggr.,Farm_D_8,0.3
+Achillea millefolium aggr.,Communal_5,0.2
+Achillea millefolium aggr.,Farm_D_10,2
+Achillea millefolium aggr.,Farm_E_1,1
+Achillea millefolium aggr.,Farm_E_2,0.1
+Achillea millefolium aggr.,Farm_E_3,1
+Achillea millefolium aggr.,Farm_E_4,0.5
+Achillea millefolium aggr.,Farm_E_5,2
+Achillea millefolium aggr.,Farm_E_6,0.1
+Achillea millefolium aggr.,Farm_E_7,2
+Achillea millefolium aggr.,Farm_F_1,35
+Achillea millefolium aggr.,Farm_F_2,2
+Agrimonia eupatoria,Farm_A_2,0.1
+Agrimonia eupatoria,Farm_A_6,0.1
+Agrimonia eupatoria,Communal_1,0.001
+Agrimonia eupatoria,Farm_B_1,0.1
+Agrimonia eupatoria,Farm_B_3,0.1
+Agrimonia eupatoria,Farm_C_8,0.5
+Agrimonia eupatoria,Farm_C_9,1
+Agrimonia eupatoria,Communal_3,0.1
+Agrimonia eupatoria,Farm_D_4,0.2
+Agrimonia eupatoria,Farm_D_10,0.1
+Agrostis capillaris,Farm_A_1,5
+Agrostis capillaris,Farm_A_2,18
+Agrostis capillaris,Farm_A_3,5
+Agrostis capillaris,Farm_A_4,0.5
+Agrostis capillaris,Farm_A_8,0.2
+Agrostis capillaris,Communal_1,2
+Agrostis capillaris,Farm_B_1,2
+Agrostis capillaris,Farm_B_2,15
+Agrostis capillaris,Farm_B_3,25
+Agrostis capillaris,Farm_B_4,20
+Agrostis capillaris,Farm_B_5,5
+Agrostis capillaris,Farm_B_7,1
+Agrostis capillaris,Communal_2,10
+Agrostis capillaris,Farm_C_1,6
+Agrostis capillaris,Farm_C_3,30
+Agrostis capillaris,Farm_C_6,40
+Agrostis capillaris,Farm_C_8,10
+Agrostis capillaris,Farm_C_10,2
+Agrostis capillaris,Farm_D_1,0.2
+Agrostis capillaris,Communal_3,0.1
+Agrostis capillaris,Farm_D_4,5
+Agrostis capillaris,Farm_D_8,1
+Agrostis capillaris,Farm_D_10,15
+Agrostis capillaris,Farm_E_1,0.5
+Agrostis capillaris,Farm_E_2,0.5
+Agrostis capillaris,Farm_E_3,5
+Agrostis capillaris,Farm_E_4,3
+Agrostis capillaris,Farm_E_5,20
+Agrostis capillaris,Farm_E_6,5
+Agrostis capillaris,Farm_E_7,8
+Agrostis capillaris,Farm_F_1,55
+Agrostis capillaris,Farm_F_2,15
+Ajuga genevensis,Farm_A_1,0.01
+Ajuga genevensis,Farm_A_3,0.1
+Ajuga genevensis,Farm_A_4,0.1
+Ajuga genevensis,Farm_A_5,0.2
+Ajuga genevensis,Farm_A_6,0.01
+Ajuga genevensis,Farm_A_8,0.1
+Ajuga genevensis,Farm_A_13,0.1
+Ajuga genevensis,Farm_B_6,0.2
+Ajuga genevensis,Farm_C_1,0.05
+Ajuga genevensis,Farm_C_9,0.5
+Ajuga genevensis,Farm_D_4,0.2
+Ajuga genevensis,Farm_D_5,1
+Ajuga genevensis,Farm_D_6,0.01
+Ajuga genevensis,Communal_4,0.001
+Ajuga genevensis,Farm_D_8,0.2
+Ajuga genevensis,Communal_5,0.01
+Ajuga genevensis,Farm_E_7,0.1
+Alchemilla acutiloba,Farm_D_10,0.1
+Alchemilla acutiloba,Farm_E_5,0.1
+Allium carinatum,Farm_A_7,0.001
+Allium oleraceum,Farm_A_4,0.001
+Anacamptis coriophora,Farm_A_2,0.1
+Anacamptis coriophora,Farm_A_3,0.001
+Anacamptis coriophora,Farm_A_10,0.001
+Anacamptis coriophora,Farm_B_4,0.01
+Anacamptis coriophora,Farm_C_1,0.2
+Anacamptis coriophora,Farm_E_7,0.01
+Anacamptis morio,Farm_A_3,0.5
+Anacamptis morio,Farm_B_1,0.3
+Anacamptis morio,Farm_B_6,0.001
+Anacamptis morio,Farm_C_9,0.001
+Anacamptis morio,Farm_E_7,1
+Anacamptis pyramidalis,Farm_D_1,0.05
+Anacamptis pyramidalis,Farm_D_3,1
+Antennaria dioica,Communal_5,0.001
+Anthemis arvensis,Farm_F_1,0.1
+Anthoxanthum odoratum,Farm_A_1,7
+Anthoxanthum odoratum,Farm_A_2,5
+Anthoxanthum odoratum,Farm_A_3,2
+Anthoxanthum odoratum,Farm_A_4,2
+Anthoxanthum odoratum,Farm_A_7,0.3
+Anthoxanthum odoratum,Farm_A_8,1
+Anthoxanthum odoratum,Communal_1,5
+Anthoxanthum odoratum,Farm_A_10,0.5
+Anthoxanthum odoratum,Farm_A_13,0.5
+Anthoxanthum odoratum,Farm_B_1,4
+Anthoxanthum odoratum,Farm_B_2,1.5
+Anthoxanthum odoratum,Farm_B_3,10
+Anthoxanthum odoratum,Farm_B_4,2.5
+Anthoxanthum odoratum,Farm_B_5,3
+Anthoxanthum odoratum,Farm_B_6,0.1
+Anthoxanthum odoratum,Farm_B_7,1
+Anthoxanthum odoratum,Farm_C_1,0.5
+Anthoxanthum odoratum,Farm_C_3,5
+Anthoxanthum odoratum,Farm_C_6,4
+Anthoxanthum odoratum,Farm_C_8,0.5
+Anthoxanthum odoratum,Farm_C_10,1
+Anthoxanthum odoratum,Farm_D_1,5
+Anthoxanthum odoratum,Communal_3,3
+Anthoxanthum odoratum,Farm_D_3,1
+Anthoxanthum odoratum,Farm_D_4,0.1
+Anthoxanthum odoratum,Farm_D_5,2
+Anthoxanthum odoratum,Farm_D_8,1
+Anthoxanthum odoratum,Communal_5,0.1
+Anthoxanthum odoratum,Farm_D_10,0.5
+Anthoxanthum odoratum,Farm_E_1,0.3
+Anthoxanthum odoratum,Farm_E_2,1
+Anthoxanthum odoratum,Farm_E_3,1.5
+Anthoxanthum odoratum,Farm_E_4,3
+Anthoxanthum odoratum,Farm_E_5,7
+Anthoxanthum odoratum,Farm_E_6,2
+Anthoxanthum odoratum,Farm_E_7,2
+Anthoxanthum odoratum,Farm_F_1,1
+Anthoxanthum odoratum,Farm_F_2,5
+Anthriscus sylvestris,Farm_A_2,0.1
+Anthriscus sylvestris,Farm_A_4,0.1
+Anthriscus sylvestris,Farm_E_1,0.5
+Anthyllis vulneraria,Farm_A_3,0.1
+Anthyllis vulneraria,Farm_A_6,1
+Anthyllis vulneraria,Farm_A_10,0.5
+Anthyllis vulneraria,Farm_B_5,0.1
+Anthyllis vulneraria,Farm_B_6,0.3
+Anthyllis vulneraria,Farm_C_9,5
+Anthyllis vulneraria,Farm_C_10,0.1
+Anthyllis vulneraria,Farm_D_1,1
+Anthyllis vulneraria,Communal_3,0.01
+Anthyllis vulneraria,Farm_D_3,1
+Anthyllis vulneraria,Farm_D_6,0.1
+Anthyllis vulneraria,Communal_5,0.2
+Anthyllis vulneraria,Farm_E_7,5
+Arabidopsis sp.,Farm_A_5,0.001
+Arabis hirsuta,Farm_A_4,0.05
+Arabis hirsuta,Farm_A_5,0.01
+Arabis hirsuta,Farm_A_6,0.001
+Arabis hirsuta,Farm_A_10,0.001
+Arabis hirsuta,Farm_A_13,0.001
+Arabis hirsuta,Farm_B_1,0.001
+Arabis hirsuta,Farm_B_6,0.001
+Arabis hirsuta,Farm_C_1,0.05
+Arabis hirsuta,Farm_C_8,0.1
+Arabis hirsuta,Farm_D_3,0.1
+Arabis hirsuta,Farm_D_5,0.1
+Arabis hirsuta,Farm_D_6,0.1
+Arabis hirsuta,Communal_5,0.05
+Arabis hirsuta,Farm_E_2,0.1
+Arenaria serpyllifolia,Farm_A_5,0.01
+Arenaria serpyllifolia,Farm_A_6,0.01
+Arenaria serpyllifolia,Farm_A_13,0.01
+Arenaria serpyllifolia,Farm_B_1,0.1
+Arenaria serpyllifolia,Farm_B_5,0.1
+Arenaria serpyllifolia,Farm_B_7,0.01
+Arenaria serpyllifolia,Communal_2,0.2
+Arenaria serpyllifolia,Farm_C_8,0.5
+Arenaria serpyllifolia,Farm_C_9,0.001
+Arenaria serpyllifolia,Communal_3,0.01
+Arenaria serpyllifolia,Farm_D_3,0.2
+Arenaria serpyllifolia,Farm_D_5,0.5
+Arenaria serpyllifolia,Farm_D_6,0.001
+Arenaria serpyllifolia,Communal_5,0.01
+Arrhenatherum elatius,Farm_A_3,0.5
+Arrhenatherum elatius,Farm_A_4,1
+Arrhenatherum elatius,Farm_B_3,0.1
+Arrhenatherum elatius,Farm_E_7,1
+Asperula cynanchica,Farm_A_6,0.2
+Asperula cynanchica,Communal_1,0.1
+Asperula cynanchica,Farm_A_10,0.5
+Asperula cynanchica,Farm_B_7,0.01
+Asperula cynanchica,Communal_2,0.3
+Asperula cynanchica,Farm_C_1,0.2
+Asperula cynanchica,Farm_C_9,0.5
+Asperula cynanchica,Farm_D_1,2
+Asperula cynanchica,Communal_3,1
+Asperula cynanchica,Farm_D_3,0.1
+Asperula cynanchica,Farm_D_5,0.01
+Asperula cynanchica,Farm_D_6,0.7
+Asperula cynanchica,Communal_4,0.001
+Asperula cynanchica,Farm_D_8,0.5
+Asperula cynanchica,Communal_5,0.01
+Asperula cynanchica,Farm_E_3,0.5
+Asperula cynanchica,Farm_E_4,0.5
+Asperula cynanchica,Farm_E_6,0.2
+Astrantia major,Farm_D_4,0.1
+Avenella flexuosa,Farm_F_2,0.5
+Bellis perennis,Farm_A_1,4
+Bellis perennis,Farm_D_4,0.001
+Bothriochloa ischaemum,Communal_2,0.1
+Bothriochloa ischaemum,Communal_4,5
+Brachypodium pinnatum,Farm_A_8,4
+Brachypodium pinnatum,Farm_A_10,0.5
+Brachypodium pinnatum,Farm_B_2,0.2
+Brachypodium pinnatum,Farm_B_3,1
+Brachypodium pinnatum,Farm_B_5,4
+Brachypodium pinnatum,Farm_B_7,1
+Brachypodium pinnatum,Farm_C_1,0.1
+Brachypodium pinnatum,Farm_D_1,0.5
+Brachypodium pinnatum,Communal_3,0.5
+Brachypodium pinnatum,Farm_D_5,0.2
+Brachypodium pinnatum,Farm_D_6,20
+Brachypodium pinnatum,Farm_E_2,0.5
+Brachypodium pinnatum,Farm_E_3,5
+Brachypodium pinnatum,Farm_E_4,10
+Brachypodium pinnatum,Farm_E_6,3
+Briza media,Farm_A_2,1.5
+Briza media,Farm_A_3,3
+Briza media,Farm_A_6,3
+Briza media,Farm_A_7,0.3
+Briza media,Farm_A_8,1
+Briza media,Communal_1,0.1
+Briza media,Farm_A_10,3
+Briza media,Farm_A_13,3
+Briza media,Farm_B_1,4
+Briza media,Farm_B_2,0.5
+Briza media,Farm_B_3,3
+Briza media,Farm_B_4,5
+Briza media,Farm_B_5,3
+Briza media,Farm_B_6,5
+Briza media,Farm_B_7,1
+Briza media,Communal_2,0.1
+Briza media,Farm_C_3,1
+Briza media,Farm_C_6,0.5
+Briza media,Farm_C_8,1
+Briza media,Farm_C_9,4
+Briza media,Farm_C_10,3
+Briza media,Farm_D_1,10
+Briza media,Communal_3,2
+Briza media,Farm_D_3,4
+Briza media,Farm_D_4,0.5
+Briza media,Farm_D_5,0.1
+Briza media,Farm_D_6,20
+Briza media,Farm_D_8,3
+Briza media,Communal_5,0.1
+Briza media,Farm_D_10,0.2
+Briza media,Farm_E_2,1
+Briza media,Farm_E_3,3
+Briza media,Farm_E_4,3
+Briza media,Farm_E_6,1.5
+Briza media,Farm_E_7,0.5
+Briza media,Farm_F_2,3
+Bromus hordeaceus,Farm_A_4,0.5
+Bromus hordeaceus,Farm_D_5,0.1
+Bromus hordeaceus,Farm_E_1,2
+Bromus hordeaceus,Farm_F_1,1
+Bromus racemosus,Farm_A_6,0.001
+Bromus racemosus,Farm_B_3,0.01
+Bromus racemosus,Farm_B_5,0.1
+Bromus racemosus,Farm_C_1,0.001
+Bromus racemosus,Farm_C_8,8
+Bromus racemosus,Farm_D_5,1
+Bromus racemosus,Farm_E_2,0.5
+Bunias orientalis,Farm_A_4,3
+Campanula cervicaria,Farm_B_3,1
+Campanula glomerata,Farm_A_2,0.01
+Campanula glomerata,Farm_A_8,3
+Campanula glomerata,Farm_A_10,0.2
+Campanula glomerata,Farm_B_2,0.2
+Campanula glomerata,Farm_B_7,0.01
+Campanula glomerata,Farm_D_8,0.2
+Campanula glomerata,Farm_E_3,0.2
+Campanula glomerata,Farm_E_4,0.2
+Campanula patula,Farm_A_1,0.5
+Campanula patula,Farm_A_4,0.001
+Campanula patula,Farm_A_13,0.01
+Campanula patula,Farm_B_1,0.05
+Campanula patula,Farm_B_2,0.2
+Campanula patula,Farm_B_3,0.5
+Campanula patula,Farm_B_4,0.1
+Campanula patula,Farm_B_5,0.1
+Campanula patula,Farm_B_6,0.1
+Campanula patula,Farm_C_3,0.05
+Campanula patula,Farm_D_10,0.001
+Campanula patula,Farm_E_3,0.001
+Campanula patula,Farm_E_4,0.001
+Campanula patula,Farm_E_5,0.01
+Campanula patula,Farm_F_1,0.5
+Campanula persicifolia,Farm_A_8,0.5
+Campanula persicifolia,Communal_5,0.05
+Campanula persicifolia,Farm_E_3,0.001
+Campanula persicifolia,Farm_E_4,0.1
+Campanula rapunculoides,Farm_A_5,3
+Campanula rapunculoides,Farm_A_13,3
+Campanula rapunculoides,Farm_B_6,0.1
+Campanula rapunculoides,Farm_C_9,1
+Campanula rapunculoides,Farm_D_1,0.1
+Campanula rapunculoides,Farm_D_3,0.2
+Campanula rapunculoides,Farm_D_5,0.01
+Campanula rapunculoides,Farm_D_6,0.2
+Campanula rapunculoides,Farm_D_8,0.2
+Campanula rapunculoides,Farm_E_2,0.01
+Campanula rapunculoides,Farm_E_5,0.1
+Carduus nutans,Communal_2,0.3
+Carex caryophyllea,Farm_A_2,3
+Carex caryophyllea,Farm_A_3,1
+Carex caryophyllea,Farm_A_6,5
+Carex caryophyllea,Farm_A_7,2
+Carex caryophyllea,Farm_A_8,4
+Carex caryophyllea,Communal_1,2
+Carex caryophyllea,Farm_A_10,7
+Carex caryophyllea,Farm_A_13,3
+Carex caryophyllea,Farm_B_1,0.5
+Carex caryophyllea,Farm_B_2,2
+Carex caryophyllea,Farm_B_3,2
+Carex caryophyllea,Farm_B_4,4
+Carex caryophyllea,Farm_B_5,0.1
+Carex caryophyllea,Farm_B_6,2
+Carex caryophyllea,Farm_B_7,2.5
+Carex caryophyllea,Communal_2,20
+Carex caryophyllea,Farm_C_1,5
+Carex caryophyllea,Farm_C_3,0.5
+Carex caryophyllea,Farm_C_6,0.3
+Carex caryophyllea,Farm_C_8,3
+Carex caryophyllea,Farm_C_9,5
+Carex caryophyllea,Farm_C_10,0.2
+Carex caryophyllea,Farm_D_1,0.2
+Carex caryophyllea,Communal_3,1
+Carex caryophyllea,Farm_D_3,5
+Carex caryophyllea,Farm_D_4,1
+Carex caryophyllea,Farm_D_5,0.5
+Carex caryophyllea,Farm_D_6,4
+Carex caryophyllea,Communal_4,2
+Carex caryophyllea,Farm_D_8,1
+Carex caryophyllea,Communal_5,3
+Carex caryophyllea,Farm_D_10,1
+Carex caryophyllea,Farm_E_2,1
+Carex caryophyllea,Farm_E_3,0.1
+Carex caryophyllea,Farm_E_4,0.1
+Carex caryophyllea,Farm_E_5,0.1
+Carex caryophyllea,Farm_E_6,1
+Carex caryophyllea,Farm_E_7,2
+Carex filiformis,Farm_A_8,0.5
+Carex filiformis,Farm_A_10,0.5
+Carex filiformis,Farm_B_2,0.01
+Carex filiformis,Farm_B_6,0.1
+Carex filiformis,Farm_D_1,1
+Carex filiformis,Farm_D_5,0.1
+Carex filiformis,Farm_D_6,0.5
+Carex filiformis,Farm_D_8,0.01
+Carex filiformis,Farm_E_3,0.1
+Carex filiformis,Farm_E_6,0.5
+Carex leporina,Farm_F_1,0.1
+Carex michelii,Farm_A_6,0.1
+Carex michelii,Farm_A_8,0.5
+Carex montana,Farm_A_8,0.5
+Carex montana,Farm_A_10,0.5
+Carex montana,Farm_B_1,0.2
+Carex montana,Farm_B_5,15
+Carex montana,Farm_B_6,0.1
+Carex montana,Farm_B_7,0.1
+Carex montana,Farm_C_3,1
+Carex montana,Farm_D_1,20
+Carex montana,Communal_3,8
+Carex montana,Farm_D_3,0.1
+Carex montana,Farm_D_4,2
+Carex montana,Farm_D_5,2
+Carex montana,Farm_D_6,1.5
+Carex montana,Communal_4,0.5
+Carex montana,Farm_D_8,15
+Carex montana,Communal_5,3
+Carex montana,Farm_D_10,3
+Carex montana,Farm_E_3,20
+Carex montana,Farm_E_4,25
+Carex montana,Farm_E_6,15
+Carex montana,Farm_E_7,0.01
+Carex pallescens,Farm_A_1,2
+Carex pallescens,Farm_A_2,2
+Carex pallescens,Farm_A_3,3
+Carex pallescens,Farm_A_8,1
+Carex pallescens,Farm_A_10,1
+Carex pallescens,Farm_A_13,1
+Carex pallescens,Farm_B_1,2
+Carex pallescens,Farm_B_2,4
+Carex pallescens,Farm_B_3,6
+Carex pallescens,Farm_B_4,1
+Carex pallescens,Farm_C_3,0.2
+Carex pallescens,Farm_C_6,0.2
+Carex pallescens,Farm_D_4,0.1
+Carex pallescens,Farm_D_10,1
+Carex pallescens,Farm_E_4,0.1
+Carex pallescens,Farm_E_5,0.01
+Carex pallescens,Farm_E_6,0.1
+Carex pallescens,Farm_F_2,3
+Carex pilulifera,Farm_F_2,0.5
+Carex spicata,Farm_A_4,0.001
+Carex spicata,Farm_E_1,0.3
+Carlina acaulis,Communal_1,0.1
+Carlina acaulis,Farm_A_10,0.01
+Carlina acaulis,Farm_D_1,0.5
+Carlina acaulis,Communal_3,0.2
+Carlina acaulis,Communal_5,0.01
+Carlina acaulis,Farm_D_10,0.5
+Carlina acaulis,Farm_E_3,1
+Carum carvi,Farm_A_4,1.2
+Carum carvi,Farm_A_5,0.3
+Carum carvi,Farm_E_1,0.5
+Carum carvi,Farm_E_5,0.1
+Centaurea phrygia aggr.,Farm_A_1,20
+Centaurea phrygia aggr.,Farm_A_2,1
+Centaurea phrygia aggr.,Farm_A_3,3
+Centaurea phrygia aggr.,Farm_A_4,0.5
+Centaurea phrygia aggr.,Farm_A_6,1
+Centaurea phrygia aggr.,Farm_A_7,3
+Centaurea phrygia aggr.,Farm_A_8,2
+Centaurea phrygia aggr.,Farm_A_10,0.3
+Centaurea phrygia aggr.,Farm_A_13,1.5
+Centaurea phrygia aggr.,Farm_B_1,0.5
+Centaurea phrygia aggr.,Farm_B_2,1
+Centaurea phrygia aggr.,Farm_B_3,2
+Centaurea phrygia aggr.,Farm_B_4,2
+Centaurea phrygia aggr.,Farm_B_5,1
+Centaurea phrygia aggr.,Farm_B_6,0.1
+Centaurea phrygia aggr.,Farm_B_7,3
+Centaurea phrygia aggr.,Communal_2,0.05
+Centaurea phrygia aggr.,Farm_C_3,0.2
+Centaurea phrygia aggr.,Farm_C_6,3
+Centaurea phrygia aggr.,Farm_C_10,0.2
+Centaurea phrygia aggr.,Farm_D_1,0.5
+Centaurea phrygia aggr.,Communal_3,0.1
+Centaurea phrygia aggr.,Farm_D_3,0.7
+Centaurea phrygia aggr.,Farm_D_4,2
+Centaurea phrygia aggr.,Farm_D_6,1
+Centaurea phrygia aggr.,Farm_D_8,1
+Centaurea phrygia aggr.,Communal_5,0.1
+Centaurea phrygia aggr.,Farm_D_10,1
+Centaurea phrygia aggr.,Farm_E_1,0.5
+Centaurea phrygia aggr.,Farm_E_2,1
+Centaurea phrygia aggr.,Farm_E_3,2
+Centaurea phrygia aggr.,Farm_E_4,0.2
+Centaurea phrygia aggr.,Farm_E_5,5
+Centaurea phrygia aggr.,Farm_E_6,6
+Centaurea phrygia aggr.,Farm_E_7,2
+Centaurea phrygia aggr.,Farm_F_1,10
+Centaurea phrygia aggr.,Farm_F_2,1
+Centaurea scabiosa,Farm_A_5,0.2
+Centaurea scabiosa,Farm_A_6,2
+Centaurea scabiosa,Farm_A_7,0.2
+Centaurea scabiosa,Farm_A_13,0.1
+Centaurea scabiosa,Farm_B_2,3
+Centaurea scabiosa,Farm_B_3,4
+Centaurea scabiosa,Farm_B_5,2
+Centaurea scabiosa,Farm_B_6,4
+Centaurea scabiosa,Farm_B_7,0.5
+Centaurea scabiosa,Farm_C_1,2.5
+Centaurea scabiosa,Farm_C_6,1
+Centaurea scabiosa,Farm_C_8,1
+Centaurea scabiosa,Farm_C_9,0.5
+Centaurea scabiosa,Farm_C_10,1
+Centaurea scabiosa,Farm_D_1,1.5
+Centaurea scabiosa,Farm_D_3,3
+Centaurea scabiosa,Farm_D_5,2
+Centaurea scabiosa,Farm_D_6,2
+Centaurea scabiosa,Farm_D_8,3
+Centaurea scabiosa,Communal_5,1
+Centaurea scabiosa,Farm_D_10,0.2
+Centaurea scabiosa,Farm_E_3,5
+Centaurea scabiosa,Farm_E_4,2
+Centaurea scabiosa,Farm_E_6,4
+Centaurea stoebe,Communal_3,0.01
+Centaurium erythraea,Farm_A_1,1
+Centaurium erythraea,Farm_A_2,0.1
+Centaurium erythraea,Farm_E_6,0.1
+Cerastium brachypetalum subsp. brachypetalum,Farm_A_2,0.1
+Cerastium fontanum subsp. vulgare,Farm_A_1,2
+Cerastium fontanum subsp. vulgare,Farm_A_2,0.3
+Cerastium fontanum subsp. vulgare,Farm_A_3,1
+Cerastium fontanum subsp. vulgare,Farm_A_4,0.1
+Cerastium fontanum subsp. vulgare,Farm_A_5,0.5
+Cerastium fontanum subsp. vulgare,Farm_A_6,0.5
+Cerastium fontanum subsp. vulgare,Farm_A_7,0.1
+Cerastium fontanum subsp. vulgare,Communal_1,0.1
+Cerastium fontanum subsp. vulgare,Farm_A_10,0.1
+Cerastium fontanum subsp. vulgare,Farm_A_13,0.2
+Cerastium fontanum subsp. vulgare,Farm_B_1,1
+Cerastium fontanum subsp. vulgare,Farm_B_2,0.5
+Cerastium fontanum subsp. vulgare,Farm_B_3,1
+Cerastium fontanum subsp. vulgare,Farm_B_5,0.2
+Cerastium fontanum subsp. vulgare,Farm_B_6,0.1
+Cerastium fontanum subsp. vulgare,Farm_B_7,0.5
+Cerastium fontanum subsp. vulgare,Communal_2,0.03
+Cerastium fontanum subsp. vulgare,Farm_C_1,0.001
+Cerastium fontanum subsp. vulgare,Farm_C_3,0.5
+Cerastium fontanum subsp. vulgare,Farm_C_8,0.3
+Cerastium fontanum subsp. vulgare,Farm_C_10,0.2
+Cerastium fontanum subsp. vulgare,Farm_D_1,0.01
+Cerastium fontanum subsp. vulgare,Communal_3,0.1
+Cerastium fontanum subsp. vulgare,Farm_D_3,0.5
+Cerastium fontanum subsp. vulgare,Farm_D_4,0.1
+Cerastium fontanum subsp. vulgare,Farm_D_5,0.5
+Cerastium fontanum subsp. vulgare,Farm_D_6,0.001
+Cerastium fontanum subsp. vulgare,Farm_E_1,0.5
+Cerastium fontanum subsp. vulgare,Farm_E_2,0.5
+Cerastium fontanum subsp. vulgare,Farm_E_5,0.001
+Cerastium fontanum subsp. vulgare,Farm_F_1,2
+Cerastium fontanum subsp. vulgare,Farm_F_2,4
+Cerastium pumilum subsp. glutinosum,Farm_A_5,0.1
+Cerastium pumilum subsp. glutinosum,Farm_A_6,0.001
+Cerastium pumilum subsp. glutinosum,Farm_A_13,0.1
+Cerastium pumilum subsp. glutinosum,Farm_B_1,0.01
+Cerastium pumilum subsp. glutinosum,Farm_B_3,0.01
+Cerastium pumilum subsp. glutinosum,Farm_B_5,0.01
+Cerastium pumilum subsp. glutinosum,Farm_B_7,0.1
+Cerastium pumilum subsp. glutinosum,Communal_2,0.05
+Cerastium pumilum subsp. glutinosum,Farm_C_1,0.1
+Cerastium pumilum subsp. glutinosum,Farm_D_3,0.1
+Cerastium pumilum subsp. glutinosum,Farm_D_10,0.01
+Cerastium pumilum subsp. glutinosum,Farm_E_1,0.001
+Cerastium pumilum subsp. glutinosum,Farm_F_2,0.01
+Lipandra polysperma,Farm_E_6,0.01
+Cichorium intybus,Farm_A_1,2
+Cichorium intybus,Farm_C_8,0.3
+Cichorium intybus,Farm_E_5,1
+Cichorium intybus,Farm_F_1,0.1
+Clinopodium acinos,Communal_5,0.01
+Clinopodium vulgare,Farm_A_4,0.4
+Cirsium arvense,Farm_D_4,0.1
+Cirsium arvense,Farm_E_1,2
+Cirsium vulgare,Farm_D_4,0.1
+Cirsium vulgare,Communal_5,0.01
+Colchicum autumnale,Farm_A_3,0.2
+Colchicum autumnale,Farm_A_4,0.2
+Colchicum autumnale,Farm_A_7,0.1
+Colchicum autumnale,Farm_A_10,0.5
+Colchicum autumnale,Farm_A_13,0.2
+Colchicum autumnale,Farm_B_1,0.5
+Colchicum autumnale,Farm_B_5,0.001
+Colchicum autumnale,Farm_B_6,12
+Colchicum autumnale,Farm_C_1,1
+Colchicum autumnale,Farm_C_10,1
+Colchicum autumnale,Farm_D_1,12
+Colchicum autumnale,Farm_D_3,0.1
+Colchicum autumnale,Farm_D_5,2
+Colchicum autumnale,Farm_D_6,0.001
+Colchicum autumnale,Farm_E_3,1
+Colchicum autumnale,Farm_E_4,0.1
+Colchicum autumnale,Farm_E_5,1
+Convolvulus arvensis,Farm_A_2,0.3
+Convolvulus arvensis,Farm_A_4,3
+Convolvulus arvensis,Farm_A_6,0.1
+Convolvulus arvensis,Farm_A_7,0.1
+Convolvulus arvensis,Farm_A_13,0.2
+Convolvulus arvensis,Farm_B_1,0.01
+Convolvulus arvensis,Farm_B_6,0.1
+Convolvulus arvensis,Communal_2,0.001
+Convolvulus arvensis,Farm_C_1,0.3
+Convolvulus arvensis,Farm_C_8,1
+Convolvulus arvensis,Farm_C_9,1
+Convolvulus arvensis,Farm_C_10,1
+Convolvulus arvensis,Farm_D_5,2
+Convolvulus arvensis,Farm_E_1,5
+Convolvulus arvensis,Farm_E_2,0.5
+Convolvulus arvensis,Farm_E_5,3
+Convolvulus arvensis,Farm_E_7,4
+Corylus avellana,Farm_C_3,0.7
+Crataegus monogyna,Farm_A_3,1
+Crataegus monogyna,Farm_A_6,0.1
+Crataegus monogyna,Farm_B_2,0.5
+Crataegus monogyna,Farm_B_3,0.3
+Crataegus monogyna,Farm_B_4,2
+Crataegus monogyna,Farm_B_5,0.1
+Crataegus monogyna,Farm_C_1,0.05
+Crataegus monogyna,Farm_C_3,0.2
+Crataegus monogyna,Farm_C_8,0.2
+Crataegus monogyna,Farm_C_9,1
+Crataegus monogyna,Communal_3,0.5
+Crataegus monogyna,Farm_D_4,0.2
+Crataegus monogyna,Farm_D_5,0.5
+Crataegus monogyna,Farm_D_8,0.5
+Crataegus monogyna,Farm_D_10,0.2
+Crataegus monogyna,Farm_E_2,0.5
+Crataegus monogyna,Farm_E_6,0.2
+Crataegus monogyna,Farm_F_2,0.2
+Crepis biennis,Farm_A_2,1
+Crepis biennis,Farm_A_4,3
+Crepis biennis,Farm_A_5,0.1
+Crepis biennis,Farm_A_13,2
+Crepis biennis,Farm_B_3,0.1
+Crepis biennis,Farm_B_6,0.5
+Crepis biennis,Farm_C_1,0.2
+Crepis biennis,Farm_D_1,1
+Crepis biennis,Farm_D_5,0.5
+Crepis biennis,Farm_D_6,0.5
+Crepis biennis,Farm_E_1,20
+Crepis biennis,Farm_E_2,3
+Crepis biennis,Farm_E_5,10
+Cruciata glabra,Farm_A_2,0.1
+Cruciata glabra,Farm_A_3,1
+Cruciata glabra,Farm_A_4,0.1
+Cruciata glabra,Farm_A_8,4
+Cruciata glabra,Farm_B_1,0.01
+Cruciata glabra,Farm_B_2,2.5
+Cruciata glabra,Farm_B_3,3
+Cruciata glabra,Farm_B_4,1
+Cruciata glabra,Farm_B_5,0.1
+Cruciata glabra,Farm_B_7,0.1
+Cruciata glabra,Farm_C_3,3
+Cruciata glabra,Farm_C_6,4
+Cruciata glabra,Farm_D_1,0.8
+Cruciata glabra,Communal_3,0.1
+Cruciata glabra,Farm_D_3,0.001
+Cruciata glabra,Farm_D_4,0.5
+Cruciata glabra,Farm_D_5,1
+Cruciata glabra,Communal_4,0.1
+Cruciata glabra,Farm_D_8,1
+Cruciata glabra,Communal_5,0.001
+Cruciata glabra,Farm_D_10,1
+Cruciata glabra,Farm_E_2,0.5
+Cruciata glabra,Farm_E_3,0.1
+Cruciata glabra,Farm_E_4,0.1
+Cruciata glabra,Farm_E_6,0.1
+Cruciata glabra,Farm_E_7,0.01
+Cruciata glabra,Farm_F_2,1
+Cuscuta sp.,Farm_A_2,0.01
+Cuscuta sp.,Farm_B_4,0.001
+Cuscuta sp.,Farm_E_7,0.001
+Cuscuta sp.,Farm_F_2,0.001
+Cynosurus cristatus,Farm_A_1,20
+Cynosurus cristatus,Farm_A_2,1.5
+Cynosurus cristatus,Farm_A_4,0.5
+Cynosurus cristatus,Farm_A_5,0.1
+Cynosurus cristatus,Farm_A_8,0.2
+Cynosurus cristatus,Communal_1,1.5
+Cynosurus cristatus,Farm_A_13,1
+Cynosurus cristatus,Farm_B_1,3
+Cynosurus cristatus,Farm_B_3,1
+Cynosurus cristatus,Farm_B_4,1
+Cynosurus cristatus,Farm_B_5,1
+Cynosurus cristatus,Farm_B_6,0.1
+Cynosurus cristatus,Farm_B_7,1
+Cynosurus cristatus,Farm_C_1,0.1
+Cynosurus cristatus,Farm_C_3,0.1
+Cynosurus cristatus,Farm_C_6,0.5
+Cynosurus cristatus,Farm_C_8,2
+Cynosurus cristatus,Farm_C_10,0.1
+Cynosurus cristatus,Farm_D_1,0.5
+Cynosurus cristatus,Communal_3,2
+Cynosurus cristatus,Farm_D_3,2
+Cynosurus cristatus,Farm_D_4,3
+Cynosurus cristatus,Farm_D_5,1
+Cynosurus cristatus,Farm_D_10,3
+Cynosurus cristatus,Farm_E_1,3
+Cynosurus cristatus,Farm_E_2,1
+Cynosurus cristatus,Farm_E_3,1
+Cynosurus cristatus,Farm_E_4,0.1
+Cynosurus cristatus,Farm_E_5,0.5
+Cynosurus cristatus,Farm_E_7,0.01
+Cynosurus cristatus,Farm_F_1,0.1
+Dactylis glomerata,Farm_A_1,2
+Dactylis glomerata,Farm_A_2,0.1
+Dactylis glomerata,Farm_A_3,1
+Dactylis glomerata,Farm_A_4,10
+Dactylis glomerata,Farm_A_5,35
+Dactylis glomerata,Farm_A_6,2
+Dactylis glomerata,Farm_A_8,2
+Dactylis glomerata,Farm_A_10,2
+Dactylis glomerata,Farm_A_13,5
+Dactylis glomerata,Farm_B_1,1
+Dactylis glomerata,Farm_B_2,1
+Dactylis glomerata,Farm_B_3,1
+Dactylis glomerata,Farm_B_4,0.5
+Dactylis glomerata,Farm_B_6,0.5
+Dactylis glomerata,Farm_B_7,1.2
+Dactylis glomerata,Farm_C_1,0.5
+Dactylis glomerata,Farm_C_8,2
+Dactylis glomerata,Farm_C_9,1.5
+Dactylis glomerata,Farm_C_10,1
+Dactylis glomerata,Farm_D_1,0.3
+Dactylis glomerata,Communal_3,0.01
+Dactylis glomerata,Farm_D_3,2
+Dactylis glomerata,Farm_D_4,0.5
+Dactylis glomerata,Farm_D_5,1
+Dactylis glomerata,Farm_D_6,0.7
+Dactylis glomerata,Farm_D_10,2
+Dactylis glomerata,Farm_E_1,3
+Dactylis glomerata,Farm_E_2,2
+Dactylis glomerata,Farm_E_3,1
+Dactylis glomerata,Farm_E_4,0.1
+Dactylis glomerata,Farm_E_5,15
+Dactylis glomerata,Farm_E_6,0.2
+Dactylis glomerata,Farm_E_7,0.1
+Dactylis glomerata,Farm_F_1,3
+Danthonia alpina,Farm_A_2,1
+Danthonia alpina,Farm_A_3,1
+Danthonia alpina,Farm_A_4,0.01
+Danthonia alpina,Farm_A_6,5
+Danthonia alpina,Farm_A_7,0.2
+Danthonia alpina,Farm_A_10,5
+Danthonia alpina,Farm_B_3,0.5
+Danthonia alpina,Farm_B_5,5
+Danthonia alpina,Farm_B_6,0.2
+Danthonia alpina,Farm_B_7,0.5
+Danthonia alpina,Communal_2,1
+Danthonia alpina,Farm_C_8,1.5
+Danthonia alpina,Farm_C_9,30
+Danthonia alpina,Farm_C_10,25
+Danthonia alpina,Farm_D_1,1
+Danthonia alpina,Communal_3,0.5
+Danthonia alpina,Farm_D_5,0.5
+Danthonia alpina,Farm_D_6,0.1
+Danthonia alpina,Communal_4,5
+Danthonia alpina,Farm_D_8,5
+Danthonia alpina,Farm_D_10,0.1
+Danthonia alpina,Farm_E_3,1
+Danthonia alpina,Farm_E_4,0.2
+Danthonia alpina,Farm_E_6,1
+Danthonia alpina,Farm_E_7,0.5
+Danthonia decumbens,Farm_A_2,0.1
+Danthonia decumbens,Farm_A_3,0.01
+Danthonia decumbens,Farm_A_8,0.1
+Danthonia decumbens,Communal_1,5
+Danthonia decumbens,Farm_A_10,0.01
+Danthonia decumbens,Farm_B_1,1
+Danthonia decumbens,Farm_B_4,0.1
+Danthonia decumbens,Communal_2,0.1
+Danthonia decumbens,Farm_C_3,1
+Danthonia decumbens,Farm_D_1,0.01
+Danthonia decumbens,Communal_3,1
+Danthonia decumbens,Communal_4,0.1
+Danthonia decumbens,Farm_D_8,0.1
+Danthonia decumbens,Farm_D_10,3
+Danthonia decumbens,Farm_E_3,1
+Danthonia decumbens,Farm_E_4,1
+Danthonia decumbens,Farm_E_6,1
+Danthonia decumbens,Farm_E_7,0.2
+Danthonia decumbens,Farm_F_2,3
+Daucus carota,Farm_A_1,0.5
+Daucus carota,Farm_A_2,2
+Daucus carota,Farm_A_3,0.2
+Daucus carota,Farm_A_6,1
+Daucus carota,Farm_A_10,0.1
+Daucus carota,Farm_A_13,0.5
+Daucus carota,Farm_B_1,0.5
+Daucus carota,Farm_B_2,0.01
+Daucus carota,Farm_B_3,0.5
+Daucus carota,Farm_B_6,0.2
+Daucus carota,Farm_B_7,0.3
+Daucus carota,Farm_C_8,1
+Daucus carota,Farm_C_9,0.5
+Daucus carota,Farm_C_10,0.5
+Daucus carota,Farm_D_6,0.3
+Daucus carota,Farm_E_1,0.3
+Daucus carota,Farm_E_3,0.1
+Daucus carota,Farm_E_5,0.1
+Daucus carota,Farm_E_7,0.1
+Dianthus carthusianorum,Farm_A_6,0.5
+Dianthus carthusianorum,Farm_A_7,0.05
+Dianthus carthusianorum,Farm_A_8,0.5
+Dianthus carthusianorum,Farm_A_13,0.05
+Dianthus carthusianorum,Farm_B_1,0.2
+Dianthus carthusianorum,Farm_B_3,3
+Dianthus carthusianorum,Farm_B_4,1
+Dianthus carthusianorum,Farm_B_5,1
+Dianthus carthusianorum,Farm_B_6,0.3
+Dianthus carthusianorum,Farm_C_1,0.5
+Dianthus carthusianorum,Farm_C_3,0.5
+Dianthus carthusianorum,Farm_C_6,0.1
+Dianthus carthusianorum,Farm_C_8,0.5
+Dianthus carthusianorum,Farm_C_9,0.1
+Dianthus carthusianorum,Farm_C_10,1
+Dianthus carthusianorum,Farm_D_3,1
+Dianthus carthusianorum,Farm_D_4,0.001
+Dianthus carthusianorum,Farm_D_5,0.01
+Dianthus carthusianorum,Farm_D_6,0.1
+Dianthus carthusianorum,Farm_F_2,0.5
+Dorycnium pentaphyllum,Farm_A_6,0.1
+Dorycnium pentaphyllum,Farm_A_7,0.3
+Dorycnium pentaphyllum,Farm_A_8,3
+Dorycnium pentaphyllum,Farm_A_10,0.7
+Dorycnium pentaphyllum,Farm_D_1,2
+Dorycnium pentaphyllum,Communal_3,1.5
+Dorycnium pentaphyllum,Farm_D_5,0.01
+Dorycnium pentaphyllum,Farm_D_6,0.3
+Dorycnium pentaphyllum,Farm_D_8,3
+Dorycnium pentaphyllum,Communal_5,0.1
+Dorycnium pentaphyllum,Farm_E_6,1.5
+Dorycnium pentaphyllum,Farm_E_7,6
+Draba verna,Farm_B_3,0.001
+Echium vulgare,Farm_B_3,0.1
+Echium vulgare,Farm_C_1,0.1
+Echium vulgare,Communal_3,0.001
+Echium vulgare,Farm_E_4,0.001
+Echium vulgare,Farm_E_6,0.5
+Elytrigia repens,Farm_E_1,1
+Elytrigia repens,Farm_E_2,0.5
+Elytrigia repens,Farm_E_5,1
+Elytrigia repens,Farm_E_7,0.2
+Erigeron acris,Communal_5,0.001
+Erigeron annuus,Farm_A_1,0.1
+Erigeron annuus,Farm_A_2,0.3
+Erigeron annuus,Farm_A_4,0.05
+Erigeron annuus,Farm_B_2,0.01
+Erigeron annuus,Farm_B_3,1.5
+Erigeron annuus,Farm_B_6,0.2
+Erigeron annuus,Farm_C_1,0.1
+Erigeron annuus,Farm_E_1,0.5
+Erigeron annuus,Farm_E_2,0.5
+Erigeron annuus,Farm_E_5,0.5
+Erigeron annuus,Farm_E_7,0.3
+Eryngium campestre,Communal_4,0.001
+Euphorbia cyparissias,Farm_A_7,0.1
+Euphorbia cyparissias,Farm_A_8,0.01
+Euphorbia cyparissias,Communal_1,2
+Euphorbia cyparissias,Farm_A_10,0.01
+Euphorbia cyparissias,Farm_B_7,0.1
+Euphorbia cyparissias,Communal_2,4
+Euphorbia cyparissias,Communal_3,0.001
+Euphorbia cyparissias,Farm_D_5,0.1
+Euphorbia cyparissias,Farm_D_6,0.5
+Euphorbia cyparissias,Communal_4,0.01
+Euphorbia cyparissias,Farm_D_8,0.1
+Euphorbia cyparissias,Communal_5,0.1
+Euphorbia salicifolia,Farm_C_8,8
+Euphorbia salicifolia,Farm_C_9,0.01
+Euphrasia rostkoviana,Farm_B_2,0.001
+Euphrasia rostkoviana,Farm_B_3,0.1
+Euphrasia rostkoviana,Farm_D_1,0.3
+Euphrasia rostkoviana,Farm_D_3,0.1
+Euphrasia rostkoviana,Farm_D_4,0.01
+Euphrasia rostkoviana,Farm_E_3,0.1
+Euphrasia rostkoviana,Farm_E_4,0.3
+Euphrasia stricta,Communal_2,0.001
+Euphrasia stricta,Farm_C_1,0.05
+Euphrasia stricta,Farm_C_6,0.01
+Ferulago sylvatica,Farm_E_4,1
+Festuca ovina,Farm_A_6,0.5
+Festuca ovina,Farm_B_1,0.1
+Festuca ovina,Farm_B_5,0.1
+Festuca ovina,Farm_B_7,5
+Festuca ovina,Communal_2,12
+Festuca ovina,Communal_5,1
+Festuca rubra,Farm_A_1,5
+Festuca rubra,Farm_A_2,0.2
+Festuca rubra,Farm_A_5,1
+Festuca rubra,Farm_A_7,1
+Festuca rubra,Farm_A_8,20
+Festuca rubra,Communal_1,1
+Festuca rubra,Farm_A_10,1
+Festuca rubra,Farm_B_1,2
+Festuca rubra,Farm_B_2,35
+Festuca rubra,Farm_B_3,10
+Festuca rubra,Farm_B_4,21
+Festuca rubra,Farm_B_5,0.01
+Festuca rubra,Farm_B_7,1
+Festuca rubra,Communal_2,0.1
+Festuca rubra,Farm_C_1,0.01
+Festuca rubra,Farm_C_3,1
+Festuca rubra,Farm_C_6,3
+Festuca rubra,Farm_D_3,1
+Festuca rubra,Farm_D_5,5
+Festuca rubra,Farm_D_6,0.5
+Festuca rubra,Farm_D_10,2
+Festuca rubra,Farm_E_3,1
+Festuca rubra,Farm_E_4,1
+Festuca rubra,Farm_E_5,0.5
+Festuca rubra,Farm_E_7,1
+Festuca rubra,Farm_F_1,2
+Festuca rubra,Farm_F_2,5
+Festuca stricta subsp. sulcata,Farm_A_2,15
+Festuca stricta subsp. sulcata,Farm_A_3,35
+Festuca stricta subsp. sulcata,Farm_A_5,5
+Festuca stricta subsp. sulcata,Farm_A_6,25
+Festuca stricta subsp. sulcata,Farm_A_7,35
+Festuca stricta subsp. sulcata,Communal_1,50
+Festuca stricta subsp. sulcata,Farm_A_10,25
+Festuca stricta subsp. sulcata,Farm_A_13,42
+Festuca stricta subsp. sulcata,Farm_B_1,12
+Festuca stricta subsp. sulcata,Farm_B_3,0.1
+Festuca stricta subsp. sulcata,Farm_B_5,10
+Festuca stricta subsp. sulcata,Farm_B_6,10
+Festuca stricta subsp. sulcata,Farm_B_7,2
+Festuca stricta subsp. sulcata,Communal_2,15
+Festuca stricta subsp. sulcata,Farm_C_1,5
+Festuca stricta subsp. sulcata,Farm_C_3,3
+Festuca stricta subsp. sulcata,Farm_C_6,7
+Festuca stricta subsp. sulcata,Farm_C_8,8
+Festuca stricta subsp. sulcata,Farm_C_9,15
+Festuca stricta subsp. sulcata,Farm_C_10,20
+Festuca stricta subsp. sulcata,Farm_D_1,10
+Festuca stricta subsp. sulcata,Communal_3,15
+Festuca stricta subsp. sulcata,Farm_D_3,13
+Festuca stricta subsp. sulcata,Farm_D_4,8
+Festuca stricta subsp. sulcata,Farm_D_6,5
+Festuca stricta subsp. sulcata,Communal_4,18
+Festuca stricta subsp. sulcata,Farm_D_8,5
+Festuca stricta subsp. sulcata,Communal_5,5
+Festuca stricta subsp. sulcata,Farm_D_10,1
+Festuca stricta subsp. sulcata,Farm_E_2,20
+Festuca stricta subsp. sulcata,Farm_E_3,3
+Festuca stricta subsp. sulcata,Farm_E_4,1.5
+Festuca stricta subsp. sulcata,Farm_E_6,10
+Festuca stricta subsp. sulcata,Farm_E_7,10
+Festuca stricta subsp. sulcata,Farm_F_2,2
+Filipendula vulgaris,Farm_A_2,5
+Filipendula vulgaris,Farm_A_3,13
+Filipendula vulgaris,Farm_A_4,0.001
+Filipendula vulgaris,Farm_A_6,5
+Filipendula vulgaris,Farm_A_7,5
+Filipendula vulgaris,Farm_A_8,27
+Filipendula vulgaris,Farm_A_10,3
+Filipendula vulgaris,Farm_B_1,5
+Filipendula vulgaris,Farm_B_2,7
+Filipendula vulgaris,Farm_B_3,3
+Filipendula vulgaris,Farm_B_4,2
+Filipendula vulgaris,Farm_B_5,15
+Filipendula vulgaris,Farm_B_6,4
+Filipendula vulgaris,Farm_B_7,2
+Filipendula vulgaris,Farm_C_1,10
+Filipendula vulgaris,Farm_C_3,0.2
+Filipendula vulgaris,Farm_C_6,0.5
+Filipendula vulgaris,Farm_C_9,1.5
+Filipendula vulgaris,Farm_C_10,25
+Filipendula vulgaris,Farm_D_1,4
+Filipendula vulgaris,Communal_3,0.1
+Filipendula vulgaris,Farm_D_3,2
+Filipendula vulgaris,Farm_D_4,0.5
+Filipendula vulgaris,Farm_D_5,2
+Filipendula vulgaris,Farm_D_6,0.1
+Filipendula vulgaris,Communal_4,0.1
+Filipendula vulgaris,Farm_D_8,5
+Filipendula vulgaris,Communal_5,0.1
+Filipendula vulgaris,Farm_D_10,5
+Filipendula vulgaris,Farm_E_2,0.5
+Filipendula vulgaris,Farm_E_3,2
+Filipendula vulgaris,Farm_E_4,0.5
+Filipendula vulgaris,Farm_E_6,10
+Filipendula vulgaris,Farm_E_7,10
+Filipendula vulgaris,Farm_F_2,0.8
+Fragaria vesca,Farm_A_8,0.1
+Fragaria vesca,Farm_B_3,0.1
+Fragaria viridis,Farm_A_7,8
+Fragaria viridis,Farm_A_13,0.1
+Fragaria viridis,Farm_C_1,3
+Fragaria viridis,Farm_C_8,0.1
+Fragaria viridis,Farm_C_9,1
+Fragaria viridis,Farm_D_3,3
+Fragaria viridis,Farm_D_5,0.5
+Fragaria viridis,Farm_D_6,1
+Fragaria viridis,Communal_4,3
+Fragaria viridis,Farm_D_8,0.1
+Fragaria viridis,Farm_E_6,0.1
+Galium mollugo aggr.,Farm_A_1,0.01
+Galium mollugo aggr.,Farm_A_2,0.1
+Galium mollugo aggr.,Farm_A_4,3
+Galium mollugo aggr.,Farm_A_5,1
+Galium mollugo aggr.,Farm_A_10,0.3
+Galium mollugo aggr.,Farm_A_13,0.3
+Galium mollugo aggr.,Farm_B_3,1
+Galium mollugo aggr.,Communal_5,0.1
+Galium mollugo aggr.,Farm_E_1,2
+Galium mollugo aggr.,Farm_E_2,1
+Galium mollugo aggr.,Farm_E_5,3
+Galium mollugo aggr.,Farm_E_7,0.001
+Galium mollugo aggr.,Farm_F_1,0.05
+Galium verum,Farm_A_2,0.5
+Galium verum,Farm_A_3,1
+Galium verum,Farm_A_7,2
+Galium verum,Farm_A_8,1
+Galium verum,Communal_1,1
+Galium verum,Farm_A_10,0.5
+Galium verum,Farm_B_1,0.5
+Galium verum,Farm_B_2,0.2
+Galium verum,Farm_B_3,4
+Galium verum,Farm_B_5,0.5
+Galium verum,Farm_B_6,0.5
+Galium verum,Farm_B_7,0.5
+Galium verum,Farm_C_1,1.5
+Galium verum,Farm_C_6,1
+Galium verum,Farm_D_1,0.2
+Galium verum,Communal_3,0.001
+Galium verum,Farm_D_4,0.2
+Galium verum,Farm_D_5,4
+Galium verum,Farm_D_6,0.1
+Galium verum,Farm_D_8,1
+Galium verum,Communal_5,0.3
+Galium verum,Farm_D_10,0.1
+Galium verum,Farm_E_3,5
+Galium verum,Farm_E_4,5
+Galium verum,Farm_E_6,0.3
+Galium verum,Farm_E_7,2
+Galium verum,Farm_F_2,0.2
+Genista tinctoria,Farm_A_2,0.1
+Genista tinctoria,Farm_A_3,0.2
+Genista tinctoria,Farm_B_4,0.01
+Genista tinctoria,Farm_E_4,4
+Genista tinctoria,Farm_F_2,0.2
+Gentiana cruciata,Farm_D_1,0.1
+Gentiana cruciata,Communal_5,0.1
+Geranium columbinum,Farm_A_2,0.1
+Geranium columbinum,Farm_B_3,0.2
+Geranium columbinum,Farm_C_1,1
+Geranium columbinum,Farm_C_8,0.2
+Gladiolus imbricatus,Farm_E_4,0.2
+Helianthemum nummularium subsp. obscurum,Farm_A_3,4
+Helianthemum nummularium subsp. obscurum,Farm_A_7,1.7
+Helianthemum nummularium subsp. obscurum,Farm_A_8,1
+Helianthemum nummularium subsp. obscurum,Farm_B_2,0.1
+Helianthemum nummularium subsp. obscurum,Farm_B_5,3
+Helianthemum nummularium subsp. obscurum,Farm_B_6,0.5
+Helianthemum nummularium subsp. obscurum,Farm_B_7,4
+Helianthemum nummularium subsp. obscurum,Farm_C_3,2
+Helianthemum nummularium subsp. obscurum,Farm_D_1,0.5
+Helianthemum nummularium subsp. obscurum,Communal_3,0.7
+Helianthemum nummularium subsp. obscurum,Farm_D_5,0.2
+Helianthemum nummularium subsp. obscurum,Farm_D_6,0.1
+Helianthemum nummularium subsp. obscurum,Farm_D_8,0.5
+Helianthemum nummularium subsp. obscurum,Communal_5,0.2
+Helianthemum nummularium subsp. obscurum,Farm_E_3,3
+Helianthemum nummularium subsp. obscurum,Farm_E_4,2
+Helianthemum nummularium subsp. obscurum,Farm_E_6,5
+Helianthemum nummularium subsp. obscurum,Farm_E_7,4
+Helianthemum nummularium subsp. obscurum,Farm_F_2,2
+Heracleum sphondylium,Farm_D_4,0.1
+Hieracium lachenalii,Farm_D_4,0.1
+Holcus lanatus,Farm_A_1,2
+Holcus lanatus,Farm_A_2,2
+Holcus lanatus,Farm_A_3,0.2
+Holcus lanatus,Farm_A_4,0.5
+Holcus lanatus,Farm_A_5,0.5
+Holcus lanatus,Farm_A_8,0.5
+Holcus lanatus,Farm_B_1,0.2
+Holcus lanatus,Farm_B_2,0.5
+Holcus lanatus,Farm_B_3,1
+Holcus lanatus,Farm_B_4,0.1
+Holcus lanatus,Farm_B_7,0.5
+Holcus lanatus,Farm_C_3,3
+Holcus lanatus,Farm_C_6,2
+Holcus lanatus,Farm_C_8,1
+Holcus lanatus,Farm_D_1,0.2
+Holcus lanatus,Farm_D_8,0.01
+Holcus lanatus,Farm_E_1,1
+Holcus lanatus,Farm_E_2,0.5
+Holcus lanatus,Farm_E_3,0.1
+Holcus lanatus,Farm_E_4,0.5
+Holcus lanatus,Farm_E_5,5
+Holcus lanatus,Farm_E_7,0.3
+Holcus lanatus,Farm_F_1,10
+Holcus lanatus,Farm_F_2,0.5
+Hypericum maculatum,Farm_A_4,0.1
+Hypericum maculatum,Farm_A_13,0.01
+Hypericum maculatum,Farm_B_2,0.5
+Hypericum maculatum,Farm_B_3,0.5
+Hypericum maculatum,Farm_C_6,0.3
+Hypericum maculatum,Farm_D_4,0.5
+Hypericum maculatum,Farm_E_2,0.5
+Hypericum maculatum,Farm_E_3,0.5
+Hypericum maculatum,Farm_E_4,0.3
+Hypericum maculatum,Farm_E_5,2
+Hypericum perforatum,Farm_A_6,0.5
+Hypericum perforatum,Farm_A_10,0.005
+Hypericum perforatum,Farm_A_13,0.01
+Hypericum perforatum,Farm_C_1,0.01
+Hypericum perforatum,Farm_D_6,0.1
+Hypericum perforatum,Farm_D_8,0.001
+Hypericum perforatum,Communal_5,0.01
+Hypochaeris maculata,Farm_A_2,0.3
+Hypochaeris maculata,Farm_A_8,0.3
+Hypochaeris maculata,Farm_A_10,0.2
+Hypochaeris maculata,Farm_B_1,0.1
+Hypochaeris maculata,Farm_B_2,0.1
+Hypochaeris maculata,Farm_B_4,0.01
+Hypochaeris maculata,Farm_B_5,4
+Hypochaeris maculata,Farm_B_7,0.2
+Hypochaeris maculata,Farm_D_1,1.5
+Hypochaeris maculata,Farm_D_10,0.5
+Hypochaeris maculata,Farm_E_3,1
+Hypochaeris maculata,Farm_E_6,1.5
+Hypochaeris maculata,Farm_F_2,0.1
+Hypochaeris radicata,Farm_A_1,2
+Hypochaeris radicata,Farm_A_2,2
+Hypochaeris radicata,Farm_A_3,0.1
+Hypochaeris radicata,Farm_B_1,0.2
+Hypochaeris radicata,Farm_B_2,0.5
+Hypochaeris radicata,Farm_B_4,0.1
+Hypochaeris radicata,Farm_B_5,0.5
+Hypochaeris radicata,Farm_B_7,1
+Hypochaeris radicata,Communal_2,0.1
+Hypochaeris radicata,Farm_C_3,1
+Hypochaeris radicata,Farm_C_6,0.1
+Hypochaeris radicata,Farm_C_10,0.2
+Hypochaeris radicata,Farm_D_4,0.5
+Hypochaeris radicata,Farm_D_5,0.1
+Hypochaeris radicata,Farm_D_10,0.1
+Hypochaeris radicata,Farm_E_7,0.3
+Hypochaeris radicata,Farm_F_1,1
+Hypochaeris radicata,Farm_F_2,1
+Inula hirta,Farm_D_8,0.01
+Jacobaea vulgaris,Farm_D_1,0.5
+Jacobaea vulgaris,Communal_3,0.1
+Jacobaea vulgaris,Farm_D_5,0.1
+Knautia arvensis,Farm_A_1,0.01
+Knautia arvensis,Farm_A_2,0.5
+Knautia arvensis,Farm_A_3,3
+Knautia arvensis,Farm_A_4,2
+Knautia arvensis,Farm_A_6,2
+Knautia arvensis,Farm_A_7,2
+Knautia arvensis,Farm_A_8,5
+Knautia arvensis,Farm_A_10,0.5
+Knautia arvensis,Farm_A_13,1
+Knautia arvensis,Farm_B_1,2
+Knautia arvensis,Farm_B_2,0.2
+Knautia arvensis,Farm_B_3,2
+Knautia arvensis,Farm_B_4,0.5
+Knautia arvensis,Farm_B_5,2
+Knautia arvensis,Farm_B_6,2
+Knautia arvensis,Farm_B_7,0.01
+Knautia arvensis,Farm_C_1,5
+Knautia arvensis,Farm_C_3,3
+Knautia arvensis,Farm_C_6,3
+Knautia arvensis,Farm_C_8,2
+Knautia arvensis,Farm_C_9,2
+Knautia arvensis,Farm_C_10,1
+Knautia arvensis,Farm_D_1,0.1
+Knautia arvensis,Communal_3,1
+Knautia arvensis,Farm_D_3,1
+Knautia arvensis,Farm_D_4,0.5
+Knautia arvensis,Farm_D_5,5
+Knautia arvensis,Farm_D_6,0.5
+Knautia arvensis,Farm_D_8,2
+Knautia arvensis,Communal_5,0.1
+Knautia arvensis,Farm_D_10,0.1
+Knautia arvensis,Farm_E_1,0.1
+Knautia arvensis,Farm_E_2,2
+Knautia arvensis,Farm_E_3,1
+Knautia arvensis,Farm_E_5,7
+Knautia arvensis,Farm_E_6,3
+Knautia arvensis,Farm_E_7,0.5
+Lathyrus latifolius,Farm_A_8,3
+Lathyrus latifolius,Farm_B_1,0.2
+Lathyrus latifolius,Farm_B_2,0.5
+Lathyrus latifolius,Farm_B_3,0.01
+Lathyrus latifolius,Farm_B_5,1
+Lathyrus latifolius,Farm_B_6,0.5
+Lathyrus latifolius,Farm_B_7,0.5
+Lathyrus latifolius,Farm_D_1,3
+Lathyrus latifolius,Communal_3,0.2
+Lathyrus latifolius,Farm_D_4,0.001
+Lathyrus latifolius,Farm_D_10,0.01
+Lathyrus latifolius,Farm_E_3,5
+Lathyrus latifolius,Farm_E_4,8
+Lembotropis nigricans,Farm_A_2,0.05
+Lembotropis nigricans,Farm_B_4,3
+Lembotropis nigricans,Farm_B_5,2
+Lembotropis nigricans,Farm_D_8,4
+Lembotropis nigricans,Farm_E_4,0.001
+Lembotropis nigricans,Farm_E_6,6
+Lembotropis nigricans,Farm_F_2,5
+Leontodon hispidus subsp. hastilis,Farm_A_2,0.2
+Leontodon hispidus subsp. hastilis,Farm_A_3,0.2
+Leontodon hispidus subsp. hastilis,Farm_A_6,3
+Leontodon hispidus subsp. hastilis,Farm_A_8,1
+Leontodon hispidus subsp. hastilis,Communal_1,0.3
+Leontodon hispidus subsp. hastilis,Farm_A_10,4
+Leontodon hispidus subsp. hastilis,Farm_A_13,4
+Leontodon hispidus subsp. hastilis,Farm_B_1,5
+Leontodon hispidus subsp. hastilis,Farm_B_3,2
+Leontodon hispidus subsp. hastilis,Farm_B_4,1
+Leontodon hispidus subsp. hastilis,Farm_B_5,3
+Leontodon hispidus subsp. hastilis,Farm_B_6,1
+Leontodon hispidus subsp. hastilis,Farm_B_7,2
+Leontodon hispidus subsp. hastilis,Farm_C_8,0.2
+Leontodon hispidus subsp. hastilis,Farm_C_9,0.2
+Leontodon hispidus subsp. hastilis,Farm_D_1,2
+Leontodon hispidus subsp. hastilis,Communal_3,0.1
+Leontodon hispidus subsp. hastilis,Farm_D_3,0.001
+Leontodon hispidus subsp. hastilis,Farm_D_4,3
+Leontodon hispidus subsp. hastilis,Farm_D_5,1
+Leontodon hispidus subsp. hastilis,Farm_D_6,1
+Leontodon hispidus subsp. hastilis,Farm_D_10,2
+Leontodon hispidus subsp. hastilis,Farm_E_2,5
+Leontodon hispidus subsp. hastilis,Farm_E_3,2
+Leontodon hispidus subsp. hastilis,Farm_E_4,2
+Leontodon hispidus subsp. hastilis,Farm_E_5,1
+Leontodon hispidus subsp. hastilis,Farm_E_7,0.3
+Leontodon hispidus subsp. hastilis,Farm_F_2,1
+Leontodon hispidus subsp. hispidus,Farm_A_2,0.2
+Leontodon hispidus subsp. hispidus,Farm_A_3,0.5
+Leontodon hispidus subsp. hispidus,Farm_A_6,1
+Leontodon hispidus subsp. hispidus,Farm_A_8,0.5
+Leontodon hispidus subsp. hispidus,Communal_1,0.3
+Leontodon hispidus subsp. hispidus,Farm_A_10,0.1
+Leontodon hispidus subsp. hispidus,Farm_A_13,0.2
+Leontodon hispidus subsp. hispidus,Farm_B_1,0.1
+Leontodon hispidus subsp. hispidus,Farm_B_2,0.1
+Leontodon hispidus subsp. hispidus,Farm_B_3,0.2
+Leontodon hispidus subsp. hispidus,Farm_B_4,0.1
+Leontodon hispidus subsp. hispidus,Farm_B_5,0.2
+Leontodon hispidus subsp. hispidus,Farm_B_6,1
+Leontodon hispidus subsp. hispidus,Farm_B_7,0.5
+Leontodon hispidus subsp. hispidus,Farm_C_6,0.1
+Leontodon hispidus subsp. hispidus,Farm_C_9,0.3
+Leontodon hispidus subsp. hispidus,Farm_D_1,0.5
+Leontodon hispidus subsp. hispidus,Farm_D_3,0.1
+Leontodon hispidus subsp. hispidus,Farm_D_4,0.5
+Leontodon hispidus subsp. hispidus,Farm_D_5,0.1
+Leontodon hispidus subsp. hispidus,Farm_D_6,1
+Leontodon hispidus subsp. hispidus,Farm_D_10,0.5
+Leontodon hispidus subsp. hispidus,Farm_E_5,1
+Leontodon hispidus subsp. hispidus,Farm_E_7,0.2
+Leontodon hispidus subsp. hispidus,Farm_F_2,0.5
+Leucanthemum vulgare aggr.,Farm_A_2,0.5
+Leucanthemum vulgare aggr.,Farm_A_3,0.2
+Leucanthemum vulgare aggr.,Farm_A_5,0.01
+Leucanthemum vulgare aggr.,Farm_A_6,0.001
+Leucanthemum vulgare aggr.,Farm_A_8,0.1
+Leucanthemum vulgare aggr.,Farm_A_10,0.5
+Leucanthemum vulgare aggr.,Farm_A_13,0.1
+Leucanthemum vulgare aggr.,Farm_B_1,0.2
+Leucanthemum vulgare aggr.,Farm_B_2,0.2
+Leucanthemum vulgare aggr.,Farm_B_3,0.5
+Leucanthemum vulgare aggr.,Farm_B_4,0.2
+Leucanthemum vulgare aggr.,Farm_B_5,0.2
+Leucanthemum vulgare aggr.,Farm_B_6,0.5
+Leucanthemum vulgare aggr.,Farm_B_7,0.5
+Leucanthemum vulgare aggr.,Farm_C_3,1
+Leucanthemum vulgare aggr.,Farm_C_6,0.5
+Leucanthemum vulgare aggr.,Farm_C_9,0.5
+Leucanthemum vulgare aggr.,Farm_C_10,0.2
+Leucanthemum vulgare aggr.,Farm_D_1,2
+Leucanthemum vulgare aggr.,Communal_3,0.5
+Leucanthemum vulgare aggr.,Farm_D_3,0.3
+Leucanthemum vulgare aggr.,Farm_D_4,0.5
+Leucanthemum vulgare aggr.,Farm_D_5,1.5
+Leucanthemum vulgare aggr.,Farm_D_6,2
+Leucanthemum vulgare aggr.,Farm_D_8,2
+Leucanthemum vulgare aggr.,Farm_D_10,0.1
+Leucanthemum vulgare aggr.,Farm_E_1,0.5
+Leucanthemum vulgare aggr.,Farm_E_2,5
+Leucanthemum vulgare aggr.,Farm_E_3,0.5
+Leucanthemum vulgare aggr.,Farm_E_4,0.3
+Leucanthemum vulgare aggr.,Farm_E_5,0.8
+Leucanthemum vulgare aggr.,Farm_E_6,0.2
+Leucanthemum vulgare aggr.,Farm_E_7,0.7
+Leucanthemum vulgare aggr.,Farm_F_2,0.5
+Linum catharticum,Farm_A_3,0.01
+Linum catharticum,Farm_A_6,0.005
+Linum catharticum,Farm_A_7,0.001
+Linum catharticum,Farm_A_8,0.01
+Linum catharticum,Communal_1,0.05
+Linum catharticum,Farm_A_10,0.1
+Linum catharticum,Farm_A_13,0.01
+Linum catharticum,Farm_B_1,0.1
+Linum catharticum,Farm_B_3,0.001
+Linum catharticum,Farm_B_5,0.1
+Linum catharticum,Farm_B_6,0.01
+Linum catharticum,Farm_C_1,0.05
+Linum catharticum,Farm_C_9,0.2
+Linum catharticum,Farm_D_1,2
+Linum catharticum,Communal_3,0.2
+Linum catharticum,Farm_D_3,0.001
+Linum catharticum,Farm_D_4,0.1
+Linum catharticum,Farm_D_5,0.1
+Linum catharticum,Farm_D_6,2
+Linum catharticum,Communal_4,0.05
+Linum catharticum,Farm_D_8,0.5
+Linum catharticum,Farm_E_3,1
+Linum catharticum,Farm_E_4,0.2
+Linum catharticum,Farm_E_6,2
+Linum catharticum,Farm_E_7,0.01
+Lolium perenne,Farm_A_1,3
+Lolium perenne,Farm_A_2,0.2
+Lolium perenne,Farm_A_4,3
+Lolium perenne,Farm_A_5,8
+Lolium perenne,Farm_A_8,0.5
+Lolium perenne,Farm_A_13,0.1
+Lolium perenne,Farm_B_7,3
+Lolium perenne,Farm_C_8,5
+Lolium perenne,Farm_E_1,4
+Lolium perenne,Farm_F_1,1
+Lotus corniculatus,Farm_A_1,0.5
+Lotus corniculatus,Farm_A_2,0.7
+Lotus corniculatus,Farm_A_3,2
+Lotus corniculatus,Farm_A_4,0.5
+Lotus corniculatus,Farm_A_6,4
+Lotus corniculatus,Farm_A_7,0.8
+Lotus corniculatus,Farm_A_8,2
+Lotus corniculatus,Communal_1,1
+Lotus corniculatus,Farm_A_10,2
+Lotus corniculatus,Farm_A_13,2
+Lotus corniculatus,Farm_B_1,3
+Lotus corniculatus,Farm_B_2,0.5
+Lotus corniculatus,Farm_B_3,2
+Lotus corniculatus,Farm_B_4,1
+Lotus corniculatus,Farm_B_5,1
+Lotus corniculatus,Farm_B_6,2
+Lotus corniculatus,Farm_B_7,0.5
+Lotus corniculatus,Communal_2,0.01
+Lotus corniculatus,Farm_C_1,6
+Lotus corniculatus,Farm_C_3,0.5
+Lotus corniculatus,Farm_C_6,3
+Lotus corniculatus,Farm_C_8,0.3
+Lotus corniculatus,Farm_C_9,0.5
+Lotus corniculatus,Farm_C_10,0.5
+Lotus corniculatus,Farm_D_1,0.8
+Lotus corniculatus,Communal_3,0.2
+Lotus corniculatus,Farm_D_3,0.5
+Lotus corniculatus,Farm_D_4,0.5
+Lotus corniculatus,Farm_D_5,1
+Lotus corniculatus,Farm_D_6,1
+Lotus corniculatus,Farm_D_8,2
+Lotus corniculatus,Communal_5,0.2
+Lotus corniculatus,Farm_D_10,0.5
+Lotus corniculatus,Farm_E_1,0.01
+Lotus corniculatus,Farm_E_2,2.5
+Lotus corniculatus,Farm_E_3,3
+Lotus corniculatus,Farm_E_4,2
+Lotus corniculatus,Farm_E_5,1.5
+Lotus corniculatus,Farm_E_6,0.5
+Lotus corniculatus,Farm_E_7,1
+Lotus corniculatus,Farm_F_2,0.5
+Luzula campestris,Farm_A_1,2.5
+Luzula campestris,Farm_A_2,1.5
+Luzula campestris,Farm_A_3,1
+Luzula campestris,Farm_A_4,0.2
+Luzula campestris,Farm_A_5,0.01
+Luzula campestris,Farm_A_7,0.1
+Luzula campestris,Farm_A_8,0.5
+Luzula campestris,Communal_1,0.2
+Luzula campestris,Farm_A_13,0.5
+Luzula campestris,Farm_B_1,0.5
+Luzula campestris,Farm_B_2,1
+Luzula campestris,Farm_B_3,2
+Luzula campestris,Farm_B_4,2
+Luzula campestris,Farm_B_5,0.5
+Luzula campestris,Farm_B_6,0.2
+Luzula campestris,Farm_B_7,1
+Luzula campestris,Communal_2,0.05
+Luzula campestris,Farm_C_1,0.1
+Luzula campestris,Farm_C_3,1
+Luzula campestris,Farm_C_6,3
+Luzula campestris,Farm_C_8,0.01
+Luzula campestris,Farm_C_10,0.1
+Luzula campestris,Farm_D_1,1.5
+Luzula campestris,Communal_3,0.01
+Luzula campestris,Farm_D_3,0.1
+Luzula campestris,Farm_D_4,0.1
+Luzula campestris,Farm_D_5,0.1
+Luzula campestris,Communal_4,0.01
+Luzula campestris,Communal_5,0.1
+Luzula campestris,Farm_D_10,0.1
+Luzula campestris,Farm_E_2,0.001
+Luzula campestris,Farm_E_3,0.1
+Luzula campestris,Farm_E_4,0.1
+Luzula campestris,Farm_E_5,0.001
+Luzula campestris,Farm_E_6,0.2
+Luzula campestris,Farm_E_7,0.1
+Luzula campestris,Farm_F_2,0.5
+Lysimachia nummularia,Farm_A_1,2
+Lysimachia nummularia,Farm_D_4,0.1
+Lysimachia vulgaris,Farm_B_2,2
+Lysimachia vulgaris,Farm_C_6,0.2
+Medicago falcata,Farm_A_8,6
+Medicago falcata,Farm_A_10,1.5
+Medicago falcata,Farm_B_6,0.5
+Medicago falcata,Farm_C_8,0.1
+Medicago falcata,Farm_C_9,4
+Medicago falcata,Farm_C_10,5
+Medicago falcata,Farm_D_1,0.2
+Medicago falcata,Communal_3,0.1
+Medicago falcata,Farm_D_3,1
+Medicago falcata,Farm_D_5,0.1
+Medicago falcata,Farm_D_6,0.001
+Medicago falcata,Farm_E_2,0.5
+Medicago falcata,Farm_E_5,20
+Medicago falcata,Farm_E_6,0.2
+Medicago lupulina,Farm_A_2,0.001
+Medicago lupulina,Farm_A_4,0.1
+Medicago lupulina,Farm_A_5,0.5
+Medicago lupulina,Farm_A_6,15
+Medicago lupulina,Farm_A_7,0.1
+Medicago lupulina,Farm_A_10,0.2
+Medicago lupulina,Farm_A_13,0.5
+Medicago lupulina,Farm_B_3,1
+Medicago lupulina,Farm_B_6,0.2
+Medicago lupulina,Farm_C_1,0.01
+Medicago lupulina,Farm_C_8,0.1
+Medicago lupulina,Farm_C_9,1
+Medicago lupulina,Farm_D_1,0.1
+Medicago lupulina,Communal_3,0.001
+Medicago lupulina,Farm_D_3,0.001
+Medicago lupulina,Farm_D_5,0.01
+Medicago lupulina,Farm_D_6,0.3
+Medicago lupulina,Communal_4,0.01
+Medicago lupulina,Communal_5,0.001
+Medicago lupulina,Farm_E_2,3
+Medicago sativa,Farm_A_2,0.02
+Medicago sativa,Farm_A_4,3
+Medicago sativa,Farm_A_5,33
+Medicago sativa,Farm_A_7,2
+Medicago sativa,Farm_B_1,0.01
+Medicago sativa,Farm_B_6,1
+Medicago sativa,Farm_C_1,3
+Medicago sativa,Farm_E_5,2
+Melampyrum arvense,Farm_D_1,0.5
+Melampyrum arvense,Communal_3,0.01
+Melampyrum arvense,Farm_D_6,0.1
+Melampyrum arvense,Farm_D_8,0.01
+Minuartia verna,Communal_3,0.001
+Minuartia verna,Communal_5,0.5
+Molinia caerulea,Farm_C_3,0.2
+Molinia caerulea,Farm_E_4,1
+Molinia caerulea,Farm_F_2,0.1
+Myosotis arvensis,Farm_A_4,1
+Myosotis arvensis,Farm_A_5,0.001
+Myosotis arvensis,Farm_A_13,0.001
+Myosotis arvensis,Farm_B_5,0.05
+Myosotis arvensis,Farm_E_1,0.01
+Nardus stricta,Farm_C_3,1
+Neottia ovata,Farm_A_1,0.01
+Neotinea ustulata,Farm_B_1,0.01
+Ononis spinosa subsp. hircina,Farm_E_3,1
+Ononis spinosa subsp. hircina,Farm_E_4,0.01
+Ononis spinosa subsp. hircina,Farm_E_5,0.3
+Origanum vulgare,Farm_E_4,2
+Orobanche sp.,Farm_A_6,0.05
+Orobanche sp.,Farm_B_6,0.01
+Orobanche sp.,Farm_C_1,0.05
+Orobanche sp.,Farm_E_3,0.1
+Oxalis stricta,Farm_A_1,0.001
+Oxalis stricta,Farm_A_2,0.05
+Dichoropetalum carvifolia,Farm_B_2,0.5
+Dichoropetalum carvifolia,Farm_E_4,1
+Dichoropetalum carvifolia,Farm_E_5,0.8
+Peucedanum oreoselinum,Farm_A_2,0.2
+Peucedanum oreoselinum,Farm_B_1,0.2
+Peucedanum oreoselinum,Farm_B_2,2.5
+Peucedanum oreoselinum,Farm_B_3,9
+Peucedanum oreoselinum,Farm_B_4,20
+Peucedanum oreoselinum,Farm_B_5,5
+Peucedanum oreoselinum,Farm_B_7,2
+Peucedanum oreoselinum,Farm_C_1,0.5
+Peucedanum oreoselinum,Farm_C_3,1
+Peucedanum oreoselinum,Farm_C_6,35
+Peucedanum oreoselinum,Communal_3,0.001
+Peucedanum oreoselinum,Farm_D_8,5
+Peucedanum oreoselinum,Farm_D_10,1
+Peucedanum oreoselinum,Farm_E_4,3
+Peucedanum oreoselinum,Farm_E_6,3
+Peucedanum oreoselinum,Farm_F_1,2
+Peucedanum oreoselinum,Farm_F_2,8
+Phleum phleoides,Farm_A_7,0.8
+Phleum phleoides,Farm_D_1,0.3
+Phleum phleoides,Communal_3,0.2
+Phleum phleoides,Farm_D_5,0.01
+Phleum phleoides,Communal_5,0.1
+Phleum pratense,Farm_E_5,0.5
+Pilosella bauhini,Farm_A_2,0.4
+Pilosella bauhini,Farm_A_3,0.2
+Pilosella bauhini,Farm_A_6,0.2
+Pilosella bauhini,Farm_A_7,0.05
+Pilosella bauhini,Farm_A_10,1
+Pilosella bauhini,Farm_B_1,0.1
+Pilosella bauhini,Farm_B_3,0.1
+Pilosella bauhini,Farm_B_5,0.01
+Pilosella bauhini,Farm_C_9,3
+Pilosella bauhini,Farm_C_10,0.5
+Pilosella bauhini,Farm_D_1,0.01
+Pilosella bauhini,Farm_D_4,0.1
+Pilosella bauhini,Farm_D_5,0.1
+Pilosella bauhini,Farm_D_8,0.01
+Pilosella bauhini,Farm_E_3,0.1
+Pilosella bauhini,Farm_E_6,0.2
+Pilosella bauhini,Farm_E_7,0.001
+Pilosella officinarum,Farm_A_3,1
+Pilosella officinarum,Farm_A_6,0.05
+Pilosella officinarum,Farm_A_7,0.1
+Pilosella officinarum,Farm_A_8,0.2
+Pilosella officinarum,Communal_1,20
+Pilosella officinarum,Farm_A_10,1
+Pilosella officinarum,Farm_B_1,0.5
+Pilosella officinarum,Farm_B_3,0.3
+Pilosella officinarum,Farm_B_4,3
+Pilosella officinarum,Farm_B_5,3
+Pilosella officinarum,Farm_B_7,1
+Pilosella officinarum,Communal_2,8
+Pilosella officinarum,Farm_C_3,1
+Pilosella officinarum,Farm_C_6,2
+Pilosella officinarum,Farm_C_9,0.2
+Pilosella officinarum,Communal_3,10
+Pilosella officinarum,Farm_D_6,0.005
+Pilosella officinarum,Communal_4,10
+Pilosella officinarum,Farm_D_8,0.1
+Pilosella officinarum,Communal_5,5
+Pilosella officinarum,Farm_D_10,2
+Pilosella officinarum,Farm_E_3,0.1
+Pilosella officinarum,Farm_E_6,0.1
+Pilosella officinarum,Farm_E_7,1.5
+Pilosella officinarum,Farm_F_2,1.5
+Pilosella officinarum x bauhini,Farm_A_3,0.01
+Pilosella officinarum x bauhini,Farm_A_6,0.05
+Pilosella officinarum x bauhini,Farm_A_8,0.01
+Pilosella officinarum x bauhini,Communal_1,0.05
+Pilosella officinarum x bauhini,Farm_A_10,1
+Pimpinella saxifraga,Farm_A_2,0.5
+Pimpinella saxifraga,Farm_A_4,0.2
+Pimpinella saxifraga,Farm_A_8,3
+Pimpinella saxifraga,Farm_A_10,0.1
+Pimpinella saxifraga,Farm_B_1,0.01
+Pimpinella saxifraga,Farm_B_2,1
+Pimpinella saxifraga,Farm_B_3,2
+Pimpinella saxifraga,Farm_B_4,0.5
+Pimpinella saxifraga,Farm_B_5,0.7
+Pimpinella saxifraga,Farm_B_7,0.3
+Pimpinella saxifraga,Farm_C_1,0.2
+Pimpinella saxifraga,Farm_C_3,2
+Pimpinella saxifraga,Farm_C_6,4
+Pimpinella saxifraga,Farm_C_8,0.2
+Pimpinella saxifraga,Farm_C_9,0.1
+Pimpinella saxifraga,Farm_D_1,0.5
+Pimpinella saxifraga,Communal_3,0.1
+Pimpinella saxifraga,Farm_D_3,1.5
+Pimpinella saxifraga,Farm_D_4,1
+Pimpinella saxifraga,Farm_D_8,1
+Pimpinella saxifraga,Communal_5,0.2
+Pimpinella saxifraga,Farm_D_10,0.5
+Pimpinella saxifraga,Farm_E_3,0.1
+Pimpinella saxifraga,Farm_E_4,1
+Pimpinella saxifraga,Farm_E_5,0.5
+Pimpinella saxifraga,Farm_E_6,0.5
+Pimpinella saxifraga,Farm_E_7,1
+Pimpinella saxifraga,Farm_F_2,0.2
+Plantago lanceolata,Farm_A_1,3
+Plantago lanceolata,Farm_A_2,1
+Plantago lanceolata,Farm_A_3,1
+Plantago lanceolata,Farm_A_4,1.5
+Plantago lanceolata,Farm_A_5,0.5
+Plantago lanceolata,Farm_A_6,4
+Plantago lanceolata,Farm_A_7,1
+Plantago lanceolata,Farm_A_8,3.5
+Plantago lanceolata,Communal_1,1.5
+Plantago lanceolata,Farm_A_10,1
+Plantago lanceolata,Farm_A_13,0.5
+Plantago lanceolata,Farm_B_1,6
+Plantago lanceolata,Farm_B_2,3
+Plantago lanceolata,Farm_B_3,5
+Plantago lanceolata,Farm_B_4,2
+Plantago lanceolata,Farm_B_5,2
+Plantago lanceolata,Farm_B_6,0.5
+Plantago lanceolata,Farm_B_7,1
+Plantago lanceolata,Communal_2,2
+Plantago lanceolata,Farm_C_1,3
+Plantago lanceolata,Farm_C_3,3
+Plantago lanceolata,Farm_C_6,2
+Plantago lanceolata,Farm_C_8,0.7
+Plantago lanceolata,Farm_C_9,5
+Plantago lanceolata,Farm_C_10,3
+Plantago lanceolata,Farm_D_1,2
+Plantago lanceolata,Communal_3,1.5
+Plantago lanceolata,Farm_D_3,1
+Plantago lanceolata,Farm_D_4,1
+Plantago lanceolata,Farm_D_5,2
+Plantago lanceolata,Farm_D_6,0.1
+Plantago lanceolata,Communal_4,0.5
+Plantago lanceolata,Farm_D_8,2
+Plantago lanceolata,Communal_5,1
+Plantago lanceolata,Farm_D_10,0.8
+Plantago lanceolata,Farm_E_1,5
+Plantago lanceolata,Farm_E_2,3
+Plantago lanceolata,Farm_E_3,2
+Plantago lanceolata,Farm_E_4,0.5
+Plantago lanceolata,Farm_E_5,0.2
+Plantago lanceolata,Farm_E_6,1
+Plantago lanceolata,Farm_E_7,1
+Plantago lanceolata,Farm_F_1,0.5
+Plantago lanceolata,Farm_F_2,1
+Plantago media,Farm_A_2,0.2
+Plantago media,Farm_A_3,0.01
+Plantago media,Farm_A_5,0.2
+Plantago media,Farm_A_6,0.1
+Plantago media,Farm_A_7,3
+Plantago media,Farm_A_8,10
+Plantago media,Communal_1,0.5
+Plantago media,Farm_A_10,0.2
+Plantago media,Farm_A_13,3
+Plantago media,Farm_B_1,0.3
+Plantago media,Farm_B_6,6
+Plantago media,Farm_B_7,0.3
+Plantago media,Farm_C_10,0.5
+Plantago media,Farm_D_1,0.01
+Plantago media,Communal_3,0.7
+Plantago media,Farm_D_4,2
+Plantago media,Farm_D_5,0.5
+Plantago media,Farm_D_6,6
+Plantago media,Farm_D_8,3
+Plantago media,Communal_5,0.5
+Plantago media,Farm_E_1,0.5
+Plantago media,Farm_E_3,1
+Plantago media,Farm_E_4,0.3
+Plantago media,Farm_E_5,0.2
+Plantago media,Farm_E_6,1
+Plantago media,Farm_E_7,0.3
+Plantago major,Farm_A_1,0.5
+Plantago major,Farm_A_13,0.1
+Plantago major,Farm_D_4,0.01
+Platanthera bifolia,Farm_A_3,0.2
+Platanthera bifolia,Farm_B_2,0.05
+Poa compressa,Farm_A_2,0.001
+Poa compressa,Farm_A_5,0.01
+Poa compressa,Farm_A_8,0.01
+Poa compressa,Farm_B_3,0.2
+Poa compressa,Farm_B_7,0.1
+Poa compressa,Communal_2,0.01
+Poa compressa,Communal_5,0.001
+Poa compressa,Farm_F_1,0.01
+Poa pratensis,Farm_A_1,1
+Poa pratensis,Farm_A_2,0.5
+Poa pratensis,Farm_A_4,1
+Poa pratensis,Farm_A_5,5
+Poa pratensis,Farm_A_7,0.5
+Poa pratensis,Farm_A_8,0.5
+Poa pratensis,Communal_1,0.5
+Poa pratensis,Farm_A_13,2
+Poa pratensis,Farm_B_6,0.2
+Poa pratensis,Farm_B_7,1
+Poa pratensis,Farm_C_8,2
+Poa pratensis,Farm_D_3,0.01
+Poa pratensis,Communal_4,0.3
+Poa pratensis,Farm_E_1,0.01
+Poa pratensis,Farm_E_2,0.5
+Poa pratensis,Farm_E_5,0.5
+Poa pratensis,Farm_F_1,1
+Poa trivialis,Farm_A_4,0.5
+Poa trivialis,Farm_A_5,15
+Poa trivialis,Farm_E_1,2
+Poa trivialis,Farm_E_5,1
+Poa trivialis,Farm_F_1,8
+Podospermum purpureum,Farm_B_5,0.01
+Polygala comosa,Farm_A_2,0.05
+Polygala comosa,Farm_A_3,0.2
+Polygala comosa,Farm_A_6,0.5
+Polygala comosa,Farm_A_7,0.5
+Polygala comosa,Farm_A_8,3
+Polygala comosa,Communal_1,0.1
+Polygala comosa,Farm_A_10,0.5
+Polygala comosa,Farm_A_13,0.1
+Polygala comosa,Farm_B_1,0.7
+Polygala comosa,Farm_B_5,0.7
+Polygala comosa,Farm_B_6,1
+Polygala comosa,Communal_2,0.001
+Polygala comosa,Farm_C_1,5
+Polygala comosa,Farm_C_8,0.1
+Polygala comosa,Farm_C_10,0.5
+Polygala comosa,Farm_D_1,0.1
+Polygala comosa,Communal_3,0.1
+Polygala comosa,Farm_D_6,0.1
+Polygala comosa,Farm_D_8,0.1
+Polygala comosa,Communal_5,0.001
+Polygala comosa,Farm_D_10,0.01
+Polygala comosa,Farm_E_3,0.1
+Polygala comosa,Farm_E_4,0.2
+Polygala comosa,Farm_E_6,0.01
+Polygala comosa,Farm_E_7,0.2
+Polygala vulgaris subsp. oxyptera,Communal_1,0.001
+Polygala vulgaris subsp. oxyptera,Farm_B_1,0.01
+Polygala vulgaris subsp. oxyptera,Farm_B_3,0.3
+Polygala vulgaris subsp. oxyptera,Farm_B_4,0.1
+Polygala vulgaris subsp. vulgaris,Farm_A_2,0.01
+Polygala vulgaris subsp. vulgaris,Farm_A_3,0.01
+Polygala vulgaris subsp. vulgaris,Farm_A_8,0.1
+Polygala vulgaris subsp. vulgaris,Farm_B_3,0.5
+Polygala vulgaris subsp. vulgaris,Farm_B_4,0.5
+Polygala vulgaris subsp. vulgaris,Farm_B_5,0.5
+Polygala vulgaris subsp. vulgaris,Farm_B_7,0.2
+Polygala vulgaris subsp. vulgaris,Farm_C_3,1
+Polygala vulgaris subsp. vulgaris,Farm_C_6,0.5
+Polygala vulgaris subsp. vulgaris,Farm_D_10,0.2
+Polygala vulgaris subsp. vulgaris,Farm_F_2,0.2
+Potentilla argentea,Farm_A_2,0.001
+Potentilla argentea,Farm_A_13,0.1
+Potentilla argentea,Farm_B_6,0.5
+Potentilla argentea,Farm_C_1,0.05
+Potentilla argentea,Farm_C_8,0.1
+Potentilla erecta,Farm_A_2,0.05
+Potentilla erecta,Farm_A_3,0.5
+Potentilla erecta,Farm_A_8,0.1
+Potentilla erecta,Farm_A_10,0.01
+Potentilla erecta,Farm_B_1,0.2
+Potentilla erecta,Farm_B_2,0.7
+Potentilla erecta,Farm_B_3,2
+Potentilla erecta,Farm_B_4,6
+Potentilla erecta,Farm_B_5,0.2
+Potentilla erecta,Farm_B_7,2
+Potentilla erecta,Communal_2,0.05
+Potentilla erecta,Farm_C_3,0.1
+Potentilla erecta,Farm_C_6,0.1
+Potentilla erecta,Farm_D_4,2
+Potentilla erecta,Farm_D_6,0.01
+Potentilla erecta,Farm_D_8,0.5
+Potentilla erecta,Farm_D_10,2
+Potentilla erecta,Farm_E_3,0.1
+Potentilla erecta,Farm_E_4,1
+Potentilla erecta,Farm_F_2,0.5
+Potentilla incana,Farm_A_6,0.1
+Potentilla incana,Farm_A_7,0.1
+Potentilla incana,Communal_1,0.5
+Potentilla incana,Farm_A_10,1.2
+Potentilla incana,Farm_B_1,0.3
+Potentilla incana,Farm_B_5,1
+Potentilla incana,Farm_B_7,0.1
+Potentilla incana,Communal_2,6
+Potentilla incana,Farm_C_8,0.1
+Potentilla incana,Farm_C_9,0.5
+Potentilla incana,Farm_C_10,1
+Potentilla incana,Communal_3,0.5
+Potentilla incana,Farm_D_5,0.01
+Potentilla incana,Farm_D_6,0.3
+Potentilla incana,Communal_4,1
+Potentilla incana,Farm_D_8,0.5
+Potentilla incana,Communal_5,0.1
+Potentilla incana,Farm_E_7,0.001
+Primula acaulis,Farm_A_8,0.1
+Primula acaulis,Farm_D_4,2
+Primula acaulis,Farm_E_2,0.5
+Primula acaulis,Farm_E_3,0.5
+Primula acaulis,Farm_E_4,0.1
+Primula acaulis,Farm_E_5,0.5
+Primula veris,Farm_A_2,0.2
+Primula veris,Farm_A_3,2
+Primula veris,Farm_A_4,0.1
+Primula veris,Farm_A_6,0.1
+Primula veris,Farm_A_8,3
+Primula veris,Farm_A_13,1
+Primula veris,Farm_B_2,0.5
+Primula veris,Farm_B_3,5
+Primula veris,Farm_B_5,0.1
+Primula veris,Farm_B_6,6
+Primula veris,Farm_B_7,2.5
+Primula veris,Farm_D_1,6
+Primula veris,Communal_3,1
+Primula veris,Farm_D_3,5
+Primula veris,Farm_D_4,1
+Primula veris,Farm_D_5,1.5
+Primula veris,Farm_D_6,0.1
+Primula veris,Communal_5,3
+Primula veris,Farm_D_10,4
+Primula veris,Farm_E_3,2
+Primula veris,Farm_E_5,0.2
+Prunella grandiflora,Farm_D_1,2
+Prunella grandiflora,Communal_3,1
+Prunella grandiflora,Farm_D_6,1
+Prunella grandiflora,Farm_D_8,3
+Prunella grandiflora,Communal_5,0.5
+Prunella grandiflora,Farm_E_4,0.1
+Prunella laciniata,Farm_A_6,0.2
+Prunella laciniata,Farm_A_7,0.3
+Prunella laciniata,Farm_A_8,0.5
+Prunella laciniata,Communal_1,1
+Prunella laciniata,Farm_A_10,2
+Prunella laciniata,Farm_A_13,0.001
+Prunella laciniata,Farm_B_2,0.5
+Prunella laciniata,Farm_B_5,2
+Prunella laciniata,Farm_B_6,0.1
+Prunella laciniata,Farm_B_7,1
+Prunella laciniata,Communal_2,4
+Prunella laciniata,Farm_C_1,0.5
+Prunella laciniata,Farm_C_3,0.1
+Prunella laciniata,Farm_C_9,0.5
+Prunella laciniata,Communal_3,2
+Prunella laciniata,Farm_D_3,0.01
+Prunella laciniata,Farm_D_5,1
+Prunella laciniata,Farm_D_6,0.5
+Prunella laciniata,Communal_4,0.5
+Prunella laciniata,Farm_D_8,1
+Prunella laciniata,Communal_5,0.5
+Prunella laciniata,Farm_E_6,1
+Prunella laciniata,Farm_E_7,0.5
+Prunella vulgaris,Farm_A_1,6
+Prunella vulgaris,Farm_A_2,8
+Prunella vulgaris,Farm_A_3,0.5
+Prunella vulgaris,Farm_A_4,1
+Prunella vulgaris,Farm_A_5,0.5
+Prunella vulgaris,Farm_A_8,0.2
+Prunella vulgaris,Communal_1,0.1
+Prunella vulgaris,Farm_A_10,0.5
+Prunella vulgaris,Farm_A_13,0.1
+Prunella vulgaris,Farm_B_1,1
+Prunella vulgaris,Farm_B_2,1.5
+Prunella vulgaris,Farm_B_3,0.2
+Prunella vulgaris,Farm_B_6,0.5
+Prunella vulgaris,Farm_B_7,0.5
+Prunella vulgaris,Farm_C_3,1
+Prunella vulgaris,Farm_C_6,0.3
+Prunella vulgaris,Farm_C_8,0.1
+Prunella vulgaris,Farm_D_3,0.1
+Prunella vulgaris,Farm_D_4,3
+Prunella vulgaris,Farm_D_5,2
+Prunella vulgaris,Farm_D_6,0.3
+Prunella vulgaris,Farm_D_10,3
+Prunella vulgaris,Farm_E_1,1
+Prunella vulgaris,Farm_E_2,0.5
+Prunella vulgaris,Farm_E_3,1
+Prunella vulgaris,Farm_E_4,1
+Prunella vulgaris,Farm_E_5,1
+Prunella x intermedia,Farm_D_1,0.1
+Prunella x intermedia,Farm_E_3,0.1
+Prunus sp.,Farm_A_3,0.1
+Prunus sp.,Farm_C_3,1
+Prunus sp.,Farm_C_9,2
+Prunus sp.,Farm_C_10,0.01
+Prunus sp.,Farm_D_3,0.01
+Prunus sp.,Farm_E_2,1
+Prunus sp.,Farm_E_3,0.1
+Prunus sp.,Farm_E_5,0.1
+Prunus sp.,Farm_F_2,0.01
+Pteridium aquilinum,Communal_4,1
+Ranunculus acris,Farm_A_1,1
+Ranunculus acris,Farm_A_4,1
+Ranunculus acris,Farm_B_2,0.2
+Ranunculus acris,Farm_C_6,0.1
+Ranunculus bulbosus,Farm_A_1,0.5
+Ranunculus bulbosus,Farm_A_2,0.1
+Ranunculus bulbosus,Farm_A_4,0.5
+Ranunculus bulbosus,Farm_A_5,2
+Ranunculus bulbosus,Farm_A_6,4
+Ranunculus bulbosus,Farm_A_7,1.5
+Ranunculus bulbosus,Farm_A_8,2
+Ranunculus bulbosus,Communal_1,0.001
+Ranunculus bulbosus,Farm_A_10,1
+Ranunculus bulbosus,Farm_A_13,2
+Ranunculus bulbosus,Farm_B_1,0.5
+Ranunculus bulbosus,Farm_B_2,0.01
+Ranunculus bulbosus,Farm_C_1,3
+Ranunculus bulbosus,Farm_C_8,1.5
+Ranunculus bulbosus,Farm_C_9,2
+Ranunculus bulbosus,Farm_C_10,1
+Ranunculus bulbosus,Farm_D_1,0.2
+Ranunculus bulbosus,Farm_D_3,0.1
+Ranunculus bulbosus,Farm_D_4,0.1
+Ranunculus bulbosus,Farm_D_5,0.1
+Ranunculus bulbosus,Farm_D_6,1
+Ranunculus bulbosus,Farm_D_8,0.01
+Ranunculus bulbosus,Communal_5,0.01
+Ranunculus bulbosus,Farm_D_10,0.1
+Ranunculus bulbosus,Farm_E_1,0.5
+Ranunculus bulbosus,Farm_E_2,0.1
+Ranunculus bulbosus,Farm_E_6,1
+Ranunculus bulbosus,Farm_E_7,1
+Ranunculus polyanthemos,Farm_A_1,1
+Ranunculus polyanthemos,Farm_A_2,1.5
+Ranunculus polyanthemos,Farm_A_3,6
+Ranunculus polyanthemos,Farm_A_4,2
+Ranunculus polyanthemos,Farm_A_8,0.2
+Ranunculus polyanthemos,Farm_A_10,2
+Ranunculus polyanthemos,Farm_B_1,3
+Ranunculus polyanthemos,Farm_B_2,1
+Ranunculus polyanthemos,Farm_B_3,3
+Ranunculus polyanthemos,Farm_B_4,2
+Ranunculus polyanthemos,Farm_B_5,1
+Ranunculus polyanthemos,Farm_B_6,1
+Ranunculus polyanthemos,Farm_B_7,1
+Ranunculus polyanthemos,Farm_C_3,1
+Ranunculus polyanthemos,Farm_C_6,0.5
+Ranunculus polyanthemos,Farm_C_9,0.1
+Ranunculus polyanthemos,Farm_D_3,0.2
+Ranunculus polyanthemos,Farm_D_4,0.1
+Ranunculus polyanthemos,Farm_D_5,2
+Ranunculus polyanthemos,Communal_4,0.05
+Ranunculus polyanthemos,Farm_D_8,1
+Ranunculus polyanthemos,Farm_E_3,1.5
+Ranunculus polyanthemos,Farm_E_4,0.5
+Ranunculus polyanthemos,Farm_E_5,1
+Ranunculus polyanthemos,Farm_F_1,0.5
+Ranunculus repens,Farm_A_1,3
+Rhinanthus minor,Farm_A_3,1
+Rhinanthus minor,Farm_A_4,2
+Rhinanthus minor,Farm_A_6,0.1
+Rhinanthus minor,Farm_A_10,2
+Rhinanthus minor,Farm_A_13,7
+Rhinanthus minor,Farm_B_1,1.5
+Rhinanthus minor,Farm_B_3,1.5
+Rhinanthus minor,Farm_B_5,2
+Rhinanthus minor,Farm_B_6,1.5
+Rhinanthus minor,Farm_C_1,0.5
+Rhinanthus minor,Farm_C_6,0.1
+Rhinanthus minor,Farm_C_8,0.5
+Rhinanthus minor,Farm_C_9,2
+Rhinanthus minor,Farm_C_10,4
+Rhinanthus minor,Farm_D_5,0.5
+Rhinanthus minor,Farm_E_1,0.1
+Rhinanthus minor,Farm_E_2,0.5
+Rhinanthus minor,Farm_E_4,0.1
+Rhinanthus minor,Farm_E_6,0.01
+Rhinanthus minor,Farm_F_2,3
+Rhinanthus rumelicus,Farm_B_3,4
+Rhinanthus rumelicus,Farm_C_1,2.5
+Rhinanthus rumelicus,Farm_C_6,0.2
+Rhinanthus rumelicus,Farm_C_10,0.1
+Rhinanthus rumelicus,Farm_E_6,1.2
+Rhinanthus rumelicus,Farm_E_7,4
+Rhinanthus wagneri,Farm_D_1,5
+Rhinanthus wagneri,Communal_3,0.5
+Rhinanthus wagneri,Farm_D_3,3
+Rhinanthus wagneri,Farm_D_5,2
+Rhinanthus wagneri,Farm_D_6,0.001
+Rhinanthus wagneri,Farm_D_8,0.5
+Rhinanthus wagneri,Communal_5,0.001
+Rhinanthus wagneri,Farm_E_1,18
+Rhinanthus wagneri,Farm_E_2,3
+Rhinanthus wagneri,Farm_E_3,1
+Rhinanthus wagneri,Farm_E_4,10
+Rhinanthus wagneri,Farm_E_5,2
+Rorippa pyrenaica,Farm_B_1,0.1
+Rorippa pyrenaica,Farm_C_6,0.01
+Rosa canina,Farm_A_2,0.01
+Rosa canina,Farm_A_4,0.001
+Rosa canina,Farm_A_10,0.001
+Rosa canina,Farm_B_3,0.5
+Rosa canina,Farm_B_4,0.5
+Rosa canina,Farm_B_5,0.001
+Rosa canina,Farm_C_1,0.2
+Rosa canina,Farm_C_9,0.2
+Rosa canina,Farm_D_4,0.2
+Rosa canina,Communal_4,2
+Rosa canina,Farm_E_6,2
+Rosa canina,Farm_E_7,0.1
+Rosa canina,Farm_F_1,0.3
+Rosa canina,Farm_F_2,1
+Rumex acetosa,Farm_A_1,0.1
+Rumex acetosa,Farm_A_2,0.001
+Rumex acetosa,Farm_A_3,0.2
+Rumex acetosa,Farm_A_4,2
+Rumex acetosa,Farm_A_8,0.5
+Rumex acetosa,Farm_B_1,0.01
+Rumex acetosa,Farm_B_2,0.1
+Rumex acetosa,Farm_B_3,1
+Rumex acetosa,Farm_B_4,1
+Rumex acetosa,Farm_C_3,0.1
+Rumex acetosa,Farm_C_6,0.3
+Rumex acetosa,Farm_E_1,0.01
+Rumex acetosa,Farm_E_4,0.2
+Rumex acetosa,Farm_E_5,0.4
+Rumex acetosella,Farm_F_1,5
+Rumex acetosella,Farm_F_2,0.1
+Rumex conglomeratus,Farm_A_5,0.1
+Rumex conglomeratus,Farm_E_1,0.1
+Rumex obtusifolius,Farm_A_1,0.1
+Rumex obtusifolius,Farm_F_1,1
+Sagina procumbens,Farm_A_1,0.1
+Salvia verticillata,Farm_A_5,2
+Salvia verticillata,Farm_A_6,4
+Salvia verticillata,Farm_A_7,0.2
+Salvia verticillata,Farm_A_10,0.5
+Salvia verticillata,Farm_A_13,1.5
+Salvia verticillata,Farm_B_6,4
+Salvia verticillata,Farm_C_1,4
+Salvia verticillata,Farm_C_9,1.5
+Salvia verticillata,Farm_C_10,2
+Salvia verticillata,Farm_D_3,0.1
+Salvia verticillata,Farm_D_5,0.2
+Salvia verticillata,Farm_D_6,2
+Salvia verticillata,Communal_5,0.5
+Salvia verticillata,Farm_E_6,0.5
+Sanguisorba minor,Farm_A_5,0.01
+Sanguisorba minor,Farm_A_6,0.5
+Sanguisorba minor,Farm_A_7,0.2
+Sanguisorba minor,Farm_A_8,0.5
+Sanguisorba minor,Communal_1,0.1
+Sanguisorba minor,Farm_A_10,1
+Sanguisorba minor,Farm_A_13,0.01
+Sanguisorba minor,Farm_B_1,0.05
+Sanguisorba minor,Farm_B_5,0.1
+Sanguisorba minor,Farm_B_6,0.1
+Sanguisorba minor,Farm_B_7,0.1
+Sanguisorba minor,Communal_2,0.2
+Sanguisorba minor,Farm_C_1,0.2
+Sanguisorba minor,Farm_C_6,0.1
+Sanguisorba minor,Farm_C_8,0.2
+Sanguisorba minor,Farm_C_9,0.5
+Sanguisorba minor,Farm_C_10,0.2
+Sanguisorba minor,Farm_D_1,3
+Sanguisorba minor,Communal_3,2
+Sanguisorba minor,Farm_D_3,0.3
+Sanguisorba minor,Farm_D_4,0.1
+Sanguisorba minor,Farm_D_5,0.1
+Sanguisorba minor,Farm_D_6,0.3
+Sanguisorba minor,Communal_4,2
+Sanguisorba minor,Farm_D_8,1
+Sanguisorba minor,Communal_5,2
+Sanguisorba minor,Farm_D_10,0.1
+Sanguisorba minor,Farm_E_1,0.001
+Sanguisorba minor,Farm_E_2,0.02
+Scabiosa columbaria,Farm_A_2,0.2
+Scabiosa columbaria,Farm_A_10,1
+Scabiosa columbaria,Farm_B_6,0.1
+Scabiosa columbaria,Farm_D_3,0.1
+Scabiosa columbaria,Farm_D_6,0.3
+Scabiosa columbaria,Communal_5,0.2
+Scabiosa ochroleuca,Farm_A_3,1
+Scabiosa ochroleuca,Farm_A_5,0.1
+Scabiosa ochroleuca,Farm_A_6,0.5
+Scabiosa ochroleuca,Farm_A_7,0.3
+Scabiosa ochroleuca,Farm_A_8,0.1
+Scabiosa ochroleuca,Farm_A_10,0.3
+Scabiosa ochroleuca,Farm_B_1,0.2
+Scabiosa ochroleuca,Farm_B_2,1
+Scabiosa ochroleuca,Farm_B_3,0.1
+Scabiosa ochroleuca,Farm_B_4,0.1
+Scabiosa ochroleuca,Farm_B_5,0.01
+Scabiosa ochroleuca,Farm_B_6,0.5
+Scabiosa ochroleuca,Farm_B_7,0.5
+Scabiosa ochroleuca,Farm_C_1,0.1
+Scabiosa ochroleuca,Farm_C_3,0.5
+Scabiosa ochroleuca,Farm_C_8,0.1
+Scabiosa ochroleuca,Farm_C_9,5
+Scabiosa ochroleuca,Farm_C_10,2
+Scabiosa ochroleuca,Communal_3,0.5
+Scabiosa ochroleuca,Farm_D_5,1
+Scabiosa ochroleuca,Farm_D_6,2
+Scabiosa ochroleuca,Communal_4,0.1
+Scabiosa ochroleuca,Farm_D_8,0.2
+Scabiosa ochroleuca,Communal_5,0.5
+Scabiosa ochroleuca,Farm_E_2,0.5
+Scabiosa ochroleuca,Farm_E_3,0.5
+Scabiosa ochroleuca,Farm_E_6,0.2
+Scabiosa ochroleuca,Farm_E_7,3
+Scabiosa ochroleuca,Farm_F_2,0.2
+Schedonorus pratensis,Farm_A_1,0.2
+Schedonorus pratensis,Farm_A_2,0.01
+Schedonorus pratensis,Farm_A_4,5
+Schedonorus pratensis,Farm_A_5,0.5
+Schedonorus pratensis,Farm_A_8,2
+Schedonorus pratensis,Farm_A_10,0.5
+Schedonorus pratensis,Farm_A_13,2.5
+Schedonorus pratensis,Farm_B_1,0.2
+Schedonorus pratensis,Farm_B_2,0.5
+Schedonorus pratensis,Farm_B_3,1
+Schedonorus pratensis,Farm_B_7,0.2
+Schedonorus pratensis,Farm_D_1,0.2
+Schedonorus pratensis,Communal_3,0.2
+Schedonorus pratensis,Farm_D_3,0.1
+Schedonorus pratensis,Farm_D_4,0.5
+Schedonorus pratensis,Farm_D_5,0.2
+Schedonorus pratensis,Communal_5,0.1
+Schedonorus pratensis,Farm_E_1,0.5
+Schedonorus pratensis,Farm_E_3,0.5
+Schedonorus pratensis,Farm_E_5,1
+Schedonorus pratensis,Farm_F_1,2
+Scleranthus annuus,Communal_2,0.001
+Scorzoneroides autumnalis,Communal_1,1
+Scorzoneroides autumnalis,Farm_B_2,0.2
+Scorzoneroides autumnalis,Farm_B_5,0.1
+Scorzoneroides autumnalis,Farm_B_7,0.01
+Scorzoneroides autumnalis,Farm_D_5,0.1
+Securigera varia,Farm_A_2,0.05
+Securigera varia,Farm_A_3,0.5
+Securigera varia,Farm_A_4,1
+Securigera varia,Farm_A_6,2
+Securigera varia,Farm_A_7,0.5
+Securigera varia,Farm_A_8,1
+Securigera varia,Farm_A_10,0.3
+Securigera varia,Farm_A_13,1
+Securigera varia,Farm_B_2,0.5
+Securigera varia,Farm_B_6,4
+Securigera varia,Farm_B_7,0.5
+Securigera varia,Farm_C_1,3
+Securigera varia,Farm_C_6,3
+Securigera varia,Farm_C_8,1
+Securigera varia,Farm_C_9,3
+Securigera varia,Farm_D_3,3
+Securigera varia,Farm_D_5,1
+Securigera varia,Farm_D_6,0.001
+Securigera varia,Farm_D_10,0.5
+Securigera varia,Farm_E_2,2
+Securigera varia,Farm_E_3,0.5
+Securigera varia,Farm_E_4,0.5
+Securigera varia,Farm_E_5,20
+Securigera varia,Farm_E_6,2
+Sedum sexangulare,Farm_A_2,0.05
+Sedum sexangulare,Farm_A_10,0.001
+Sedum sexangulare,Farm_B_3,0.2
+Sedum sexangulare,Farm_C_1,0.001
+Sedum sexangulare,Farm_C_10,0.01
+Sedum sexangulare,Communal_3,0.2
+Sedum sexangulare,Communal_5,0.001
+Sedum sexangulare,Farm_E_6,0.3
+Seseli annuum,Farm_A_8,0.01
+Seseli annuum,Farm_A_10,1
+Seseli annuum,Farm_C_1,0.5
+Seseli annuum,Farm_D_1,0.2
+Seseli annuum,Communal_3,1
+Seseli annuum,Farm_D_3,1
+Seseli annuum,Farm_D_5,0.5
+Seseli annuum,Farm_D_6,3
+Seseli annuum,Farm_D_8,3
+Seseli annuum,Communal_5,0.5
+Seseli annuum,Farm_D_10,0.1
+Seseli annuum,Farm_E_6,1
+Seseli annuum,Farm_E_7,0.5
+Stachys germanica,Farm_B_5,0.5
+Stachys officinalis,Farm_A_2,15
+Stachys officinalis,Farm_A_3,0.3
+Stachys officinalis,Farm_A_4,0.3
+Stachys officinalis,Farm_A_6,2
+Stachys officinalis,Farm_A_8,8
+Stachys officinalis,Farm_B_2,18
+Stachys officinalis,Farm_B_3,7
+Stachys officinalis,Farm_B_4,2
+Stachys officinalis,Farm_B_7,1
+Stachys officinalis,Farm_C_1,0.001
+Stachys officinalis,Farm_C_3,1
+Stachys officinalis,Farm_C_6,10
+Stachys officinalis,Farm_C_8,0.05
+Stachys officinalis,Farm_D_1,1
+Stachys officinalis,Communal_3,0.1
+Stachys officinalis,Farm_D_4,0.2
+Stachys officinalis,Farm_D_6,0.3
+Stachys officinalis,Farm_D_8,5
+Stachys officinalis,Farm_D_10,0.1
+Stachys officinalis,Farm_E_2,1
+Stachys officinalis,Farm_E_3,6
+Stachys officinalis,Farm_E_4,5
+Stachys officinalis,Farm_E_5,0.1
+Stachys officinalis,Farm_F_2,2
+Stellaria graminea,Farm_A_1,0.2
+Stellaria graminea,Farm_A_2,0.01
+Stellaria graminea,Farm_A_3,0.1
+Stellaria graminea,Farm_A_4,0.001
+Stellaria graminea,Farm_A_6,0.01
+Stellaria graminea,Farm_A_8,1
+Stellaria graminea,Farm_A_13,0.1
+Stellaria graminea,Farm_B_2,0.3
+Stellaria graminea,Farm_B_3,0.5
+Stellaria graminea,Farm_B_4,0.1
+Stellaria graminea,Farm_B_5,0.1
+Stellaria graminea,Farm_B_6,0.1
+Stellaria graminea,Farm_B_7,0.1
+Stellaria graminea,Farm_C_1,0.001
+Stellaria graminea,Farm_C_3,1
+Stellaria graminea,Farm_C_6,0.5
+Stellaria graminea,Farm_D_1,0.01
+Stellaria graminea,Communal_3,0.01
+Stellaria graminea,Farm_D_10,0.01
+Stellaria graminea,Farm_E_1,0.001
+Stellaria graminea,Farm_E_5,0.1
+Stellaria graminea,Farm_F_1,2
+Stellaria graminea,Farm_F_2,1
+Symphytum officinale,Farm_E_5,0.7
+Taraxacum sect. Taraxacum,Farm_A_1,5
+Taraxacum sect. Taraxacum,Farm_A_2,0.01
+Taraxacum sect. Taraxacum,Farm_A_3,0.01
+Taraxacum sect. Taraxacum,Farm_A_4,3
+Taraxacum sect. Taraxacum,Farm_A_5,10
+Taraxacum sect. Taraxacum,Farm_A_7,0.2
+Taraxacum sect. Taraxacum,Farm_A_8,0.5
+Taraxacum sect. Taraxacum,Communal_1,1
+Taraxacum sect. Taraxacum,Farm_A_10,1
+Taraxacum sect. Taraxacum,Farm_A_13,3
+Taraxacum sect. Taraxacum,Farm_B_6,3
+Taraxacum sect. Taraxacum,Farm_B_7,2
+Taraxacum sect. Taraxacum,Farm_D_4,0.1
+Taraxacum sect. Taraxacum,Farm_D_5,0.5
+Taraxacum sect. Taraxacum,Farm_D_10,0.1
+Taraxacum sect. Taraxacum,Farm_E_1,2
+Taraxacum sect. Taraxacum,Farm_E_2,1
+Taraxacum sect. Taraxacum,Farm_E_5,5
+Taraxacum sect. Taraxacum,Farm_F_1,1
+Taraxacum sect. Taraxacum,Farm_F_2,0.3
+Teucrium chamaedrys,Farm_A_3,0.2
+Teucrium chamaedrys,Farm_A_6,15
+Teucrium chamaedrys,Farm_A_7,25
+Teucrium chamaedrys,Farm_A_8,0.1
+Teucrium chamaedrys,Farm_A_10,10
+Teucrium chamaedrys,Farm_B_6,0.01
+Teucrium chamaedrys,Farm_C_8,2.5
+Teucrium chamaedrys,Farm_C_9,4
+Teucrium chamaedrys,Farm_D_1,8
+Teucrium chamaedrys,Communal_3,2
+Teucrium chamaedrys,Farm_D_3,2
+Teucrium chamaedrys,Farm_D_5,0.5
+Teucrium chamaedrys,Farm_D_6,3
+Teucrium chamaedrys,Communal_4,10
+Teucrium chamaedrys,Farm_D_8,0.5
+Teucrium chamaedrys,Communal_5,15
+Teucrium chamaedrys,Farm_E_6,10
+Teucrium chamaedrys,Farm_E_7,1
+Teucrium montanum,Communal_3,0.1
+Thymus pulegioides subsp. pannonicus,Communal_1,1
+Thymus pulegioides subsp. pannonicus,Farm_B_1,2
+Thymus pulegioides subsp. pannonicus,Farm_B_7,0.1
+Thymus pulegioides subsp. pannonicus,Communal_2,7
+Thymus pulegioides subsp. pannonicus,Farm_D_1,10
+Thymus pulegioides subsp. pannonicus,Communal_3,1
+Thymus pulegioides subsp. pannonicus,Farm_D_3,10
+Thymus pulegioides subsp. pannonicus,Farm_D_5,4
+Thymus pulegioides subsp. pannonicus,Farm_D_6,5
+Thymus pulegioides subsp. pannonicus,Communal_4,1
+Thymus pulegioides subsp. pannonicus,Farm_D_8,6
+Thymus pulegioides subsp. pannonicus,Communal_5,20
+Thymus pulegioides subsp. pannonicus,Farm_D_10,12
+Thymus pulegioides subsp. pannonicus,Farm_E_4,0.5
+Thymus pulegioides subsp. pannonicus,Farm_E_6,1
+Thymus pulegioides subsp. pannonicus,Farm_E_7,10
+Thymus pulegioides subsp. pulegioides,Farm_A_1,0.1
+Thymus pulegioides subsp. pulegioides,Farm_A_2,0.01
+Thymus pulegioides subsp. pulegioides,Farm_A_3,3.5
+Thymus pulegioides subsp. pulegioides,Farm_A_5,0.1
+Thymus pulegioides subsp. pulegioides,Farm_A_6,8
+Thymus pulegioides subsp. pulegioides,Farm_A_7,2
+Thymus pulegioides subsp. pulegioides,Farm_A_8,4
+Thymus pulegioides subsp. pulegioides,Communal_1,3
+Thymus pulegioides subsp. pulegioides,Farm_A_10,3
+Thymus pulegioides subsp. pulegioides,Farm_A_13,4
+Thymus pulegioides subsp. pulegioides,Farm_B_2,1
+Thymus pulegioides subsp. pulegioides,Farm_B_3,4
+Thymus pulegioides subsp. pulegioides,Farm_B_4,6
+Thymus pulegioides subsp. pulegioides,Farm_B_5,6
+Thymus pulegioides subsp. pulegioides,Farm_B_6,3
+Thymus pulegioides subsp. pulegioides,Farm_B_7,5
+Thymus pulegioides subsp. pulegioides,Communal_2,7
+Thymus pulegioides subsp. pulegioides,Farm_C_1,6
+Thymus pulegioides subsp. pulegioides,Farm_C_3,5
+Thymus pulegioides subsp. pulegioides,Farm_C_6,5
+Thymus pulegioides subsp. pulegioides,Farm_C_8,2
+Thymus pulegioides subsp. pulegioides,Farm_C_9,12
+Thymus pulegioides subsp. pulegioides,Farm_C_10,13
+Thymus pulegioides subsp. pulegioides,Farm_D_5,0.5
+Thymus pulegioides subsp. pulegioides,Farm_D_6,1
+Thymus pulegioides subsp. pulegioides,Communal_4,2
+Thymus pulegioides subsp. pulegioides,Farm_D_8,5
+Thymus pulegioides subsp. pulegioides,Communal_5,1
+Thymus pulegioides subsp. pulegioides,Farm_D_10,1
+Thymus pulegioides subsp. pulegioides,Farm_E_3,3
+Thymus pulegioides subsp. pulegioides,Farm_E_7,1
+Thymus pulegioides subsp. pulegioides,Farm_F_2,5
+Tragopogon pratensis subsp. orientalis,Farm_A_3,0.9
+Tragopogon pratensis subsp. orientalis,Farm_A_4,3
+Tragopogon pratensis subsp. orientalis,Farm_A_6,0.2
+Tragopogon pratensis subsp. orientalis,Farm_A_7,0.2
+Tragopogon pratensis subsp. orientalis,Farm_A_10,1.5
+Tragopogon pratensis subsp. orientalis,Farm_B_1,0.5
+Tragopogon pratensis subsp. orientalis,Farm_B_3,1
+Tragopogon pratensis subsp. orientalis,Farm_B_5,0.2
+Tragopogon pratensis subsp. orientalis,Farm_B_6,0.7
+Tragopogon pratensis subsp. orientalis,Farm_B_7,0.2
+Tragopogon pratensis subsp. orientalis,Farm_C_1,0.2
+Tragopogon pratensis subsp. orientalis,Farm_C_8,0.2
+Tragopogon pratensis subsp. orientalis,Farm_C_9,2
+Tragopogon pratensis subsp. orientalis,Farm_C_10,1
+Tragopogon pratensis subsp. orientalis,Farm_D_1,0.5
+Tragopogon pratensis subsp. orientalis,Farm_D_3,0.5
+Tragopogon pratensis subsp. orientalis,Farm_D_4,0.1
+Tragopogon pratensis subsp. orientalis,Farm_D_5,0.1
+Tragopogon pratensis subsp. orientalis,Farm_D_6,0.2
+Tragopogon pratensis subsp. orientalis,Farm_E_1,1
+Tragopogon pratensis subsp. orientalis,Farm_E_2,2
+Tragopogon pratensis subsp. orientalis,Farm_E_3,0.1
+Tragopogon pratensis subsp. orientalis,Farm_E_4,0.2
+Tragopogon pratensis subsp. orientalis,Farm_E_5,1
+Tragopogon pratensis subsp. orientalis,Farm_E_7,1
+Trifolium alpestre,Farm_A_8,3
+Trifolium alpestre,Farm_B_3,1
+Trifolium alpestre,Farm_B_7,1
+Trifolium campestre,Farm_C_3,0.1
+Trifolium campestre,Farm_C_10,1
+Trifolium campestre,Farm_D_5,0.2
+Trifolium campestre,Farm_E_1,0.1
+Trifolium campestre,Farm_E_2,0.1
+Trifolium dubium,Farm_A_4,0.01
+Trifolium dubium,Farm_B_1,0.001
+Trifolium dubium,Farm_B_2,0.001
+Trifolium dubium,Farm_B_3,0.05
+Trifolium dubium,Farm_B_4,0.01
+Trifolium dubium,Farm_B_7,0.1
+Trifolium dubium,Communal_2,0.01
+Trifolium dubium,Farm_C_1,0.01
+Trifolium dubium,Farm_C_8,0.2
+Trifolium dubium,Farm_D_1,0.3
+Trifolium dubium,Communal_3,0.01
+Trifolium dubium,Farm_D_5,0.01
+Trifolium dubium,Farm_D_10,0.01
+Trifolium dubium,Farm_E_7,0.2
+Trifolium medium,Farm_A_7,1
+Trifolium medium,Farm_A_13,2
+Trifolium medium,Farm_B_2,4
+Trifolium medium,Farm_B_3,5
+Trifolium medium,Farm_B_5,1
+Trifolium medium,Farm_B_7,0.1
+Trifolium medium,Farm_C_3,2
+Trifolium medium,Farm_C_6,2
+Trifolium medium,Farm_D_1,0.2
+Trifolium medium,Farm_D_4,0.2
+Trifolium medium,Farm_D_5,0.1
+Trifolium medium,Farm_E_4,2
+Trifolium medium,Farm_E_5,3
+Trifolium montanum,Farm_A_2,0.05
+Trifolium montanum,Farm_A_3,2
+Trifolium montanum,Farm_A_6,1
+Trifolium montanum,Farm_A_7,0.5
+Trifolium montanum,Farm_A_8,3
+Trifolium montanum,Communal_1,0.01
+Trifolium montanum,Farm_A_10,3
+Trifolium montanum,Farm_B_4,3
+Trifolium montanum,Farm_B_5,4
+Trifolium montanum,Farm_B_6,0.2
+Trifolium montanum,Farm_B_7,0.001
+Trifolium montanum,Farm_C_1,0.05
+Trifolium montanum,Farm_C_8,1
+Trifolium montanum,Farm_C_10,1.5
+Trifolium montanum,Farm_D_1,2
+Trifolium montanum,Communal_3,0.1
+Trifolium montanum,Farm_D_3,0.1
+Trifolium montanum,Farm_D_4,0.5
+Trifolium montanum,Farm_D_5,0.5
+Trifolium montanum,Farm_D_6,1
+Trifolium montanum,Farm_D_8,1
+Trifolium montanum,Communal_5,0.1
+Trifolium montanum,Farm_D_10,3
+Trifolium montanum,Farm_E_3,2
+Trifolium montanum,Farm_E_4,2
+Trifolium montanum,Farm_E_6,1
+Trifolium ochroleucon,Farm_A_2,0.2
+Trifolium ochroleucon,Farm_A_6,0.05
+Trifolium ochroleucon,Farm_A_8,0.5
+Trifolium ochroleucon,Farm_B_1,0.001
+Trifolium ochroleucon,Farm_B_3,2
+Trifolium ochroleucon,Farm_B_5,0.1
+Trifolium ochroleucon,Farm_C_3,0.1
+Trifolium ochroleucon,Farm_D_1,0.5
+Trifolium ochroleucon,Communal_3,0.5
+Trifolium ochroleucon,Farm_D_6,1
+Trifolium ochroleucon,Farm_D_8,0.1
+Trifolium ochroleucon,Farm_E_3,3
+Trifolium ochroleucon,Farm_E_6,7
+Trifolium ochroleucon,Farm_E_7,0.1
+Trifolium pannonicum,Farm_E_4,8
+Trifolium pratense,Farm_A_1,0.5
+Trifolium pratense,Farm_A_2,2
+Trifolium pratense,Farm_A_3,0.02
+Trifolium pratense,Farm_A_4,15
+Trifolium pratense,Farm_A_5,6
+Trifolium pratense,Farm_A_6,0.5
+Trifolium pratense,Farm_A_13,2
+Trifolium pratense,Farm_B_1,4
+Trifolium pratense,Farm_B_2,3
+Trifolium pratense,Farm_B_3,0.1
+Trifolium pratense,Farm_B_4,0.2
+Trifolium pratense,Farm_B_6,3
+Trifolium pratense,Farm_B_7,0.1
+Trifolium pratense,Farm_C_6,2
+Trifolium pratense,Farm_C_8,1
+Trifolium pratense,Farm_C_9,0.1
+Trifolium pratense,Farm_D_1,1
+Trifolium pratense,Communal_3,0.5
+Trifolium pratense,Farm_D_3,2
+Trifolium pratense,Farm_D_4,3
+Trifolium pratense,Farm_D_5,4
+Trifolium pratense,Farm_D_6,2
+Trifolium pratense,Farm_D_8,0.5
+Trifolium pratense,Farm_D_10,2
+Trifolium pratense,Farm_E_1,5
+Trifolium pratense,Farm_E_2,5
+Trifolium pratense,Farm_E_3,1
+Trifolium pratense,Farm_E_4,0.1
+Trifolium pratense,Farm_E_5,10
+Trifolium pratense,Farm_E_7,0.3
+Trifolium pratense,Farm_F_1,1
+Trifolium pratense,Farm_F_2,0.2
+Trifolium repens,Farm_A_1,7
+Trifolium repens,Farm_A_2,0.3
+Trifolium repens,Farm_A_4,2
+Trifolium repens,Farm_A_5,5
+Trifolium repens,Communal_1,3
+Trifolium repens,Farm_A_10,0.01
+Trifolium repens,Farm_A_13,2
+Trifolium repens,Farm_B_1,3
+Trifolium repens,Farm_B_2,1
+Trifolium repens,Farm_B_3,1
+Trifolium repens,Farm_B_4,2.5
+Trifolium repens,Farm_B_6,1
+Trifolium repens,Farm_B_7,2
+Trifolium repens,Communal_2,0.01
+Trifolium repens,Farm_C_1,0.05
+Trifolium repens,Farm_C_3,0.5
+Trifolium repens,Farm_C_6,5
+Trifolium repens,Farm_D_3,0.01
+Trifolium repens,Farm_D_4,1
+Trifolium repens,Farm_D_5,0.5
+Trifolium repens,Farm_D_6,0.1
+Trifolium repens,Farm_D_10,0.5
+Trifolium repens,Farm_E_1,2
+Trifolium repens,Farm_E_5,0.5
+Trifolium repens,Farm_E_7,0.1
+Trifolium repens,Farm_F_1,1
+Trifolium repens,Farm_F_2,1
+Trisetum flavescens,Farm_A_2,0.2
+Trisetum flavescens,Farm_A_3,0.1
+Trisetum flavescens,Farm_A_4,8
+Trisetum flavescens,Farm_A_5,10
+Trisetum flavescens,Farm_A_6,2
+Trisetum flavescens,Farm_A_10,3
+Trisetum flavescens,Farm_A_13,3
+Trisetum flavescens,Farm_B_1,0.5
+Trisetum flavescens,Farm_C_1,1.5
+Trisetum flavescens,Farm_C_8,5
+Trisetum flavescens,Farm_C_9,2
+Trisetum flavescens,Farm_C_10,0.5
+Trisetum flavescens,Farm_D_1,0.3
+Trisetum flavescens,Farm_D_3,15
+Trisetum flavescens,Farm_D_5,3
+Trisetum flavescens,Farm_D_6,0.01
+Trisetum flavescens,Farm_E_1,20
+Trisetum flavescens,Farm_E_2,20
+Trisetum flavescens,Farm_E_3,1
+Trisetum flavescens,Farm_E_5,20
+Trisetum flavescens,Farm_E_7,0.5
+Valerianella dentata subsp. eriosperma,Farm_A_2,0.001
+Valerianella dentata subsp. eriosperma,Farm_A_6,0.001
+Valerianella dentata subsp. eriosperma,Farm_B_1,0.001
+Valerianella dentata subsp. eriosperma,Farm_B_5,0.05
+Valerianella dentata subsp. eriosperma,Farm_B_6,0.001
+Valerianella dentata subsp. eriosperma,Farm_C_1,0.1
+Valerianella dentata subsp. eriosperma,Farm_C_8,0.001
+Valerianella dentata subsp. eriosperma,Farm_D_5,0.1
+Valerianella dentata subsp. eriosperma,Farm_E_2,0.01
+Veronica arvensis,Farm_A_1,0.1
+Veronica arvensis,Farm_A_2,0.001
+Veronica arvensis,Farm_A_4,2
+Veronica arvensis,Farm_A_5,0.2
+Veronica arvensis,Farm_A_6,0.01
+Veronica arvensis,Farm_A_13,0.01
+Veronica arvensis,Farm_B_1,0.01
+Veronica arvensis,Farm_B_3,0.3
+Veronica arvensis,Farm_B_5,0.01
+Veronica arvensis,Farm_B_7,0.001
+Veronica arvensis,Farm_C_1,0.001
+Veronica arvensis,Farm_D_4,0.01
+Veronica arvensis,Farm_D_5,0.001
+Veronica arvensis,Farm_E_1,0.2
+Veronica arvensis,Farm_E_2,0.001
+Veronica arvensis,Farm_F_1,0.5
+Veronica austriaca,Farm_A_7,1
+Veronica austriaca,Farm_B_2,0.01
+Veronica austriaca,Farm_B_3,0.001
+Veronica austriaca,Farm_B_7,0.2
+Veronica austriaca,Communal_2,0.7
+Veronica austriaca,Farm_C_8,0.01
+Veronica austriaca,Farm_C_10,0.5
+Veronica austriaca,Farm_D_1,0.2
+Veronica austriaca,Communal_3,1
+Veronica austriaca,Farm_D_3,0.001
+Veronica austriaca,Farm_D_5,0.2
+Veronica austriaca,Farm_D_6,3
+Veronica austriaca,Communal_4,1
+Veronica austriaca,Farm_D_8,1
+Veronica austriaca,Communal_5,0.3
+Veronica austriaca,Farm_E_2,1
+Veronica austriaca,Farm_E_6,0.1
+Veronica austriaca,Farm_E_7,0.1
+Veronica chamaedrys,Farm_A_1,1
+Veronica chamaedrys,Farm_A_2,0.2
+Veronica chamaedrys,Farm_A_3,0.5
+Veronica chamaedrys,Farm_A_4,1.5
+Veronica chamaedrys,Farm_A_5,0.5
+Veronica chamaedrys,Farm_A_6,1.5
+Veronica chamaedrys,Farm_A_8,3
+Veronica chamaedrys,Farm_A_13,0.5
+Veronica chamaedrys,Farm_B_1,0.3
+Veronica chamaedrys,Farm_B_2,0.1
+Veronica chamaedrys,Farm_B_3,0.5
+Veronica chamaedrys,Farm_B_4,1
+Veronica chamaedrys,Farm_B_6,0.01
+Veronica chamaedrys,Farm_B_7,2
+Veronica chamaedrys,Farm_C_3,2
+Veronica chamaedrys,Farm_C_6,5
+Veronica chamaedrys,Farm_C_8,0.1
+Veronica chamaedrys,Farm_D_3,0.001
+Veronica chamaedrys,Farm_D_4,0.1
+Veronica chamaedrys,Farm_D_5,0.5
+Veronica chamaedrys,Farm_D_6,0.1
+Veronica chamaedrys,Farm_E_1,0.5
+Veronica chamaedrys,Farm_E_2,0.5
+Veronica chamaedrys,Farm_E_5,0.5
+Veronica chamaedrys,Farm_F_1,1
+Veronica chamaedrys,Farm_F_2,0.3
+Veronica officinalis,Farm_A_3,1.1
+Veronica officinalis,Farm_A_4,0.1
+Veronica officinalis,Communal_1,0.1
+Veronica officinalis,Farm_A_10,0.2
+Veronica officinalis,Farm_A_13,0.2
+Veronica officinalis,Farm_B_1,0.05
+Veronica officinalis,Farm_B_2,0.01
+Veronica officinalis,Farm_B_5,0.1
+Veronica officinalis,Farm_B_6,0.1
+Veronica officinalis,Communal_2,0.5
+Veronica officinalis,Farm_C_6,0.1
+Veronica officinalis,Farm_D_3,0.3
+Veronica officinalis,Farm_D_5,0.5
+Veronica officinalis,Communal_5,0.05
+Veronica officinalis,Farm_E_1,0.3
+Veronica officinalis,Farm_E_7,0.2
+Veronica prostrata,Farm_A_6,1
+Veronica prostrata,Farm_A_10,0.1
+Veronica prostrata,Farm_A_13,0.5
+Veronica prostrata,Farm_B_6,0.1
+Veronica prostrata,Farm_C_9,1
+Veronica prostrata,Farm_C_10,0.3
+Veronica prostrata,Farm_D_5,0.3
+Veronica prostrata,Farm_D_6,0.001
+Veronica serpyllifolia,Farm_A_1,0.01
+Veronica serpyllifolia,Farm_A_2,0.05
+Vicia cracca,Farm_A_2,0.2
+Vicia cracca,Farm_A_3,0.02
+Vicia cracca,Farm_A_4,10
+Vicia cracca,Farm_A_8,1
+Vicia cracca,Farm_A_13,0.3
+Vicia cracca,Farm_B_1,0.3
+Vicia cracca,Farm_B_2,2
+Vicia cracca,Farm_B_3,0.1
+Vicia cracca,Farm_B_6,0.1
+Vicia cracca,Farm_B_7,0.1
+Vicia cracca,Farm_C_10,0.05
+Vicia cracca,Farm_D_3,0.01
+Vicia cracca,Farm_D_6,0.001
+Vicia cracca,Farm_E_5,3
+Vicia grandiflora,Farm_A_4,0.3
+Vicia sativa subsp. nigra,Farm_A_1,0.01
+Vicia sativa subsp. nigra,Farm_A_3,0.01
+Vicia sativa subsp. nigra,Farm_A_4,2
+Vicia sativa subsp. nigra,Farm_A_5,0.05
+Vicia sativa subsp. nigra,Farm_A_6,0.001
+Vicia sativa subsp. nigra,Farm_A_7,0.1
+Vicia sativa subsp. nigra,Farm_A_8,0.1
+Vicia sativa subsp. nigra,Farm_A_10,0.001
+Vicia sativa subsp. nigra,Farm_B_1,0.1
+Vicia sativa subsp. nigra,Farm_B_2,0.01
+Vicia sativa subsp. nigra,Farm_B_3,2
+Vicia sativa subsp. nigra,Farm_C_1,0.2
+Vicia sativa subsp. nigra,Farm_C_3,0.01
+Vicia sativa subsp. nigra,Farm_C_8,0.1
+Vicia sativa subsp. nigra,Farm_C_10,0.5
+Vicia sativa subsp. nigra,Farm_E_1,0.1
+Vicia sativa subsp. nigra,Farm_E_5,0.01
+Vincetoxicum hirundinaria,Communal_5,0.001
+Viola canina,Farm_A_3,1.5
+Viola canina,Farm_A_8,1
+Viola canina,Communal_1,0.5
+Viola canina,Farm_B_1,0.3
+Viola canina,Farm_B_2,1
+Viola canina,Farm_B_3,4
+Viola canina,Farm_B_4,4
+Viola canina,Farm_B_5,0.2
+Viola canina,Farm_B_7,3
+Viola canina,Farm_C_3,1
+Viola canina,Farm_C_6,0.1
+Viola canina,Farm_D_1,0.1
+Viola canina,Farm_D_4,1
+Viola canina,Farm_D_8,0.01
+Viola canina,Farm_D_10,0.5
+Viola canina,Farm_E_4,0.5
+Viola canina,Farm_E_6,0.5
+Viola canina,Farm_F_2,0.8
+Viola hirta,Farm_A_3,0.3
+Viola hirta,Farm_A_4,0.5
+Viola hirta,Farm_A_7,0.5
+Viola hirta,Farm_A_8,1.5
+Viola hirta,Farm_A_10,1
+Viola hirta,Farm_A_13,0.1
+Viola hirta,Farm_B_1,0.1
+Viola hirta,Farm_B_3,0.2
+Viola hirta,Farm_B_5,0.1
+Viola hirta,Farm_B_6,1
+Viola hirta,Farm_B_7,0.5
+Viola hirta,Communal_2,0.1
+Viola hirta,Farm_C_1,0.1
+Viola hirta,Farm_C_8,0.2
+Viola hirta,Farm_D_1,0.5
+Viola hirta,Communal_3,0.3
+Viola hirta,Farm_D_4,0.3
+Viola hirta,Farm_D_5,0.1
+Viola hirta,Farm_D_6,0.3
+Viola hirta,Farm_D_8,0.5
+Viola hirta,Farm_E_2,0.1
+Viola hirta,Farm_E_3,3
+Viola hirta,Farm_E_4,2
+Viola hirta,Farm_E_5,0.1
+Viola hirta,Farm_E_6,0.1
+Viola hirta,Farm_E_7,0.2
+Viola tricolor,Farm_B_3,0.1
+Viola tricolor,Farm_C_1,0.01
+Viola tricolor,Farm_F_1,1

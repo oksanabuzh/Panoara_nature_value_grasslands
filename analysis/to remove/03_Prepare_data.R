@@ -15,12 +15,12 @@ library(multcomp)
 
 # Read data, tidying data  ----
 
-Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
+Diver_NMDS_dat <- read_csv("data/to_remove/Diversity_&_NMDS_data.csv")
 
-Plant_nutr_dat <- read_csv("data/Biomass_nutrients.csv") %>% 
+Plant_nutr_dat <- read_csv("data/to_remove/Biomass_nutrients.csv") %>% 
   mutate(Parcel_name=str_replace_all(Parcel_name, " ", "_"))
 
-Variables <- read_csv("data/Variables_selected.csv") %>% 
+Variables <- read_csv("data/to_remove/Variables_selected.csv") %>% 
   rename(Plant_SR_total = "number of all plants",
          Plant_SR_vascular = "number of vascular plants_10 m2",
          Plant_SR_cryptogams = "number of cryptogams_10 m2",
@@ -124,7 +124,7 @@ Dat %>% filter(SR_Exper != SR_D_E_exper) %>%
   pull(SR_Exper, SR_D_E_exper)
 
 
-write_csv(Dat, "data/Panoara_Dat.csv")
+write_csv(Dat, "data/to_remove/Panoara_Dat.csv")
 
 # Check data----
 
@@ -353,9 +353,9 @@ Dat %>% pull(D_E_exp_type) %>% unique()
 
 
 
-Panoara_Dat <- read_csv("data/Panoara_Dat.csv")
+Panoara_Dat <- read_csv("data/to_remove/Panoara_Dat.csv")
 
-Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
+Diver_NMDS_dat <- read_csv("data/to_remove/Diversity_&_NMDS_data.csv")
 
 
 names(dat)
@@ -396,9 +396,12 @@ dat <- Panoara_Dat %>%
                 humus, soil_CN, soil_P_acces, soil_K_acces) %>% 
     left_join(Diver_NMDS_dat %>% 
                 dplyr::select(Parcel_name, CoverVP_field, 
-                              abundance_Exper, SR_Exper), by="Parcel_name") %>% 
+                              abundance_Exper, SR_Exper,
+                              EvennessVP_field, ShannonVP_field), by="Parcel_name") %>% 
     rename(Plant_SR_field=Plant_SR_vascular,
            Plant_cover_field=CoverVP_field,
+           Plant_Evenness_field=EvennessVP_field, 
+           Plant_Shannon_field=ShannonVP_field,
            Plant_SR_exper=SR_Exper,
            Plant_abundance_exper=abundance_Exper) %>% 
   relocate(c("Plant_cover_field","Plant_SR_exper","Plant_abundance_exper", "Dung_for_experiment"),
