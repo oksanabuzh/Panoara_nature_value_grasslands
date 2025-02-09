@@ -29,16 +29,7 @@ Variables <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
 
 summary(Variables)
 
-Variables_dat <- compos_VP_field  %>% 
-  left_join(Variables, by="Parcel_name")
 
-summary(compos_VP_field)
-
-which(is.na(Variables %>% 
-              dplyr::select(-Parcel_name)))
-
-
-# read data
 Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>%
   mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
 
