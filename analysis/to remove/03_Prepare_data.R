@@ -363,7 +363,7 @@ Dat %>% pull(D_E_exp_type) %>% unique()
 
 Panoara_Dat <- read_csv("data/to_remove/Panoara_Dat.csv")
 
-Diver_NMDS_dat <- read_csv("data/to_remove/Diversity_&_NMDS_data.csv")
+Diver_dat <- read_csv("data/to_remove/Diver_data.csv")
 
 
 names(dat)
@@ -404,7 +404,7 @@ dat <- Panoara_Dat %>%
                 Burning,
                 
                 humus, soil_CN, soil_P_acces, soil_K_acces) %>% 
-    left_join(Diver_NMDS_dat %>% 
+    left_join(Diver_dat %>% 
                 dplyr::select(Parcel_name, CoverVP_field, 
                               abundance_Exper, SR_Exper,
                               EvennessVP_field, ShannonVP_field), by="Parcel_name") %>% 
@@ -421,7 +421,7 @@ dat <- Panoara_Dat %>%
                                   .default = Plant_SR_exper),
          Plant_abundance_exper=case_when(is.na(Plant_abundance_exper) & 
                                     Dung_for_experiment==1 ~ 0,
-                                  .default = Plant_SR_exper)) %>% 
+                                  .default = Plant_abundance_exper)) %>% 
   mutate(Farm=case_when(Farm=="C" ~ "Com",
                         Farm=="V" ~ "A",
                         Farm=="I" ~ "B",
@@ -431,7 +431,8 @@ dat <- Panoara_Dat %>%
                         Farm=="O" ~ "F"))
 
   
-
+dat %>% 
+  pull(Plant_abundance_exper, Dung_for_experiment)
 
 
 write_csv(dat, "data/Divers_LandUse_Soil_Variables.csv")

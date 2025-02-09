@@ -14,7 +14,7 @@ library(piecewiseSEM)
 library("viridis")          
 
 
-# set thepe for plots
+# set theme for plots
 set_theme(base = theme_bw(),
           axis.textsize.x = 1, axis.textsize.y = 1, axis.textcolor = "black",
           axis.title.color = "black", axis.title.size = 1.4,
@@ -22,7 +22,7 @@ set_theme(base = theme_bw(),
 
 
 # Read data  ----
-Dat <- read_csv("data/Panoara_Dat.csv") %>%
+Dat <- read_csv("data/to_remove/Panoara_Dat.csv") %>%
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
   arrange(Mowing_delay) %>% 
