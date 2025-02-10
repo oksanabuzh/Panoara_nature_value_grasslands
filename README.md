@@ -80,9 +80,8 @@ tested in the SEM, produced by analysis/`5.1_SEM_SpRich.R`
 tested in the SEM, produced by analysis/`5.2_SEM_NMDS.R`
 - `SEM_SR_coefs.csv`: the estimates from the SEM, produced by analysis/`5.1_SEM_SpRich.R`
 - `SEM_SR_coefs_Indirect.csv`: indirect effects from the SEM, produced by analysis/`5.1_SEM_SpRich.R`
-
-- `SEM_SR_coefs.csv`: the estimates from the SEM, produced by analysis/`5.1_SEM_SpRich.R`
-- `SEM_SR_coefs_Indirect.csv`: indirect effects from the SEM, produced by analysis/`5.1_SEM_SpRich.R`
+- `SEM_NMDS_coefs.csv`: the estimates from the SEM, produced by analysis/`5.2_SEM_NMDS.R`
+- `SEM_NMDS_coefs_Indirect.csv`: indirect effects from the SEM, produced by analysis/`5.2_SEM_NMDS.R`
 
 ## Other Files
 
