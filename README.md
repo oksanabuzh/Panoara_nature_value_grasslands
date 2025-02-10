@@ -29,7 +29,7 @@ Panoara.Rproj
 
 ## R Files
 
-### Folder `analysis`
+### Folder [`analysis`](analysis)
 
 In this folder, the raw data is prepared for analysis and the analysis is performed
 
@@ -45,7 +45,7 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 
 ## Data files
 
-### Folder `data`
+### Folder [`data`](data)
 
 This folder contains the raw data files and the the processed data files. For details see  [data/README](data) 
 
@@ -61,7 +61,7 @@ Processed files:
 
 ## Results files
 
-### Folder `results`
+### Folder [`results`](results)
 
 - `PERMANOVA_Field_Data.csv`- results of PERMANOVA analysis for field data, produced by analysis/`2.0_NMDS.R`.
 - `PERMANOVA_Experiment.csv`- results of PERMANOVA analysis for seed-experiment data, produced by analysis/`2.0_NMDS.R`.
