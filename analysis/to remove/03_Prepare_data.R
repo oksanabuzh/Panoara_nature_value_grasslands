@@ -102,8 +102,8 @@ Variables <- read_csv("data/to_remove/Variables_selected.csv") %>%
          Last_ploughing =case_when(Last_ploughing=="no" ~ "60", 
                                    .default = as.character(Last_ploughing)))%>% 
   mutate(Dung_for_experiment=case_when( # dung found on the field for experiment or not
-    is.na(SR_D_E_exper) ~ 0,
-    !is.na(SR_D_E_exper) ~ 1)) %>% 
+    is.na(SR_D_E_exper) ~ 0, # dung was not found on the field, thus no experiment was done
+    !is.na(SR_D_E_exper) ~ 1)) %>%  # dung was found on the field, thus experiment was done
   mutate(experiment=
            case_when(D_E_exp_categ_2=="n" ~ NA,
                      D_E_exp_categ_2=="c+s" & D_E_exp_categ=="dung_excr" ~ "cow & sheep dung/manure",
