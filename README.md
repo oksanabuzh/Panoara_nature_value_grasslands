@@ -23,10 +23,7 @@ analysis/
     4.1_GLMMs_Field.R
     4.2_GLMMs_Seed_Exper
     4.3_GLMMs_R2_plot
-    06.1_SEM_SpRich.R
-    06.2_SEM_NMDS.R
-    06.3_SEM_R2_plot.R
-results/
+   results/
 Panoara.Rproj
 ```
 
@@ -35,7 +32,6 @@ Panoara.Rproj
 ### Folder `analysis`
 
 In this folder, the raw data is prepared for analysis and the analysis is performed
-
 
 - `1.0_PCA_soil.R`: performs PCA for soil data
 - `2.0_NMDS.R`: calculates community composition (NMDS) for each plot, performs the PERMANOVA analysis and ordination plots.
