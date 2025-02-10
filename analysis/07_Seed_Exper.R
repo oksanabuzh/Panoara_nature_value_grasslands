@@ -40,7 +40,7 @@ Dat %>%
   pull(Plant_abundance_exper)
 
 
-# Species Richness (Dung Experiment Data) -------------------------------------
+# GLMMs Species Richness (Dung Experiment Data) -------------------------------------
 
 m1_SR_exp <- glmer (Plant_SR_exper ~   Plant_abundance_exper + (1|Farm), 
                     family = "poisson", 
@@ -71,7 +71,7 @@ ggplot(SR_exp_pred, aes(x, predicted)) +
 
 
 
-# Abundance (Dung Experiment Data) --------------------------------------------
+# GLMMs Abundance (Dung Experiment Data) --------------------------------------------
 
 
 m1_Abund_exp <- glmer (Plant_abundance_exper ~  log(Grazing_intensity_A+1) + 

@@ -1,4 +1,4 @@
-# Purpose: GLMMs for Species Richness (SR)
+# Purpose: GLMMs for Species Richness (SR) from the field data
 
 rm(list = ls())
 
@@ -25,16 +25,16 @@ library(viridis)
 
 
 
-# data  ----
+# data  ------------------------------------------------------------------------
 
 Soil_PC <- read_csv("data/soil_NPK_PCA.csv")  %>% 
    mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
  
-Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
+NMDS_dat <- read_csv("data/NMDS_data.csv")
+NMDS_dat
 
-
-Dat <- read_csv("data/LandUse_soil_variables.csv") %>%
-  left_join(Diver_NMDS_dat, by="Parcel_name") %>% 
+Dat <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
+  left_join(NMDS_dat, by="Parcel_name") %>% 
   left_join(Soil_PC, by="Parcel_name") %>% 
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
@@ -49,9 +49,7 @@ Dat <- read_csv("data/LandUse_soil_variables.csv") %>%
          Manuring_freq_log = log1p(Manuring_freq),
          Corralling=case_when(Corralling=="0" ~ "no", 
                               Corralling=="1" ~ "yes")) %>% 
-  mutate(humus_log=log1p(humus)) %>% 
-  mutate(Ploughing=1/Last_ploughing) %>% 
-  rename("Plant_SR_vascular"="SR_VP_field")
+  mutate(humus_log=log1p(humus))
 
 
 str(Dat)
@@ -59,7 +57,7 @@ names(Dat)
 
 
 Dat <- Dat %>% 
-  mutate(zz = Plant_SR_vascular) # for predicting from the glmmPQL models
+  mutate(zz = Plant_SR_field) # for predicting from the glmmPQL models
 
 
 
@@ -67,7 +65,7 @@ Dat <- Dat %>%
 
 # GLMM models -----
 ##(1) Habitat, mang. stability , soil----
-m_SR_1 <- glmer(Plant_SR_vascular ~  habitat_corrected + 
+m_SR_1 <- glmer(Plant_SR_field ~  habitat_corrected + 
                   Management_stability +
                   humus_log + soil_NPK+
                 (1|Farm), family = "poisson", data = Dat) 
@@ -81,7 +79,7 @@ check_overdispersion(m_SR_1) # Overdispersion detected.
 
 
 
-m_SR_6 <- glmer(Plant_SR_vascular ~  
+m_SR_6 <- glmer(Plant_SR_field ~  
                   # Grazing_int_log +
                   Grazing_legacy + 
                   poly(Mowing_frequency, 2)  +
@@ -96,7 +94,7 @@ check_collinearity(m_SR_6)
 check_overdispersion(m_SR_6)
 
 
-m_SR_6b <- glmer.nb(Plant_SR_vascular ~  
+m_SR_6b <- glmer.nb(Plant_SR_field ~  
                       # Grazing_int_log +
                       Grazing_legacy + 
                       poly(Mowing_frequency, 2)  +
@@ -106,7 +104,7 @@ m_SR_6b <- glmer.nb(Plant_SR_vascular ~
 
 
 # Change family to negative binomial
-m_SR_1b <- glmer.nb(Plant_SR_vascular ~ 
+m_SR_1b <- glmer.nb(Plant_SR_field ~ 
             habitat_corrected +
              Management_stability +
               humus_log + soil_NPK+
@@ -133,7 +131,7 @@ emmeans_m1_habitat <- cld(emmeans(m_SR_1b, list(pairwise ~ habitat_corrected)),
                           Letters = letters) %>% arrange(habitat_corrected)
 emmeans_m1_habitat
 
-ggplot(Dat, aes(habitat_corrected, Plant_SR_vascular)) + 
+ggplot(Dat, aes(habitat_corrected, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(aes(fill = Grazer_type, size=Grazing_intensity_A),
              alpha=0.7, pch=21, # size=4, #fill="gray", 
@@ -157,7 +155,7 @@ m_SR_2_mowing_pred <- get_model_data(m_SR_1b,type = "pred", terms="Management_st
 
 ggplot(m_SR_2_mowing_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat, aes(Management_stability, Plant_SR_vascular, fill = habitat_corrected), 
+  geom_point(data=Dat, aes(Management_stability, Plant_SR_field, fill = habitat_corrected), 
              size=3, alpha=1, pch=21,
              position=position_jitter(width=0.05, height=0))+
   scale_fill_manual(values=c("forestgreen", "orange"))+
@@ -182,7 +180,7 @@ m_SR_1b_humus_pred <- get_model_data(m_SR_1b,type = "pred",
 ggplot(m_SR_1b_humus_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
   geom_point(data=Dat,
-             aes(humus_log, Plant_SR_vascular), 
+             aes(humus_log, Plant_SR_field), 
              size=3, alpha=0.7, pch=21, fill ="#64ABCE")+
   # scale_fill_viridis(discrete=TRUE, option = "D")+
   labs(y="Species richness", x='Humus', fill="Grazer type")+
@@ -198,7 +196,7 @@ m_SR_1b_soil_NPK_pred <- get_model_data(m_SR_1b,type = "pred",
 ggplot(m_SR_1b_soil_NPK_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
   geom_point(data=Dat,
-             aes(soil_NPK, Plant_SR_vascular), 
+             aes(soil_NPK, Plant_SR_field), 
              size=3, alpha=0.7, pch=21, fill ="#64ABCE")+
   # scale_fill_viridis(discrete=TRUE, option = "D")+
   labs(y="Species richness", x='Soil NPK', fill="Grazer type")+
@@ -214,7 +212,7 @@ m_SR_1_legac <- get_model_data(m_SR_1b, type = "pred",
 ggplot(m_SR_1_legac, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
   geom_point(data=Dat,
-             aes(Grazing_legacy, Plant_SR_vascular, fill=Grazer_type), 
+             aes(Grazing_legacy, Plant_SR_field, fill=Grazer_type), 
              size=3, alpha=0.7, pch=21)+
   scale_fill_viridis(discrete=TRUE, option = "D")+
   labs(y="Species richness", x='Grazing legacy', fill= "Grazer type")+
@@ -238,7 +236,7 @@ plot(R2_part_m_SR_1b)
 
 # (2) Grazing, Mowing----
 
-m_SR_2 <- glmer(Plant_SR_vascular ~  
+m_SR_2 <- glmer(Plant_SR_field ~  
                   Grazing_int_log +
                   #  poly(Grazing_int_log , 2)  +
                   poly(Mowing_frequency, 2)  +
@@ -256,7 +254,7 @@ plot_model(m_SR_2, type = "pred", terms = c("Mowing_frequency"), show.data=T, do
 
 
 # check for hump-shape for grazing:
-m_SR_2b <- glmer(Plant_SR_vascular ~  
+m_SR_2b <- glmer(Plant_SR_field ~  
                    #  Grazing_int_log +
                    poly(Grazing_int_log , 2)  +
                    poly(Mowing_frequency, 2)  +
@@ -273,7 +271,7 @@ m_SR_2_mowing_pred <- get_model_data(m_SR_2,type = "pred", terms="Mowing_frequen
 
 ggplot(m_SR_2_mowing_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat, aes(Mowing_frequency, Plant_SR_vascular, fill = Mowing_delay), 
+  geom_point(data=Dat, aes(Mowing_frequency, Plant_SR_field, fill = Mowing_delay), 
              size=3, alpha=0.5, pch=24,
              position=position_jitter(width=0.05, height=0))+
   scale_fill_manual(values=c("blue", "red", "green"))+
@@ -293,7 +291,7 @@ m_SR_2_graz_pred <- get_model_data(m_SR_2,type = "pred",
 ggplot(m_SR_2_graz_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
   geom_point(data=Dat,
-             aes(Grazing_int_log, Plant_SR_vascular, fill = Grazer_type), 
+             aes(Grazing_int_log, Plant_SR_field, fill = Grazer_type), 
              size=3, alpha=0.7, pch=21)+
   scale_fill_viridis(discrete=TRUE, option = "D")+
   labs(y="Species richness", x='Grazing intensity', fill="Grazer type")+
@@ -317,7 +315,7 @@ plot(R2_part_m_SR_2)
 
 #  (3) Grazer_type & Mowing_delay ----
 
-m_SR_3 <- glmer(Plant_SR_vascular ~  
+m_SR_3 <- glmer(Plant_SR_field ~  
                   Grazer_type +
                   Mowing_delay + 
                   (1|Farm), family = "poisson", data = Dat) 
@@ -334,7 +332,7 @@ check_collinearity(m_SR_3)
 
 
 
-m_SR_3b <- glmer.nb(Plant_SR_vascular ~ 
+m_SR_3b <- glmer.nb(Plant_SR_field ~ 
                      # Grazing_int_log +
                       Grazer_type +
                       #  Grazing_type +
@@ -352,7 +350,7 @@ summary(m_SR_3b)
 
 # test Grazing_int_log as covariate
 
-m_SR_3b_2 <- glmer.nb(Plant_SR_vascular ~ 
+m_SR_3b_2 <- glmer.nb(Plant_SR_field ~ 
                   Grazing_int_log +
                       Grazer_type +
                  # poly(Mowing_frequency, 2) # The effect of mowing delay correlates strongly with the mowing frequency (not possible to fit both in the same model → high singularity) 
@@ -370,7 +368,7 @@ emmeans_m_SR_3b_Grazer_type <- cld(emmeans(m_SR_3b, list(pairwise ~ Grazer_type)
                                    Letters = letters, test="Tukey") %>% arrange(Grazer_type)
 emmeans_m_SR_3b_Grazer_type
 
-ggplot(Dat, aes(Grazer_type, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Grazer_type, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(aes(fill = Grazer_type,size=Grazing_intensity_A), alpha=0.7, pch=21,
              position=position_jitter(width = 0.05, height = 0)) +
@@ -394,7 +392,7 @@ emmeans_m_SR_3b_Mowing_delay <- cld(emmeans(m_SR_3b, list(pairwise ~ Mowing_dela
                                     Letters = letters, test="Tukey") %>% arrange(Mowing_delay)
 emmeans_m_SR_3b_Mowing_delay
 
-ggplot(Dat, aes(Mowing_delay, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Mowing_delay, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(aes(fill = Mowing_delay,size=Mowing_frequency), alpha=0.5, pch=24,
              position=position_jitter(width = 0.05, height = 0)) +
@@ -427,7 +425,7 @@ plot(R2_part_m_SR_3b)
 # (4) Grazing_type, Grazing_season  ----
 
 
-m_SR_4 <- glmer(Plant_SR_vascular ~  
+m_SR_4 <- glmer(Plant_SR_field ~  
                   Grazing_int_log +
                   Grazing_type +
                   Grazing_season +
@@ -446,7 +444,7 @@ check_collinearity(m_SR_4)
 
 
 
-m_SR_4b <- glmer.nb(Plant_SR_vascular ~ 
+m_SR_4b <- glmer.nb(Plant_SR_field ~ 
                      Grazing_int_log +
                        Grazing_type +
                        Grazing_season +
@@ -467,7 +465,7 @@ emmeansm_SR_4b_Grazing_season <- cld(emmeans(m_SR_4b, list(pairwise ~ Grazing_se
 emmeansm_SR_4b_Grazing_season
 
 
-ggplot(Dat, aes( Grazing_season, Plant_SR_vascular)) + 
+ggplot(Dat, aes( Grazing_season, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(aes(fill = Grazer_type,size=Grazing_intensity_A), 
              alpha=0.7,  pch=21,
@@ -487,7 +485,7 @@ ggplot(Dat, aes( Grazing_season, Plant_SR_vascular)) +
 
 
 
-ggplot(Dat, aes( Grazing_season, Plant_SR_vascular)) + 
+ggplot(Dat, aes( Grazing_season, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(aes(fill = Grazer_type,size=Grazing_intensity_A,
                  shape=Grazing_type), alpha=0.7, # pch=21,
@@ -510,7 +508,7 @@ emmeansm_SR_4b_Grazing_type <- cld(emmeans(m_SR_4b, list(pairwise ~ Grazing_type
                                      Letters = letters, test="Tukey") %>% arrange(Grazing_type)
 emmeansm_SR_4b_Grazing_type
 
-ggplot(Dat, aes( Grazing_type, Plant_SR_vascular)) + 
+ggplot(Dat, aes( Grazing_type, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(aes(fill = Grazer_type,size=Grazing_intensity_A),  pch=21, alpha=0.7,
              position=position_jitter(width = 0.05, height = 0)) +
@@ -543,7 +541,7 @@ plot(R2_part_m_SR_4b)
 
 # (5) Cleaning, manuring  ------
 
-m_SR_5.1.a <- glmer(Plant_SR_vascular ~  
+m_SR_5.1.a <- glmer(Plant_SR_field ~  
                    Ploughing + # Crops_planted + # correlates with Last_ploughing
                    Shrub_tree_removal + # Cleaning +  # Shrub_tree_removal  correlates with Anthill_leveling
                    Litter_removal +
@@ -564,7 +562,7 @@ Anova(m_SR_5.1.a)
 check_collinearity(m_SR_5.1.a)
 check_overdispersion(m_SR_5.1.a)
 
-m_SR_5b_1 <- glmer.nb(Plant_SR_vascular ~  
+m_SR_5b_1 <- glmer.nb(Plant_SR_field ~  
                          Ploughing + # Crops_planted + # correlates with Last_ploughing
                          Shrub_tree_removal + # Cleaning +  # Shrub_tree_removal  correlates with Anthill_leveling
                          Litter_removal +
@@ -580,7 +578,7 @@ Anova(m_SR_5b_1)
 
 # test for the Anthill_leveling instead of Shrub_tree_removal
 
-m_SR_5b_2 <- glmer.nb(Plant_SR_vascular ~  
+m_SR_5b_2 <- glmer.nb(Plant_SR_field ~  
                         Ploughing + # Crops_planted + # correlates with Last_ploughing
                       #  Shrub_tree_removal + # Cleaning +  # Shrub_tree_removal  correlates with Anthill_leveling
                         Litter_removal +
@@ -630,7 +628,7 @@ emmeans_m_SR_5_Litter <- cld(emmeans(m_SR_5b_1, list(pairwise ~ Litter_removal))
                                     Letters = letters, test="Tukey") %>% arrange(Litter_removal)
 emmeans_m_SR_5_Litter
 
-ggplot(Dat, aes(Litter_removal, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Litter_removal, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.6, pch=21, size=3,
              position=position_jitter(width = 0.05, height = 0),
@@ -656,7 +654,7 @@ emmeans_m_SR_5_Corralling <- cld(emmeans(m_SR_5b_1, list(pairwise ~ Corralling))
                                   Letters = letters, test="Tukey") %>% arrange(Corralling)
 emmeans_m_SR_5_Corralling
 
-ggplot(Dat, aes(Corralling, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Corralling, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.6, pch=21, size=3,
              position=position_jitter(width = 0.05, height = 0),
@@ -680,7 +678,7 @@ emmeans_m_SR_5_shrub <- cld(emmeans(m_SR_5b_1, list(pairwise ~ Shrub_tree_remova
                                      Letters = letters, test="Tukey") %>% arrange(Shrub_tree_removal)
 emmeans_m_SR_5_shrub
 
-ggplot(Dat, aes(Shrub_tree_removal, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Shrub_tree_removal, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.6, pch=21, size=3,
              position=position_jitter(width = 0.05, height = 0),
@@ -702,7 +700,7 @@ emmeans_m_SR_5_Anthill <- cld(emmeans(m_SR_5b_2, list(pairwise ~ Anthill_levelin
                               Letters = letters, test="Tukey") %>% arrange(Anthill_leveling)
 emmeans_m_SR_5_Anthill
 
-ggplot(Dat, aes(Anthill_leveling, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Anthill_leveling, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.6, pch=21, size=3, fill ="#64ABCE",
              position=position_jitter(width = 0.05, height = 0))  +
@@ -725,7 +723,7 @@ min(Dat$Ploughing)
 
 ggplot(m_SR_5_plough_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat, aes(Ploughing, Plant_SR_vascular), 
+  geom_point(data=Dat, aes(Ploughing, Plant_SR_field), 
              size=3, alpha=0.5, pch=21, fill ="#64ABCE",
              position=position_jitter(width=0.01, height=0))+
   # scale_fill_manual(values=c("blue", "red", "green"))+
@@ -741,7 +739,7 @@ emmeans_m_SR_5_Moss <- cld(emmeans(m_SR_5b_1, list(pairwise ~ Moss_removal)),
                                 Letters = letters, test="Tukey") %>% arrange(Moss_removal)
 emmeans_m_SR_5_Moss
 
-ggplot(Dat, aes(Moss_removal, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Moss_removal, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.6, pch=21, size=3,
              position=position_jitter(width = 0.05, height = 0),
@@ -766,7 +764,7 @@ emmeans_m_SR_5_Burning <- cld(emmeans(m_SR_5b_1, list(pairwise ~ Burning)),
 
 emmeans_m_SR_5_Burning
 
-ggplot(Dat, aes(Burning, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Burning, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.6, pch=21, size=3,
              position=position_jitter(width = 0.05, height = 0),
@@ -789,7 +787,7 @@ m_SR_5_Manuring_pred <- get_model_data(m_SR_5b_1,type = "pred", terms="Manuring_
 
 ggplot(m_SR_5_Manuring_pred, aes(x, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1)+
-  geom_point(data=Dat, aes(Manuring_freq, Plant_SR_vascular), 
+  geom_point(data=Dat, aes(Manuring_freq, Plant_SR_field), 
              size=3, alpha=0.5, pch=21, fill ="#64ABCE",
              position=position_jitter(width=0.01, height=0))+
   # scale_fill_manual(values=c("blue", "red", "green"))+
@@ -808,7 +806,7 @@ emmeans_m_SR_5_Cow_dung  <- cld(emmeans(m_SR_5b_1, list(pairwise ~ Cow_dung_appl
                                Letters = letters, test="Tukey") %>% arrange(Cow_dung_applied)
 emmeans_m_SR_5_Cow_dung
 
-ggplot(Dat, aes(Cow_dung_applied, Plant_SR_vascular)) + 
+ggplot(Dat, aes(Cow_dung_applied, Plant_SR_field)) + 
   geom_boxplot(outlier.shape = NA, notch = F)+
   geom_point(alpha=0.6, pch=21, size=3,
              position=position_jitter(width = 0.05, height = 0),

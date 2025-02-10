@@ -40,7 +40,7 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 - `1.0_PCA_soil.R`: performs PCA for soil data
 - `2.0_NMDS.R`: calculates community composition (NMDS) for each plot, performs the PERMANOVA analysis and ordination plots.
 - `3.0_Summary_Statistics.R`: summarizes data and calculates summary statistics and correlations among the measures of plant community (using GLMMs)
-- `05_GLMMs.R`: performs the GLMM analysis for plant species richness (field data).
+- `05_GLMMs.R`: performs the GLMM analysis for plant species richness for the field data.
 - `06.1_SEM_SpRich.R`: performs the SEM analysis, calculates direct & indirect effects 
 for species richness 
 - `06.2_SEM_NMDS.R`: performs the SEM analysis, calculates direct & indirect effects
