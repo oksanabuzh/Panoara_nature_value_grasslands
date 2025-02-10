@@ -42,8 +42,6 @@ Dat <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
   arrange(Mowing_delay) %>% 
   mutate(Cleaning=fct_relevel(Cleaning,c("no","irregular","regular"))) %>%
   mutate(Dung_cover_log=log(Dung_cover+1)) %>% 
-#  mutate(SR_D_E_exper=case_when(is.na(SR_D_E_exper) ~ 0, .default=SR_D_E_exper),
-#        Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A),
          Grazing_legacy =log1p(Grazing_intensity_B),
          Manuring_freq_log = log1p(Manuring_freq),
