@@ -10,8 +10,8 @@ Contains data that are used for analysis
 | ------------------------------------------ |----------------------------------------- |
 |`Community_composition_VegetationPlots.csv` | Community matrix for plant species composition at the field farm parcels     |
 |`Community_composition_DungExperiment.csv`  | Community matrix for plant species composition germinated at  seed experiment     |
-|`NMDS_data.csv`                 | Community composition NMDS scores from the [NMDS analysis](2.0_NMDS.R)    |
-|`soil_NPK_PCA.csv`                               | scores from the [PCA analysis](Panoara_nature_value_grasslands/analysis/1.0_PCA_soil.R)  |     
+|`NMDS_data.csv`                 | Community composition NMDS scores from the [NMDS analysis](../analysis/2.0_NMDS.R)    |
+|`soil_NPK_PCA.csv`                               | scores from the [PCA analysis](../analysis/1.0_PCA_soil.R)  |     
 |`Divers_LandUse_Soil_Variables.csv`                | biodiversity, land use and soil variables | 
 
 
@@ -43,7 +43,7 @@ Contains plant species composition germinated at the seed experiment
 
 
 ### ->  `NMDS_data.csv`
-Contains NMDS scores from the [NMDS analysis](analysis/2.0_NMDS.R) 
+Contains NMDS scores from the [NMDS analysis](../analysis/2.0_NMDS.R) 
 
 #### Variables:			
 |Short name	| type |	Long name	| Description |
