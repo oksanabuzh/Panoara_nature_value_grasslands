@@ -1,8 +1,8 @@
-# Purpose:  Perform Structural Equation Modelling for Species richness (as main response)
+# Purpose:  Perform Structural Equation Modelling for species composition (NMDS as main response)
 
 
 
-# load packages ----
+# load packages ----------------------------------------------------------------
 library(tidyverse)
 library(ggplot2)
 library(performance)
@@ -15,7 +15,7 @@ library(piecewiseSEM)
 library(sjPlot)
 
 
-# data ----
+# data -------------------------------------------------------------------------
 
 ## soil PC data
 
@@ -23,7 +23,8 @@ Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>%
   mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
 
 
-# Biodiversity, NMDS and envoronmental data
+# NMDS and environmental data
+
 Data <- read_csv("data/Panoara_Dat.csv") %>%
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
