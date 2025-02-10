@@ -49,13 +49,6 @@ Dat <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
 # Data wrangling
 SEM.dat <- Dat %>% filter(!Parcel_name=="Farm_F_1") %>%  # extreme outlyer
   filter(!Dung_for_experiment==0) %>% # remove cases when dung was not found on the field, thus no experiment was done
-  
-#  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
-#         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
-#         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
-#         Evenness_Exper=case_when(is.na(Evenness_Exper) ~ 0, .default=Evenness_Exper),
-#         Shannon_Exper=case_when(is.na(Shannon_Exper) ~ 0, .default=Shannon_Exper)) %>% 
-# filter(!is.na(SR_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
   mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
                                 Mowing_delay=="July-August" ~ 1,
@@ -299,6 +292,7 @@ fisherC(psem_model, .progressBar =F,  conserve = TRUE)
 write_csv(coefic, "results/SEM_NMDS_coefs.csv")
 
 
+# Rough draft of the plot (dirty plot)
 
 plot(psem_model, digits=2, layout = "dot", 
      node_attrs = list(shape = "rectangle", 
@@ -473,7 +467,7 @@ Coefs_summar_sum$Effect_type
 write_csv(Coefs_summar_sum, "results/SEM_NMDS_coefs_Indirect.csv")
 
 # Plots ----
-Coefs_summar_sum <- read_csv("results/SEM_NMDS_coefs_Indirect.csv") %>% 
+Coefs_summar_sum  %>% 
   mutate(Effect_type=fct_relevel(Effect_type, 
                                  c("Indirect through soil properties", 
                                    "Indirect through seed dispersal" ,
