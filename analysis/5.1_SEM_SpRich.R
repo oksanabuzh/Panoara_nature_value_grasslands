@@ -21,8 +21,12 @@ library(sjPlot)
 Soil_PC <- read_csv("data/soil_NPK_PCA.csv")  %>% 
   mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
 
+## NMDS data
+
 NMDS_dat <- read_csv("data/NMDS_data.csv")
 NMDS_dat
+
+## Environmental data
 
 Data <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
   left_join(NMDS_dat, by="Parcel_name") %>% 
@@ -44,9 +48,6 @@ Data <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
 SEM.dat <- Data %>% filter(!Parcel_name=="Farm_F_1") %>%  # extreme outlyer
   filter(!Dung_for_experiment==0) %>% # remove cases when dung was not found on the field, thus no experiment was done
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
-#  mutate(Plant_SR_exper=case_when(is.na(Plant_SR_exper) ~ 0, .default=Plant_SR_exper),
-#         Plant_abundance_exper=case_when(is.na(Plant_abundance_exper) ~ 0, 
-#                                         .default=Plant_abundance_exper)) %>% 
   mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
                                 Mowing_delay=="July-August" ~ 1,
                                 Mowing_delay=="June" ~ 2)) %>% 
