@@ -47,7 +47,7 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 
 ### Folder `data`
 
-This folder contains the raw data files and the the processed data files. For details see  [data/README](/data) 
+This folder contains the raw data files and the the processed data files. For details see  [data/README](data) 
 
 Raw data files:
 - `Community_composition_VegetationPlots.csv`: contains a list of plant species and their cover for each field plot
