@@ -43,12 +43,11 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 - `4.1_GLMMs_Field.R`: performs the GLMM analysis for plant species richness for the field data.
 - `4.2_GLMMs_Seed_Exper.R`: run GLMMs for the Dung Experiment Data.
 - `4.3_GLMMs_R2_plot.R`: create R2 plot for the GLMMs (Fig. 3).
-
-- `06.1_SEM_SpRich.R`: performs the SEM analysis, calculates direct & indirect effects 
+- `5.1_SEM_SpRich.R`: performs the SEM analysis, calculates direct & indirect effects 
 for species richness 
-- `06.2_SEM_NMDS.R`: performs the SEM analysis, calculates direct & indirect effects
+- `5.2_SEM_NMDS.R`: performs the SEM analysis, calculates direct & indirect effects
 for community composition (NMDS)
-- `06.3_SEM_NMDS.R`: 
+- `5.3_SEM_R2_plot.R`: creates R2 plot for the SEM (Fig. 5E)
 
 ## Data files
 
@@ -64,22 +63,23 @@ Raw data files:
 Processed files:
 - `NMDS_data.csv`: contains NMDS scores, produced by analysis/`2.0_NMDS.R`
 - `soil_NPK_PCA.csv`: contains PCA scores, produced by analysis/`1.0_PCA_soil.R` 
-- `Tables_Anova.csv`: contains GLMMs results, produced by analysis/`4.1_GLMMs_Field.R` 
-- `Tables_Model_R2.csv`: contains model R2 for the GLMMs, produced by analysis/`4.1_GLMMs_Field.R` 
-- `Tables_R2_partial.csv`: contains partial-R2 for fixed effects tested by the GLMMs, produced by analysis/`4.1_GLMMs_Field.R` 
 
 
 ## Results files
 
 ### Folder `results`
 
-`PERMANOVA_Field_Data.csv`- results of PERMANOVA analysis for field data, produced by analysis/`2.0_NMDS.R`.
-
-`PERMANOVA_Experiment.csv`- results of PERMANOVA analysis for seed-experiment data, produced by analysis/`2.0_NMDS.R`.
-
-`Sp.occurances_field.csv` - species occurrence (% parcels where species was found).
+- `PERMANOVA_Field_Data.csv`- results of PERMANOVA analysis for field data, produced by analysis/`2.0_NMDS.R`.
+- `PERMANOVA_Experiment.csv`- results of PERMANOVA analysis for seed-experiment data, produced by analysis/`2.0_NMDS.R`.
+- `Sp.occurances_field.csv` - species occurrence (% parcels where species was found).
 Produced by analysis/`3.0_Summary_Statistics.R`.
-
+- `Tables_Anova.csv`: contains GLMMs results, produced by analysis/`4.1_GLMMs_Field.R` 
+- `Tables_Model_R2.csv`: contains model R2 for the GLMMs, produced by analysis/`4.1_GLMMs_Field.R` 
+- `Tables_R2_partial.csv`: contains partial-R2 for fixed effects tested by the GLMMs, produced by analysis/`4.1_GLMMs_Field.R` 
+- `SEM_SR_R2_partial.csv`: contains partial-R2 for the fixed effects for species richness, 
+tested in the SEM, produced by analysis/`5.1_SEM_SpRich.R`
+- `SEM_NMDS_R2_partial.csv`: contains partial-R2 for the fixed effects for species composition, 
+tested in the SEM, produced by analysis/`5.2_SEM_NMDS.R`
 
 
 ## Other Files
