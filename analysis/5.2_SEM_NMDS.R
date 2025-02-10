@@ -49,13 +49,6 @@ Dat <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
 # Data wrangling
 SEM.dat <- Dat %>% filter(!Parcel_name=="Farm_F_1") %>%  # extreme outlyer
   filter(!Dung_for_experiment==0) %>% # remove cases when dung was not found on the field, thus no experiment was done
-  
-#  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
-#         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
-#         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
-#         Evenness_Exper=case_when(is.na(Evenness_Exper) ~ 0, .default=Evenness_Exper),
-#         Shannon_Exper=case_when(is.na(Shannon_Exper) ~ 0, .default=Shannon_Exper)) %>% 
-# filter(!is.na(SR_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
   mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
                                 Mowing_delay=="July-August" ~ 1,
