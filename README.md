@@ -62,7 +62,9 @@ Raw data files:
 Processed files:
 - `NMDS_data.csv`: contains NMDS scores, produced by analysis/`2.0_NMDS.R`
 - `soil_NPK_PCA.csv`: contains PCA scores, produced by analysis/`1.0_PCA_soil.R` 
-
+- `Tables_Anova.csv`: contains GLMMs results, produced by analysis/`4.1_GLMMs_Field.R` 
+- `Tables_Model_R2.csv`: contains model R2 for the GLMMs, produced by analysis/`4.1_GLMMs_Field.R` 
+- `Tables_R2_partial.csv`: contains partial-R2 for fixed effects tested by the GLMMs, produced by analysis/`4.1_GLMMs_Field.R` 
 
 
 ## Results files

@@ -383,6 +383,7 @@ dat <- Panoara_Dat %>%
                 Grazing_intensity_A,
                 Grazing_intensity_B,
                 Grazer_type,
+                Grazer_type_specifc,
                 Grazing_season,
                 Grazing_type,
                 Grazer_diversity,
@@ -403,6 +404,7 @@ dat <- Panoara_Dat %>%
                 Anthill_leveling, Molehill_leveling, 
                 Corralling, 
                 Burning,
+                Ploughing,
                 
                 humus, soil_CN, soil_P_acces, soil_K_acces) %>% 
     left_join(Diver_dat %>% 
@@ -435,5 +437,7 @@ dat <- Panoara_Dat %>%
 dat %>% 
   pull(Plant_abundance_exper, Dung_for_experiment)
 
+Panoara_Dat %>% 
+  pull(Grazer_type_specifc)
 
 write_csv(dat, "data/Divers_LandUse_Soil_Variables.csv")
