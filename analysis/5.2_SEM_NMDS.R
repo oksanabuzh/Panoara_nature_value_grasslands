@@ -19,13 +19,19 @@ library(sjPlot)
 
 ## soil PC data
 
-Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>% 
+Soil_PC <- read_csv("data/soil_NPK_PCA.csv")  %>% 
   mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
 
+## NMDS data
 
-# NMDS and environmental data
+NMDS_dat <- read_csv("data/NMDS_data.csv")
+NMDS_dat
 
-Data <- read_csv("data/Panoara_Dat.csv") %>%
+## Environmental data
+
+Dat <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
+  left_join(NMDS_dat, by="Parcel_name") %>% 
+  left_join(Soil_PC, by="Parcel_name") %>% 
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
   mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
@@ -39,26 +45,24 @@ Data <- read_csv("data/Panoara_Dat.csv") %>%
   mutate(Cow_dung=case_when(Cow_dung_applied=="present" ~ "1", 
                             Cow_dung_applied=="absent" ~ "0"))
 
-# join with soil PC
-Dat <- Data %>% 
-   left_join(Soil_PC, by="Parcel_name")
 
 # Data wrangling
-SEM.dat <- Dat %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
-  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
-         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
-         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
-         Evenness_Exper=case_when(is.na(Evenness_Exper) ~ 0, .default=Evenness_Exper),
-         Shannon_Exper=case_when(is.na(Shannon_Exper) ~ 0, .default=Shannon_Exper)) %>% 
-filter(!is.na(SR_D_E_exper)) %>% 
+SEM.dat <- Dat %>% filter(!Parcel_name=="Farm_F_1") %>%  # extreme outlyer
+  filter(!Dung_for_experiment==0) %>% # remove cases when dung was not found on the field, thus no experiment was done
+  
+#  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
+#         Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
+#         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper),
+#         Evenness_Exper=case_when(is.na(Evenness_Exper) ~ 0, .default=Evenness_Exper),
+#         Shannon_Exper=case_when(is.na(Shannon_Exper) ~ 0, .default=Shannon_Exper)) %>% 
+# filter(!is.na(SR_D_E_exper)) %>% 
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
   mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
                                 Mowing_delay=="July-August" ~ 1,
                                 Mowing_delay=="June" ~ 2)) %>% 
   #  filter(!Mowing_frequency==3) %>% 
   mutate(Mowing_frq_scal=scale(Mowing_frequency, center=T, scale=T)) %>% 
-  mutate(Mowing_frq_sqrd=Mowing_frq_scal^2,
-         SR_Exper_log = log1p(SR_Exper))
+  mutate(Mowing_frq_sqrd=Mowing_frq_scal^2)
 
 
 
@@ -67,13 +71,13 @@ SEM.dat
 summary(SEM.dat)
 names(SEM.dat)
 
-# analysis----
+# analysis----------------------------------------------------------------------
 
 # (1) Individual models for the SEM ----
 
 ## mod 1: NMDS 1 (field) ----
 
-m1_NMDS1_field <- lmer(NMDS1_VP_field ~   
+m1_NMDS1_field <- lmer(NMDS1_field ~   
                          NMDS1_exper +                                                                   
                          NMDS2_exper +
                          Grazing_int_log  +  
@@ -114,7 +118,7 @@ R2_NMDS1_partial <- as_tibble(R2_part_m1_NMDS1_field) %>% mutate(responce="NMDS1
 
 ## mod 2: NMDS 2 (field) ----
 
-m1_NMDS2_field <- lmer(NMDS2_VP_field ~   
+m1_NMDS2_field <- lmer(NMDS2_field ~   
                          NMDS1_exper +                                                                   
                          NMDS2_exper +
                          Grazing_int_log  +  
@@ -159,7 +163,6 @@ write_csv(R2_NMDS1_partial%>%
           "results/SEM_NMDS_R2_partial.csv")
 
 ## mod 3: NMDS 1 (experiment data) ----
-
 
 m1_NMDS1_exp <- lmer (NMDS1_exper ~   
                         Grazing_int_log  +  
