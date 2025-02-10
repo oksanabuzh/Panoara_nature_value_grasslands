@@ -78,7 +78,9 @@ Produced by analysis/`3.0_Summary_Statistics.R`.
 tested in the SEM, produced by analysis/`5.1_SEM_SpRich.R`
 - `SEM_NMDS_R2_partial.csv`: contains partial-R2 for the fixed effects for species composition, 
 tested in the SEM, produced by analysis/`5.2_SEM_NMDS.R`
+- `SEM_SR_coefs.csv`: estimates from the SEM, produced by analysis/`5.1_SEM_SpRich.R`
 
+- `SEM_SR_coefs.csv`: estimates from the SEM, produced by analysis/`5.1_SEM_SpRich.R`
 
 ## Other Files
 
