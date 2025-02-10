@@ -17,15 +17,15 @@ data/
     NMDS_data.csv
     soil_NPK_PCA
 analysis/
-    0.1_NMDS.R
-    0.2_PCA_soil.R
-    04_Summary_Statistics.R
-    05_GLMMs.R
-    05.2_GLMMs_R2_plot.R
+    1.0_PCA_soil.R
+    2.0_NMDS.R
+    3.0_Summary_Statistics.R
+    4.1_GLMMs_Field.R
+    4.2_GLMMs_Seed_Exper
+    4.3_GLMMs_R2_plot
     06.1_SEM_SpRich.R
     06.2_SEM_NMDS.R
     06.3_SEM_R2_plot.R
-    07_Seed_Exper.R
 results/
 Panoara.Rproj
 ```
@@ -40,13 +40,15 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 - `1.0_PCA_soil.R`: performs PCA for soil data
 - `2.0_NMDS.R`: calculates community composition (NMDS) for each plot, performs the PERMANOVA analysis and ordination plots.
 - `3.0_Summary_Statistics.R`: summarizes data and calculates summary statistics and correlations among the measures of plant community (using GLMMs)
-- `05_GLMMs.R`: performs the GLMM analysis for plant species richness for the field data.
+- `4.1_GLMMs_Field.R`: performs the GLMM analysis for plant species richness for the field data.
+- `4.2_GLMMs_Seed_Exper.R`: run GLMMs for the Dung Experiment Data.
+- `4.3_GLMMs_R2_plot.R`: create R2 plot for the GLMMs (Fig. 3).
+
 - `06.1_SEM_SpRich.R`: performs the SEM analysis, calculates direct & indirect effects 
 for species richness 
 - `06.2_SEM_NMDS.R`: performs the SEM analysis, calculates direct & indirect effects
 for community composition (NMDS)
 - `06.3_SEM_NMDS.R`: 
-- `07_Seed_Exper.R`: run GLMMs for the Dung Experiment Data.
 
 ## Data files
 

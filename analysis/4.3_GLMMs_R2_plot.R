@@ -1,4 +1,4 @@
-# Purpose: Create R2 plot for the GLMMs (Fig. 2)
+# Purpose: Create R2 plot for the GLMMs (Fig. 3)
 
 library(tidyverse)
 
@@ -72,7 +72,7 @@ plot <- ggplot(R2_partial,
   geom_vline(xintercept = 0, color = "black", linetype = "dashed") +
   geom_point(position = position_dodge(width = dodge_width), size = 6) +
   geom_errorbarh(aes(xmin = 0, xmax = Rsq),
-                 position = position_dodge(width = dodge_width), height = 0.1) +
+                 position = position_dodata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAWElEQVR42mNgGPTAxsZmJsVqQApgmGw1yApwKcQiT7phRBuCzzCSDSHGMKINIeDNmWQlA2IigKJwIssQkHdINgxfmBBtGDEBS3KCxBc7pMQgMYE5c/AXPwAwSX4lV3pTWwAAAABJRU5ErkJggg==dge(width = dodge_width), height = 0.1) +
   theme(legend.key=element_blank()) +
   # theme_bw()+
   theme(axis.text.x = element_text(size=10), 

@@ -61,8 +61,10 @@ Dat <- Dat %>%
 
 
 
-# GLMM models -----
+# GLMM models ------------------------------------------------------------------
+
 ##(1) Habitat, mang. stability , soil----
+
 m_SR_1 <- glmer(Plant_SR_field ~  habitat_corrected + 
                   Management_stability +
                   humus_log + soil_NPK+
