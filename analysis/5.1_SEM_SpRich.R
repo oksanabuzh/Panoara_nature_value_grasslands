@@ -1,6 +1,7 @@
 # Purpose:  Perform Structural Equation Modelling for Species richness (as main response)
+
 #dev.off()
-# load packages ----
+# load packages ----------------------------------------------------------------
 library(tidyverse)
 library(ggplot2)
 library(performance)
@@ -13,21 +14,19 @@ library(piecewiseSEM)
 library(sjPlot)
 
 
-# data ----
+# data -------------------------------------------------------------------------
 
 ## soil PC data
 
-Soil_PC <- read_csv("data/soil_NPK_PCA.csv") %>% 
+Soil_PC <- read_csv("data/soil_NPK_PCA.csv")  %>% 
   mutate(soil_NPK=-1*soil_NPK_PC)  # reverse the NMDS scores to make it positively correlated with the nutrients
 
-Diver_NMDS_dat <- read_csv("data/Diversity_&_NMDS_data.csv")
+NMDS_dat <- read_csv("data/NMDS_data.csv")
+NMDS_dat
 
-
-  
-# Biodiversity, NMDS and envoronmental data
-Data <- read_csv("data/LandUse_soil_variables.csv") %>%
+Data <- read_csv("data/Divers_LandUse_Soil_Variables.csv") %>%
+  left_join(NMDS_dat, by="Parcel_name") %>% 
   left_join(Soil_PC, by="Parcel_name") %>% 
-  left_join(Diver_NMDS_dat, by="Parcel_name") %>% 
   mutate(Grazer_type=str_replace_all(Grazer_type, "_", ", ")) %>% 
   mutate(Grazer_type=fct_relevel(Grazer_type,c("cow","sheep, goat","mixed"))) %>%
   mutate(Mowing_delay=fct_relevel(Mowing_delay,c("no mowing","June","July-August"))) %>%
@@ -42,40 +41,34 @@ Data <- read_csv("data/LandUse_soil_variables.csv") %>%
                             Cow_dung_applied=="absent" ~ "0"))
 
 # Data wrangling
-SEM.dat <- Data %>% filter(!Parcel_name=="Farm_F_1") %>%  # extrime outlyer
-  filter(!Dung_for_experiment==0) %>% 
+SEM.dat <- Data %>% filter(!Parcel_name=="Farm_F_1") %>%  # extreme outlyer
+  filter(!Dung_for_experiment==0) %>% # remove cases when dung was not found on the field, thus no experiment was done
   mutate(Grazing_int_log = log1p(Grazing_intensity_A)) %>% 
-  mutate(SR_Exper=case_when(is.na(SR_Exper) ~ 0, .default=SR_Exper),
-        # Abund_D_E_exper=case_when(is.na(Abund_D_E_exper) ~ 0, .default=Abund_D_E_exper),
-         abundance_Exper=case_when(is.na(abundance_Exper) ~ 0, .default=abundance_Exper)) %>% 
+#  mutate(Plant_SR_exper=case_when(is.na(Plant_SR_exper) ~ 0, .default=Plant_SR_exper),
+#         Plant_abundance_exper=case_when(is.na(Plant_abundance_exper) ~ 0, 
+#                                         .default=Plant_abundance_exper)) %>% 
   mutate(Mowing_delay=case_when(Mowing_delay=="no mowing" ~ 0,
                                 Mowing_delay=="July-August" ~ 1,
                                 Mowing_delay=="June" ~ 2)) %>% 
   #  filter(!Mowing_frequency==3) %>% 
   mutate(Mowing_frq_scal=scale(Mowing_frequency, center=T, scale=T)) %>% 
   mutate(Mowing_frq_sqrd=Mowing_frq_scal^2,
-         SR_Exper_log = log1p(SR_Exper))
+         Plant_SR_exper_log = log1p(Plant_SR_exper))
 
-
-Data$Plant_SR_vascular
-Data$SR_D_E_exper
-Data$SR_Exper
-Data$No_dung_experiment
-SEM.dat$SR_VP_field
 
 SEM.dat
 summary(SEM.dat)
 names(SEM.dat)
 
-# analysis----
+# analysis----------------------------------------------------------------------
 
 # (1) Individual models for the SEM ----
 
 ## mod 1: Species Richness (field data)----
 
-m1_SR_field <- glmer(SR_VP_field ~ #Plant_SR_vascular ~   
-                       abundance_Exper +  
-                       SR_Exper_log + 
+m1_SR_field <- glmer(Plant_SR_field ~    
+                       Plant_abundance_exper +  
+                       Plant_SR_exper_log + 
                        Grazing_int_log  +   
                        Mowing_frequency +
                        Mowing_frq_sqrd +
@@ -114,8 +107,8 @@ write_csv(R2_partial, "results/SEM_SR_R2_partial.csv")
 
 ## mod 2: Species Richness (experiment data) ----
 
-m1_SR_exp <- lmer (SR_Exper_log ~   
-                     #  abundance_Exper +
+m1_SR_exp <- lmer (Plant_SR_exper_log ~   
+                     #  Plant_abundance_exper +
                      Grazing_int_log  +  
                      Manuring_freq +                      
                   #   soil_NPK +
@@ -142,7 +135,7 @@ plot_model(m1_SR_exp, type = "pred", terms = c("Grazing_int_log"),
            show.data=T, dot.alpha=0.3, title="") 
 
 ## mod 3: Abundance (Experiment data) ----
-m1_Abund_exp <- glmer (abundance_Exper ~ 
+m1_Abund_exp <- glmer (Plant_abundance_exper ~ 
                          Grazing_int_log  + 
                          Manuring_freq + 
                        #  soil_NPK +
@@ -162,7 +155,7 @@ hist(ranef(m1_Abund_exp)$`Farm`[,1])
 check_overdispersion(m1_Abund_exp)
 
 # high overdispersion, use negative binomial
-m2_Abund_exp <- glmer.nb(abundance_Exper ~
+m2_Abund_exp <- glmer.nb(Plant_abundance_exper ~
                            Grazing_int_log  +   
                            Manuring_freq + 
                       #   humus_log +
@@ -245,7 +238,7 @@ psem_model <- psem (m1_SR_field,
                     m1_humus,
                     m1_Soil_PC2,
                     Mowing_frequency %~~% Mowing_frq_sqrd,
-                    abundance_Exper %~~% SR_Exper_log,
+                    Plant_abundance_exper %~~% Plant_SR_exper_log,
                     humus_log %~~%  soil_NPK)
 
 
@@ -259,11 +252,11 @@ coefic
 #Fisher C statistic as global goodness of model fit:
 fisherC(psem_model, .progressBar =F,  conserve = TRUE)
 
+  
 write_csv(coefic, "results/SEM_SR_coefs.csv")
 
 
-
-
+# Rough draft of the plot (dirty plot)
 
 plot(psem_model)
 
@@ -309,7 +302,7 @@ a1
 manur_Direct <- a6
 # indirect
 manur_Indir1 <- c2 * a1 # through SeedAbund
-manur_Indir2 <- b3 * a2 # through SR_Exper
+manur_Indir2 <- b3 * a2 # through Plant_SR_exper
 manur_Indir3 <- d3 * a7 # through humus
 manur_Indir4 <- e3 * a8 # through soil nutrients
 
@@ -321,7 +314,7 @@ manur_Indir_soil <- manur_Indir3 + manur_Indir4
 grazing_Direct <- a3
 # indirect
 grazing_Indir1 <- c1 * a1 # through SeedAbund
-grazing_Indir2 <- b2 * a2 # through SR_Exper
+grazing_Indir2 <- b2 * a2 # through Plant_SR_exper
 grazing_Indir3 <- d1 * a7 # through humus
 grazing_Indir4 <- e1 * a8 # through soil nutrients
 
@@ -380,7 +373,7 @@ write_csv(Coefs_summar, "results/SEM_SR_coefs_Indirect.csv")
 
 ## > Plot effects----
 
-Coefs_summar <- read_csv("results/SEM_SR_coefs_Indirect.csv") %>% 
+Coefs_summar %>% 
   mutate(Effect_type=fct_relevel(Effect_type, 
                                  c("Indirect through soil properties", 
                                    "Indirect through seed dispersal" ,
