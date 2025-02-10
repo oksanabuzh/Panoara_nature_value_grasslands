@@ -385,6 +385,7 @@ dat <- Panoara_Dat %>%
                 Grazer_type,
                 Grazing_season,
                 Grazing_type,
+                Grazer_diversity,
                 
                 Mowing_frequency,
                 Mowing_delay,
