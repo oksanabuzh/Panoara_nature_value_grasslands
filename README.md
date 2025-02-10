@@ -43,10 +43,8 @@ In this folder, the raw data is prepared for analysis and the analysis is perfor
 - `4.1_GLMMs_Field.R`: performs the GLMM analysis for plant species richness for the field data.
 - `4.2_GLMMs_Seed_Exper.R`: run GLMMs for the Dung Experiment Data.
 - `4.3_GLMMs_R2_plot.R`: create R2 plot for the GLMMs (Fig. 3).
-- `5.1_SEM_SpRich.R`: performs the SEM analysis, calculates direct & indirect effects 
-for species richness 
-- `5.2_SEM_NMDS.R`: performs the SEM analysis, calculates direct & indirect effects
-for community composition (NMDS)
+- `5.1_SEM_SpRich.R`: performs the SEM analysis for species richness 
+- `5.2_SEM_NMDS.R`: performs the SEM analysis for community composition (NMDS)
 - `5.3_SEM_R2_plot.R`: creates R2 plot for the SEM (Fig. 5E)
 
 ## Data files

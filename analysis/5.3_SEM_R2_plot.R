@@ -1,4 +1,4 @@
-# Purpose: Create R2 plot for the SEM (Fig. 4E)
+# Purpose: Create R2 plot for the SEM (Fig. 5E)
 
 library(tidyverse)
 
@@ -10,7 +10,7 @@ set_theme(base = theme_bw(),
 
 
 
-# read data
+# read data --------------------------------------------------------------------
 R2_SR_partial <- read_csv("results/SEM_SR_R2_partial.csv")
 R2_NMDS1_partial <- read_csv("results/SEM_NMDS_R2_partial.csv")
 
