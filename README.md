@@ -1,8 +1,12 @@
-# Code for Janišová et al. (2025) Biological Conservation
+## Code for Janišová et al. (2025) Biological Conservation
 
-## Janišová M., Škodová I., Magnes M., Iuga A., Biro A.-S., Ivașcu C.M., Ďuricová V., Buzhdygang O. 
-## Role of livestock and traditional management practices in maintaining high nature value grasslands [Biological Conservation](https://www.sciencedirect.com/journal/biological-conservation), 2025 
-### https://doi.org/10.1016/j.biocon.2025.111301
+### Janišová* M., Škodová I., Magnes M., Iuga A., Biro A.-S., Ivașcu C.M., Ďuricová V., Buzhdygang* O. 
+### Role of livestock and traditional management practices in maintaining high nature value grasslands [Biological Conservation](https://www.sciencedirect.com/journal/biological-conservation), 2025 
+#### https://doi.org/10.1016/j.biocon.2025.111301
+
+
+Please cite code and data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15646797.svg)](https://doi.org/10.5281/zenodo.15646797)
+
 
 * correspondence to oksana.buzh@fu-berlin.de
 
