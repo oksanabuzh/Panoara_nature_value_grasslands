@@ -8,7 +8,7 @@
 Please cite code and data: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15646797.svg)](https://doi.org/10.5281/zenodo.15646797)
 
 
-* correspondence to oksana.buzh@fu-berlin.de
+* correspondence on code to oksana.buzh@fu-berlin.de
 
 # Project Structure
 
